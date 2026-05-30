@@ -1,0 +1,26 @@
+---
+description: No hyphens or dashes in user-facing site copy
+globs: src/**/*.{ts,tsx}
+alwaysApply: true
+---
+
+# No hyphens in user-facing copy
+
+Do not use hyphens (`-`), en dashes (`–`), or em dashes (`—`) in user-visible text on norwayshoreexcursions.com.
+
+## Use instead
+
+- `all aboard` not `all-aboard`
+- `return to ship` not `return-to-ship` (URLs like `/return-to-ship-guide` may keep hyphens)
+- `tool, not` or `tool. Not` not `tool — not`
+- `4 to 6 hours` not `4–6 hours`
+- `AI style` not `AI-style`
+- `rules based` not `rules-based`
+
+## Allowed hyphens
+
+- URL paths and slugs (`/norway-cruise-planner`, `flam`)
+- CSS class names and code identifiers (theme keys like `family-friendly` in data)
+- File and folder names
+
+Rephrase with commas, periods, or spaces rather than dashes.

@@ -1,0 +1,14 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+nordfjordeid,Iona,P&O Cruises,5200,2026-06-15,08:30,16:00,16:30,Cruise line programme,https://example.com/p-o-iona,2026-05-01,Briksdal glacier day
+nordfjordeid,MSC Euribia,MSC Cruises,4800,2026-06-22,08:30,16:30,17:00,Harbour schedule,https://example.com/msc-euribia,2026-06-01,
+nordfjordeid,Celebrity Apex,Celebrity Cruises,2900,2026-06-29,09:00,16:30,17:00,Port schedule,https://example.com/celebrity-apex,2026-06-01,
+nordfjordeid,Arvia,P&O Cruises,4900,2026-07-11,09:00,16:30,17:00,Cruise line programme,https://example.com/p-o-arvia,2026-05-01,
+nordfjordeid,Norwegian Prima,Norwegian Cruise Line,3200,2026-07-18,08:30,16:00,16:30,Port agent bulletin,https://example.com/ncl-prima,2026-06-01,
+nordfjordeid,Iona,P&O Cruises,5200,2026-07-25,08:30,16:00,16:30,Cruise line programme,https://example.com/p-o-iona,2026-07-01,
+nordfjordeid,MSC Euribia,MSC Cruises,4800,2026-08-14,08:30,16:30,17:00,Harbour schedule,https://example.com/msc-euribia,2026-07-01,
+nordfjordeid,Arvia,P&O Cruises,4900,2026-08-21,09:00,16:30,17:00,Cruise line programme,https://example.com/p-o-arvia,2026-07-01,
+nordfjordeid,Celebrity Apex,Celebrity Cruises,2900,2026-08-28,08:00,,,Port schedule,https://example.com/celebrity-apex,2026-05-01,Departure and all aboard not published
+nordfjordeid,Norwegian Prima,Norwegian Cruise Line,3200,2026-08-31,08:30,16:00,16:30,Port agent bulletin,https://example.com/ncl-prima,2026-08-01,
+nordfjordeid,Iona,P&O Cruises,5200,2026-09-08,08:30,16:00,16:30,Cruise line programme,https://example.com/p-o-iona,2026-08-01,
+nordfjordeid,MSC Euribia,MSC Cruises,4800,2026-09-15,08:30,16:30,17:00,Harbour schedule,https://example.com/msc-euribia,2026-05-01,
+nordfjordeid,Celebrity Apex,Celebrity Cruises,2900,2026-09-22,08:00,16:30,17:00,Port schedule,https://example.com/celebrity-apex,2026-08-01,

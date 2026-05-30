@@ -1,0 +1,23 @@
+ship,ship_aliases,cruise_line,passengers,capacity_type,source,source_url,source_checked,notes
+Iona,"P&O Iona",P&O Cruises,5200,double_occupancy,CruiseTimetables,https://www.cruisetimetables.com/cruise-ship-iona.html,2026-05-30,
+Arvia,"P&O Arvia|MS Arvia",P&O Cruises,5200,double_occupancy,CruiseTimetables,,2026-05-30,Same class as Iona
+MSC Euribia,,MSC Cruises,4888,double_occupancy,CruiseTimetables,,2026-05-30,
+AIDAnova,,AIDA,5200,double_occupancy,CruiseTimetables,,2026-05-30,
+AIDAprima,,AIDA,3376,double_occupancy,CruiseTimetables,,2026-05-30,
+Celebrity Apex,,Celebrity Cruises,2910,double_occupancy,CruiseTimetables,,2026-05-30,
+Costa Favolosa,,Costa Cruises,3800,double_occupancy,CruiseTimetables,,2026-05-30,
+Norwegian Prima,,Norwegian Cruise Line,3218,double_occupancy,CruiseTimetables,,2026-05-30,
+MSC Virtuosa,,MSC Cruises,6334,double_occupancy,CruiseTimetables,,2026-05-30,
+Spirit Of Adventure,,Saga Cruises,999,double_occupancy,CruiseTimetables,,2026-05-30,
+Spirit Of Discovery,,Saga Cruises,999,double_occupancy,CruiseTimetables,,2026-05-30,
+Viking Neptune,,Viking,930,double_occupancy,CruiseTimetables,,2026-05-30,Viking Ocean class
+Viking Mira,,Viking Oceans,998,double_occupancy,CruiseTimetables,,2026-05-30,
+Viking Saturn,,Viking,998,double_occupancy,CruiseTimetables,,2026-05-30,
+Viking Vela,,Viking,998,double_occupancy,CruiseTimetables,,2026-05-30,
+Seven Seas Grandeur,,Regent Seven Seas,746,double_occupancy,CruiseTimetables,,2026-05-30,
+Mein Schiff Relax,,Tui Cruises,2894,double_occupancy,CruiseTimetables,,2026-05-30,
+Explora III,,Explora Journeys,922,double_occupancy,CruiseTimetables,,2026-05-30,
+Amadea,,Phoenix,620,double_occupancy,CruiseTimetables,,2026-05-30,
+Artania,,Phoenix,1260,double_occupancy,CruiseTimetables,,2026-05-30,
+Ambition,,Ambassador Cruise Line,1400,double_occupancy,CruiseTimetables,,2026-05-30,
+Ambience,,Ambassador Cruise Line,1400,double_occupancy,CruiseTimetables,,2026-05-30,

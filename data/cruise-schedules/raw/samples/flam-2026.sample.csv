@@ -1,0 +1,14 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+flam,Iona,P&O Cruises,5200,2026-06-12,08:00,17:00,17:30,Cruise line programme,https://example.com/p-o-iona,2026-05-01,Sample approved import row
+flam,Arvia,P&O Cruises,4900,2026-06-18,08:30,16:30,17:00,Cruise line programme,https://example.com/p-o-arvia,2026-06-01,
+flam,MSC Euribia,MSC Cruises,4800,2026-06-25,09:00,17:30,18:00,Harbour schedule,https://example.com/msc-euribia,2026-06-01,
+flam,Norwegian Prima,Norwegian Cruise Line,3200,2026-07-02,07:45,16:00,16:30,Port agent bulletin,https://example.com/ncl-prima,2026-06-01,
+flam,Arvia,P&O Cruises,4900,2026-07-05,08:30,16:30,17:00,Cruise line programme,https://example.com/p-o-arvia,2026-05-01,
+flam,Celebrity Apex,Celebrity Cruises,2900,2026-07-19,08:00,17:00,17:30,Port schedule,https://example.com/celebrity-apex,2026-06-01,
+flam,MSC Euribia,MSC Cruises,4800,2026-08-05,09:00,17:30,18:00,Harbour schedule,https://example.com/msc-euribia,2026-07-01,
+flam,Celebrity Apex,Celebrity Cruises,2900,2026-08-12,08:00,17:00,,Port schedule,https://example.com/celebrity-apex,2026-07-01,All aboard pending
+flam,Norwegian Prima,Norwegian Cruise Line,3200,2026-08-18,07:45,16:00,,Port agent bulletin,https://example.com/ncl-prima,2026-05-01,All aboard not yet published
+flam,Iona,P&O Cruises,5200,2026-08-28,08:00,17:00,17:30,Cruise line programme,https://example.com/p-o-iona,2026-07-01,
+flam,Arvia,P&O Cruises,4900,2026-09-03,08:30,16:30,17:00,Cruise line programme,https://example.com/p-o-arvia,2026-08-01,
+flam,MSC Euribia,MSC Cruises,4800,2026-09-03,09:00,17:30,18:00,Harbour schedule,https://example.com/msc-euribia,2026-05-01,
+flam,Norwegian Prima,Norwegian Cruise Line,3200,2026-09-16,07:45,16:00,16:30,Port agent bulletin,https://example.com/ncl-prima,2026-08-01,
