@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="P and O Cruises">
-  <rect width="240" height="80" rx="8" fill="#003087"/>
-  <text x="120" y="48" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="0.04em">P&amp;O</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 96" role="img" aria-label="P and O Cruises">
+  <defs>
+    <linearGradient id="po-bg" x1="0" y1="0" x2="280" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0047ab"/>
+      <stop offset="100%" stop-color="#002d72"/>
+    </linearGradient>
+  </defs>
+  <rect width="280" height="96" rx="12" fill="url(#po-bg)"/>
+  <rect x="0" y="88" width="280" height="4" fill="#c9a227"/>
+  <circle cx="42" cy="48" r="18" fill="none" stroke="#c9a227" stroke-width="2.5" opacity="0.85"/>
+  <path d="M42 34v28M34 48h16" stroke="#c9a227" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  <text x="140" y="44" text-anchor="middle" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="700" letter-spacing="0.02em">P&amp;O</text>
+  <text x="140" y="68" text-anchor="middle" fill="#c9a227" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="0.28em">CRUISES</text>
 </svg>

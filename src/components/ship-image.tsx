@@ -29,23 +29,26 @@ function ShipImageFallback({
 }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-[var(--border-light)] bg-gradient-to-br from-slate-200 via-slate-100 to-slate-200 ${className}`.trim()}
+      className={`relative overflow-hidden rounded-2xl border border-[var(--border-light)] bg-gradient-to-br from-slate-300 via-slate-200 to-slate-300 ${className}`.trim()}
     >
       <Image
         src={shipPlaceholderImagePath()}
         alt=""
         width={800}
         height={450}
-        className="h-full w-full object-cover opacity-70"
+        className="h-full w-full object-cover opacity-80"
         aria-hidden
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-end bg-gradient-to-t from-slate-900/75 via-slate-900/20 to-transparent px-4 pb-4 pt-16 text-center">
-        {cruiseLine ? (
-          <div className="mb-2">
-            <CruiseLineLogo cruiseLine={cruiseLine} variant="badge" />
-          </div>
-        ) : null}
-        <p className="text-base font-bold text-white sm:text-lg">{shipName}</p>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/10 via-transparent to-slate-900/80" />
+      {cruiseLine ? (
+        <div className="absolute inset-x-0 top-0 flex items-start justify-center px-4 pt-5 sm:pt-6">
+          <CruiseLineLogo cruiseLine={cruiseLine} variant="hero" />
+        </div>
+      ) : null}
+      <div className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-12 text-center">
+        <p className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
+          {shipName}
+        </p>
       </div>
     </div>
   );

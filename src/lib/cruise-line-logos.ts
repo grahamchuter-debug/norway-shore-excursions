@@ -5,7 +5,10 @@ const logos = cruiseLineLogoMap as Record<string, string>;
 const cruiseLineNameToKey: readonly { key: string; names: readonly string[] }[] =
   [
     { key: "msc", names: ["MSC Cruises", "MSC"] },
-    { key: "p-and-o", names: ["P&O Cruises", "P&O", "P & O"] },
+    {
+      key: "p-and-o",
+      names: ["P&O Cruises", "P&O", "P & O", "P and O Cruises"],
+    },
     { key: "celebrity", names: ["Celebrity Cruises", "Celebrity"] },
     { key: "cunard", names: ["Cunard Line", "Cunard"] },
     { key: "viking", names: ["Viking", "Viking Oceans"] },
