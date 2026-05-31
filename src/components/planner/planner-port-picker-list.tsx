@@ -26,7 +26,7 @@ export function PlannerPortPickerList({
   onSelectPort,
 }: PlannerPortPickerListProps) {
   return (
-    <ol className="space-y-3">
+    <ol className="card-grid space-y-3">
       {ports.map((port) => {
         const stop = routeStopIndex(port.slug, routePorts);
         const selected = selectedSlug === port.slug;

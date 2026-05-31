@@ -41,7 +41,7 @@ export function PortListView({
   }
 
   return (
-    <ul className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    <ul className="card-grid grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {ports.map((port) => {
         const dimmed = dimmedSlugs?.has(port.slug) ?? false;
         const stop = routeStopIndex(port.slug, routePorts);

@@ -114,7 +114,7 @@ export function ContentPage({
         {belowHero}
 
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-          <div className="space-y-10 text-slate-700 [&_a]:content-link [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-slate-900 [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
+          <div className="space-y-10 text-slate-700 [&_a]:content-link [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_section>h2]:text-2xl [&_section>h2]:font-bold [&_section>h2]:text-slate-900 [&_section>h3]:text-lg [&_section>h3]:font-semibold [&_section>h3]:text-slate-900 [&_section>ul:not(.card-grid)]:list-disc [&_section>ul:not(.card-grid)]:space-y-2 [&_section>ul:not(.card-grid)]:pl-5">
             {children}
           </div>
         </article>

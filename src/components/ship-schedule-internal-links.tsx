@@ -19,7 +19,7 @@ export function ShipScheduleInternalLinks({
   return (
     <section>
       <h2>Plan your {portName} port day</h2>
-      <ul className="grid gap-2 sm:grid-cols-2">
+      <ul className="card-grid grid gap-2 sm:grid-cols-2">
         <li>
           <Link href={excursionLink} className="content-link font-medium">
             {getPortExcursionLinkLabel(portName)}

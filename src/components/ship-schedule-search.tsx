@@ -103,7 +103,7 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
                     <p className="mt-1 text-sm text-slate-600">{group.cruiseLine}</p>
                   </header>
 
-                  <ul className="mt-4 space-y-4">
+                  <ul className="card-grid mt-4 space-y-4">
                     {group.entries.map((entry) => (
                       <li
                         key={`${entry.portSlug}-${entry.arrivalDate}-${entry.arrivalTime ?? "tbc"}`}

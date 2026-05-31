@@ -87,7 +87,7 @@ export default async function ShipSchedulePortPage({ params }: ShipSchedulePortP
 
       <section>
         <h2>Monthly schedule pages</h2>
-        <ul className="grid gap-2 sm:grid-cols-2">
+        <ul className="card-grid grid gap-2 sm:grid-cols-2">
           {scheduleMonthSlugs2026.map((monthSlug) => {
             const monthSummary = summary.months.find((item) => item.slug === monthSlug);
             const callCount = monthSummary?.shipCallCount;

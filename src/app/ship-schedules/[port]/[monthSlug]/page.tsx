@@ -133,7 +133,7 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
 
       <section>
         <h2>Other months</h2>
-        <ul className="grid gap-2 sm:grid-cols-2">
+        <ul className="card-grid grid gap-2 sm:grid-cols-2">
           {scheduleMonthSlugs2026
             .filter((item) => item !== monthSlug)
             .map((item) => (

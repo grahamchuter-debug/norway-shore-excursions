@@ -300,7 +300,7 @@ export function PlannerDashboardV2({
             Your day by day excursion plan
           </h4>
 
-          <ol className="mt-6 space-y-5">
+          <ol className="card-grid mt-6 space-y-5">
             {sortedRecommendations.map((rec, index) => {
               const confidence = getPortExcursionConfidence(rec.cruiseFitScore);
               return (

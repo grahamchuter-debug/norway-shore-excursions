@@ -34,7 +34,7 @@ export function DontWastePortDay({
           better excursion choices that deliver real scenery payoff.
         </p>
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+        <ul className="card-grid mt-8 grid gap-4 sm:grid-cols-2">
           {tips.map((tip) => (
             <li
               key={tip.slug}

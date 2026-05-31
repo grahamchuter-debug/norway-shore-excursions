@@ -56,7 +56,7 @@ export function RecommendedPortExcursions({
         are selected with port timings and return to ship confidence in mind.
       </p>
 
-      <ul className="mt-6 grid list-none gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map((card) => (
           <li key={card.title}>
             <article className="premium-card flex h-full flex-col p-5">
