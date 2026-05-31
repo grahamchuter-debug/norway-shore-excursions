@@ -40,15 +40,19 @@ function ShipImageFallback({
         aria-hidden
       />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/10 via-transparent to-slate-900/80" />
-      {cruiseLine ? (
-        <div className="absolute inset-x-0 top-0 flex items-start justify-center px-4 pt-5 sm:pt-6">
-          <CruiseLineLogo cruiseLine={cruiseLine} variant="hero" />
+      <div className="absolute inset-0 flex flex-col">
+        {cruiseLine ? (
+          <div className="flex flex-1 items-center justify-center px-4 pb-2">
+            <CruiseLineLogo cruiseLine={cruiseLine} variant="hero" />
+          </div>
+        ) : (
+          <div className="flex-1" aria-hidden />
+        )}
+        <div className="px-4 pb-4 pt-8 text-center">
+          <p className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
+            {shipName}
+          </p>
         </div>
-      ) : null}
-      <div className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-12 text-center">
-        <p className="text-base font-bold text-white drop-shadow-sm sm:text-lg">
-          {shipName}
-        </p>
       </div>
     </div>
   );

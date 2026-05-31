@@ -19,7 +19,7 @@ const variantClasses: Record<NonNullable<CruiseLineLogoProps["variant"]>, string
     inline: "h-7 w-auto max-w-[110px] object-contain object-left",
     badge:
       "h-9 w-auto max-w-[140px] rounded-lg bg-white/95 px-3 py-1.5 object-contain shadow-md ring-1 ring-white/30",
-    hero: "h-14 w-auto max-w-[min(240px,78%)] rounded-xl bg-white/95 px-5 py-3 object-contain shadow-lg ring-1 ring-slate-900/10 sm:h-16 sm:max-w-[260px] sm:px-6 sm:py-3.5",
+    hero: "h-16 w-auto max-w-[min(300px,88%)] rounded-xl bg-white/95 px-5 py-3 object-contain shadow-lg ring-1 ring-slate-900/10 sm:h-20 sm:max-w-[340px] sm:px-6 sm:py-4",
   };
 
 function CruiseLineLogoFallback({
