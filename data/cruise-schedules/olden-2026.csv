@@ -14,7 +14,7 @@ olden,Sky Princess,Princess Cruises,,2026-06-18,07:00,15:30,,Manual CSV import,,
 olden,Majestic Princess,Princess Cruises,,2026-06-19,08:00,17:00,,Manual CSV import,,,All aboard time TBC
 olden,SeaDream II,SeaDream Yacht Club,,2026-06-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Balmoral,Fred Olsen Cruise Lines,,2026-06-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
-olden,Borealis,Fred Olsen Cruise Lines,,2026-06-21,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+olden,Borealis,Fred Olsen Cruise Lines,1400,2026-06-21,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Seabourn Ovation,Seabourn,,2026-06-23,08:00,17:00,,Manual CSV import,,,All aboard time TBC
 olden,Iona,P&O Cruises,5200,2026-06-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Rotterdam,Holland America Line,2668,2026-06-24,07:00,16:00,,Manual CSV import,,,All aboard time TBC
@@ -65,7 +65,7 @@ olden,Liberty Of The Seas,Royal Caribbean Cruises,,2026-08-19,09:00,18:00,,Manua
 olden,MSC Preziosa,MSC Cruises,,2026-08-20,08:00,18:00,,Manual CSV import,,,All aboard time TBC
 olden,Explora III,Explora Journeys,922,2026-08-21,09:00,18:00,,Manual CSV import,,,All aboard time TBC
 olden,Bolette,Fred Olsen Cruise Lines,,2026-08-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
-olden,Borealis,Fred Olsen Cruise Lines,,2026-08-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+olden,Borealis,Fred Olsen Cruise Lines,1400,2026-08-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Silver Dawn,Silversea,,2026-08-24,08:00,17:00,,Manual CSV import,,,All aboard time TBC
 olden,Seven Seas Mariner,Regent Seven Seas,,2026-08-24,11:00,20:00,,Manual CSV import,,,All aboard time TBC
 olden,Iona,P&O Cruises,5200,2026-08-25,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
@@ -84,8 +84,8 @@ olden,Britannia,P&O Cruises,,2026-09-14,,,,Manual CSV import,,,Arrival time TBC;
 olden,Iona,P&O Cruises,5200,2026-09-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Britannia,P&O Cruises,,2026-09-21,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Iona,P&O Cruises,5200,2026-09-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
-olden,Nieuw Statendam,Holland America Line,,2026-09-26,07:00,16:00,,Manual CSV import,,,All aboard time TBC
-olden,Nieuw Statendam,Holland America Line,,2026-09-26,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+olden,Nieuw Statendam,Holland America Line,2668,2026-09-26,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+olden,Nieuw Statendam,Holland America Line,2668,2026-09-26,08:00,15:00,,Manual CSV import,,,All aboard time TBC
 olden,Britannia,P&O Cruises,,2026-09-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Iona,P&O Cruises,5200,2026-09-29,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 olden,Rotterdam,Holland America Line,2668,2026-09-30,08:00,18:00,,Manual CSV import,,,All aboard time TBC
