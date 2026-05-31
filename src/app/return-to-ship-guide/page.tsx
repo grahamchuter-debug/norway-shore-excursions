@@ -57,7 +57,7 @@ export default function ReturnToShipGuidePage() {
         </p>
       </section>
 
-      <section className="!mt-0">
+      <section id="will-this-excursion-fit" className="!mt-0">
         <WillThisExcursionFit />
       </section>
 

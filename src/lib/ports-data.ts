@@ -614,14 +614,12 @@ export type PortTimeOption =
 export type FitnessLevel = "Easy" | "Moderate" | "Active";
 
 export const cruiseLines = [
-  "P&O Cruises",
   "MSC Cruises",
-  "Princess Cruises",
+  "P&O Cruises",
   "Celebrity Cruises",
-  "Royal Caribbean",
-  "Holland America Line",
   "Cunard",
-  "Norwegian Cruise Line",
+  "Viking",
+  "Holland America Line",
 ] as const;
 
 export const sailingMonths = [
