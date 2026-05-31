@@ -79,6 +79,14 @@ function inferPortItineraryLabel(url) {
   if (/eidfjord/i.test(url)) return "Eidfjord, Norway";
   if (/olden/i.test(url)) return "Olden, Norway";
   if (/nordfjordeid/i.test(url)) return "Nordfjordeid, Norway";
+  if (/alesund|[aå]lesund/i.test(url)) return "Alesund, Norway";
+  if (/molde/i.test(url)) return "Molde, Norway";
+  if (/honningsvag|honningsv[aå]g/i.test(url)) return "Honningsvag, Norway";
+  if (/kristiansand/i.test(url)) return "Kristiansand, Norway";
+  if (/hellesylt/i.test(url)) return "Hellesylt, Norway";
+  if (/trondheim/i.test(url)) return "Trondheim, Norway";
+  if (/skjolden/i.test(url)) return "Skjolden, Norway";
+  if (/tromso|troms[oø]/i.test(url)) return "Tromso, Norway";
   return null;
 }
 
@@ -311,12 +319,14 @@ async function fetchHtml(url, attempt = 1) {
   const response = await fetch(url, {
     headers: {
       "Accept-Encoding": "gzip, deflate, br",
-      "User-Agent": "NorwayShoreExcursionsScheduleImport/1.0",
+      "Accept-Language": "en-GB,en;q=0.9",
+      "User-Agent":
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     },
   });
 
-  if (response.status === 429 && attempt < 8) {
-    const delayMs = attempt * 5000;
+  if (response.status === 429 && attempt < 10) {
+    const delayMs = Math.min(attempt * 10000, 90000);
     await new Promise((resolve) => setTimeout(resolve, delayMs));
     return fetchHtml(url, attempt + 1);
   }
@@ -346,7 +356,7 @@ async function fetchAllScheduleHtml(baseUrl) {
 
   for (const pageUrl of pageUrls) {
     if (pageUrl === baseUrl) continue;
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 45000));
     htmlParts.push(await fetchHtml(pageUrl));
   }
 

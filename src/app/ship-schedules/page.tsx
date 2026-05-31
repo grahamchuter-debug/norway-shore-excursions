@@ -4,19 +4,19 @@ import {
   cruiseScheduleDisclaimer,
   shipScheduleHubPath,
 } from "@/lib/cruise-schedule-config";
-import { getAllScheduleHubSummaries } from "@/lib/cruiseSchedules";
+import { getScheduleHubSummariesByRegion } from "@/lib/cruiseSchedules";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { imageAlts, siteImages } from "@/lib/site-images";
 
 export const metadata = buildPageMetadata({
   title: "Norway Cruise Ship Schedules 2026",
   description:
-    "Master Norway cruise ship schedule hub for Flåm, Bergen, Stavanger, Eidfjord, Olden, Geiranger and Nordfjordeid. Real imported CSV data only — reusable by port sites.",
+    "Master Norway cruise ship schedule hub for 15 ports across fjord, coastal, Arctic and southern Norway. Real imported CSV data only, reusable by port sites.",
   path: shipScheduleHubPath,
 });
 
 export default function ShipSchedulesHubPage() {
-  const portSummaries = getAllScheduleHubSummaries();
+  const regionGroups = getScheduleHubSummariesByRegion();
 
   return (
     <ContentPage
@@ -47,9 +47,18 @@ export default function ShipSchedulesHubPage() {
           Sample schedule data must never be used on live production schedule pages.
           Ports without a real CSV show a coming soon message instead of placeholder ship calls.
         </p>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {portSummaries.map((summary) => (
-            <ShipScheduleHubCard key={summary.portSlug} summary={summary} />
+        <div className="space-y-10">
+          {regionGroups.map((group) => (
+            <div key={group.region}>
+              <h3 className="mb-4 text-lg font-bold text-[var(--navy-deep)]">
+                {group.region}
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {group.ports.map((summary) => (
+                  <ShipScheduleHubCard key={summary.portSlug} summary={summary} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>

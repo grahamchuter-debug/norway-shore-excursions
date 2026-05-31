@@ -22,6 +22,17 @@ const PORT_ALIASES = {
   eidfjord: "eidfjord",
   geiranger: "geiranger",
   stavanger: "stavanger",
+  alesund: "alesund",
+  ålesund: "alesund",
+  molde: "molde",
+  honningsvag: "honningsvag",
+  honningsvåg: "honningsvag",
+  kristiansand: "kristiansand",
+  hellesylt: "hellesylt",
+  trondheim: "trondheim",
+  skjolden: "skjolden",
+  tromso: "tromso",
+  tromsø: "tromso",
 };
 
 const MONTH_ALIASES = {
@@ -128,11 +139,19 @@ function inferPortFromFilename(filename) {
 const EXPECTED_SCHEDULE_PORTS = [
   "flam",
   "bergen",
-  "stavanger",
-  "eidfjord",
   "olden",
   "geiranger",
+  "eidfjord",
   "nordfjordeid",
+  "skjolden",
+  "hellesylt",
+  "stavanger",
+  "alesund",
+  "molde",
+  "trondheim",
+  "honningsvag",
+  "tromso",
+  "kristiansand",
 ];
 
 const SCHEDULE_YEAR = "2026";

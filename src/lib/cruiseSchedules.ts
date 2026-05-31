@@ -16,6 +16,7 @@ import {
   normalizeSchedulePortSlug,
   parseScheduleMonthSlug,
   scheduleMonthSlugs2026,
+  schedulePortRegions,
   scheduleYear,
   scheduledPortSlugs,
   type ScheduleMonthSlug2026,
@@ -160,6 +161,18 @@ export function getScheduleHubPortSummary(portSlug: string): ScheduleHubPortSumm
 
 export function getAllScheduleHubSummaries(): ScheduleHubPortSummary[] {
   return scheduledPortSlugs.map((portSlug) => getScheduleHubPortSummary(portSlug));
+}
+
+export type ScheduleHubRegionGroup = {
+  region: string;
+  ports: ScheduleHubPortSummary[];
+};
+
+export function getScheduleHubSummariesByRegion(): ScheduleHubRegionGroup[] {
+  return schedulePortRegions.map(({ label, portSlugs }) => ({
+    region: label,
+    ports: portSlugs.map((portSlug) => getScheduleHubPortSummary(portSlug)),
+  }));
 }
 
 function normalizeShipMatch(value: string): string {

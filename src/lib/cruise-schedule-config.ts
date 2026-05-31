@@ -7,15 +7,52 @@
 export const cruiseScheduleDisclaimer =
   "Cruise schedules can change due to weather, port operations and cruise line itinerary updates. Always confirm your ship's latest arrival and all aboard time with your cruise line.";
 
-/** Ports in master hub display order. */
+/** Ports in master hub display order (grouped by region on the hub page). */
 export const scheduledPortSlugs = [
   "flam",
   "bergen",
-  "stavanger",
-  "eidfjord",
   "olden",
   "geiranger",
+  "eidfjord",
   "nordfjordeid",
+  "skjolden",
+  "hellesylt",
+  "stavanger",
+  "alesund",
+  "molde",
+  "trondheim",
+  "honningsvag",
+  "tromso",
+  "kristiansand",
+] as const;
+
+/** Hub page regional groupings. Port slugs must match scheduledPortSlugs. */
+export const schedulePortRegions = [
+  {
+    label: "Fjord Norway",
+    portSlugs: [
+      "flam",
+      "bergen",
+      "olden",
+      "geiranger",
+      "eidfjord",
+      "nordfjordeid",
+      "skjolden",
+      "hellesylt",
+    ],
+  },
+  {
+    label: "Western Norway / Coastal",
+    portSlugs: ["stavanger", "alesund", "molde", "trondheim"],
+  },
+  {
+    label: "Northern Norway",
+    portSlugs: ["honningsvag", "tromso"],
+  },
+  {
+    label: "Southern Norway",
+    portSlugs: ["kristiansand"],
+  },
 ] as const;
 
 export type ScheduledPortSlug = (typeof scheduledPortSlugs)[number];
@@ -124,6 +161,17 @@ export const schedulePortAliases: Record<string, string> = {
   eidfjord: "eidfjord",
   geiranger: "geiranger",
   stavanger: "stavanger",
+  alesund: "alesund",
+  ålesund: "alesund",
+  molde: "molde",
+  honningsvag: "honningsvag",
+  honningsvåg: "honningsvag",
+  kristiansand: "kristiansand",
+  hellesylt: "hellesylt",
+  trondheim: "trondheim",
+  skjolden: "skjolden",
+  tromso: "tromso",
+  tromsø: "tromso",
 };
 
 const scheduleMonthAliases: Record<string, string> = {
@@ -207,6 +255,14 @@ export const portExcursionLinks: Record<string, string> = {
   eidfjord: "https://norwayshoreexcursions.com/excursions",
   geiranger: "https://norwayshoreexcursions.com/excursions",
   stavanger: "https://norwayshoreexcursions.com/excursions",
+  alesund: "https://norwayshoreexcursions.com/excursions",
+  molde: "https://norwayshoreexcursions.com/excursions",
+  honningsvag: "https://norwayshoreexcursions.com/excursions",
+  kristiansand: "https://norwayshoreexcursions.com/excursions",
+  hellesylt: "https://norwayshoreexcursions.com/excursions",
+  trondheim: "https://norwayshoreexcursions.com/excursions",
+  skjolden: "https://norwayshoreexcursions.com/excursions",
+  tromso: "https://norwayshoreexcursions.com/excursions",
 };
 
 export function getPortExcursionLink(portSlug: string): string {

@@ -1,6 +1,6 @@
 {
   "region": "norway",
-  "generatedAt": "2026-05-31T07:51:59.876Z",
+  "generatedAt": "2026-05-31T08:20:47.563Z",
   "source": "CSV import pipeline",
   "rowCount": 617,
   "ports": [
@@ -38,32 +38,6 @@
       "pagesGenerated": 4,
       "displayStatus": "real_data_available"
     },
-    "stavanger": {
-      "dataSource": "real",
-      "realCsvFound": true,
-      "rowCount": 109,
-      "monthsAvailable": [
-        "2026-06",
-        "2026-07",
-        "2026-08",
-        "2026-09"
-      ],
-      "pagesGenerated": 4,
-      "displayStatus": "real_data_available"
-    },
-    "eidfjord": {
-      "dataSource": "real",
-      "realCsvFound": true,
-      "rowCount": 51,
-      "monthsAvailable": [
-        "2026-06",
-        "2026-07",
-        "2026-08",
-        "2026-09"
-      ],
-      "pagesGenerated": 4,
-      "displayStatus": "real_data_available"
-    },
     "olden": {
       "dataSource": "real",
       "realCsvFound": true,
@@ -90,7 +64,97 @@
       "pagesGenerated": 4,
       "displayStatus": "real_data_available"
     },
+    "eidfjord": {
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 51,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
+    },
     "nordfjordeid": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "skjolden": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "hellesylt": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "stavanger": {
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 109,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
+    },
+    "alesund": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "molde": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "trondheim": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "honningsvag": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "tromso": {
+      "dataSource": "none",
+      "realCsvFound": true,
+      "rowCount": 0,
+      "monthsAvailable": [],
+      "pagesGenerated": 0,
+      "displayStatus": "no_data"
+    },
+    "kristiansand": {
       "dataSource": "none",
       "realCsvFound": true,
       "rowCount": 0,
