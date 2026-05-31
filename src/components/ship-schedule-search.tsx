@@ -12,6 +12,7 @@ import {
   normalizeShipSearchKey,
   type ShipScheduleSearchEntry,
 } from "@/lib/cruiseSchedules";
+import { buildShipSearchResultSummaries } from "@/lib/ship-schedules";
 import { siteConfig } from "@/lib/site-config";
 
 const POPULAR_SHIP_SEARCHES = [
@@ -19,8 +20,8 @@ const POPULAR_SHIP_SEARCHES = [
   "Arvia",
   "MSC Euribia",
   "Celebrity Apex",
-  "AIDAprima",
-  "Norwegian Prima",
+  "Viking Vela",
+  "Rotterdam",
 ] as const;
 
 const EMPTY_STATE_MESSAGE =
@@ -93,61 +94,113 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
             </p>
 
             <div className="space-y-5">
-              {results.map((group) => (
-                <article
-                  key={group.ship}
-                  className="rounded-2xl border border-[var(--border-light)] bg-white p-5 shadow-sm sm:p-6"
-                >
-                  <header className="border-b border-[var(--border-light)] pb-4">
-                    <h2 className="text-xl font-bold text-[var(--navy-deep)]">{group.ship}</h2>
-                    <p className="mt-1 text-sm text-slate-600">{group.cruiseLine}</p>
-                  </header>
+              {results.map((group) => {
+                const summary = buildShipSearchResultSummaries(group.entries[0]?.shipSearchKey ?? "");
+                const topPortsLabel = summary?.topPorts
+                  .map((p) => `${p.portDisplayName} (${p.callCount})`)
+                  .join(", ");
 
-                  <ul className="card-grid mt-4 space-y-4">
-                    {group.entries.map((entry) => (
-                      <li
-                        key={`${entry.portSlug}-${entry.arrivalDate}-${entry.arrivalTime ?? "tbc"}`}
-                        className="rounded-xl border border-slate-100 bg-surface-muted p-4"
-                      >
-                        <p className="text-base font-semibold text-slate-900">
-                          {entry.portDisplayName}, {entry.dateLabel}
-                        </p>
+                return (
+                  <article
+                    key={group.ship}
+                    className="rounded-2xl border border-[var(--border-light)] bg-white p-5 shadow-sm sm:p-6"
+                  >
+                    <header className="border-b border-[var(--border-light)] pb-4">
+                      <h2 className="text-xl font-bold text-[var(--navy-deep)]">{group.ship}</h2>
+                      <p className="mt-1 text-sm text-slate-600">{group.cruiseLine}</p>
+                      {summary ? (
                         <dl className="mt-3 grid gap-2 text-sm text-slate-700 sm:grid-cols-3">
                           <div>
-                            <dt className="font-medium text-slate-500">Arrival</dt>
-                            <dd>{formatScheduleTime(entry.arrivalTime)}</dd>
+                            <dt className="font-medium text-slate-500">Capacity</dt>
+                            <dd>{summary.capacityLabel}</dd>
                           </div>
                           <div>
-                            <dt className="font-medium text-slate-500">Departure</dt>
-                            <dd>{formatScheduleTime(entry.departureTime)}</dd>
+                            <dt className="font-medium text-slate-500">Norway calls</dt>
+                            <dd>{summary.callCount}</dd>
                           </div>
-                          <div>
-                            <dt className="font-medium text-slate-500">Passengers</dt>
-                            <dd>{formatPassengers(entry.passengers)}</dd>
+                          <div className="sm:col-span-1">
+                            <dt className="font-medium text-slate-500">Top ports</dt>
+                            <dd>{topPortsLabel || "See calls below"}</dd>
                           </div>
                         </dl>
-                        <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold">
-                          <Link href={entry.scheduleHref} className="content-link">
-                            View schedule
-                          </Link>
-                          <span aria-hidden="true" className="text-slate-300">
-                            |
-                          </span>
-                          <Link href={entry.excursionHref} className="content-link">
-                            Recommended excursions
-                          </Link>
-                          <span aria-hidden="true" className="text-slate-300">
-                            |
-                          </span>
-                          <Link href={siteConfig.plannerPath} className="content-link">
+                      ) : null}
+                      {summary ? (
+                        <p className="mt-4 flex flex-wrap gap-x-3 gap-y-2 text-sm font-semibold">
+                          {summary.shipPageHref ? (
+                            <>
+                              <Link href={summary.shipPageHref} className="content-link">
+                                Ship page
+                              </Link>
+                              <span aria-hidden="true" className="text-slate-300">
+                                |
+                              </span>
+                            </>
+                          ) : null}
+                          <Link href={summary.plannerHref} className="content-link">
                             Cruise planner
                           </Link>
+                          <span aria-hidden="true" className="text-slate-300">
+                            |
+                          </span>
+                          <Link href={summary.scheduleSearchHref} className="content-link">
+                            Schedule results
+                          </Link>
+                          <span aria-hidden="true" className="text-slate-300">
+                            |
+                          </span>
+                          <Link href={summary.excursionsHref} className="content-link">
+                            Recommended excursions
+                          </Link>
                         </p>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+                      ) : null}
+                    </header>
+
+                    <ul className="card-grid mt-4 space-y-4">
+                      {group.entries.map((entry) => (
+                        <li
+                          key={`${entry.portSlug}-${entry.arrivalDate}-${entry.arrivalTime ?? "tbc"}`}
+                          className="rounded-xl border border-slate-100 bg-surface-muted p-4"
+                        >
+                          <p className="text-base font-semibold text-slate-900">
+                            {entry.portDisplayName}, {entry.dateLabel}
+                          </p>
+                          <dl className="mt-3 grid gap-2 text-sm text-slate-700 sm:grid-cols-3">
+                            <div>
+                              <dt className="font-medium text-slate-500">Arrival</dt>
+                              <dd>{formatScheduleTime(entry.arrivalTime)}</dd>
+                            </div>
+                            <div>
+                              <dt className="font-medium text-slate-500">Departure</dt>
+                              <dd>{formatScheduleTime(entry.departureTime)}</dd>
+                            </div>
+                            <div>
+                              <dt className="font-medium text-slate-500">Passengers</dt>
+                              <dd>{formatPassengers(entry.passengers)}</dd>
+                            </div>
+                          </dl>
+                          <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold">
+                            <Link href={entry.scheduleHref} className="content-link">
+                              View schedule
+                            </Link>
+                            <span aria-hidden="true" className="text-slate-300">
+                              |
+                            </span>
+                            <Link href={entry.excursionHref} className="content-link">
+                              Recommended excursions
+                            </Link>
+                            <span aria-hidden="true" className="text-slate-300">
+                              |
+                            </span>
+                            <Link href={siteConfig.plannerPath} className="content-link">
+                              Cruise planner
+                            </Link>
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
             </div>
           </section>
         ) : (
@@ -164,6 +217,10 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
       <section>
         <Link href={shipScheduleHubPath} className="content-link text-sm font-semibold">
           Back to Norway ship schedules
+        </Link>
+        {" · "}
+        <Link href="/ships" className="content-link text-sm font-semibold">
+          Browse cruise ship guides
         </Link>
       </section>
     </div>

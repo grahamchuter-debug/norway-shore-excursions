@@ -44,9 +44,9 @@ export default function ReturnToShipGuidePage() {
       ]}
       faqs={faqs}
       ctaTitle="Plan with confidence labels"
-      ctaText="Our Norway Cruise Planner shows green, amber and red return to ship confidence for each port recommendation."
-      ctaHref="/norway-cruise-planner"
-      ctaButtonLabel="Open Cruise Planner"
+      ctaText="Our Norway Cruise Planner shows return to ship confidence for each port recommendation. Read how we calculate Very High through Not Recommended labels."
+      ctaHref="/return-to-ship-confidence"
+      ctaButtonLabel="Return to Ship Confidence"
     >
       <section>
         <h2>Know your all aboard time</h2>

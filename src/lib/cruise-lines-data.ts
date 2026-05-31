@@ -10,6 +10,9 @@ export type CruiseLineData = {
   headline: string;
   lead: string;
   overview: string;
+  typicalItineraries: string;
+  cruiseStyle: string;
+  passengerTypes: string;
   planningTips: readonly string[];
   recommendedPortSlugs: readonly string[];
   faqs: readonly { question: string; answer: string }[];
@@ -27,6 +30,12 @@ export const cruiseLines: readonly CruiseLineData[] = [
     lead: "Plan MSC Cruises Norway sailings with real 2026 ship call data, port guides and independent shore excursion recommendations.",
     overview:
       "MSC Cruises runs busy Norway fjord programmes each summer, with multiple ships rotating through Bergen, Flåm, Geiranger and Stavanger. Use this guide to match your MSC port times with independent excursions and return to ship buffers.",
+    typicalItineraries:
+      "Classic 7 night fjord loops from Hamburg or Southampton, often Bergen, Flåm, Geiranger and Stavanger, plus occasional Arctic extensions to Tromsø or Honningsvåg on longer sailings.",
+    cruiseStyle:
+      "Large resort style ships with broad dining, entertainment and family facilities. Norway programmes emphasise scenic sailing and full day port calls on headline fjord villages.",
+    passengerTypes:
+      "Families, multigenerational groups and value focused European cruisers who want big ship amenities with fjord scenery.",
     planningTips: [
       "MSC Norway itineraries often combine Bergen, Flåm and Geiranger on classic fjord routes.",
       "Use the Norway Cruise Planner to match your ship's port times with Stegastein, Mostraumen or Dalsnibba excursions.",
@@ -64,6 +73,12 @@ export const cruiseLines: readonly CruiseLineData[] = [
     lead: "Plan P&O Cruises Norway sailings with real 2026 ship call data, port guides and independent shore excursion recommendations.",
     overview:
       "P&O Cruises is one of the busiest operators in Norwegian fjords, with Iona and Britannia making regular calls to Bergen, Flåm, Olden and Stavanger. This guide helps P&O passengers plan port days independently.",
+    typicalItineraries:
+      "British summer fjord cruises from Southampton, commonly Bergen, Flåm, Olden, Geiranger and Stavanger on 7 to 14 night loops.",
+    cruiseStyle:
+      "British mainstream cruising with inclusive dining tiers, strong entertainment and a relaxed onboard culture. Norway routes prioritise iconic fjord ports.",
+    passengerTypes:
+      "UK couples, families and groups who book early for school holiday sailings and prefer familiar British service.",
     planningTips: [
       "P&O Norway itineraries often combine Bergen, Flåm and Geiranger on classic fjord routes.",
       "Use the Norway Cruise Planner to match your ship's port times with Stegastein, Mostraumen or Dalsnibba excursions.",
@@ -101,6 +116,12 @@ export const cruiseLines: readonly CruiseLineData[] = [
     lead: "Plan Celebrity Cruises Norway sailings with real 2026 ship call data, port guides and independent shore excursion recommendations.",
     overview:
       "Celebrity Cruises brings premium Norway itineraries to Bergen, Flåm, Geiranger, Olden and Stavanger. Celebrity Apex and Celebrity Eclipse are the most frequent callers in our 2026 schedule data.",
+    typicalItineraries:
+      "Premium 7 to 12 night Norway and fjord itineraries from Southampton or Amsterdam, mixing Geiranger, Flåm, Bergen and occasional Arctic ports.",
+    cruiseStyle:
+      "Modern premium ships with elevated dining, design forward public spaces and a cosmopolitan onboard feel. Port days lean scenic and culinary.",
+    passengerTypes:
+      "Couples and experienced cruisers who want upscale comfort without ultra luxury pricing, often booking specialty dining and spa packages.",
     planningTips: [
       "Celebrity Norway routes often emphasise scenic ports like Geiranger and Ålesund.",
       "Private and small group independent tours align well with Celebrity passenger preferences.",
@@ -138,6 +159,12 @@ export const cruiseLines: readonly CruiseLineData[] = [
     lead: "Plan Cunard Norway voyages with real 2026 ship call data, port guides and independent shore excursion recommendations.",
     overview:
       "Cunard brings classic ocean liner style to Norway, with Queen Mary 2 and Queen Anne calling at Bergen, Olden and Stavanger. This guide helps Cunard passengers plan refined port days ashore.",
+    typicalItineraries:
+      "Transatlantic and Northern Europe voyages with Norway segments, often Bergen, Stavanger, Flåm and Geiranger on 9 to 14 night sailings.",
+    cruiseStyle:
+      "Traditional ocean liner heritage with formal evenings, lecture programmes and spacious public rooms. Norway calls suit unhurried cultural touring.",
+    passengerTypes:
+      "Mature travellers, ocean liner enthusiasts and couples who value classic service, ballroom events and refined shore days.",
     planningTips: [
       "Cunard Norway voyages often include classic fjord ports with formal onboard culture ashore in Bergen and Stavanger.",
       "Private sightseeing and refined walking tours suit Cunard passenger pacing.",
@@ -175,6 +202,12 @@ export const cruiseLines: readonly CruiseLineData[] = [
     lead: "Plan Viking Norway cruises with real 2026 ship call data, port guides and independent shore excursion recommendations.",
     overview:
       "Viking Ocean ships are among the most frequent callers in our Norway schedule data, with six ships rotating through Bergen, Flåm, Geiranger, Eidfjord and Stavanger. This guide helps Viking passengers plan immersive port days.",
+    typicalItineraries:
+      "In depth fjord intensive routes, often 8 to 15 nights with repeat calls at Bergen, Flåm, Geiranger, Eidfjord and Stavanger.",
+    cruiseStyle:
+      "Small to mid size expedition leaning ocean ships with understated luxury, included beer and wine at lunch and dinner, and destination focus.",
+    passengerTypes:
+      "Well travelled adults who prefer cultural immersion, longer port stays and included excursions as a baseline.",
     planningTips: [
       "Viking Norway programmes emphasise cultural depth and scenic fjord sailing.",
       "Viking ships often spend longer in port, ideal for independent excursions beyond ship tours.",
@@ -212,6 +245,12 @@ export const cruiseLines: readonly CruiseLineData[] = [
     lead: "Plan Holland America Norway sailings with real 2026 ship call data, port guides and independent shore excursion recommendations.",
     overview:
       "Holland America Line offers in depth Norway routes with Rotterdam, Nieuw Statendam and Zuiderdam calling at Bergen, Eidfjord, Olden and Stavanger. This guide helps HAL passengers plan cultural and scenic port days.",
+    typicalItineraries:
+      "14 night Norway in depth loops from Rotterdam or Amsterdam, with Eidfjord, Trondheim, Bergen and multiple fjord villages.",
+    cruiseStyle:
+      "Classic Holland America cruising with emphasis on music, culinary programmes and longer scenic days. Ships feel traditional and comfortable.",
+    passengerTypes:
+      "North American and European couples who enjoy slower paced touring, museum visits and one headline scenic excursion per voyage.",
     planningTips: [
       "Holland America excels on in depth Norway routes with longer port stays in Trondheim and Eidfjord.",
       "Use extended port time for Vøringsfossen from Eidfjord or Trondheim cathedral tours.",

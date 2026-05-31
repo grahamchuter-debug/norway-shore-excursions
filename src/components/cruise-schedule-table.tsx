@@ -7,6 +7,10 @@ import {
   getPortExcursionLink,
 } from "@/lib/cruise-schedule-config";
 import type { CruiseScheduleRow } from "@/lib/cruiseSchedules";
+import {
+  getShipScheduleSummaryByName,
+  shipPagePath,
+} from "@/lib/ship-schedules";
 
 type CruiseScheduleTableProps = {
   rows: readonly CruiseScheduleRow[];
@@ -48,7 +52,22 @@ export function CruiseScheduleTable({
               <td className="px-4 py-3 font-medium text-slate-900">
                 {formatScheduleDateLabel(row.arrival_date)}
               </td>
-              <td className="px-4 py-3 text-slate-800">{row.ship}</td>
+              <td className="px-4 py-3 text-slate-800">
+                {(() => {
+                  const summary = getShipScheduleSummaryByName(row.ship);
+                  if (summary) {
+                    return (
+                      <Link
+                        href={shipPagePath(summary.slug)}
+                        className="content-link font-medium"
+                      >
+                        {row.ship}
+                      </Link>
+                    );
+                  }
+                  return row.ship;
+                })()}
+              </td>
               <td className="px-4 py-3 text-slate-700">{row.cruise_line}</td>
               <td className="px-4 py-3 text-slate-700">
                 {formatScheduleTime(row.arrival_time)}

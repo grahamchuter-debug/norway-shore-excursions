@@ -1,4 +1,5 @@
 import { cruiseLineSlugs } from "@/lib/cruise-lines-data";
+import { getAllShipSlugs } from "@/lib/ship-schedules";
 import {
   scheduledPortSlugs,
   scheduleMonthSlugs2026,
@@ -25,6 +26,8 @@ const level1Routes: RouteEntry[] = [
   { path: "/when-to-cruise-norway", priority: 0.85, changeFrequency: "monthly" },
   { path: "/norway-cruise-port-map", priority: 0.85, changeFrequency: "monthly" },
   { path: "/cruise-lines", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/ships", priority: 0.88, changeFrequency: "weekly" },
+  { path: "/return-to-ship-confidence", priority: 0.82, changeFrequency: "monthly" },
   { path: "/private-shore-excursions-norway", priority: 0.85, changeFrequency: "monthly" },
   { path: "/small-group-shore-excursions-norway", priority: 0.85, changeFrequency: "monthly" },
   { path: "/return-to-ship-guide", priority: 0.85, changeFrequency: "monthly" },
@@ -50,6 +53,12 @@ const cruiseLineRoutes: RouteEntry[] = cruiseLineSlugs.map((slug) => ({
   changeFrequency: "monthly" as const,
 }));
 
+const shipRoutes: RouteEntry[] = getAllShipSlugs().map((slug) => ({
+  path: `/ships/${slug}`,
+  priority: 0.84,
+  changeFrequency: "weekly" as const,
+}));
+
 const shipSchedulePortRoutes: RouteEntry[] = scheduledPortSlugs.map((portSlug) => ({
   path: shipSchedulePortPath(portSlug),
   priority: 0.86,
@@ -69,6 +78,7 @@ export const siteRoutes = [
   ...portRoutes,
   ...themeRoutes,
   ...cruiseLineRoutes,
+  ...shipRoutes,
   ...shipSchedulePortRoutes,
   ...shipScheduleMonthRoutes,
 ] as const;

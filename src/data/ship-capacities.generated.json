@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-05-31T12:36:21.018Z",
+  "records": [
+    {
+      "ship": "Iona",
+      "shipAliases": [
+        "P&O Iona"
+      ],
+      "cruiseLine": "P&O Cruises",
+      "passengers": 5200
+    },
+    {
+      "ship": "Arvia",
+      "shipAliases": [
+        "P&O Arvia",
+        "MS Arvia"
+      ],
+      "cruiseLine": "P&O Cruises",
+      "passengers": 5200
+    },
+    {
+      "ship": "MSC Euribia",
+      "shipAliases": [],
+      "cruiseLine": "MSC Cruises",
+      "passengers": 4888
+    },
+    {
+      "ship": "AIDAnova",
+      "shipAliases": [],
+      "cruiseLine": "AIDA",
+      "passengers": 5200
+    },
+    {
+      "ship": "AIDAprima",
+      "shipAliases": [],
+      "cruiseLine": "AIDA",
+      "passengers": 3376
+    },
+    {
+      "ship": "Celebrity Apex",
+      "shipAliases": [],
+      "cruiseLine": "Celebrity Cruises",
+      "passengers": 2910
+    },
+    {
+      "ship": "Costa Favolosa",
+      "shipAliases": [],
+      "cruiseLine": "Costa Cruises",
+      "passengers": 3800
+    },
+    {
+      "ship": "Norwegian Prima",
+      "shipAliases": [],
+      "cruiseLine": "Norwegian Cruise Line",
+      "passengers": 3218
+    },
+    {
+      "ship": "MSC Virtuosa",
+      "shipAliases": [],
+      "cruiseLine": "MSC Cruises",
+      "passengers": 6334
+    },
+    {
+      "ship": "Spirit Of Adventure",
+      "shipAliases": [],
+      "cruiseLine": "Saga Cruises",
+      "passengers": 999
+    },
+    {
+      "ship": "Spirit Of Discovery",
+      "shipAliases": [],
+      "cruiseLine": "Saga Cruises",
+      "passengers": 999
+    },
+    {
+      "ship": "Viking Neptune",
+      "shipAliases": [],
+      "cruiseLine": "Viking",
+      "passengers": 930
+    },
+    {
+      "ship": "Viking Mira",
+      "shipAliases": [],
+      "cruiseLine": "Viking Oceans",
+      "passengers": 998
+    },
+    {
+      "ship": "Viking Saturn",
+      "shipAliases": [],
+      "cruiseLine": "Viking",
+      "passengers": 998
+    },
+    {
+      "ship": "Viking Vela",
+      "shipAliases": [],
+      "cruiseLine": "Viking",
+      "passengers": 998
+    },
+    {
+      "ship": "Seven Seas Grandeur",
+      "shipAliases": [],
+      "cruiseLine": "Regent Seven Seas",
+      "passengers": 746
+    },
+    {
+      "ship": "Mein Schiff Relax",
+      "shipAliases": [],
+      "cruiseLine": "Tui Cruises",
+      "passengers": 2894
+    },
+    {
+      "ship": "Explora III",
+      "shipAliases": [],
+      "cruiseLine": "Explora Journeys",
+      "passengers": 922
+    },
+    {
+      "ship": "Amadea",
+      "shipAliases": [],
+      "cruiseLine": "Phoenix",
+      "passengers": 620
+    },
+    {
+      "ship": "Artania",
+      "shipAliases": [],
+      "cruiseLine": "Phoenix",
+      "passengers": 1260
+    },
+    {
+      "ship": "Ambition",
+      "shipAliases": [],
+      "cruiseLine": "Ambassador Cruise Line",
+      "passengers": 1400
+    },
+    {
+      "ship": "Ambience",
+      "shipAliases": [],
+      "cruiseLine": "Ambassador Cruise Line",
+      "passengers": 1400
+    },
+    {
+      "ship": "MSC Magnifica",
+      "shipAliases": [
+        "Magnifica",
+        "MSC Magnifica"
+      ],
+      "cruiseLine": "MSC Cruises",
+      "passengers": 3013
+    },
+    {
+      "ship": "AIDAluna",
+      "shipAliases": [
+        "Aidaluna",
+        "AIDAluna"
+      ],
+      "cruiseLine": "AIDA",
+      "passengers": 2050
+    },
+    {
+      "ship": "Oceania Insignia",
+      "shipAliases": [
+        "Oceania Insignia"
+      ],
+      "cruiseLine": "Oceania Cruises",
+      "passengers": 684
+    },
+    {
+      "ship": "Oceania Marina",
+      "shipAliases": [
+        "Oceania Marina"
+      ],
+      "cruiseLine": "Oceania Cruises",
+      "passengers": 1250
+    },
+    {
+      "ship": "Rotterdam",
+      "shipAliases": [
+        "MS Rotterdam",
+        "Rotterdam"
+      ],
+      "cruiseLine": "Holland America Line",
+      "passengers": 2668
+    },
+    {
+      "ship": "Renaissance",
+      "shipAliases": [],
+      "cruiseLine": "CFC Croisieres",
+      "passengers": 1100
+    },
+    {
+      "ship": "AIDAdiva",
+      "shipAliases": [
+        "Aidadiva",
+        "AIDAdiva",
+        "MS AIDAdiva"
+      ],
+      "cruiseLine": "AIDA",
+      "passengers": 2050
+    },
+    {
+      "ship": "Viking Sky",
+      "shipAliases": [
+        "Viking Sky"
+      ],
+      "cruiseLine": "Viking",
+      "passengers": 998
+    },
+    {
+      "ship": "Borealis",
+      "shipAliases": [
+        "MS Borealis",
+        "Borealis"
+      ],
+      "cruiseLine": "Fred Olsen Cruise Lines",
+      "passengers": 1400
+    },
+    {
+      "ship": "Silver Spirit",
+      "shipAliases": [
+        "Silver Spirit",
+        "MS Silver Spirit"
+      ],
+      "cruiseLine": "Silversea",
+      "passengers": 608
+    },
+    {
+      "ship": "Nieuw Statendam",
+      "shipAliases": [
+        "MS Nieuw Statendam",
+        "Nieuw Statendam"
+      ],
+      "cruiseLine": "Holland America Line",
+      "passengers": 2668
+    }
+  ]
+}

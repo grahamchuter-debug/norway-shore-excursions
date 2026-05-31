@@ -4,6 +4,7 @@ import { ContentPage } from "@/components/content-page";
 import { JsonLd } from "@/components/json-ld";
 import { cruiseLines } from "@/lib/cruise-lines-data";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
+import { getPopularNorwayShipCards } from "@/lib/ships-data";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { buildItemListSchema } from "@/lib/site-schema";
 import { imageAlts, siteImages } from "@/lib/site-images";
@@ -33,6 +34,8 @@ const faqs = [
 ] as const;
 
 export default function CruiseLinesPage() {
+  const popularShips = getPopularNorwayShipCards();
+
   const itemList = buildItemListSchema(
     cruiseLines.map((line) => {
       const stats = getCruiseLineScheduleSummary(line.scheduleKey);
@@ -64,6 +67,7 @@ export default function CruiseLinesPage() {
         ]}
         faqs={faqs}
         relatedLinks={[
+          { label: "Cruise Ships", href: "/ships" },
           { label: "Norway Cruise Planner", href: "/norway-cruise-planner" },
           { label: "Ship Schedules", href: "/ship-schedules" },
           { label: "Norway Cruise Ports", href: "/norway-cruise-ports" },
@@ -121,6 +125,42 @@ export default function CruiseLinesPage() {
             })}
           </ul>
         </section>
+
+        {popularShips.length > 0 ? (
+          <section>
+            <h2>Most popular Norway cruise ships</h2>
+            <p>
+              Headline ships with busy 2026 Norway programmes in our schedule
+              data. Open a ship page for port calls, capacity and excursion
+              planning.
+            </p>
+            <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {popularShips.map((ship) => (
+                <li key={ship.slug}>
+                  <Link
+                    href={ship.href}
+                    className="premium-card block p-5 transition hover:border-[var(--glacier-blue)]"
+                  >
+                    <h3 className="text-lg font-bold text-slate-900">
+                      {ship.ship}
+                    </h3>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {ship.cruiseLine}
+                    </p>
+                    <p className="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--glacier-blue)]">
+                      {ship.capacityLabel} · {ship.callCount} Norway calls
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4">
+              <Link href="/ships" className="content-link font-medium">
+                Browse all Norway cruise ships →
+              </Link>
+            </p>
+          </section>
+        ) : null}
 
         <section>
           <h2>Norway Cruise Planner</h2>

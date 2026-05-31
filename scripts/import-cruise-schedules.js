@@ -570,10 +570,28 @@ function main() {
     "utf8",
   );
 
+  const capacityJsonPath = path.join(ROOT, "src", "data", "ship-capacities.generated.json");
+  const capacityRecords = capacityLookup.records.map((record) => ({
+    ship: record.ship,
+    shipAliases: record.shipAliases,
+    cruiseLine: record.cruiseLine,
+    passengers: record.passengers,
+  }));
+  fs.writeFileSync(
+    capacityJsonPath,
+    `${JSON.stringify(
+      { generatedAt: new Date().toISOString(), records: capacityRecords },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
+
   console.log(`\nImported ${normalizedRows.length} schedule rows`);
   console.log(`Clean CSV: ${CLEAN_CSV_DIR}`);
   console.log(`Public JSON: ${PUBLIC_JSON_DIR}`);
   console.log(`App JSON: ${GENERATED_JSON}`);
+  console.log(`Ship capacities JSON: ${capacityJsonPath}`);
   console.log(`Sample CSV (ignored): ${SAMPLES_DIR}`);
 }
 
