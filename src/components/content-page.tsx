@@ -98,10 +98,10 @@ export function ContentPage({
               </ol>
             </nav>
           ) : null}
-          <h1 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
             {title}
           </h1>
-          <p className="max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
+          <p className="max-w-3xl text-base leading-7 sm:text-lg">
             {lead}
           </p>
           {showShipReassurance ? (

@@ -178,8 +178,8 @@ export function WillThisExcursionFit({
       className={`premium-card overflow-hidden ${className}`.trim()}
       aria-labelledby="excursion-fit-heading"
     >
-      <div className="border-b border-[var(--border-light)] bg-navy px-5 py-5 text-white sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+      <div className="hero-dark border-b border-[var(--border-light)] bg-navy px-5 py-5 sm:px-6">
+        <p className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.2em]">
           Return to ship planner
         </p>
         <h2
@@ -188,7 +188,7 @@ export function WillThisExcursionFit({
         >
           Will This Excursion Fit My Cruise?
         </h2>
-        <p className="mt-2 text-sm text-white/75">
+        <p className="mt-2 text-sm">
           Check whether your excursion leaves enough time before all aboard.
         </p>
       </div>

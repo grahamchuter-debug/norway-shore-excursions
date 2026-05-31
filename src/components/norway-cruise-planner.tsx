@@ -126,14 +126,14 @@ export function NorwayCruisePlanner({
           : "premium-card mx-auto max-w-5xl overflow-hidden"
       }
     >
-      <div className="border-b border-[var(--border-light)] bg-navy px-6 py-5 text-white">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+      <div className="hero-dark border-b border-[var(--border-light)] bg-navy px-6 py-5">
+        <p className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.2em]">
           Smart Cruise Planner · Version 2.0
         </p>
         <h2 className="mt-1 text-xl font-bold sm:text-2xl">
           Norway Cruise Planner™
         </h2>
-        <p className="mt-2 text-sm text-white/75">
+        <p className="mt-2 text-sm">
           Personalised Norway cruise excursion planning with AI style
           recommendations, rules based, not a live booking engine.
         </p>

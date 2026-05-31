@@ -15,19 +15,19 @@ export function PlannerPromoBanner({
     <section
       className={
         compact
-          ? "border-b bg-navy py-8 text-white"
-          : "border-b bg-navy py-10 text-white lg:py-12"
+          ? "hero-dark border-b bg-navy py-8"
+          : "hero-dark border-b bg-navy py-10 lg:py-12"
       }
     >
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-5 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+          <p className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.2em]">
             Recommended first
           </p>
           <h2 className="mt-2 text-xl font-bold sm:text-2xl">
             {config.plannerTitle}
           </h2>
-          <p className="mt-2 text-sm leading-6 text-white/80 sm:text-base">
+          <p className="mt-2 text-sm leading-6 sm:text-base">
             {config.plannerSubtitle}
           </p>
         </div>

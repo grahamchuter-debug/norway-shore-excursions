@@ -103,13 +103,13 @@ export default function HomePage() {
       <JsonLd data={[itemList, buildFaqSchema(homeFaqs)]} />
       <main>
         <PageHero image={siteImages.hero} imageAlt={imageAlts.hero}>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
+          <p className="hero-eyebrow mb-3 text-xs font-semibold uppercase tracking-[0.25em]">
             {siteConfig.name}
           </p>
-          <h1 className="mb-4 max-w-4xl text-3xl font-bold text-white sm:text-5xl md:text-6xl">
+          <h1 className="mb-4 max-w-4xl text-3xl font-bold sm:text-5xl md:text-6xl">
             Your Personalised Norway Cruise Plan
           </h1>
-          <p className="max-w-2xl text-base leading-7 text-white/90 sm:text-xl">
+          <p className="max-w-2xl text-base leading-7 sm:text-xl">
             The Norway Cruise Planner matches your ports, traveller style and
             time ashore to shore excursions with Cruise Match scores and return
             to ship confidence.

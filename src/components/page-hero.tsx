@@ -13,7 +13,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={`page-hero relative ${compact ? "min-h-[220px]" : "min-h-[260px]"} sm:min-h-[300px]`}
+      className={`page-hero hero-dark relative ${compact ? "min-h-[220px]" : "min-h-[260px]"} sm:min-h-[300px]`}
       style={{ backgroundImage: `url(${image})` }}
       aria-label={imageAlt}
     >
