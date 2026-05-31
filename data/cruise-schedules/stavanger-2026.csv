@@ -9,7 +9,7 @@ stavanger,Costa Diadema,Costa Cruises,,2026-06-10,10:00,20:00,,Manual CSV import
 stavanger,AIDAperla,AIDA,,2026-06-11,10:30,20:30,,Manual CSV import,,,All aboard time TBC
 stavanger,Aurora,P&O Cruises,,2026-06-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 stavanger,Sky Princess,Princess Cruises,,2026-06-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
-stavanger,MSC Magnifica,MSC Cruises,,2026-06-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Magnifica,MSC Cruises,3013,2026-06-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
 stavanger,Costa Diadema,Costa Cruises,,2026-06-17,10:00,20:00,,Manual CSV import,,,All aboard time TBC
 stavanger,Iona,P&O Cruises,5200,2026-06-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 stavanger,Ambition,Ambassador Cruise Line,1400,2026-06-19,08:00,18:00,,Manual CSV import,,,All aboard time TBC
@@ -76,8 +76,8 @@ stavanger,MSC Preziosa,MSC Cruises,,2026-08-21,11:00,21:00,,Manual CSV import,,,
 stavanger,AIDAprima,AIDA,3376,2026-08-22,10:30,20:30,,Manual CSV import,,,All aboard time TBC
 stavanger,Viking Jupiter,Viking,,2026-08-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 stavanger,Celebrity Apex,Celebrity Cruises,2910,2026-08-24,07:00,17:00,,Manual CSV import,,,All aboard time TBC
-stavanger,MSC Magnifica,MSC Cruises,,2026-08-25,08:00,18:00,,Manual CSV import,,,All aboard time TBC
-stavanger,Oceania Insignia,Oceania Cruises,,2026-08-25,11:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Magnifica,MSC Cruises,3013,2026-08-25,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Oceania Insignia,Oceania Cruises,684,2026-08-25,11:00,18:00,,Manual CSV import,,,All aboard time TBC
 stavanger,Costa Diadema,Costa Cruises,,2026-08-26,09:00,19:00,,Manual CSV import,,,All aboard time TBC
 stavanger,Iona,P&O Cruises,5200,2026-08-27,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 stavanger,AIDAbella,AIDA,,2026-08-28,08:00,18:00,,Manual CSV import,,,All aboard time TBC
@@ -93,7 +93,7 @@ stavanger,Costa Diadema,Costa Cruises,,2026-09-09,10:00,20:00,,Manual CSV import
 stavanger,Viking Neptune,Viking,930,2026-09-09,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 stavanger,Seven Seas Grandeur,Regent Seven Seas,746,2026-09-10,08:00,18:00,,Manual CSV import,,,All aboard time TBC
 stavanger,AIDAnova,AIDA,5200,2026-09-10,11:00,21:00,,Manual CSV import,,,All aboard time TBC
-stavanger,AIDAluna,AIDA,,2026-09-11,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAluna,AIDA,2050,2026-09-11,07:00,16:00,,Manual CSV import,,,All aboard time TBC
 stavanger,AIDAprima,AIDA,3376,2026-09-12,11:30,21:30,,Manual CSV import,,,All aboard time TBC
 stavanger,Iona,P&O Cruises,5200,2026-09-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 stavanger,Borealis,Fred Olsen Cruise Lines,,2026-09-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC

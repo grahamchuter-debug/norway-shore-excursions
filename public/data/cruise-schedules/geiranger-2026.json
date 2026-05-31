@@ -493,7 +493,7 @@
     "port": "geiranger",
     "ship": "Renaissance",
     "cruise_line": "CFC Croisieres",
-    "passengers": null,
+    "passengers": 1100,
     "arrival_date": "2026-07-14",
     "arrival_time": null,
     "departure_time": null,

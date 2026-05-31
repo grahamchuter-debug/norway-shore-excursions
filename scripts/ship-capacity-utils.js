@@ -66,6 +66,7 @@ function normalizeShipMatchKey(value) {
     .toLowerCase()
     .replace(/^ms\s+/, "")
     .replace(/^mv\s+/, "")
+    .replace(/^msc\s+/, "")
     .replace(/&/g, "")
     .replace(/[^a-z0-9]/g, "");
 }

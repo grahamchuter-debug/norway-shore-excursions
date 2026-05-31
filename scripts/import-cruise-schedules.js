@@ -98,10 +98,15 @@ const SHIP_ALIASES = {
   prima: "Norwegian Prima",
   "msc euribia": "MSC Euribia",
   euribia: "MSC Euribia",
+  "msc magnifica": "MSC Magnifica",
+  magnifica: "MSC Magnifica",
   "celebrity apex": "Celebrity Apex",
   apex: "Celebrity Apex",
   aidanova: "AIDAnova",
   aidaprima: "AIDAprima",
+  aidaluna: "AIDAluna",
+  "ms rotterdam": "Rotterdam",
+  rotterdam: "Rotterdam",
 };
 
 function parseCsv(content) {
