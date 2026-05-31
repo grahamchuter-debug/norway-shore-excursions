@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { ContentPage } from "@/components/content-page";
 import { JsonLd } from "@/components/json-ld";
+import { ShipCard } from "@/components/ship-card";
 import { cruiseLines } from "@/lib/cruise-lines-data";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
 import { getPopularNorwayShipCards } from "@/lib/ships-data";
@@ -137,20 +138,16 @@ export default function CruiseLinesPage() {
             <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {popularShips.map((ship) => (
                 <li key={ship.slug}>
-                  <Link
+                  <ShipCard
+                    slug={ship.slug}
+                    shipName={ship.ship}
+                    cruiseLine={ship.cruiseLine}
+                    capacityLabel={ship.capacityLabel}
+                    callCount={ship.callCount}
+                    topPortsLabel={ship.topPortsLabel}
+                    badgeInput={ship.badgeInput}
                     href={ship.href}
-                    className="premium-card block p-5 transition hover:border-[var(--glacier-blue)]"
-                  >
-                    <h3 className="text-lg font-bold text-slate-900">
-                      {ship.ship}
-                    </h3>
-                    <p className="mt-1 text-sm text-slate-600">
-                      {ship.cruiseLine}
-                    </p>
-                    <p className="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--glacier-blue)]">
-                      {ship.capacityLabel} · {ship.callCount} Norway calls
-                    </p>
-                  </Link>
+                  />
                 </li>
               ))}
             </ul>

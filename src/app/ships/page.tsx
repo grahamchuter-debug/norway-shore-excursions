@@ -1,9 +1,9 @@
-import Link from "next/link";
-
 import { ContentPage } from "@/components/content-page";
 import { CruisePlanningTools } from "@/components/cruise-planning-tools";
 import { JsonLd } from "@/components/json-ld";
+import { ShipCard } from "@/components/ship-card";
 import { shipScheduleSearchPath } from "@/lib/cruise-schedule-config";
+import { shipCardBadgeInputFromSummary } from "@/lib/ship-card-badges";
 import { buildShipScheduleSummaries } from "@/lib/ship-schedules";
 import { featuredShipSlugs } from "@/lib/ships-data";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -83,21 +83,23 @@ export default function ShipsHubPage() {
             Headline ships with the busiest 2026 Norway programmes in our data.
             Select a ship for full schedules, port guides and excursion ideas.
           </p>
-          <ul className="card-grid mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="card-grid mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((ship) => (
               <li key={ship.slug}>
-                <Link
+                <ShipCard
+                  slug={ship.slug}
+                  shipName={ship.ship}
+                  cruiseLine={ship.cruiseLine}
+                  capacityLabel={ship.capacityLabel}
+                  callCount={ship.callCount}
+                  topPortsLabel={ship.topPorts
+                    .slice(0, 3)
+                    .map((p) => p.portDisplayName)
+                    .join(", ")}
+                  badgeInput={shipCardBadgeInputFromSummary(ship)}
                   href={`/ships/${ship.slug}`}
-                  className="premium-card block p-4 transition hover:border-[var(--glacier-blue)]"
-                >
-                  <span className="font-semibold text-slate-900">{ship.ship}</span>
-                  <span className="mt-1 block text-sm text-slate-600">
-                    {ship.cruiseLine}
-                  </span>
-                  <span className="mt-2 block text-xs font-medium uppercase tracking-wide text-[var(--glacier-blue)]">
-                    {ship.capacityLabel} · {ship.callCount} Norway calls
-                  </span>
-                </Link>
+                  priority
+                />
               </li>
             ))}
           </ul>
@@ -106,18 +108,22 @@ export default function ShipsHubPage() {
         {other.length > 0 ? (
           <section>
             <h2>More ships in Norway 2026 data</h2>
-            <ul className="card-grid mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="card-grid mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {other.map((ship) => (
                 <li key={ship.slug}>
-                  <Link
+                  <ShipCard
+                    slug={ship.slug}
+                    shipName={ship.ship}
+                    cruiseLine={ship.cruiseLine}
+                    capacityLabel={ship.capacityLabel}
+                    callCount={ship.callCount}
+                    topPortsLabel={ship.topPorts
+                      .slice(0, 3)
+                      .map((p) => p.portDisplayName)
+                      .join(", ")}
+                    badgeInput={shipCardBadgeInputFromSummary(ship)}
                     href={`/ships/${ship.slug}`}
-                    className="premium-card block p-4 transition hover:border-[var(--glacier-blue)]"
-                  >
-                    <span className="font-semibold text-slate-900">{ship.ship}</span>
-                    <span className="mt-1 block text-sm text-slate-600">
-                      {ship.cruiseLine} · {ship.callCount} calls
-                    </span>
-                  </Link>
+                  />
                 </li>
               ))}
             </ul>

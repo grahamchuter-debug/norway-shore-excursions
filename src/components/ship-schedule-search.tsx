@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { ShipCardBadges } from "@/components/ship-card-badges";
+import { ShipImage } from "@/components/ship-image";
+import { shipCardBadgeInputFromSummary } from "@/lib/ship-card-badges";
 import {
   formatScheduleTime,
   shipScheduleHubPath,
@@ -12,7 +15,11 @@ import {
   normalizeShipSearchKey,
   type ShipScheduleSearchEntry,
 } from "@/lib/cruiseSchedules";
-import { buildShipSearchResultSummaries } from "@/lib/ship-schedules";
+import {
+  buildShipSearchResultSummaries,
+  getShipScheduleSummaryByName,
+  shipNameToSlug,
+} from "@/lib/ship-schedules";
 import { siteConfig } from "@/lib/site-config";
 
 const POPULAR_SHIP_SEARCHES = [
@@ -96,6 +103,22 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
             <div className="space-y-5">
               {results.map((group) => {
                 const summary = buildShipSearchResultSummaries(group.entries[0]?.shipSearchKey ?? "");
+                const scheduleSummary = getShipScheduleSummaryByName(group.ship);
+                const badgeInput = scheduleSummary
+                  ? shipCardBadgeInputFromSummary(scheduleSummary)
+                  : summary
+                    ? {
+                        shipSlug: shipNameToSlug(group.ship),
+                        callCount: summary.callCount,
+                        capacity: summary.capacity,
+                        cruiseLine: summary.cruiseLine,
+                        topPortDisplayName:
+                          summary.topPorts[0]?.portDisplayName ?? null,
+                      }
+                    : {
+                        shipSlug: shipNameToSlug(group.ship),
+                        cruiseLine: group.cruiseLine,
+                      };
                 const topPortsLabel = summary?.topPorts
                   .map((p) => `${p.portDisplayName} (${p.callCount})`)
                   .join(", ");
@@ -103,9 +126,17 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
                 return (
                   <article
                     key={group.ship}
-                    className="rounded-2xl border border-[var(--border-light)] bg-white p-5 shadow-sm sm:p-6"
+                    className="overflow-hidden rounded-2xl border border-[var(--border-light)] bg-white shadow-sm"
                   >
+                    <ShipImage
+                      slug={shipNameToSlug(group.ship)}
+                      shipName={group.ship}
+                      cruiseLine={group.cruiseLine}
+                      className="aspect-[21/9] rounded-none border-0 border-b border-[var(--border-light)]"
+                    />
+                    <div className="p-5 sm:p-6">
                     <header className="border-b border-[var(--border-light)] pb-4">
+                      <ShipCardBadges input={badgeInput} className="mb-3" />
                       <h2 className="text-xl font-bold text-[var(--navy-deep)]">{group.ship}</h2>
                       <p className="mt-1 text-sm text-slate-600">{group.cruiseLine}</p>
                       {summary ? (
@@ -198,6 +229,7 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
                         </li>
                       ))}
                     </ul>
+                    </div>
                   </article>
                 );
               })}

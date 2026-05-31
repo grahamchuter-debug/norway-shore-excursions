@@ -8,7 +8,9 @@ import {
   ReturnToShipConfidence,
   fitTierToReturnLevel,
 } from "@/components/return-to-ship-confidence";
+import { ShipCardBadges } from "@/components/ship-card-badges";
 import { ShipImage } from "@/components/ship-image";
+import { shipCardBadgeInputFromSummary } from "@/lib/ship-card-badges";
 import {
   formatScheduleDateLabel,
   formatScheduleTime,
@@ -118,12 +120,19 @@ export default async function ShipPage({ params }: ShipPageProps) {
         ]}
         faqs={shipPageFaqs}
         belowHero={
-          <ShipImage
-            slug={slug}
-            shipName={ship.ship}
-            className="mx-auto max-w-3xl aspect-[16/9]"
-            priority
-          />
+          <div className="mx-auto max-w-3xl space-y-4">
+            <ShipImage
+              slug={slug}
+              shipName={ship.ship}
+              cruiseLine={ship.cruiseLine}
+              className="aspect-[16/9]"
+              priority
+            />
+            <ShipCardBadges
+              input={shipCardBadgeInputFromSummary(ship)}
+              className="px-1"
+            />
+          </div>
         }
         ctaTitle="Plan excursions for your sailing"
         ctaText="Use the Norway Cruise Planner to match shore excursions to your ship timetable and traveller style."

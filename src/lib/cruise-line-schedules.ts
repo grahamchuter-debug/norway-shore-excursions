@@ -44,8 +44,11 @@ export type CruiseLineShipSummary = {
   ship: string;
   slug: string;
   callCount: number;
+  capacity: number | null;
   capacityLabel: string;
   topPortNames: string;
+  topPortDisplayName: string | null;
+  cruiseLine: string;
   shipPageHref: string | null;
 };
 
@@ -66,6 +69,17 @@ export type CruiseLineScheduleSummary = {
 
 function matchesCruiseLine(row: CruiseScheduleRow, key: CruiseLineScheduleKey): boolean {
   return scheduleLineNames[key].includes(row.cruise_line);
+}
+
+export function matchCruiseLineScheduleKey(
+  cruiseLine: string,
+): CruiseLineScheduleKey | null {
+  const trimmed = cruiseLine.trim();
+  if (!trimmed) return null;
+  for (const key of cruiseLineScheduleKeys) {
+    if (scheduleLineNames[key].includes(trimmed)) return key;
+  }
+  return null;
 }
 
 function getRowsForCruiseLine(key: CruiseLineScheduleKey): CruiseScheduleRow[] {
@@ -119,14 +133,20 @@ export function getCruiseLineScheduleSummary(
 
   const ships = [...shipCounts.values()]
     .map(({ display, count, cruiseLine, portCounts: shipPortCounts }) => {
-      const topPortNames = [...shipPortCounts.entries()]
-        .sort((a, b) => b[1] - a[1])
+      const sortedPorts = [...shipPortCounts.entries()].sort(
+        (a, b) => b[1] - a[1],
+      );
+      const topPortNames = sortedPorts
         .slice(0, 3)
         .map(
           ([portSlug]) =>
             portBySlug[portSlug]?.displayName ?? portSlug,
         )
         .join(", ");
+      const topPortSlug = sortedPorts[0]?.[0];
+      const topPortDisplayName = topPortSlug
+        ? (portBySlug[topPortSlug]?.displayName ?? topPortSlug)
+        : null;
 
       const scheduleSummary = getShipScheduleSummaryByName(display);
       const slug = scheduleSummary?.slug ?? shipNameToSlug(display);
@@ -136,8 +156,11 @@ export function getCruiseLineScheduleSummary(
         ship: display,
         slug,
         callCount: count,
+        capacity,
         capacityLabel: formatShipCapacityLabel(capacity),
         topPortNames,
+        topPortDisplayName,
+        cruiseLine,
         shipPageHref: scheduleSummary ? shipPagePath(slug) : null,
       };
     })

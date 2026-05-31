@@ -12,7 +12,8 @@
     "import:schedules": "node scripts/import-cruise-schedules.js",
     "parse:schedule": "node scripts/parse-cruisetimetables-schedule.js",
     "debug:schedules": "node scripts/debug-cruise-schedules.js",
-    "debug:ships": "node scripts/debug-cruise-ships.js"
+    "debug:ships": "node scripts/debug-cruise-ships.js",
+    "qa:ship-images": "node scripts/qa-ship-images.js"
   },
   "dependencies": {
     "jspdf": "^4.2.1",

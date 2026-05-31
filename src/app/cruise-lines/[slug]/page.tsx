@@ -3,14 +3,18 @@ import { notFound } from "next/navigation";
 
 import { ContentPage } from "@/components/content-page";
 import { CruisePlanningTools } from "@/components/cruise-planning-tools";
+import { CruiseLineLogo } from "@/components/cruise-line-logo";
 import { JsonLd } from "@/components/json-ld";
 import { PortCard } from "@/components/port-card";
+import { ShipCard } from "@/components/ship-card";
+import { ShipCardBadges } from "@/components/ship-card-badges";
 import {
   ReturnToShipConfidence,
   fitTierToReturnLevel,
 } from "@/components/return-to-ship-confidence";
 import { cruiseLineBySlug, cruiseLineSlugs } from "@/lib/cruise-lines-data";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
+import { shipCardBadgeInputFromCruiseLineShip } from "@/lib/ship-card-badges";
 import {
   getPortExcursionLink,
   getPortExcursionLinkLabel,
@@ -117,6 +121,11 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           { label: line.shortName },
         ]}
         faqs={line.faqs}
+        belowHero={
+          <div className="mx-auto flex max-w-3xl justify-center pb-2">
+            <CruiseLineLogo cruiseLine={line.name} variant="badge" />
+          </div>
+        }
         ctaTitle="Build your Norway excursion plan"
         ctaText="Use the Norway Cruise Planner for smart, rules based recommendations matched to your ports and interests."
         ctaHref="/norway-cruise-planner"
@@ -148,35 +157,29 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
               verified timings. Ship call counts reflect total port visits in
               our database.
             </p>
-            <ul className="card-grid mt-4 grid gap-3 sm:grid-cols-2">
+            <ul className="card-grid mt-4 grid gap-4 sm:grid-cols-2">
               {scheduleStats.ships.map((ship) => (
                 <li key={ship.ship}>
                   {ship.shipPageHref ? (
-                    <Link
+                    <ShipCard
+                      slug={ship.slug}
+                      shipName={ship.ship}
+                      cruiseLine={ship.cruiseLine}
+                      capacityLabel={ship.capacityLabel}
+                      callCount={ship.callCount}
+                      topPortsLabel={ship.topPortNames || undefined}
+                      badgeInput={shipCardBadgeInputFromCruiseLineShip(ship)}
                       href={ship.shipPageHref}
-                      className="premium-card block p-4 transition hover:border-[var(--glacier-blue)]"
-                    >
-                      <span className="font-semibold text-slate-900">
-                        {ship.ship}
-                      </span>
-                      <span className="mt-1 block text-sm text-slate-600">
-                        {ship.capacityLabel} · {ship.callCount}{" "}
-                        {ship.callCount === 1 ? "port call" : "port calls"}
-                      </span>
-                      {ship.topPortNames ? (
-                        <span className="mt-2 block text-xs text-slate-500">
-                          Top ports: {ship.topPortNames}
-                        </span>
-                      ) : null}
-                      <span className="mt-2 block text-xs font-semibold text-[var(--glacier-blue)]">
-                        View ship page →
-                      </span>
-                    </Link>
+                    />
                   ) : (
                     <Link
                       href={`${shipScheduleSearchPath}?q=${encodeURIComponent(ship.ship)}`}
                       className="premium-card block p-4 transition hover:border-[var(--glacier-blue)]"
                     >
+                      <ShipCardBadges
+                        input={shipCardBadgeInputFromCruiseLineShip(ship)}
+                        className="mb-3"
+                      />
                       <span className="font-semibold text-slate-900">
                         {ship.ship}
                       </span>

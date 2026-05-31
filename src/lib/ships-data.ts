@@ -1,9 +1,18 @@
+import { shipCardBadgeInputFromSummary } from "@/lib/ship-card-badges";
+import type { ShipCardBadgeInput } from "@/lib/ship-card-badges";
 import type { ShipScheduleSummary } from "@/lib/ship-schedules";
 import {
   buildShipScheduleSummaries,
   getShipScheduleSummaryBySlug,
   shipPagePath,
 } from "@/lib/ship-schedules";
+
+export {
+  getShipImagePath,
+  resolveShipImageSlug,
+  shipHasListedImage,
+  shipPlaceholderImagePath,
+} from "@/lib/ship-images";
 
 /** Featured ship pages promoted across the site. */
 export const featuredShipSlugs = [
@@ -32,38 +41,20 @@ export const popularNorwayShipSlugs = [
 
 export type PopularNorwayShipSlug = (typeof popularNorwayShipSlugs)[number];
 
-export const shipsWithOptionalImages: readonly string[] = [
-  "msc-euribia",
-  "iona",
-  "arvia",
-  "celebrity-apex",
-  "viking-vela",
-  "aidaprima",
-  "msc-magnifica",
-  "rotterdam",
-  "ambience",
-] as const;
-
-export function shipImagePath(slug: string): string {
-  return `/images/ships/${slug}.jpg`;
-}
-
-export function shipPlaceholderImagePath(): string {
-  return "/images/ships/placeholder.svg";
-}
-
-export function shipHasListedImage(slug: string): boolean {
-  return (shipsWithOptionalImages as readonly string[]).includes(slug);
-}
-
 export type PopularShipCard = {
   slug: string;
   ship: string;
   cruiseLine: string;
   capacityLabel: string;
   callCount: number;
+  topPortsLabel: string;
+  badgeInput: ShipCardBadgeInput;
   href: string;
 };
+
+function formatTopPorts(summary: ShipScheduleSummary): string {
+  return summary.topPorts.map((p) => p.portDisplayName).join(", ");
+}
 
 export function getPopularNorwayShipCards(): PopularShipCard[] {
   const cards: PopularShipCard[] = [];
@@ -76,6 +67,8 @@ export function getPopularNorwayShipCards(): PopularShipCard[] {
       cruiseLine: summary.cruiseLine,
       capacityLabel: summary.capacityLabel,
       callCount: summary.callCount,
+      topPortsLabel: formatTopPorts(summary),
+      badgeInput: shipCardBadgeInputFromSummary(summary),
       href: shipPagePath(slug),
     });
   }

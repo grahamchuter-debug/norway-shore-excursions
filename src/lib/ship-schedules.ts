@@ -61,6 +61,40 @@ function getRowsForShipKey(shipKey: string): CruiseScheduleRow[] {
   );
 }
 
+export type TopNorwayShip2026 = {
+  slug: string;
+  ship: string;
+  callCount: number;
+};
+
+let cachedTopNorwayShip2026: TopNorwayShip2026 | null | undefined;
+
+/** Global winner: most Norway port calls across all verified schedule ports. */
+export function getTopNorwayShip2026(): TopNorwayShip2026 | null {
+  if (cachedTopNorwayShip2026 !== undefined) {
+    return cachedTopNorwayShip2026;
+  }
+
+  const summaries = buildShipScheduleSummaries();
+  const top = summaries[0];
+  if (!top || top.callCount <= 0) {
+    cachedTopNorwayShip2026 = null;
+    return null;
+  }
+
+  cachedTopNorwayShip2026 = {
+    slug: top.slug,
+    ship: top.ship,
+    callCount: top.callCount,
+  };
+  return cachedTopNorwayShip2026;
+}
+
+export function isTopNorwayShip2026Slug(slug: string): boolean {
+  const top = getTopNorwayShip2026();
+  return Boolean(slug && top && top.slug === slug);
+}
+
 export function buildShipScheduleSummaries(): ShipScheduleSummary[] {
   const groups = new Map<
     string,
@@ -189,6 +223,7 @@ export function getAllShipSlugs(): string[] {
 export type ShipSearchResultSummary = {
   ship: string;
   cruiseLine: string;
+  capacity: number | null;
   capacityLabel: string;
   callCount: number;
   topPorts: readonly ShipPortSummary[];
@@ -208,6 +243,7 @@ export function buildShipSearchResultSummaries(
   return {
     ship: summary.ship,
     cruiseLine: summary.cruiseLine,
+    capacity: summary.capacity,
     capacityLabel: summary.capacityLabel,
     callCount: summary.callCount,
     topPorts: summary.topPorts,
