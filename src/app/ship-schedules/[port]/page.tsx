@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ContentPage } from "@/components/content-page";
+import { RecommendedPortExcursions } from "@/components/recommended-port-excursions";
 import { ShipScheduleHubCard } from "@/components/ship-schedule-hub-card";
 import { ShipScheduleInternalLinks } from "@/components/ship-schedule-internal-links";
 import {
@@ -106,6 +107,12 @@ export default async function ShipSchedulePortPage({ params }: ShipSchedulePortP
           })}
         </ul>
       </section>
+
+      <RecommendedPortExcursions
+        portSlug={port}
+        portDisplayName={portData.displayName}
+        fitExcursionHref="/return-to-ship-guide"
+      />
 
       <ShipScheduleInternalLinks portSlug={port} portName={portData.displayName} />
     </ContentPage>

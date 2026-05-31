@@ -235,7 +235,7 @@ function parsePsovdeFormat(html, year, month) {
 }
 
 function parseCdListingFormat(html, portItineraryLabel) {
-  const chunks = html.split("<div class='cd-listing'>");
+  const chunks = html.split(/<div class=['"]cd-listing['"]>/);
   const rows = [];
   const escapedPort = portItineraryLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const portTimesPattern = new RegExp(
@@ -255,7 +255,9 @@ function parseCdListingFormat(html, portItineraryLabel) {
 
     const ship = decodeHtml(shipMatch[1]);
 
-    const lineMatch = / at ([^']+)'/i.exec(chunk);
+    const lineMatch =
+      /\salt="[^"]*\sat\s([^"]+)"/i.exec(chunk) ||
+      /\sat\s([^'"]+)['"]/i.exec(chunk);
     const cruiseLine = lineMatch ? normalizeCruiseLine(decodeHtml(lineMatch[1])) : "";
 
     const timesMatch = portTimesPattern.exec(chunk);
@@ -325,9 +327,9 @@ async function fetchHtml(url, attempt = 1) {
     },
   });
 
-  if (response.status === 429 && attempt < 10) {
-    const delayMs = Math.min(attempt * 10000, 90000);
-    await new Promise((resolve) => setTimeout(resolve, delayMs));
+  if (response.status === 429 && attempt < 4) {
+    console.log(`Rate limited (${url}); waiting 60s (attempt ${attempt}/3)...`);
+    await new Promise((resolve) => setTimeout(resolve, 60000));
     return fetchHtml(url, attempt + 1);
   }
 
@@ -349,26 +351,51 @@ function collectPaginationUrls(baseUrl, html) {
   return [...urls];
 }
 
-async function fetchAllScheduleHtml(baseUrl) {
+async function fetchAllScheduleHtml(baseUrl, options = {}) {
+  const { firstPageOnly = false } = options;
+  console.log(`Fetching: ${baseUrl}`);
   const firstPage = await fetchHtml(baseUrl);
   const pageUrls = collectPaginationUrls(baseUrl, firstPage);
   const htmlParts = [firstPage];
 
+  if (firstPageOnly) {
+    console.log("First page only (--first-page-only); skipping pagination.");
+    return { html: htmlParts.join("\n"), pageCount: 1 };
+  }
+
   for (const pageUrl of pageUrls) {
     if (pageUrl === baseUrl) continue;
-    await new Promise((resolve) => setTimeout(resolve, 45000));
-    htmlParts.push(await fetchHtml(pageUrl));
+    console.log(`Waiting 90s before pagination fetch...`);
+    await new Promise((resolve) => setTimeout(resolve, 90000));
+    console.log(`Fetching: ${pageUrl}`);
+    try {
+      htmlParts.push(await fetchHtml(pageUrl));
+    } catch (error) {
+      console.warn(
+        `Warning: pagination fetch failed (${pageUrl}). Continuing with ${htmlParts.length} page(s).`,
+      );
+      console.warn(error instanceof Error ? error.message : String(error));
+      break;
+    }
   }
 
   return { html: htmlParts.join("\n"), pageCount: pageUrls.length };
 }
 
 async function main() {
-  const [urlArg, outputArg] = process.argv.slice(2);
+  const args = process.argv.slice(2);
+  const firstPageOnly = args.includes("--first-page-only");
+  const fromHtmlIndex = args.indexOf("--from-html");
+  const fromHtmlPath =
+    fromHtmlIndex >= 0 ? path.resolve(args[fromHtmlIndex + 1] ?? "") : "";
+  const positional = args.filter(
+    (arg, index) => !arg.startsWith("--") && index !== fromHtmlIndex + 1,
+  );
+  const [urlArg, outputArg] = positional;
 
   if (!urlArg || !outputArg) {
     console.error(
-      "Usage: node scripts/parse-cruisetimetables-schedule.js <url> <output.csv>",
+      "Usage: node scripts/parse-cruisetimetables-schedule.js [--first-page-only] [--from-html page.html] <url> <output.csv>",
     );
     process.exit(1);
   }
@@ -379,7 +406,15 @@ async function main() {
     process.exit(1);
   }
 
-  const { html, pageCount } = await fetchAllScheduleHtml(urlArg);
+  let html;
+  let pageCount;
+  if (fromHtmlPath) {
+    html = fs.readFileSync(fromHtmlPath, "utf8");
+    pageCount = 1;
+    console.log(`Loaded HTML: ${fromHtmlPath}`);
+  } else {
+    ({ html, pageCount } = await fetchAllScheduleHtml(urlArg, { firstPageOnly }));
+  }
   const rows = dedupeRows(parseScheduleHtml(html, inferred.year, inferred.month, urlArg));
   const outputPath = path.resolve(outputArg);
 
@@ -387,9 +422,6 @@ async function main() {
   fs.writeFileSync(outputPath, rowsToCsv(rows), "utf8");
 
   console.log(`Fetched: ${urlArg}`);
-  console.log(
-    `Format: ${html.includes("cd-listing") ? "cd-listing (paginated)" : "psovde-listing"}`,
-  );
   console.log(`Pages fetched: ${pageCount}`);
   console.log(`Month: ${inferred.year}-${String(inferred.month).padStart(2, "0")}`);
   console.log(`Rows written: ${rows.length}`);

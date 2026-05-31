@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { CruiseScheduleComingSoon } from "@/components/cruise-schedule-coming-soon";
 import { CruiseScheduleTable } from "@/components/cruise-schedule-table";
+import { RecommendedPortExcursions } from "@/components/recommended-port-excursions";
 import { WillThisExcursionFit } from "@/components/will-this-excursion-fit";
 import { ContentPage } from "@/components/content-page";
 import { ShipScheduleInternalLinks } from "@/components/ship-schedule-internal-links";
@@ -117,6 +118,11 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
           <CruiseScheduleComingSoon />
         )}
       </section>
+
+      <RecommendedPortExcursions
+        portSlug={port}
+        portDisplayName={portData.displayName}
+      />
 
       <section id="will-this-excursion-fit" className="!mt-0">
         <h2 className="sr-only">Will This Excursion Fit My Cruise?</h2>

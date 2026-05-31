@@ -1,0 +1,9 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+nordfjordeid,Spirit Of Adventure,Saga Cruises,999,2026-06-02,12:00,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Costa Favolosa,Costa Cruises,3800,2026-06-06,07:30,16:30,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Artania,Phoenix Reisen,1260,2026-06-07,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2026-06-10,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Artania,Phoenix Reisen,1260,2026-06-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Costa Favolosa,Costa Cruises,3800,2026-06-15,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Mein Schiff 3,TUI Cruises,,2026-06-18,07:00,19:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2026-06-24,11:00,21:00,,Manual CSV import,,,All aboard time TBC

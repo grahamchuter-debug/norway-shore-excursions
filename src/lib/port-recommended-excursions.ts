@@ -1,0 +1,212 @@
+import { siteConfig } from "@/lib/site-config";
+
+export type RecommendedExcursionCard = {
+  title: string;
+  benefit: string;
+  url: string;
+  ctaLabel: string;
+  external?: boolean;
+};
+
+/** Ports with curated tour cards (live local excursion pages). */
+export const portsWithMappedExcursions = [
+  "flam",
+  "bergen",
+  "stavanger",
+  "eidfjord",
+  "olden",
+  "geiranger",
+] as const;
+
+export type MappedExcursionPortSlug = (typeof portsWithMappedExcursions)[number];
+
+const mappedPortExcursions: Record<
+  MappedExcursionPortSlug,
+  readonly RecommendedExcursionCard[]
+> = {
+  flam: [
+    {
+      title: "Stegastein Viewpoint Shore Excursion",
+      benefit: "Iconic Aurlandsfjord panorama above Flåm with minimal walking.",
+      url: "https://flamshoreexcursions.com/excursions/stegastein-viewpoint",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Private Stegastein Viewpoint Tour",
+      benefit: "Flexible small group routing with return to ship buffers built in.",
+      url: "https://flamshoreexcursions.com/flam-shore-excursions",
+      ctaLabel: "Explore private options",
+      external: true,
+    },
+    {
+      title: "Flåm Cruise Planner",
+      benefit: "Personalised excursion picks matched to your ship timetable.",
+      url: siteConfig.plannerPath,
+      ctaLabel: "Open planner",
+    },
+  ],
+  bergen: [
+    {
+      title: "Mostraumen Fjord Cruise",
+      benefit: "Headline Osterfjord sailing from central Bergen harbour.",
+      url: "https://bergenshoreexcursions.com/excursions/fjord-cruise-to-mostraumen",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Bergen Walking Tour",
+      benefit: "Bryggen, harbour and Fish Market in a compact city loop.",
+      url: "https://bergenshoreexcursions.com/excursions/bergen-walking-tour",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Private Bergen Shore Excursions",
+      benefit: "Custom routing through Bryggen and harbour viewpoints on your schedule.",
+      url: "https://bergenshoreexcursions.com/excursions/private-bergen-sightseeing",
+      ctaLabel: "Explore private options",
+      external: true,
+    },
+  ],
+  stavanger: [
+    {
+      title: "Lysefjord Cruise",
+      benefit: "Classic fjord sailing beneath Pulpit Rock cliffs.",
+      url: "https://stavangershoreexcursions.com/excursions/lysefjord-cruise",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Stavanger Walking Tour",
+      benefit: "Old Stavanger streets and harbour without a long transfer.",
+      url: "https://stavangershoreexcursions.com/excursions/stavanger-walking-tour",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Private Stavanger Shore Excursions",
+      benefit: "Flexible private touring from the Vågen harbour area.",
+      url: "https://stavangershoreexcursions.com/stavanger-shore-excursions",
+      ctaLabel: "Explore private options",
+      external: true,
+    },
+  ],
+  eidfjord: [
+    {
+      title: "Vøringsfossen Waterfall",
+      benefit: "Norway's famous waterfall with modern canyon viewing walkways.",
+      url: "https://eidfjordshoreexcursions.com/excursions/voringsfossen-waterfall",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Hardanger Scenic Tour",
+      benefit: "Waterfall, Hardangervidda and Måbødalen valley in one port day.",
+      url: "https://eidfjordshoreexcursions.com/excursions/best-of-eidfjord-sightseeing",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Private Eidfjord Shore Excursions",
+      benefit: "Premium private sightseeing with flexible waterfall pacing.",
+      url: "https://eidfjordshoreexcursions.com/excursions/private-best-of-eidfjord-sightseeing",
+      ctaLabel: "Explore private options",
+      external: true,
+    },
+  ],
+  olden: [
+    {
+      title: "Briksdal Glacier",
+      benefit: "Blue ice valley scenery with lake boat and walking options.",
+      url: "https://oldenshoreexcursions.com/excursions/briksdal-glacier-olden-lake",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Loen Skylift",
+      benefit: "Dramatic Nordfjord panoramas from Mount Hoven cable car.",
+      url: "https://oldenshoreexcursions.com/excursions/loen-skylift-mount-hoven",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Private Olden Shore Excursions",
+      benefit: "Flexible glacier touring for families and small groups.",
+      url: "https://oldenshoreexcursions.com/excursions/private-briksdal-glacier-olden-lake",
+      ctaLabel: "Explore private options",
+      external: true,
+    },
+  ],
+  geiranger: [
+    {
+      title: "Geirangerfjord Viewpoints",
+      benefit: "UNESCO fjord sailing past Seven Sisters and Bridal Veil.",
+      url: "https://geirangershoreexcursions.com/excursions/geiranger-fjord-sightseeing",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Mount Dalsnibba",
+      benefit: "Summit skywalk views over Geirangerfjord below.",
+      url: "https://geirangershoreexcursions.com/excursions/mount-dalsnibba",
+      ctaLabel: "View tour",
+      external: true,
+    },
+    {
+      title: "Private Geiranger Shore Excursions",
+      benefit: "Compare private touring options for longer port days.",
+      url: "https://geirangershoreexcursions.com/excursions",
+      ctaLabel: "Explore private options",
+      external: true,
+    },
+  ],
+};
+
+function buildFallbackExcursions(
+  fitExcursionHref: string,
+): readonly RecommendedExcursionCard[] {
+  return [
+    {
+      title: "View recommended excursions",
+      benefit: "Browse Norway shore excursions by theme and port authority guides.",
+      url: "/norway-shore-excursions",
+      ctaLabel: "Browse excursions",
+    },
+    {
+      title: "Use the Norway Cruise Planner",
+      benefit: "Personalised picks with return to ship confidence labels.",
+      url: siteConfig.plannerPath,
+      ctaLabel: "Open planner",
+    },
+    {
+      title: "Check if this excursion fits your cruise",
+      benefit: "Test tour duration against your arrival and all aboard times.",
+      url: fitExcursionHref,
+      ctaLabel: "Check timing",
+    },
+  ];
+}
+
+export function isMappedExcursionPort(
+  portSlug: string,
+): portSlug is MappedExcursionPortSlug {
+  return (portsWithMappedExcursions as readonly string[]).includes(portSlug);
+}
+
+export function getPortRecommendedExcursions(
+  portSlug: string,
+  options: { fitExcursionHref?: string } = {},
+): readonly RecommendedExcursionCard[] {
+  const fitExcursionHref = options.fitExcursionHref ?? "#will-this-excursion-fit";
+
+  if (isMappedExcursionPort(portSlug)) {
+    return mappedPortExcursions[portSlug];
+  }
+
+  return buildFallbackExcursions(fitExcursionHref);
+}
+
+export function usesFallbackExcursionCards(portSlug: string): boolean {
+  return !isMappedExcursionPort(portSlug);
+}
