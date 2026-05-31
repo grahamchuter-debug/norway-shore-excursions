@@ -10,6 +10,7 @@
     "pdf:sample": "tsx scripts/generate-sample-cruise-pdf.ts",
     "verify:pdf": "tsx scripts/verify-cruise-pdf-text.ts",
     "import:schedules": "node scripts/import-cruise-schedules.js",
+    "parse:schedule": "node scripts/parse-cruisetimetables-schedule.js",
     "debug:schedules": "node scripts/debug-cruise-schedules.js",
     "debug:ships": "node scripts/debug-cruise-ships.js"
   },

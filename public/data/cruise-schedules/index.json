@@ -1,9 +1,14 @@
 {
   "region": "norway",
-  "generatedAt": "2026-05-30T17:48:04.733Z",
-  "rowCount": 70,
+  "generatedAt": "2026-05-31T07:51:59.876Z",
+  "rowCount": 617,
   "ports": [
-    "flam"
+    "bergen",
+    "eidfjord",
+    "flam",
+    "geiranger",
+    "olden",
+    "stavanger"
   ],
   "portStatus": {
     "flam": {
@@ -20,48 +25,73 @@
       "displayStatus": "real_data_available"
     },
     "bergen": {
-      "dataSource": "none",
-      "realCsvFound": false,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 203,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "stavanger": {
-      "dataSource": "none",
-      "realCsvFound": false,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 109,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "eidfjord": {
-      "dataSource": "none",
-      "realCsvFound": false,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 51,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "olden": {
-      "dataSource": "none",
-      "realCsvFound": false,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 90,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "geiranger": {
-      "dataSource": "none",
-      "realCsvFound": false,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "dataSource": "real",
+      "realCsvFound": true,
+      "rowCount": 94,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "nordfjordeid": {
       "dataSource": "none",
-      "realCsvFound": false,
+      "realCsvFound": true,
       "rowCount": 0,
       "monthsAvailable": [],
       "pagesGenerated": 0,
@@ -69,6 +99,11 @@
     }
   },
   "files": [
-    "flam-2026.json"
+    "bergen-2026.json",
+    "eidfjord-2026.json",
+    "flam-2026.json",
+    "geiranger-2026.json",
+    "olden-2026.json",
+    "stavanger-2026.json"
   ]
 }

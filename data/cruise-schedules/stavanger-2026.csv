@@ -1,0 +1,110 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+stavanger,Britannia,P&O Cruises,,2026-06-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-06-03,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Neptune,Viking,930,2026-06-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-06-05,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-06-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Silver Spirit,Silversea,,2026-06-09,08:00,17:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-06-10,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAperla,AIDA,,2026-06-11,10:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Aurora,P&O Cruises,,2026-06-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Sky Princess,Princess Cruises,,2026-06-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Magnifica,MSC Cruises,,2026-06-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-06-17,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-06-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Ambition,Ambassador Cruise Line,1400,2026-06-19,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-06-19,10:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Sky,Viking,,2026-06-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Celebrity Apex,Celebrity Cruises,2910,2026-06-22,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Europa,Hapag Lloyd,,2026-06-22,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Balmoral,Fred Olsen Cruise Lines,,2026-06-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-06-24,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Vela,Viking,998,2026-06-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-06-25,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Mein Schiff 7,TUI Cruises,,2026-06-27,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Europa 2,Hapag Lloyd,,2026-06-28,08:00,14:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Britannia,P&O Cruises,,2026-06-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-06-29,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-06-30,10:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Saturn,Viking,998,2026-06-30,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Mein Schiff 3,TUI Cruises,,2026-07-01,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-07-01,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2026-07-02,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAbella,AIDA,,2026-07-03,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Preziosa,MSC Cruises,,2026-07-04,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Vela,Viking,998,2026-07-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-07-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Queen Anne,Cunard Line,,2026-07-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-07-08,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAperla,AIDA,,2026-07-09,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-07-10,10:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Mein Schiff 7,TUI Cruises,,2026-07-11,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Oceania Sirena,Oceania Cruises,,2026-07-11,12:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Sky,Viking,,2026-07-12,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-07-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-07-14,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-07-15,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Sky Princess,Princess Cruises,,2026-07-16,10:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Liberty Of The Seas,Royal Caribbean Cruises,,2026-07-17,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Borealis,Fred Olsen Cruise Lines,,2026-07-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Ambition,Ambassador Cruise Line,1400,2026-07-19,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Amadea,Phoenix Reisen,620,2026-07-20,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-07-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-07-27,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-07-29,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2026-07-30,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-07-31,10:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Jupiter,Viking,,2026-08-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-08-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Viking Neptune,Viking,930,2026-08-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-08-04,07:30,17:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-08-05,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Sky Princess,Princess Cruises,,2026-08-06,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Mira,Viking,998,2026-08-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Disney Dream,Disney Cruise Line,,2026-08-08,08:30,17:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-08-12,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2026-08-13,11:30,21:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Neptune,Viking,930,2026-08-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Mein Schiff Relax,TUI Cruises,2894,2026-08-14,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Silver Spirit,Silversea,,2026-08-14,08:00,17:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-08-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Viking Mira,Viking,998,2026-08-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Viking Neptune,Viking,930,2026-08-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-08-19,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAperla,AIDA,,2026-08-20,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Preziosa,MSC Cruises,,2026-08-21,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-08-22,10:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Jupiter,Viking,,2026-08-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Celebrity Apex,Celebrity Cruises,2910,2026-08-24,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Magnifica,MSC Cruises,,2026-08-25,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Oceania Insignia,Oceania Cruises,,2026-08-25,11:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-08-26,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-08-27,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAbella,AIDA,,2026-08-28,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Ambition,Ambassador Cruise Line,1400,2026-08-29,08:00,13:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Arcadia,P&O Cruises,,2026-08-30,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Celebrity Apex,Celebrity Cruises,2910,2026-08-31,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Spirit Of Discovery,Saga Cruises,999,2026-09-01,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-09-02,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Mein Schiff 3,TUI Cruises,,2026-09-04,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Disney Dream,Disney Cruise Line,,2026-09-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-09-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2026-09-09,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Neptune,Viking,930,2026-09-09,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Seven Seas Grandeur,Regent Seven Seas,746,2026-09-10,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2026-09-10,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAluna,AIDA,,2026-09-11,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2026-09-12,11:30,21:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-09-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Borealis,Fred Olsen Cruise Lines,,2026-09-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Britannia,P&O Cruises,,2026-09-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAperla,AIDA,,2026-09-17,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Favolosa,Costa Cruises,3800,2026-09-18,13:30,20:30,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Preziosa,MSC Cruises,,2026-09-20,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Majestic Princess,Princess Cruises,,2026-09-21,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Britannia,P&O Cruises,,2026-09-22,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2026-09-24,11:30,21:30,,Manual CSV import,,,All aboard time TBC
+stavanger,Norwegian Star,Norwegian Cruise Line,,2026-09-25,07:30,16:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Nieuw Statendam,Holland America Line,,2026-09-27,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2026-09-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Britannia,P&O Cruises,,2026-09-29,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
