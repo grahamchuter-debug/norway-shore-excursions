@@ -76,6 +76,8 @@ export type ScheduleMonthSlug2026 = (typeof scheduleMonthSlugs2026)[number];
 /** Master Norway schedule hub (reusable by port sites via shared data helpers). */
 export const shipScheduleHubPath = "/ship-schedules";
 
+export const shipScheduleSearchPath = `${shipScheduleHubPath}/search`;
+
 const numericMonthToSlug: Record<string, ScheduleMonthSlug2026> = {
   "06": "june-2026",
   "07": "july-2026",

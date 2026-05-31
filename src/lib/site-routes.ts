@@ -5,6 +5,7 @@ import {
   shipScheduleHubPath,
   shipScheduleMonthPath,
   shipSchedulePortPath,
+  shipScheduleSearchPath,
 } from "@/lib/cruise-schedule-config";
 import { portSlugs } from "@/lib/ports-data";
 import { themeSlugs } from "@/lib/themes-data";
@@ -28,6 +29,7 @@ const level1Routes: RouteEntry[] = [
   { path: "/small-group-shore-excursions-norway", priority: 0.85, changeFrequency: "monthly" },
   { path: "/return-to-ship-guide", priority: 0.85, changeFrequency: "monthly" },
   { path: shipScheduleHubPath, priority: 0.9, changeFrequency: "weekly" },
+  { path: shipScheduleSearchPath, priority: 0.88, changeFrequency: "weekly" },
 ];
 
 const portRoutes: RouteEntry[] = portSlugs.map((slug) => ({

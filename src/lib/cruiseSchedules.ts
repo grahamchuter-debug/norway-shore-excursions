@@ -11,7 +11,9 @@
 import schedulePayload from "@/data/cruise-schedules.generated.json";
 import {
   buildScheduleMonthPrefix,
+  buildScheduleMonthSlug,
   formatScheduleDateLabel,
+  getPortExcursionLink,
   monthLabels,
   normalizeSchedulePortSlug,
   parseScheduleMonthSlug,
@@ -19,8 +21,10 @@ import {
   schedulePortRegions,
   scheduleYear,
   scheduledPortSlugs,
+  shipScheduleMonthPath,
   type ScheduleMonthSlug2026,
 } from "@/lib/cruise-schedule-config";
+import { portBySlug } from "@/lib/ports-data";
 
 export type CruiseScheduleRow = {
   port: string;
@@ -177,6 +181,122 @@ export function getScheduleHubSummariesByRegion(): ScheduleHubRegionGroup[] {
 
 function normalizeShipMatch(value: string): string {
   return value.trim().toLowerCase();
+}
+
+/** Strip accents, prefixes and punctuation for partial ship name search. */
+export function normalizeShipSearchKey(value: string): string {
+  return String(value ?? "")
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/^ms\s+/, "")
+    .replace(/^mv\s+/, "")
+    .replace(/^msc\s+/, "")
+    .replace(/&/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+export function formatScheduleSearchDateLabel(isoDate: string): string {
+  const date = new Date(`${isoDate}T12:00:00`);
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export type ShipScheduleSearchEntry = {
+  ship: string;
+  cruiseLine: string;
+  portSlug: string;
+  portDisplayName: string;
+  arrivalDate: string;
+  dateLabel: string;
+  arrivalTime: string | null;
+  departureTime: string | null;
+  passengers: number | null;
+  scheduleHref: string;
+  excursionHref: string;
+  shipSearchKey: string;
+};
+
+export type ShipScheduleSearchGroup = {
+  ship: string;
+  cruiseLine: string;
+  entries: ShipScheduleSearchEntry[];
+};
+
+function buildShipScheduleSearchEntry(row: CruiseScheduleRow): ShipScheduleSearchEntry {
+  const portSlug = normalizeSchedulePortSlug(row.port);
+  const portDisplayName = portBySlug[portSlug]?.displayName ?? row.port;
+  const month = row.arrival_date.slice(5, 7);
+  const monthSlug = buildScheduleMonthSlug(month, row.arrival_date.slice(0, 4));
+
+  return {
+    ship: row.ship,
+    cruiseLine: row.cruise_line,
+    portSlug,
+    portDisplayName,
+    arrivalDate: row.arrival_date,
+    dateLabel: formatScheduleSearchDateLabel(row.arrival_date),
+    arrivalTime: row.arrival_time,
+    departureTime: row.departure_time,
+    passengers: row.passengers,
+    scheduleHref: shipScheduleMonthPath(portSlug, monthSlug),
+    excursionHref: getPortExcursionLink(portSlug),
+    shipSearchKey: normalizeShipSearchKey(row.ship),
+  };
+}
+
+export function buildShipScheduleSearchIndex(): ShipScheduleSearchEntry[] {
+  return allRows
+    .filter((row) => hasRealScheduleData(row.port))
+    .map(buildShipScheduleSearchEntry)
+    .sort((a, b) => {
+      if (a.arrivalDate !== b.arrivalDate) {
+        return a.arrivalDate.localeCompare(b.arrivalDate);
+      }
+      const timeA = a.arrivalTime ?? "99:99";
+      const timeB = b.arrivalTime ?? "99:99";
+      if (timeA !== timeB) {
+        return timeA.localeCompare(timeB);
+      }
+      return a.portDisplayName.localeCompare(b.portDisplayName);
+    });
+}
+
+export function groupShipScheduleSearchEntries(
+  entries: readonly ShipScheduleSearchEntry[],
+): ShipScheduleSearchGroup[] {
+  const groups = new Map<string, ShipScheduleSearchGroup>();
+
+  for (const entry of entries) {
+    const existing = groups.get(entry.shipSearchKey);
+    if (existing) {
+      existing.entries.push(entry);
+      continue;
+    }
+
+    groups.set(entry.shipSearchKey, {
+      ship: entry.ship,
+      cruiseLine: entry.cruiseLine,
+      entries: [entry],
+    });
+  }
+
+  return [...groups.values()].sort((a, b) => a.ship.localeCompare(b.ship));
+}
+
+export function searchSchedulesByShipQuery(
+  query: string,
+  index: readonly ShipScheduleSearchEntry[] = buildShipScheduleSearchIndex(),
+): ShipScheduleSearchGroup[] {
+  const queryKey = normalizeShipSearchKey(query);
+  if (!queryKey) return [];
+
+  const matches = index.filter((entry) => entry.shipSearchKey.includes(queryKey));
+  return groupShipScheduleSearchEntries(matches);
 }
 
 export function getAllScheduleRows(): readonly CruiseScheduleRow[] {

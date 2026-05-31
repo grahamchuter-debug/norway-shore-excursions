@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 import { ContentPage } from "@/components/content-page";
 import { ShipScheduleHubCard } from "@/components/ship-schedule-hub-card";
 import {
   cruiseScheduleDisclaimer,
   shipScheduleHubPath,
+  shipScheduleSearchPath,
 } from "@/lib/cruise-schedule-config";
 import { getScheduleHubSummariesByRegion } from "@/lib/cruiseSchedules";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -39,6 +42,24 @@ export default function ShipSchedulesHubPage() {
         <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
           {cruiseScheduleDisclaimer}
         </p>
+      </section>
+
+      <section>
+        <div className="rounded-2xl border border-[var(--border-light)] bg-surface-muted p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
+          <div>
+            <h2 className="text-lg font-bold text-[var(--navy-deep)]">Search by ship name</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Look up your cruise ship across all published Norway port calls, then jump to the
+              matching schedule and excursion guides.
+            </p>
+          </div>
+          <Link
+            href={shipScheduleSearchPath}
+            className="btn-primary mt-4 inline-flex shrink-0 sm:mt-0"
+          >
+            Search by Ship
+          </Link>
+        </div>
       </section>
 
       <section>
