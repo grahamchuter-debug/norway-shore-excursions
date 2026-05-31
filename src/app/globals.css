@@ -144,8 +144,24 @@ body {
 
 .hero-dark h1,
 .hero-dark h2,
+.hero-dark > h1,
+.hero-dark > h2,
+section.hero-dark > h1,
+section.hero-dark > h2,
+.bg-navy h1,
+.bg-navy h2,
+.bg-navy > h1,
+.bg-navy > h2,
+.return-to-ship-planner h1,
+.return-to-ship-planner h2,
+.return-to-ship-planner .hero-dark h1,
+.return-to-ship-planner .hero-dark h2,
 article .hero-dark h1,
 article .hero-dark h2,
+article .return-to-ship-planner h1,
+article .return-to-ship-planner h2,
+article .return-to-ship-planner .hero-dark h1,
+article .return-to-ship-planner .hero-dark h2,
 main .hero-dark h1,
 main .hero-dark h2,
 .page-hero.hero-dark h1,
@@ -154,24 +170,39 @@ main .hero-dark h2,
 }
 
 .hero-dark p:not(.hero-eyebrow),
+.hero-dark > p:not(.hero-eyebrow),
+.bg-navy p:not(.hero-eyebrow),
+.return-to-ship-planner p:not(.hero-eyebrow),
+.return-to-ship-planner .hero-dark p:not(.hero-eyebrow),
 article .hero-dark p:not(.hero-eyebrow),
 main .hero-dark p:not(.hero-eyebrow),
 .page-hero.hero-dark p:not(.hero-eyebrow) {
   color: rgb(255 255 255 / 0.88);
 }
 
-.hero-dark .hero-eyebrow {
+.hero-dark .hero-eyebrow,
+.bg-navy .hero-eyebrow,
+.return-to-ship-planner .hero-eyebrow {
   color: var(--gold);
 }
 
-.card-grid {
+.card-grid,
+ul.card-grid,
+ol.card-grid {
   list-style: none;
+  list-style-type: none;
   padding-left: 0;
+  padding-inline-start: 0;
   margin-left: 0;
 }
 
-ol.card-grid {
+.card-grid > li {
   list-style: none;
+  list-style-type: none;
+}
+
+.card-grid > li::marker {
+  content: none;
 }
 
 .badge-accent-gold {

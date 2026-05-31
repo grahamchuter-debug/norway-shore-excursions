@@ -114,12 +114,12 @@ export function ContentPage({
         {belowHero}
 
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-          <div className="space-y-10 text-slate-700 [&_a]:content-link [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_section>h2]:text-2xl [&_section>h2]:font-bold [&_section>h2]:text-slate-900 [&_section>h3]:text-lg [&_section>h3]:font-semibold [&_section>h3]:text-slate-900 [&_section>ul:not(.card-grid)]:list-disc [&_section>ul:not(.card-grid)]:space-y-2 [&_section>ul:not(.card-grid)]:pl-5">
+          <div className="space-y-10 text-slate-700 [&_a]:content-link [&_.card-grid]:list-none [&_.card-grid]:pl-0 [&_.card-grid]:ml-0 [&_.hero-dark_h1]:text-white [&_.hero-dark_h2]:text-white [&_.return-to-ship-planner_h1]:text-white [&_.return-to-ship-planner_h2]:text-white [&_.return-to-ship-planner_.hero-dark_h1]:text-white [&_.return-to-ship-planner_.hero-dark_h2]:text-white [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_section:not(.hero-dark):not(.return-to-ship-planner)>h2]:text-2xl [&_section:not(.hero-dark):not(.return-to-ship-planner)>h2]:font-bold [&_section:not(.hero-dark):not(.return-to-ship-planner)>h2]:text-slate-900 [&_section>h3]:text-lg [&_section>h3]:font-semibold [&_section>h3]:text-slate-900 [&_section>ul:not(.card-grid)]:list-disc [&_section>ul:not(.card-grid)]:space-y-2 [&_section>ul:not(.card-grid)]:pl-5">
             {children}
           </div>
         </article>
 
-        <section className="border-y bg-navy text-white">
+        <section className="hero-dark border-y bg-navy text-white">
           <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-14">
             <h2 className="text-2xl font-bold sm:text-3xl">{ctaTitle}</h2>
             <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">

@@ -131,7 +131,7 @@ export default function HomePage() {
 
         <CompareNorwayCruisePorts />
 
-        <section className="border-b bg-navy py-16 text-white">
+        <section className="hero-dark border-b bg-navy py-16 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <h2 className="text-2xl font-bold sm:text-3xl">
               Best Norway shore excursions by interest
@@ -212,7 +212,7 @@ export default function HomePage() {
               Independent Norway cruise excursion planning for major lines, no
               official partnership implied.
             </p>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="card-grid mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {cruiseLines.map((line) => (
                 <li key={line.slug}>
                   <Link
@@ -247,7 +247,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-t bg-navy py-16 text-white">
+        <section className="hero-dark border-t bg-navy py-16 text-white">
           <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
             <h2 className="text-2xl font-bold sm:text-3xl">
               Ready to plan your Norway cruise excursions?

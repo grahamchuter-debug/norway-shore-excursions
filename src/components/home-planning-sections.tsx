@@ -76,7 +76,7 @@ export function HomePlanningSections() {
             </p>
           </div>
 
-          <ul className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
+          <ul className="card-grid mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
             {plannerHighlights.map((item) => (
               <li
                 key={item}

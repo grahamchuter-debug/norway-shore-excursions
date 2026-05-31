@@ -175,7 +175,7 @@ export function WillThisExcursionFit({
 
   return (
     <section
-      className={`premium-card overflow-hidden ${className}`.trim()}
+      className={`return-to-ship-planner premium-card overflow-hidden ${className}`.trim()}
       aria-labelledby="excursion-fit-heading"
     >
       <div className="hero-dark border-b border-[var(--border-light)] bg-navy px-5 py-5 sm:px-6">

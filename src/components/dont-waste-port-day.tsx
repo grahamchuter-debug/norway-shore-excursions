@@ -17,13 +17,13 @@ export function DontWastePortDay({
     <section
       className={
         compact
-          ? "border-y bg-navy py-12 text-white"
-          : "border-y bg-navy py-16 text-white"
+          ? "hero-dark border-y bg-navy py-12 text-white"
+          : "hero-dark border-y bg-navy py-16 text-white"
       }
       id="dont-waste-port-day"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">
+        <p className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.2em]">
           Smarter port days
         </p>
         <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
