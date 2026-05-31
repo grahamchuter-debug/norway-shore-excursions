@@ -2,12 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import {
-  calculateExcursionFit,
-  formatMinutes,
-  formatReturnMargin,
-  getFitConfidenceClass,
-} from "@/lib/excursion-fit-calculator";
 import { formatScheduleDateLabel } from "@/lib/cruise-schedule-config";
 import {
   findMatchingCruise,
@@ -15,7 +9,55 @@ import {
   getSchedulePortsWithData,
   getShipsForPort,
 } from "@/lib/cruiseSchedules";
+import {
+  buildFitNarrativeSummary,
+  calculateExcursionFit,
+  formatMinutes,
+  formatReturnMargin,
+  getFitConfidenceClass,
+  type FitConfidenceTier,
+} from "@/lib/excursion-fit-calculator";
 import { portBySlug } from "@/lib/ports-data";
+
+type FitResultPresentation = {
+  headline: string;
+  description: string;
+  recommendation: string;
+  showCheckIcon: boolean;
+};
+
+function getFitResultPresentation(
+  tier: FitConfidenceTier,
+): FitResultPresentation {
+  switch (tier) {
+    case "very-high":
+    case "high":
+      return {
+        showCheckIcon: true,
+        headline: "Plenty of time available",
+        description:
+          "This excursion comfortably fits within your port call.",
+        recommendation: "Recommended for most cruise passengers.",
+      };
+    case "moderate":
+      return {
+        showCheckIcon: false,
+        headline: "Moderate timing risk",
+        description:
+          "This excursion may fit, but leaves a smaller margin before all aboard.",
+        recommendation: "Consider allowing extra contingency time.",
+      };
+    case "tight":
+    case "not-recommended":
+      return {
+        showCheckIcon: false,
+        headline: "Tight timing",
+        description:
+          "This excursion may leave insufficient time before all aboard.",
+        recommendation: "Consider a shorter excursion.",
+      };
+  }
+}
 
 const DEFAULT_CHECK_IN_BUFFER = 15;
 const DEFAULT_SAFETY_BUFFER = 60;
@@ -338,57 +380,104 @@ export function WillThisExcursionFit({
         </div>
 
         {result ? (
-          <div
-            className={`rounded-2xl border p-5 sm:p-6 ${getFitConfidenceClass(result.confidence.tier)}`}
-          >
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xl" aria-hidden>
-                {result.confidence.emoji}
-              </span>
-              <p className="text-lg font-bold">{result.confidence.label}</p>
-            </div>
+          (() => {
+            const presentation = getFitResultPresentation(
+              result.confidence.tier,
+            );
+            const portDisplayName = portSlug
+              ? (portBySlug[portSlug]?.displayName ?? portSlug)
+              : undefined;
+            const narrative = buildFitNarrativeSummary({
+              portDisplayName,
+              availablePortMinutes: result.availablePortMinutes,
+              excursionDurationMinutes: result.excursionDurationMinutes,
+              remainingMinutes: result.remainingMinutes,
+            });
 
-            <dl className="mt-5 grid gap-4 sm:grid-cols-2">
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-600">
-                  Available port time
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
-                  {formatMinutes(result.availablePortMinutes)}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-600">
-                  Excursion duration
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
-                  {formatMinutes(result.excursionDurationMinutes)}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-600">
-                  Safety buffer
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
-                  {formatMinutes(result.safetyBufferMinutes)}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-600">
-                  Estimated return margin
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
-                  {formatReturnMargin(result.remainingMinutes)}
-                </dd>
-              </div>
-            </dl>
+            return (
+              <div
+                className={`overflow-hidden rounded-2xl border ${getFitConfidenceClass(result.confidence.tier)}`}
+              >
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-start gap-3">
+                    <span
+                      className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/70 text-lg font-bold"
+                      aria-hidden
+                    >
+                      {presentation.showCheckIcon ? "✓" : "⚠"}
+                    </span>
+                    <div className="space-y-2">
+                      <p className="text-lg font-bold leading-snug">
+                        {presentation.headline}
+                      </p>
+                      <p className="text-sm leading-6 opacity-90">
+                        {narrative.portLine}
+                      </p>
+                      <p className="text-sm leading-6 opacity-90">
+                        {narrative.excursionLine}
+                      </p>
+                      <p className="text-sm leading-6 opacity-90">
+                        {presentation.description}
+                      </p>
+                    </div>
+                  </div>
 
-            <p className="mt-4 text-sm leading-6 text-slate-700">
-              Includes {formatMinutes(result.checkInBufferMinutes)} check in
-              buffer plus {formatMinutes(result.safetyBufferMinutes)} safety
-              buffer before all aboard.
-            </p>
-          </div>
+                  <div className="mt-6 rounded-xl border border-white/60 bg-white/50 p-4 sm:p-5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
+                      Timing breakdown
+                    </p>
+                    <dl className="mt-4 grid gap-4 sm:grid-cols-2">
+                      <div className="rounded-lg bg-white/80 px-3 py-3">
+                        <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          Time in port
+                        </dt>
+                        <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
+                          {formatMinutes(result.availablePortMinutes)}
+                        </dd>
+                      </div>
+                      <div className="rounded-lg bg-white/80 px-3 py-3">
+                        <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          Excursion duration
+                        </dt>
+                        <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
+                          {formatMinutes(result.excursionDurationMinutes)}
+                        </dd>
+                      </div>
+                      <div className="rounded-lg bg-white/80 px-3 py-3">
+                        <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          Safety buffer
+                        </dt>
+                        <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
+                          {formatMinutes(result.safetyBufferMinutes)}
+                        </dd>
+                      </div>
+                      <div className="rounded-lg bg-white/80 px-3 py-3">
+                        <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          Estimated spare time remaining
+                        </dt>
+                        <dd className="mt-1 text-lg font-bold text-[var(--navy-deep)]">
+                          {formatReturnMargin(result.remainingMinutes)}
+                        </dd>
+                      </div>
+                    </dl>
+                    <p className="mt-4 text-xs leading-5 text-slate-600">
+                      Includes {formatMinutes(result.checkInBufferMinutes)} check
+                      in buffer before the excursion starts.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/40 bg-[var(--navy-deep)]/5 px-5 py-4 sm:px-6">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--glacier-blue)]">
+                    Recommendation
+                  </p>
+                  <p className="mt-1 text-sm font-semibold leading-6 text-[var(--navy-deep)]">
+                    {presentation.recommendation}
+                  </p>
+                </div>
+              </div>
+            );
+          })()
         ) : (
           <p className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
             Enter valid arrival and all aboard times to calculate your fit

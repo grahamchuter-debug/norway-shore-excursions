@@ -118,6 +118,56 @@ export function formatReturnMargin(remainingMinutes: number): string {
   return `${formatMinutes(remainingMinutes)} remaining`;
 }
 
+export type FitNarrativeSummary = {
+  portLine: string;
+  excursionLine: string;
+};
+
+function formatWholeHoursForPort(minutes: number): string {
+  if (minutes % 60 !== 0) {
+    return formatMinutes(minutes);
+  }
+
+  const hours = minutes / 60;
+  return `${hours} hour${hours === 1 ? "" : "s"}`;
+}
+
+function formatWholeHoursForExcursion(minutes: number): string {
+  if (minutes % 60 !== 0) {
+    return formatMinutes(minutes);
+  }
+
+  const hours = minutes / 60;
+  return `${hours} hour`;
+}
+
+export function buildFitNarrativeSummary(input: {
+  portDisplayName?: string;
+  availablePortMinutes: number;
+  excursionDurationMinutes: number;
+  remainingMinutes: number;
+}): FitNarrativeSummary {
+  const portDuration = formatWholeHoursForPort(input.availablePortMinutes);
+  const excursionDuration = formatWholeHoursForExcursion(
+    input.excursionDurationMinutes,
+  );
+  const portName = input.portDisplayName?.trim();
+
+  const portLine = portName
+    ? `Your ship is scheduled in ${portName} for ${portDuration}.`
+    : `Your ship is scheduled for ${portDuration} in port.`;
+
+  const bufferPhrase =
+    "after allowing for check in and return to ship safety buffers";
+
+  const excursionLine =
+    input.remainingMinutes < 0
+      ? `A ${excursionDuration} excursion falls approximately ${formatMinutes(Math.abs(input.remainingMinutes))} short ${bufferPhrase}.`
+      : `A ${excursionDuration} excursion leaves approximately ${formatMinutes(input.remainingMinutes)} spare ${bufferPhrase}.`;
+
+  return { portLine, excursionLine };
+}
+
 export function getFitConfidenceClass(tier: FitConfidenceTier): string {
   switch (tier) {
     case "very-high":
