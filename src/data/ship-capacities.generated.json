@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-31T12:36:21.018Z",
+  "generatedAt": "2026-05-31T14:21:05.468Z",
   "records": [
     {
       "ship": "Iona",
@@ -41,6 +41,15 @@
       "shipAliases": [],
       "cruiseLine": "Celebrity Cruises",
       "passengers": 2910
+    },
+    {
+      "ship": "Celebrity Eclipse",
+      "shipAliases": [
+        "Celebrity Eclipse",
+        "Eclipse"
+      ],
+      "cruiseLine": "Celebrity Cruises",
+      "passengers": 2850
     },
     {
       "ship": "Costa Favolosa",

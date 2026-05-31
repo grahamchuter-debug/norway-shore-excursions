@@ -26,7 +26,7 @@ bergen,Seadream II,SeaDream Yacht Club,,2026-06-17,,,,Manual CSV import,,,Arriva
 bergen,Viking Sky,Viking,998,2026-06-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 bergen,AIDAprima,AIDA,3376,2026-06-18,10:00,18:30,,Manual CSV import,,,All aboard time TBC
 bergen,Viking Sky,Viking,998,2026-06-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
-bergen,Celebrity Eclipse,Celebrity,,2026-06-19,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+bergen,Celebrity Eclipse,Celebrity,2850,2026-06-19,07:00,17:00,,Manual CSV import,,,All aboard time TBC
 bergen,Aidabella,AIDA,,2026-06-19,08:00,16:30,,Manual CSV import,,,All aboard time TBC
 bergen,AIDAluna,AIDA,2050,2026-06-20,11:00,19:00,,Manual CSV import,,,All aboard time TBC
 bergen,Costa Favolosa,Costa,3800,2026-06-21,09:00,18:00,,Manual CSV import,,,All aboard time TBC
@@ -110,7 +110,7 @@ bergen,Viking Jupiter,Viking,,2026-07-29,,,,Manual CSV import,,,Arrival time TBC
 bergen,Spirit Of Discovery,Saga Cruises,999,2026-07-30,08:00,16:00,,Manual CSV import,,,All aboard time TBC
 bergen,Star Legend,Windstar,,2026-07-30,09:00,22:00,,Manual CSV import,,,All aboard time TBC
 bergen,Viking Jupiter,Viking,,2026-07-30,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
-bergen,Celebrity Eclipse,Celebrity Cruises,,2026-07-31,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+bergen,Celebrity Eclipse,Celebrity Cruises,2850,2026-07-31,07:00,17:00,,Manual CSV import,,,All aboard time TBC
 bergen,AIDAbella,AIDA,,2026-07-31,08:00,16:30,,Manual CSV import,,,All aboard time TBC
 bergen,Viking Neptune,Viking,930,2026-07-31,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
 bergen,Disney Dream,Disney Cruise Line,,2026-08-01,07:00,15:00,,Manual CSV import,,,All aboard time TBC
