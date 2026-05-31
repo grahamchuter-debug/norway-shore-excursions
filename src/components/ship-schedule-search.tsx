@@ -133,6 +133,9 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
                       shipName={group.ship}
                       cruiseLine={group.cruiseLine}
                       className="aspect-[21/9] rounded-none border-0 border-b border-[var(--border-light)]"
+                      capacityLabel={scheduleSummary?.capacityLabel}
+                      callCount={scheduleSummary?.callCount}
+                      badgeInput={badgeInput}
                     />
                     <div className="p-5 sm:p-6">
                     <header className="border-b border-[var(--border-light)] pb-4">

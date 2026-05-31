@@ -40,6 +40,9 @@ export function ShipCard({
         cruiseLine={cruiseLine}
         className="aspect-[16/9] rounded-none border-0 border-b border-[var(--border-light)]"
         priority={priority}
+        capacityLabel={capacityLabel}
+        callCount={callCount}
+        badgeInput={badgeInput}
       />
       <div className="p-4 sm:p-5">
         <ShipCardBadges input={badgeInput} className="mb-3" />

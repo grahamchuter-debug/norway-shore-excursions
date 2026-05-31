@@ -9,8 +9,10 @@ import {
 
 export {
   getShipImagePath,
+  getShipImageSlugsOnDisk,
   resolveShipImageSlug,
   shipHasListedImage,
+  shipImageFileExists,
   shipPlaceholderImagePath,
 } from "@/lib/ship-images";
 

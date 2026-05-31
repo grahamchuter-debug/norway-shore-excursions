@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run verify:pdf && next build",
+    "build": "npm run verify:pdf && npm run sync:ship-images && next build",
+    "sync:ship-images": "node scripts/sync-ship-images-on-disk.js",
     "start": "next start",
     "lint": "eslint",
     "pdf:sample": "tsx scripts/generate-sample-cruise-pdf.ts",

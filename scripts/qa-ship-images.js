@@ -10,6 +10,7 @@ const path = require("node:path");
 const ROOT = path.join(__dirname, "..");
 const PUBLIC = path.join(ROOT, "public");
 const DATA = path.join(ROOT, "data");
+const ON_DISK_PATH = path.join(DATA, "ships", "ship-images-on-disk.json");
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -68,11 +69,17 @@ function resolveShipImageSlug(shipNameOrSlug, images, aliases) {
   return null;
 }
 
+function loadOnDiskSlugs() {
+  if (!fs.existsSync(ON_DISK_PATH)) return new Set();
+  return new Set(JSON.parse(fs.readFileSync(ON_DISK_PATH, "utf8")));
+}
+
 function main() {
   const schedulePayload = readJson("src/data/cruise-schedules.generated.json");
   const shipImages = readJson("data/ships/ship-images.json");
   const shipAliases = readJson("data/ships/ship-image-aliases.json");
   const cruiseLineLogos = readJson("data/cruise-lines/cruise-line-logos.json");
+  const onDiskSlugs = loadOnDiskSlugs();
 
   const rows = schedulePayload.rows ?? [];
   const shipGroups = new Map();
@@ -104,8 +111,10 @@ function main() {
     const slug = shipNameToSlug(group.ship);
     const mappedSlug = resolveShipImageSlug(slug, shipImages, shipAliases);
     const imagePath = mappedSlug ? shipImages[mappedSlug] : null;
-    const fileExists = imagePath ? publicFileExists(imagePath) : false;
-    const imageFound = Boolean(imagePath && fileExists);
+    const fileExists = mappedSlug
+      ? onDiskSlugs.has(mappedSlug) || (imagePath ? publicFileExists(imagePath) : false)
+      : false;
+    const imageFound = Boolean(mappedSlug && fileExists);
 
     if (imageFound) imagesFound += 1;
     else imagesMissing += 1;
@@ -135,7 +144,7 @@ function main() {
 
   const mappingIssues = [];
   for (const [slug, webPath] of Object.entries(shipImages)) {
-    if (!publicFileExists(webPath)) {
+    if (!onDiskSlugs.has(slug) && !publicFileExists(webPath)) {
       mappingIssues.push(`Mapped ship "${slug}" missing file: ${webPath}`);
     }
     if (webPath !== webPath.toLowerCase()) {

@@ -33,6 +33,8 @@ const mostVisitsBadgeClass =
 type ShipCardBadgesProps = {
   input: ShipCardBadgeInput;
   className?: string;
+  /** When true, only the primary line badge is shown (for image overlays). */
+  primaryOnly?: boolean;
 };
 
 function BadgePill({
@@ -51,7 +53,11 @@ function BadgePill({
   );
 }
 
-export function ShipCardBadges({ input, className = "" }: ShipCardBadgesProps) {
+export function ShipCardBadges({
+  input,
+  className = "",
+  primaryOnly = false,
+}: ShipCardBadgesProps) {
   const badges = resolveShipCardBadges(input);
   const rootClass = `flex flex-col gap-1.5 ${className}`.trim();
 
@@ -59,6 +65,20 @@ export function ShipCardBadges({ input, className = "" }: ShipCardBadgesProps) {
     return (
       <div className={rootClass}>
         <div className="flex flex-wrap gap-1.5">
+          <BadgePill
+            label={badges.primary.label}
+            className={primaryVariantClasses[badges.primary.variant]}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (primaryOnly) {
+    if (!badges.primary) return null;
+    return (
+      <div className={rootClass}>
+        <div className="flex flex-wrap justify-center gap-1.5">
           <BadgePill
             label={badges.primary.label}
             className={primaryVariantClasses[badges.primary.variant]}

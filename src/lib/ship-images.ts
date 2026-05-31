@@ -1,9 +1,11 @@
 import shipImageAliases from "../../data/ships/ship-image-aliases.json";
+import shipImagesOnDisk from "../../data/ships/ship-images-on-disk.json";
 import shipImageMap from "../../data/ships/ship-images.json";
 import { shipNameToSlug } from "@/lib/ship-schedules";
 
 const images = shipImageMap as Record<string, string>;
 const aliases = shipImageAliases as Record<string, string>;
+const onDiskSlugs = new Set(shipImagesOnDisk as string[]);
 
 export function normalizeShipImageKey(value: string): string {
   return String(value ?? "")
@@ -40,9 +42,14 @@ export function resolveShipImageSlug(
   return null;
 }
 
+export function shipImageFileExists(slug: string): boolean {
+  return onDiskSlugs.has(slug);
+}
+
 export function getShipImagePath(shipNameOrSlug: string): string | null {
   const slug = resolveShipImageSlug(shipNameOrSlug);
   if (!slug) return null;
+  if (!shipImageFileExists(slug)) return null;
   return images[slug] ?? null;
 }
 
@@ -56,4 +63,8 @@ export function shipPlaceholderImagePath(): string {
 
 export function getAllMappedShipImageSlugs(): string[] {
   return Object.keys(images).sort();
+}
+
+export function getShipImageSlugsOnDisk(): string[] {
+  return [...onDiskSlugs].sort();
 }

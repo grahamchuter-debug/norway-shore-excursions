@@ -127,6 +127,9 @@ export default async function ShipPage({ params }: ShipPageProps) {
               cruiseLine={ship.cruiseLine}
               className="aspect-[16/9]"
               priority
+              capacityLabel={ship.capacityLabel}
+              callCount={ship.callCount}
+              badgeInput={shipCardBadgeInputFromSummary(ship)}
             />
             <ShipCardBadges
               input={shipCardBadgeInputFromSummary(ship)}

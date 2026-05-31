@@ -1,5 +1,6 @@
 {
   "msc euribia": "msc-euribia",
+  "msc-euribia": "msc-euribia",
   "ms euribia": "msc-euribia",
   "euribia": "msc-euribia",
   "msc magnifica": "msc-magnifica",
@@ -13,8 +14,10 @@
   "aurora": "aurora",
   "arcadia": "arcadia",
   "celebrity apex": "celebrity-apex",
+  "celebrity-apex": "celebrity-apex",
   "apex": "celebrity-apex",
   "celebrity eclipse": "celebrity-eclipse",
+  "celebrity-eclipse": "celebrity-eclipse",
   "eclipse": "celebrity-eclipse",
   "viking vela": "viking-vela",
   "vela": "viking-vela",
@@ -34,7 +37,10 @@
   "ambience": "ambience",
   "ambition": "ambition",
   "queen anne": "queen-anne",
+  "queen-anne": "queen-anne",
   "queen mary 2": "queen-mary-2",
+  "queen-mary-2": "queen-mary-2",
   "qm2": "queen-mary-2",
-  "norwegian star": "norwegian-star"
+  "norwegian star": "norwegian-star",
+  "norwegian-star": "norwegian-star"
 }
