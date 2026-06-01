@@ -1,7 +1,7 @@
 {
   "region": "norway",
-  "generatedAt": "2026-05-31T14:21:05.465Z",
-  "rowCount": 625,
+  "generatedAt": "2026-06-01T07:21:15.665Z",
+  "rowCount": 655,
   "ports": [
     "bergen",
     "eidfjord",
@@ -9,6 +9,7 @@
     "geiranger",
     "nordfjordeid",
     "olden",
+    "skjolden",
     "stavanger"
   ],
   "portStatus": {
@@ -88,12 +89,17 @@
       "displayStatus": "real_data_available"
     },
     "skjolden": {
-      "dataSource": "none",
+      "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "rowCount": 30,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "hellesylt": {
       "dataSource": "none",
@@ -172,6 +178,7 @@
     "geiranger-2026.json",
     "nordfjordeid-2026.json",
     "olden-2026.json",
+    "skjolden-2026.json",
     "stavanger-2026.json"
   ]
 }

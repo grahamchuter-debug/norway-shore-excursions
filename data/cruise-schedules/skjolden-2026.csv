@@ -1,0 +1,31 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+skjolden,Queen Anne,Cunard Line,,2026-06-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2026-06-05,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2026-06-17,07:00,15:30,,Manual CSV import,,,All aboard time TBC
+skjolden,Majestic Princess,Princess Cruises,,2026-06-18,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Aurora,P&O Cruises,,2026-06-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Star Legend,Windstar Cruises,,2026-06-24,09:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Star Pride,Windstar Cruises,,2026-06-29,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Europa 2,Hapag Lloyd,,2026-06-29,09:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2026-06-30,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2026-07-03,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Oceania Marina,Oceania Cruises,1250,2026-07-04,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Mein Schiff 3,TUI Cruises,,2026-07-07,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2026-07-14,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Balmoral,Fred Olsen Cruise Lines,,2026-07-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Borealis,Fred Olsen Cruise Lines,1400,2026-07-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Mein Schiff 3,TUI Cruises,,2026-07-21,07:00,18:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Spirit Of Adventure,Saga Cruises,999,2026-07-25,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Spirit Of Discovery,Saga Cruises,999,2026-07-29,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2026-08-04,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,AIDAmar,AIDA,,2026-08-05,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2026-08-07,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Mary 2,Cunard Line,,2026-08-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Liberty Of The Seas,Royal Caribbean Cruises,,2026-08-20,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Bolette,Fred Olsen Cruise Lines,,2026-08-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Borealis,Fred Olsen Cruise Lines,1400,2026-08-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Bolette,Fred Olsen Cruise Lines,,2026-09-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2026-09-09,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Nieuw Statendam,Holland America Line,2668,2026-09-17,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Spirit Of Adventure,Saga Cruises,999,2026-09-21,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Majestic Princess,Princess Cruises,,2026-09-23,08:00,17:00,,Manual CSV import,,,All aboard time TBC
