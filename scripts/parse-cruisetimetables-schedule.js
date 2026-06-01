@@ -388,9 +388,11 @@ async function main() {
   const fromHtmlIndex = args.indexOf("--from-html");
   const fromHtmlPath =
     fromHtmlIndex >= 0 ? path.resolve(args[fromHtmlIndex + 1] ?? "") : "";
-  const positional = args.filter(
-    (arg, index) => !arg.startsWith("--") && index !== fromHtmlIndex + 1,
-  );
+  const positional = args.filter((arg, index) => {
+    if (arg.startsWith("--")) return false;
+    if (fromHtmlIndex >= 0 && index === fromHtmlIndex + 1) return false;
+    return true;
+  });
   const [urlArg, outputArg] = positional;
 
   if (!urlArg || !outputArg) {
