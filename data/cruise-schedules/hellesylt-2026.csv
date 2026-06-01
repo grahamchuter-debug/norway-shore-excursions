@@ -1,0 +1,64 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+hellesylt,Costa Diadema,Costa Cruises,,2026-06-01,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-06-02,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-06-04,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-06-08,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-06-09,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Iona,P&O Cruises,5200,2026-06-10,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+hellesylt,Mein Schiff 7,TUI Cruises,,2026-06-11,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-06-13,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-06-15,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-06-16,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Virtuosa,MSC Cruises,6334,2026-06-17,07:00,19:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff 7,TUI Cruises,,2026-06-18,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-06-22,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-06-23,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-06-29,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Renaissance,CFC Croisieres,1100,2026-06-29,14:00,20:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-06-30,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Iona,P&O Cruises,5200,2026-07-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+hellesylt,Mein Schiff 7,TUI Cruises,,2026-07-02,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-07-04,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-07-06,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-07-07,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Iona,P&O Cruises,5200,2026-07-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+hellesylt,Mein Schiff 1,TUI Cruises,,2026-07-11,19:30,20:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-07-13,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-07-14,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Virtuosa,MSC Cruises,6334,2026-07-15,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff 1,TUI Cruises,,2026-07-17,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-07-20,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-07-21,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff Relax,TUI Cruises,2894,2026-07-22,19:30,20:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Iona,P&O Cruises,5200,2026-07-22,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-07-27,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-07-28,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff Relax,TUI Cruises,2894,2026-07-29,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff 7,TUI Cruises,,2026-07-30,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff 1,TUI Cruises,,2026-08-02,19:30,20:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-08-03,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-08-04,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Iona,P&O Cruises,5200,2026-08-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-08-10,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-08-11,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-08-17,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-08-18,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff Relax,TUI Cruises,2894,2026-08-19,19:30,20:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Iona,P&O Cruises,5200,2026-08-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+hellesylt,Mein Schiff 1,TUI Cruises,,2026-08-20,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-08-22,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-08-24,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-08-25,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-08-28,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-08-31,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-09-01,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff Relax,TUI Cruises,2894,2026-09-02,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-09-06,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Diadema,Costa Cruises,,2026-09-07,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-09-08,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Mein Schiff 7,TUI Cruises,,2026-09-10,20:00,21:00,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-09-15,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-09-17,08:30,09:30,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-09-22,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,MSC Euribia,MSC Cruises,4888,2026-09-29,09:00,09:45,,Manual CSV import,,,All aboard time TBC
+hellesylt,Costa Favolosa,Costa Cruises,3800,2026-09-30,08:30,09:30,,Manual CSV import,,,All aboard time TBC

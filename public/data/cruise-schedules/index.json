@@ -1,12 +1,14 @@
 {
   "region": "norway",
-  "generatedAt": "2026-06-01T07:21:15.665Z",
-  "rowCount": 655,
+  "generatedAt": "2026-06-01T07:40:46.774Z",
+  "rowCount": 745,
   "ports": [
     "bergen",
     "eidfjord",
     "flam",
     "geiranger",
+    "hellesylt",
+    "molde",
     "nordfjordeid",
     "olden",
     "skjolden",
@@ -102,12 +104,17 @@
       "displayStatus": "real_data_available"
     },
     "hellesylt": {
-      "dataSource": "none",
+      "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "rowCount": 63,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "pagesGenerated": 4,
+      "displayStatus": "real_data_available"
     },
     "stavanger": {
       "dataSource": "real",
@@ -131,12 +138,15 @@
       "displayStatus": "no_data"
     },
     "molde": {
-      "dataSource": "none",
+      "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 0,
-      "monthsAvailable": [],
-      "pagesGenerated": 0,
-      "displayStatus": "no_data"
+      "rowCount": 27,
+      "monthsAvailable": [
+        "2026-06",
+        "2026-07"
+      ],
+      "pagesGenerated": 2,
+      "displayStatus": "real_data_available"
     },
     "trondheim": {
       "dataSource": "none",
@@ -176,6 +186,8 @@
     "eidfjord-2026.json",
     "flam-2026.json",
     "geiranger-2026.json",
+    "hellesylt-2026.json",
+    "molde-2026.json",
     "nordfjordeid-2026.json",
     "olden-2026.json",
     "skjolden-2026.json",
