@@ -1,7 +1,7 @@
 {
   "region": "norway",
-  "generatedAt": "2026-06-02T08:10:13.423Z",
-  "rowCount": 1117,
+  "generatedAt": "2026-06-02T08:47:26.932Z",
+  "rowCount": 1128,
   "ports": [
     "alesund",
     "bergen",
@@ -88,13 +88,14 @@
     "nordfjordeid": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 32,
+      "rowCount": 43,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
-        "2026-08"
+        "2026-08",
+        "2026-09"
       ],
-      "pagesGenerated": 3,
+      "pagesGenerated": 4,
       "displayStatus": "real_data_available"
     },
     "skjolden": {
