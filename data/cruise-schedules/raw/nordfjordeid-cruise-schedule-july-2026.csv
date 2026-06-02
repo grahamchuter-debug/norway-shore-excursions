@@ -1,1 +1,14 @@
 date,ship,arrival,departure,cruiseline
+2026-07-05,Oceania Marina,08:00,16:00,Oceania Cruises
+2026-07-06,Amera,08:00,18:00,Phoenix Reisen
+2026-07-06,Costa Favolosa,09:00,19:00,Costa Cruises
+2026-07-07,AIDAperla,09:30,20:00,AIDA
+2026-07-09,Mein Schiff 3,08:00,20:00,TUI Cruises
+2026-07-14,MSC Virtuosa,08:00,18:00,MSC Cruises
+2026-07-15,Renaissance,08:00,17:30,CFC Croisieres
+2026-07-21,AIDAperla,09:30,20:00,AIDA
+2026-07-22,Mein Schiff 3,08:00,20:00,TUI Cruises
+2026-07-23,Mein Schiff Relax,08:00,20:00,TUI Cruises
+2026-07-27,Spirit Of Discovery,08:00,17:00,Saga Cruises
+2026-07-28,AIDAnova,08:00,18:00,AIDA
+2026-07-30,AIDAprima,08:00,18:00,AIDA
