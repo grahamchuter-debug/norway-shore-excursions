@@ -5,9 +5,9 @@ import {
   shipSchedulePortPath,
 } from "@/lib/cruise-schedule-config";
 import {
-  getPortRecommendedExcursions,
-  isMappedExcursionPort,
-  type RecommendedExcursionCard,
+  cruiseLineExcursionPortSlugs,
+  getPortCategorizedExcursions,
+  type ExcursionPick,
 } from "@/lib/port-recommended-excursions";
 import { portBySlug } from "@/lib/ports-data";
 import { hasRealScheduleData } from "@/lib/cruiseSchedules";
@@ -24,11 +24,108 @@ export type PortTimeAshoreEntry = {
 export type LinePortExcursionEntry = {
   portSlug: string;
   portDisplayName: string;
+  portRegion: string;
+  description: string;
   portGuideHref: string;
   excursionHubHref: string;
   scheduleHref: string | null;
-  excursions: readonly RecommendedExcursionCard[];
-  hasMappedExcursions: boolean;
+  best: ExcursionPick;
+  smallGroup: ExcursionPick;
+  scenic: ExcursionPick;
+};
+
+const portCardDescriptions: Record<
+  (typeof cruiseLineExcursionPortSlugs)[number],
+  string
+> = {
+  flam:
+    "Iconic Aurlandsfjord stop with pier side access. Stegastein and fjord cruises suit most full port days.",
+  bergen:
+    "Norway's culture and fjord gateway. Bryggen walks and Mostraumen cruises fit a single measured day ashore.",
+  olden:
+    "Nordfjord glacier port. Briksdal valley and Loen Skylift need most of a full day ashore.",
+  geiranger:
+    "UNESCO fjord village at Geirangerfjord head. Viewpoint drives and fjord sailings reward full port windows.",
+  stavanger:
+    "Walkable old town plus Lysefjord access from Vågen harbour. City loops or fjord cruises match most call lengths.",
+  alesund:
+    "Art Nouveau islands on Norway's west coast. Mount Aksla and coastal drives suit compact port days.",
+};
+
+type LinePortExcursionOverrides = {
+  description?: string;
+  best?: ExcursionPick;
+  smallGroup?: ExcursionPick;
+  scenic?: ExcursionPick;
+};
+
+const linePortExcursionOverrides: Partial<
+  Record<string, Partial<Record<(typeof cruiseLineExcursionPortSlugs)[number], LinePortExcursionOverrides>>>
+> = {
+  "p-and-o-cruises-norway": {
+    flam: {
+      description:
+        "Headline Aurlandsfjord stop on Iona and Britannia sailings. Stegastein and Naeroyfjord suit typical P&O full port days.",
+    },
+    olden: {
+      description:
+        "Busy glacier port on P&O fjord loops. Briksdal and Loen Skylift need a full day and early booking on peak sailings.",
+    },
+  },
+  "royal-caribbean-norway": {
+    flam: {
+      description:
+        "High demand stop on Icon and Anthem class sailings. Stegastein and short fjord cruises suit typical Royal Caribbean port windows.",
+    },
+  },
+  "norwegian-cruise-line-norway": {
+    geiranger: {
+      description:
+        "Signature UNESCO fjord day on Norwegian Prima and Encore routes. Dalsnibba and fjord sailings need a full port window.",
+    },
+  },
+  "viking-norway-cruises": {
+    bergen: {
+      description:
+        "Culture rich city call on Viking ocean itineraries. Mostraumen and Bryggen walks suit the line's measured port pacing.",
+    },
+  },
+  "celebrity-cruises-norway": {
+    stavanger: {
+      description:
+        "Lysefjord gateway on Celebrity Edge class Norway sailings. Fjord cruises or old town walks fit most call lengths.",
+    },
+  },
+  "holland-america-norway": {
+    geiranger: {
+      description:
+        "Classic fjord highlight on Rotterdam and Nieuw Statendam routes. Viewpoint drives reward Holland America full day calls.",
+    },
+  },
+  "princess-cruises-norway": {
+    olden: {
+      description:
+        "Glacier headline on Sky and Sun class fjord itineraries. Briksdal suits Princess passengers with five or more hours ashore.",
+    },
+  },
+  "cunard-norway": {
+    flam: {
+      description:
+        "Scenic Aurlandsfjord call on Queen Mary 2 and Queen Victoria sailings. Stegastein and fjord cruises suit Cunard full port days.",
+    },
+  },
+  "disney-cruise-line-norway": {
+    alesund: {
+      description:
+        "Family friendly Art Nouveau port on Disney Magic Norway sailings. Mount Aksla and gentle coastal tours suit all ages.",
+    },
+  },
+  "msc-cruises-norway": {
+    bergen: {
+      description:
+        "Versatile city port on MSC Euribia and Preziosa Norway routes. Mostraumen and Bryggen walks fit MSC full day calls.",
+    },
+  },
 };
 
 const portTypicalTimeAshore: Record<string, PortTimeAshoreEntry> = {
@@ -187,34 +284,36 @@ export function getLinePortTimeAshoreEntries(
   );
 }
 
-function excursionCardsForPort(portSlug: string): readonly RecommendedExcursionCard[] {
-  const cards = getPortRecommendedExcursions(portSlug, {
-    fitExcursionHref: "/return-to-ship-guide#will-this-excursion-fit",
-  });
+function buildLinePortExcursionEntry(
+  line: CruiseLineData,
+  portSlug: (typeof cruiseLineExcursionPortSlugs)[number],
+): LinePortExcursionEntry | null {
+  const port = portBySlug[portSlug];
+  const categorized = getPortCategorizedExcursions(portSlug);
+  if (!port || !categorized) return null;
 
-  if (!isMappedExcursionPort(portSlug)) {
-    return cards.slice(0, 1);
-  }
+  const overrides = linePortExcursionOverrides[line.slug]?.[portSlug];
 
-  return cards.filter((card) => !card.url.includes("norway-cruise-planner")).slice(0, 2);
+  return {
+    portSlug,
+    portDisplayName: port.displayName,
+    portRegion: port.region,
+    description: overrides?.description ?? portCardDescriptions[portSlug],
+    portGuideHref: `/ports/${portSlug}`,
+    excursionHubHref: getPortExcursionLink(portSlug),
+    scheduleHref: hasRealScheduleData(portSlug)
+      ? shipSchedulePortPath(portSlug)
+      : null,
+    best: overrides?.best ?? categorized.best,
+    smallGroup: overrides?.smallGroup ?? categorized.smallGroup,
+    scenic: overrides?.scenic ?? categorized.scenic,
+  };
 }
 
 export function getLinePortExcursionEntries(
   line: CruiseLineData,
-  schedulePorts: readonly CruiseLinePortSummary[],
 ): LinePortExcursionEntry[] {
-  return getLinePlanningPortSlugs(line, schedulePorts).map((portSlug) => {
-    const port = portBySlug[portSlug];
-    return {
-      portSlug,
-      portDisplayName: port.displayName,
-      portGuideHref: `/ports/${portSlug}`,
-      excursionHubHref: getPortExcursionLink(portSlug),
-      scheduleHref: hasRealScheduleData(portSlug)
-        ? shipSchedulePortPath(portSlug)
-        : null,
-      excursions: excursionCardsForPort(portSlug),
-      hasMappedExcursions: isMappedExcursionPort(portSlug),
-    };
-  });
+  return cruiseLineExcursionPortSlugs
+    .map((portSlug) => buildLinePortExcursionEntry(line, portSlug))
+    .filter((entry): entry is LinePortExcursionEntry => entry !== null);
 }

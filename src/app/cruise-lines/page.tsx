@@ -4,10 +4,12 @@ import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lin
 import { ContentPage } from "@/components/content-page";
 import { CruiseLineHubGrid } from "@/components/cruise-line-hub-grid";
 import { CruiseLineHubPlanDashboard } from "@/components/cruise-line-hub-plan-dashboard";
+import { FindYourShip } from "@/components/find-your-ship";
 import { JsonLd } from "@/components/json-ld";
 import { ShipCard } from "@/components/ship-card";
 import { cruiseLines } from "@/lib/cruise-lines-data";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
+import { buildFindYourShipEntries } from "@/lib/find-your-ship";
 import { getPopularNorwayShipCards } from "@/lib/ships-data";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { buildItemListSchema } from "@/lib/site-schema";
@@ -38,6 +40,7 @@ const faqs = [
 ] as const;
 
 export default function CruiseLinesPage() {
+  const findYourShipEntries = buildFindYourShipEntries();
   const popularShips = getPopularNorwayShipCards();
 
   const itemList = buildItemListSchema(
@@ -79,6 +82,8 @@ export default function CruiseLinesPage() {
         ]}
         relatedSectionTitle="Plan your Norway cruise"
       >
+        <FindYourShip ships={findYourShipEntries} className="my-10" />
+
         <section className="my-10">
           <h2>Choose your cruise line</h2>
           <p>

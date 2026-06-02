@@ -8,6 +8,18 @@ export type RecommendedExcursionCard = {
   external?: boolean;
 };
 
+export type ExcursionPick = {
+  title: string;
+  url: string;
+  external?: boolean;
+};
+
+export type PortCategorizedExcursions = {
+  best: ExcursionPick;
+  smallGroup: ExcursionPick;
+  scenic: ExcursionPick;
+};
+
 /** Ports with curated tour cards (live local excursion pages). */
 export const portsWithMappedExcursions = [
   "flam",
@@ -209,4 +221,136 @@ export function getPortRecommendedExcursions(
 
 export function usesFallbackExcursionCards(portSlug: string): boolean {
   return !isMappedExcursionPort(portSlug);
+}
+
+/** Fixed ports shown on every cruise line excursions section. */
+export const cruiseLineExcursionPortSlugs = [
+  "flam",
+  "bergen",
+  "olden",
+  "geiranger",
+  "stavanger",
+  "alesund",
+] as const;
+
+export type CruiseLineExcursionPortSlug =
+  (typeof cruiseLineExcursionPortSlugs)[number];
+
+const categorizedPortExcursions: Record<
+  CruiseLineExcursionPortSlug,
+  PortCategorizedExcursions
+> = {
+  flam: {
+    best: {
+      title: "Stegastein Viewpoint",
+      url: "https://flamshoreexcursions.com/excursions/stegastein-viewpoint",
+      external: true,
+    },
+    smallGroup: {
+      title: "Private Stegastein Tour",
+      url: "https://flamshoreexcursions.com/flam-shore-excursions",
+      external: true,
+    },
+    scenic: {
+      title: "Flåm Fjord Cruise",
+      url: "https://flamshoreexcursions.com/excursions/flam-fjord-cruise",
+      external: true,
+    },
+  },
+  bergen: {
+    best: {
+      title: "Mostraumen Fjord Cruise",
+      url: "https://bergenshoreexcursions.com/excursions/fjord-cruise-to-mostraumen",
+      external: true,
+    },
+    smallGroup: {
+      title: "Private Bergen Sightseeing",
+      url: "https://bergenshoreexcursions.com/excursions/private-bergen-sightseeing",
+      external: true,
+    },
+    scenic: {
+      title: "Bergen Walking Tour",
+      url: "https://bergenshoreexcursions.com/excursions/bergen-walking-tour",
+      external: true,
+    },
+  },
+  olden: {
+    best: {
+      title: "Briksdal Glacier",
+      url: "https://oldenshoreexcursions.com/excursions/briksdal-glacier-olden-lake",
+      external: true,
+    },
+    smallGroup: {
+      title: "Private Briksdal Glacier Tour",
+      url: "https://oldenshoreexcursions.com/excursions/private-briksdal-glacier-olden-lake",
+      external: true,
+    },
+    scenic: {
+      title: "Loen Skylift",
+      url: "https://oldenshoreexcursions.com/excursions/loen-skylift-mount-hoven",
+      external: true,
+    },
+  },
+  geiranger: {
+    best: {
+      title: "Mount Dalsnibba",
+      url: "https://geirangershoreexcursions.com/excursions/mount-dalsnibba",
+      external: true,
+    },
+    smallGroup: {
+      title: "Private Geiranger Touring",
+      url: "https://geirangershoreexcursions.com/excursions",
+      external: true,
+    },
+    scenic: {
+      title: "Geirangerfjord Sightseeing",
+      url: "https://geirangershoreexcursions.com/excursions/geiranger-fjord-sightseeing",
+      external: true,
+    },
+  },
+  stavanger: {
+    best: {
+      title: "Lysefjord Cruise",
+      url: "https://stavangershoreexcursions.com/excursions/lysefjord-cruise",
+      external: true,
+    },
+    smallGroup: {
+      title: "Stavanger Walking Tour",
+      url: "https://stavangershoreexcursions.com/excursions/stavanger-walking-tour",
+      external: true,
+    },
+    scenic: {
+      title: "Private Lysefjord Cruise",
+      url: "https://stavangershoreexcursions.com/stavanger-shore-excursions",
+      external: true,
+    },
+  },
+  alesund: {
+    best: {
+      title: "Mount Aksla Highlights",
+      url: "https://alesundshoreexcursions.com/excursions/alesund-highlights-mount-aksla",
+      external: true,
+    },
+    smallGroup: {
+      title: "Ålesund Walking Tour",
+      url: "https://alesundshoreexcursions.com/excursions/alesund-walking-tour",
+      external: true,
+    },
+    scenic: {
+      title: "Alnes Lighthouse Drive",
+      url: "https://alesundshoreexcursions.com/excursions/alnes-lighthouse",
+      external: true,
+    },
+  },
+};
+
+export function getPortCategorizedExcursions(
+  portSlug: string,
+): PortCategorizedExcursions | null {
+  if (
+    !(cruiseLineExcursionPortSlugs as readonly string[]).includes(portSlug)
+  ) {
+    return null;
+  }
+  return categorizedPortExcursions[portSlug as CruiseLineExcursionPortSlug];
 }

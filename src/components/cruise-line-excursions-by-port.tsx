@@ -1,144 +1,135 @@
 import Link from "next/link";
 
-import { shipScheduleSearchPathForLine } from "@/lib/cruise-line-schedules";
-import { getLinePortExcursionEntries } from "@/lib/cruise-line-port-planning";
 import type { CruiseLineData } from "@/lib/cruise-lines-data";
-import type { CruiseLinePortSummary } from "@/lib/cruise-line-schedules";
-import type { RecommendedExcursionCard } from "@/lib/port-recommended-excursions";
+import {
+  getLinePortExcursionEntries,
+  type LinePortExcursionEntry,
+} from "@/lib/cruise-line-port-planning";
+import { shipScheduleSearchPathForLine } from "@/lib/cruise-line-schedules";
+import type { ExcursionPick } from "@/lib/port-recommended-excursions";
+import { getPortImage } from "@/lib/site-images";
 
 type CruiseLineExcursionsByPortProps = {
   line: CruiseLineData;
-  schedulePorts: readonly CruiseLinePortSummary[];
   className?: string;
 };
 
-function ExcursionCardLink({ card }: { card: RecommendedExcursionCard }) {
+function ExcursionPickLink({ pick }: { pick: ExcursionPick }) {
   const linkClassName =
-    "text-sm font-semibold text-[var(--glacier-blue)] hover:text-[var(--glacier-blue-hover)]";
+    "font-semibold text-[var(--glacier-blue)] hover:text-[var(--glacier-blue-hover)]";
 
-  if (card.external) {
+  if (pick.external) {
     return (
       <a
-        href={card.url}
+        href={pick.url}
         target="_blank"
         rel="noopener noreferrer"
         className={linkClassName}
       >
-        {card.ctaLabel} →
+        {pick.title}
       </a>
     );
   }
 
   return (
-    <Link href={card.url} className={linkClassName}>
-      {card.ctaLabel} →
+    <Link href={pick.url} className={linkClassName}>
+      {pick.title}
     </Link>
   );
 }
 
-function PortExcursionBlock({
-  portDisplayName,
-  portGuideHref,
-  excursionHubHref,
-  scheduleHref,
-  excursions,
-  hasMappedExcursions,
+function ExcursionPickRow({
+  label,
+  pick,
 }: {
-  portDisplayName: string;
-  portGuideHref: string;
-  excursionHubHref: string;
-  scheduleHref: string | null;
-  excursions: readonly RecommendedExcursionCard[];
-  hasMappedExcursions: boolean;
+  label: string;
+  pick: ExcursionPick;
 }) {
   return (
-    <article className="premium-card overflow-hidden">
-      <div className="border-b border-[var(--border-light)] bg-slate-50/80 px-5 py-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-lg font-bold text-slate-900">{portDisplayName}</h3>
-          <div className="flex flex-wrap gap-3 text-sm font-semibold">
-            <Link href={portGuideHref} className="content-link">
+    <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+      <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        {label}
+      </dt>
+      <dd className="text-sm leading-6">
+        <ExcursionPickLink pick={pick} />
+      </dd>
+    </div>
+  );
+}
+
+function PortExcursionCard({ entry }: { entry: LinePortExcursionEntry }) {
+  const img = getPortImage(entry.portSlug);
+
+  return (
+    <li>
+      <article className="premium-card flex h-full flex-col overflow-hidden">
+        <div
+          className="h-36 bg-cover bg-center sm:h-40"
+          style={{ backgroundImage: `url(${img.url})` }}
+          role="img"
+          aria-label={img.alt}
+        />
+        <div className="flex flex-1 flex-col p-4 sm:p-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[var(--gold)]">
+            {entry.portRegion}
+          </p>
+          <h3 className="mt-1 text-lg font-bold text-slate-900">
+            {entry.portDisplayName}
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            {entry.description}
+          </p>
+
+          <dl className="mt-4 space-y-2.5 border-t border-[var(--border-light)] pt-4">
+            <ExcursionPickRow label="Best pick" pick={entry.best} />
+            <ExcursionPickRow label="Small group" pick={entry.smallGroup} />
+            <ExcursionPickRow label="Scenic" pick={entry.scenic} />
+          </dl>
+
+          <div className="mt-auto flex flex-wrap gap-x-4 gap-y-2 border-t border-[var(--border-light)] pt-4 text-sm font-semibold">
+            <Link href={entry.portGuideHref} className="content-link">
               Port guide
             </Link>
-            {scheduleHref ? (
-              <Link href={scheduleHref} className="content-link">
+            <a
+              href={entry.excursionHubHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="content-link"
+            >
+              Shore excursions
+            </a>
+            {entry.scheduleHref ? (
+              <Link href={entry.scheduleHref} className="content-link">
                 Schedule
               </Link>
             ) : null}
           </div>
         </div>
-      </div>
-
-      <div className="p-5">
-        {hasMappedExcursions && excursions.length > 0 ? (
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {excursions.map((card) => (
-              <li
-                key={card.title}
-                className="rounded-xl border border-[var(--border-light)] bg-white p-4"
-              >
-                <p className="font-semibold text-slate-900">{card.title}</p>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  {card.benefit}
-                </p>
-                <div className="mt-3">
-                  <ExcursionCardLink card={card} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-sm leading-6 text-slate-600">
-            Browse independent shore excursions for {portDisplayName} on our
-            authority site.
-          </p>
-        )}
-
-        <p className="mt-4 text-sm">
-          <a
-            href={excursionHubHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="content-link font-medium"
-          >
-            All {portDisplayName} shore excursions →
-          </a>
-        </p>
-      </div>
-    </article>
+      </article>
+    </li>
   );
 }
 
 export function CruiseLineExcursionsByPort({
   line,
-  schedulePorts,
   className = "",
 }: CruiseLineExcursionsByPortProps) {
-  const entries = getLinePortExcursionEntries(line, schedulePorts);
-
-  if (entries.length === 0) return null;
+  const entries = getLinePortExcursionEntries(line);
 
   return (
     <section className={className}>
-      <h2>Recommended excursions by port</h2>
+      <h2>Recommended Excursions By Port</h2>
       <p>
-        Deep links to port guides and local tours for {line.shortName}&apos;s
-        typical Norway stops. Independent operators, not cruise line packages.
+        Six headline Norway ports with independent tour picks for{" "}
+        {line.shortName} passengers. Port guides, local operators and return to
+        ship planning links in one place.
       </p>
 
-      <div className="not-prose mt-6 space-y-6">
+      <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {entries.map((entry) => (
-          <PortExcursionBlock
-            key={entry.portSlug}
-            portDisplayName={entry.portDisplayName}
-            portGuideHref={entry.portGuideHref}
-            excursionHubHref={entry.excursionHubHref}
-            scheduleHref={entry.scheduleHref}
-            excursions={entry.excursions}
-            hasMappedExcursions={entry.hasMappedExcursions}
-          />
+          <PortExcursionCard key={entry.portSlug} entry={entry} />
         ))}
-      </div>
+      </ul>
 
       <p className="mt-4 text-sm text-slate-600">
         Match tours to your sailing with the{" "}

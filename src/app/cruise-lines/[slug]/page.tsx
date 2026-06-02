@@ -157,15 +157,11 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           className="my-10"
         />
 
+        <CruiseLineExcursionsByPort line={line} className="my-10" />
+
         <CruiseLineExcursionStyles
           styles={line.excursionStyles}
           cruiseLineShortName={line.shortName}
-          className="my-10"
-        />
-
-        <CruiseLineExcursionsByPort
-          line={line}
-          schedulePorts={scheduleStats.ports}
           className="my-10"
         />
 
