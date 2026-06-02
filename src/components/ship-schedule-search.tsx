@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import { ShipCardBadges } from "@/components/ship-card-badges";
 import { ShipImage } from "@/components/ship-image";
@@ -10,6 +11,11 @@ import {
   formatScheduleTime,
   shipScheduleHubPath,
 } from "@/lib/cruise-schedule-config";
+import {
+  isCruiseLineScheduleKey,
+  scheduleLineNames,
+  type CruiseLineScheduleKey,
+} from "@/lib/cruise-line-schedules";
 import {
   groupShipScheduleSearchEntries,
   normalizeShipSearchKey,
@@ -42,21 +48,65 @@ function formatPassengers(value: number | null): string {
   return value ? value.toLocaleString("en-GB") : "Not published";
 }
 
+function entryMatchesLine(
+  entry: ShipScheduleSearchEntry,
+  line: CruiseLineScheduleKey,
+): boolean {
+  return scheduleLineNames[line].includes(entry.cruiseLine);
+}
+
+function lineDisplayName(line: CruiseLineScheduleKey): string {
+  return scheduleLineNames[line][0] ?? line;
+}
+
 export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
-  const [query, setQuery] = useState("");
+  const searchParams = useSearchParams();
+  const lineParam = searchParams.get("line") ?? undefined;
+  const initialQuery = searchParams.get("q")?.trim() ?? "";
+  const activeLine = lineParam && isCruiseLineScheduleKey(lineParam) ? lineParam : undefined;
+  const [query, setQuery] = useState(initialQuery);
+
+  const scopedEntries = useMemo(() => {
+    if (!activeLine) return entries;
+    return entries.filter((entry) => entryMatchesLine(entry, activeLine));
+  }, [entries, activeLine]);
 
   const results = useMemo(() => {
     const queryKey = normalizeShipSearchKey(query);
-    if (!queryKey) return [];
+    if (!queryKey) {
+      if (activeLine) {
+        return groupShipScheduleSearchEntries(scopedEntries);
+      }
+      return [];
+    }
 
-    const matches = entries.filter((entry) => entry.shipSearchKey.includes(queryKey));
+    const matches = scopedEntries.filter((entry) =>
+      entry.shipSearchKey.includes(queryKey),
+    );
     return groupShipScheduleSearchEntries(matches);
-  }, [entries, query]);
+  }, [scopedEntries, query, activeLine]);
 
   const hasQuery = normalizeShipSearchKey(query).length > 0;
+  const showResults = hasQuery || Boolean(activeLine);
 
   return (
     <div className="space-y-8">
+      {activeLine ? (
+        <section className="rounded-2xl border border-[var(--glacier-blue)]/30 bg-sky-50/60 p-5">
+          <p className="text-sm font-semibold text-[var(--navy-deep)]">
+            Showing {lineDisplayName(activeLine)} ships in our 2026 Norway schedule
+            database.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            Search within this line or{" "}
+            <Link href="/ship-schedules/search" className="content-link font-medium">
+              clear the cruise line filter
+            </Link>
+            .
+          </p>
+        </section>
+      ) : null}
+
       <section className="rounded-2xl border border-[var(--border-light)] bg-white p-6 shadow-sm sm:p-8">
         <label htmlFor="ship-schedule-search" className="block text-sm font-semibold text-[var(--navy-deep)]">
           Search by ship name
@@ -91,7 +141,7 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
         </div>
       </section>
 
-      {hasQuery ? (
+      {showResults ? (
         results.length > 0 ? (
           <section className="space-y-6">
             <p className="text-sm text-slate-600">
@@ -240,7 +290,9 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
           </section>
         ) : (
           <section className="rounded-2xl border border-slate-200 bg-surface-muted p-6 text-sm leading-7 text-slate-600">
-            {EMPTY_STATE_MESSAGE}
+            {activeLine
+              ? `No matching ${lineDisplayName(activeLine)} ship found for that search. Try another ship name.`
+              : EMPTY_STATE_MESSAGE}
           </section>
         )
       ) : (

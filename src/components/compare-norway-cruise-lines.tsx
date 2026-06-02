@@ -54,9 +54,7 @@ export function CompareNorwayCruiseLines({
     <section className={className}>
       <h2>Compare Norway Cruise Lines</h2>
       <p>
-        Each operator brings a different pace, ship size and passenger profile to
-        Norwegian fjords. Open another line guide to compare schedules, ports and
-        excursion styles.
+        Compare pace, ship size and ports across line guides.
       </p>
       <ul className="card-grid mt-4 grid items-stretch gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {compareNorwayCruiseLineSlugs.map((slug) => {

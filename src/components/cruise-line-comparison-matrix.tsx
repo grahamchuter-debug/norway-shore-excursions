@@ -188,9 +188,8 @@ export function CruiseLineComparisonMatrix({
         <>
           <h2>Compare Norway Cruise Lines</h2>
           <p>
-            Side by side planning for mainstream and premium operators sailing
-            western Norway. Compare passenger style, family fit, premium feel,
-            headline ports and typical voyage length before you open a line guide.
+            Compare passenger style, family fit, headline ports and typical voyage
+            length across operators sailing western Norway.
           </p>
         </>
       ) : null}

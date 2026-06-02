@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { ShipScheduleSearch } from "@/components/ship-schedule-search";
 import { ContentPage } from "@/components/content-page";
 import {
@@ -43,7 +45,9 @@ export default function ShipScheduleSearchPage() {
         </p>
       </section>
 
-      <ShipScheduleSearch entries={searchIndex} />
+      <Suspense fallback={null}>
+        <ShipScheduleSearch entries={searchIndex} />
+      </Suspense>
     </ContentPage>
   );
 }

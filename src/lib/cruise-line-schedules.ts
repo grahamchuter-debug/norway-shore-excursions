@@ -3,6 +3,7 @@ import {
   hasRealScheduleData,
   type CruiseScheduleRow,
 } from "@/lib/cruiseSchedules";
+import { shipScheduleSearchPath } from "@/lib/cruise-schedule-config";
 import { portBySlug } from "@/lib/ports-data";
 import {
   formatShipCapacityLabel,
@@ -39,7 +40,7 @@ export const cruiseLineScheduleKeys: readonly CruiseLineScheduleKey[] = [
   "norwegian",
 ] as const;
 
-const scheduleLineNames: Record<CruiseLineScheduleKey, readonly string[]> = {
+export const scheduleLineNames: Record<CruiseLineScheduleKey, readonly string[]> = {
   msc: ["MSC Cruises", "MSC"],
   "p-and-o": ["P&O Cruises", "P&O", "P & O"],
   celebrity: ["Celebrity Cruises", "Celebrity"],
@@ -273,4 +274,14 @@ export function getFeaturedCruiseLineShips(
       shipPageHref: null,
     };
   });
+}
+
+export function shipScheduleSearchPathForLine(
+  key: CruiseLineScheduleKey,
+): string {
+  return `${shipScheduleSearchPath}?line=${encodeURIComponent(key)}`;
+}
+
+export function isCruiseLineScheduleKey(value: string): value is CruiseLineScheduleKey {
+  return (cruiseLineScheduleKeys as readonly string[]).includes(value);
 }

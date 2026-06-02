@@ -33,8 +33,7 @@ export function CruisePassengerSnapshot({
         Cruise Passenger Snapshot
       </h3>
       <p className="mt-2 text-sm leading-6 text-slate-600">
-        Typical {cruiseLineName} Norway sailings at a glance. Use this alongside
-        your ship schedule and port guides.
+        Typical {cruiseLineName} Norway sailings at a glance.
       </p>
       <dl className="mt-6 grid gap-4 sm:grid-cols-2">
         {fields.map(({ key, label }) => (
