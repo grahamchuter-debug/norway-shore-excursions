@@ -25,6 +25,10 @@ export type PrimaryShipBadgeVariant =
   | "celebrity"
   | "p-and-o"
   | "msc"
+  | "princess"
+  | "royal-caribbean"
+  | "disney"
+  | "norwegian"
   | "fallback";
 
 export type ResolvedPrimaryShipBadge = {
@@ -53,6 +57,13 @@ const linePrimaryBadges: Record<
   celebrity: { label: "Modern Premium", variant: "celebrity" },
   "p-and-o": { label: "Popular with UK Cruisers", variant: "p-and-o" },
   msc: { label: "Family Favourite", variant: "msc" },
+  princess: { label: "Premium Fjord Cruising", variant: "princess" },
+  "royal-caribbean": {
+    label: "Resort Mega Ship",
+    variant: "royal-caribbean",
+  },
+  disney: { label: "Family Focused", variant: "disney" },
+  norwegian: { label: "Freestyle Cruising", variant: "norwegian" },
 };
 
 function hasScheduleBadgeData(input: ShipCardBadgeInput): boolean {

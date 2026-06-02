@@ -20,7 +20,11 @@ export type CruiseLineScheduleKey =
   | "celebrity"
   | "cunard"
   | "viking"
-  | "holland-america";
+  | "holland-america"
+  | "princess"
+  | "royal-caribbean"
+  | "disney"
+  | "norwegian";
 
 export const cruiseLineScheduleKeys: readonly CruiseLineScheduleKey[] = [
   "msc",
@@ -29,6 +33,10 @@ export const cruiseLineScheduleKeys: readonly CruiseLineScheduleKey[] = [
   "cunard",
   "viking",
   "holland-america",
+  "princess",
+  "royal-caribbean",
+  "disney",
+  "norwegian",
 ] as const;
 
 const scheduleLineNames: Record<CruiseLineScheduleKey, readonly string[]> = {
@@ -37,7 +45,11 @@ const scheduleLineNames: Record<CruiseLineScheduleKey, readonly string[]> = {
   celebrity: ["Celebrity Cruises", "Celebrity"],
   cunard: ["Cunard Line", "Cunard"],
   viking: ["Viking", "Viking Oceans"],
-  "holland-america": ["Holland America Line"],
+  "holland-america": ["Holland America Line", "Holland America"],
+  princess: ["Princess Cruises", "Princess"],
+  "royal-caribbean": ["Royal Caribbean Cruises", "Royal Caribbean"],
+  disney: ["Disney Cruise Line", "Disney"],
+  norwegian: ["Norwegian Cruise Line", "Norwegian"],
 };
 
 export type CruiseLineShipSummary = {

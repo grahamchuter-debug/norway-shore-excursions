@@ -20,6 +20,12 @@ const cruiseLineNameToKey: readonly { key: string; names: readonly string[] }[] 
       key: "norwegian",
       names: ["Norwegian Cruise Line", "Norwegian"],
     },
+    { key: "princess", names: ["Princess Cruises", "Princess"] },
+    {
+      key: "royal-caribbean",
+      names: ["Royal Caribbean Cruises", "Royal Caribbean"],
+    },
+    { key: "disney", names: ["Disney Cruise Line", "Disney"] },
     { key: "aida", names: ["AIDA"] },
     {
       key: "ambassador",

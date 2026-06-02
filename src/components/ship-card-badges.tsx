@@ -20,6 +20,10 @@ const primaryVariantClasses: Record<PrimaryShipBadgeVariant, string> = {
   "p-and-o":
     "border-teal-600/25 bg-teal-700 text-white",
   msc: "border-sky-400/30 bg-sky-500 text-white",
+  princess: "border-indigo-500/30 bg-indigo-600 text-white",
+  "royal-caribbean": "border-yellow-500/35 bg-yellow-600 text-white",
+  disney: "border-blue-600/30 bg-blue-700 text-white",
+  norwegian: "border-cyan-600/25 bg-cyan-700 text-white",
   fallback:
     "border-slate-300 bg-slate-500 text-white",
 };

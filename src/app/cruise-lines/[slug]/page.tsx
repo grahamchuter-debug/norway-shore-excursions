@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
 import { ContentPage } from "@/components/content-page";
-import { CruisePlanningTools } from "@/components/cruise-planning-tools";
+import { CruiseLineExcursionStyles } from "@/components/cruise-line-excursion-styles";
 import { CruiseLineLogo } from "@/components/cruise-line-logo";
+import { CruisePassengerSnapshot } from "@/components/cruise-passenger-snapshot";
+import { CruisePlanningTools } from "@/components/cruise-planning-tools";
 import { JsonLd } from "@/components/json-ld";
 import { PortCard } from "@/components/port-card";
 import { ShipCard } from "@/components/ship-card";
@@ -12,7 +15,11 @@ import {
   ReturnToShipConfidence,
   fitTierToReturnLevel,
 } from "@/components/return-to-ship-confidence";
-import { cruiseLineBySlug, cruiseLineSlugs } from "@/lib/cruise-lines-data";
+import {
+  cruiseLineBySlug,
+  cruiseLineSlugs,
+  FEATURED_CRUISE_LINE_PORT_SLUGS,
+} from "@/lib/cruise-lines-data";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
 import { shipCardBadgeInputFromCruiseLineShip } from "@/lib/ship-card-badges";
 import {
@@ -61,12 +68,41 @@ export async function generateMetadata({ params }: CruiseLinePageProps) {
   });
 }
 
+function resolveFeaturedPorts(
+  schedulePortSlugs: readonly string[],
+  fallbackSlugs: readonly string[],
+): string[] {
+  const fromSchedule = schedulePortSlugs.filter((portSlug) =>
+    (FEATURED_CRUISE_LINE_PORT_SLUGS as readonly string[]).includes(portSlug),
+  );
+  if (fromSchedule.length > 0) return fromSchedule;
+
+  return fallbackSlugs.filter((portSlug) =>
+    (FEATURED_CRUISE_LINE_PORT_SLUGS as readonly string[]).includes(portSlug),
+  );
+}
+
 export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
   const { slug } = await params;
   const line = cruiseLineBySlug[slug];
   if (!line) notFound();
 
   const scheduleStats = getCruiseLineScheduleSummary(line.scheduleKey);
+  const featuredPortSlugs = resolveFeaturedPorts(
+    scheduleStats.ports.map((p) => p.portSlug),
+    line.recommendedPortSlugs,
+  );
+
+  const popularPortsLabel =
+    scheduleStats.ports.length > 0
+      ? scheduleStats.ports
+          .slice(0, 4)
+          .map((p) => p.portDisplayName)
+          .join(", ")
+      : line.recommendedPortSlugs
+          .slice(0, 4)
+          .map((s) => portBySlug[s].displayName)
+          .join(", ");
 
   const excursionPorts = scheduleStats.ports.length
     ? scheduleStats.ports.slice(0, 3)
@@ -77,28 +113,26 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
       }));
 
   const itemList = buildItemListSchema(
-    line.recommendedPortSlugs.map((s) => {
-      const port = portBySlug[s];
+    featuredPortSlugs.map((portSlug) => {
+      const port = portBySlug[portSlug];
       return {
         name: port.displayName,
         description: port.bestFor,
       };
     }),
-    `Recommended Norway ports for ${line.shortName} passengers`,
+    `Most popular Norway ports for ${line.shortName}`,
   );
 
-  const internalLinks = [
-    { label: "Cruise Ships Hub", href: "/ships" },
+  const planningLinks = [
+    { label: "Norway Cruise Planner", href: "/norway-cruise-planner" },
     { label: "Ship Schedules Hub", href: shipScheduleHubPath },
     { label: "Search by Ship", href: shipScheduleSearchPath },
-    { label: "Norway Cruise Planner", href: "/norway-cruise-planner" },
-    { label: "Return to Ship Confidence", href: "/return-to-ship-confidence" },
-    { label: "Shore Excursions Hub", href: "/norway-shore-excursions" },
     { label: "Norway Cruise Ports", href: "/norway-cruise-ports" },
-    { label: "Return to Ship Guide", href: "/return-to-ship-guide" },
+    { label: "Shore Excursions Hub", href: "/norway-shore-excursions" },
+    { label: "All Cruise Lines", href: "/cruise-lines" },
     ...scheduleStats.ports
       .filter((p) => hasRealScheduleData(p.portSlug))
-      .slice(0, 4)
+      .slice(0, 3)
       .map((p) => ({
         label: `${p.portDisplayName} Schedule`,
         href: shipSchedulePortPath(p.portSlug),
@@ -123,18 +157,18 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
         faqs={line.faqs}
         belowHero={
           <div className="mx-auto flex max-w-3xl justify-center pb-2">
-            <CruiseLineLogo cruiseLine={line.name} variant="badge" />
+            <CruiseLineLogo cruiseLine={line.name} variant="hero" />
           </div>
         }
         ctaTitle="Build your Norway excursion plan"
         ctaText="Use the Norway Cruise Planner for smart, rules based recommendations matched to your ports and interests."
         ctaHref="/norway-cruise-planner"
         ctaButtonLabel="Open Norway Cruise Planner"
-        relatedLinks={internalLinks}
+        relatedLinks={planningLinks}
         relatedSectionTitle="More Norway cruise planning tools"
       >
         <section>
-          <h2>Cruise line overview</h2>
+          <h2>Why {line.name} Works Well In Norway</h2>
           <p>{line.overview}</p>
           <p>
             This page helps {line.name} passengers plan Norway shore excursions
@@ -143,11 +177,76 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           </p>
           <h3>Typical Norway itineraries</h3>
           <p>{line.typicalItineraries}</p>
+          <h3>Fjord destinations</h3>
+          <p>{line.fjordDestinations}</p>
+          <h3>Popular ports in our schedule data</h3>
+          <p>
+            {scheduleStats.portCount > 0
+              ? `${line.shortName} ships in our 2026 Norway database call at ${popularPortsLabel}.`
+              : `Typical ${line.shortName} Norway itineraries include ${popularPortsLabel}. Confirm your sailing against our ship search.`}
+          </p>
+          <h3>Passenger profile</h3>
+          <p>{line.passengerTypes}</p>
+          <h3>Typical shore time</h3>
+          <p>{line.typicalShoreTime}</p>
           <h3>Cruise style</h3>
           <p>{line.cruiseStyle}</p>
-          <h3>Who sails {line.shortName} in Norway</h3>
-          <p>{line.passengerTypes}</p>
         </section>
+
+        <section>
+          <h2>Most Popular Norway Cruise Ports For {line.name}</h2>
+          <p>
+            Port guides for headline fjord and city stops where {line.shortName}{" "}
+            appears in our 2026 schedule data, or where the line commonly sails
+            on Norway itineraries.
+          </p>
+          {featuredPortSlugs.length > 0 ? (
+            <div className="not-prose -mx-2 mt-4 grid gap-4 sm:grid-cols-2">
+              {featuredPortSlugs.map((portSlug) => {
+                const schedulePort = scheduleStats.ports.find(
+                  (p) => p.portSlug === portSlug,
+                );
+                return (
+                  <div key={portSlug} className="space-y-2">
+                    <PortCard port={portBySlug[portSlug]} />
+                    {schedulePort ? (
+                      <p className="px-2 text-xs font-medium text-slate-500">
+                        {schedulePort.callCount}{" "}
+                        {schedulePort.callCount === 1
+                          ? "scheduled call"
+                          : "scheduled calls"}{" "}
+                        in 2026 data
+                      </p>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p>
+              Search{" "}
+              <Link href={shipScheduleSearchPath} className="content-link">
+                ship schedules
+              </Link>{" "}
+              to confirm ports on your {line.shortName} sailing.
+            </p>
+          )}
+        </section>
+
+        <section>
+          <h2>Recommended Excursions</h2>
+          <p>
+            Excursion styles that suit {line.shortName} passengers on Norway
+            port days. These are planning guides only, not booking pages.
+          </p>
+          <CruiseLineExcursionStyles styles={line.excursionStyles} />
+        </section>
+
+        <CruisePassengerSnapshot
+          snapshot={line.passengerSnapshot}
+          cruiseLineName={line.name}
+          className="my-10"
+        />
 
         {scheduleStats.ships.length > 0 ? (
           <section>
@@ -197,10 +296,10 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
 
         {scheduleStats.ports.length > 0 ? (
           <section>
-            <h2>Norway ports visited by {line.shortName}</h2>
+            <h2>All Norway ports visited by {line.shortName}</h2>
             <p>
-              Ports where {line.shortName} ships appear in our 2026 Norway
-              schedule data, sorted by call frequency.
+              Full list from our 2026 Norway schedule database, sorted by call
+              frequency.
             </p>
             <ul className="card-grid mt-4 grid gap-3 sm:grid-cols-2">
               {scheduleStats.ports.map((port) => (
@@ -214,7 +313,9 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
                     </Link>
                     <p className="mt-1 text-sm text-slate-600">
                       {port.callCount}{" "}
-                      {port.callCount === 1 ? "scheduled call" : "scheduled calls"}
+                      {port.callCount === 1
+                        ? "scheduled call"
+                        : "scheduled calls"}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-3 text-sm">
                       {hasRealScheduleData(port.portSlug) ? (
@@ -237,114 +338,108 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
               ))}
             </ul>
           </section>
-        ) : (
+        ) : null}
+
+        {excursionPorts.length > 0 ? (
           <section>
-            <h2>Recommended Norway cruise ports</h2>
-            <div className="not-prose -mx-2 grid gap-4 sm:grid-cols-2">
-              {line.recommendedPortSlugs.map((s) => (
-                <PortCard key={s} port={portBySlug[s]} />
-              ))}
+            <h2>Port by port excursion timing</h2>
+            <p>
+              Sample return to ship confidence for {line.shortName} at busy
+              Norway ports. Always confirm against your sailing&apos;s all aboard
+              time.
+            </p>
+            <div className="space-y-8">
+              {excursionPorts.map((port) => {
+                const lineRows = getSchedulesByPort(port.portSlug).filter(
+                  (row) =>
+                    scheduleStats.ships.some(
+                      (s) => s.ship.toLowerCase() === row.ship.toLowerCase(),
+                    ),
+                );
+                const sampleRow = lineRows.find(
+                  (r) => r.arrival_time && r.all_aboard_time,
+                );
+                const tier =
+                  (sampleRow && estimatePortReturnConfidence(sampleRow)) ||
+                  getDefaultExcursionConfidenceForPort();
+                const cards = getPortRecommendedExcursions(port.portSlug, {
+                  fitExcursionHref:
+                    "/return-to-ship-guide#will-this-excursion-fit",
+                });
+
+                return (
+                  <div key={port.portSlug}>
+                    <h3>{port.portDisplayName}</h3>
+                    <ReturnToShipConfidence
+                      level={fitTierToReturnLevel(tier)}
+                      compact
+                      showLink
+                      className="mb-3"
+                    />
+                    {isMappedExcursionPort(port.portSlug) ? (
+                      <ul className="card-grid mt-3 grid gap-3 sm:grid-cols-2">
+                        {cards.slice(0, 2).map((card) => (
+                          <li key={card.title}>
+                            <article className="premium-card p-4">
+                              <p className="font-semibold text-slate-900">
+                                {card.title}
+                              </p>
+                              <p className="mt-1 text-sm leading-6 text-slate-600">
+                                {card.benefit}
+                              </p>
+                              {card.external ? (
+                                <a
+                                  href={card.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="mt-3 inline-flex text-sm font-semibold text-[var(--glacier-blue)]"
+                                >
+                                  {card.ctaLabel} →
+                                </a>
+                              ) : (
+                                <Link
+                                  href={card.url}
+                                  className="mt-3 inline-flex text-sm font-semibold text-[var(--glacier-blue)]"
+                                >
+                                  {card.ctaLabel} →
+                                </Link>
+                              )}
+                            </article>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>
+                        <Link
+                          href={getPortExcursionLink(port.portSlug)}
+                          className="content-link font-medium"
+                        >
+                          {getPortExcursionLinkLabel(port.portDisplayName)}
+                        </Link>
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
-        )}
+        ) : null}
 
         <section>
-          <h2>Recommended shore excursions</h2>
+          <h2>Planning Your Norway Cruise</h2>
           <p>
-            Top excursion picks for {line.shortName} passengers at Norway ports
-            on your itinerary. Browse all themes on our{" "}
-            <Link href="/norway-shore-excursions">shore excursions hub</Link>.
-          </p>
-          <div className="space-y-8">
-            {excursionPorts.map((port) => {
-              const lineRows = getSchedulesByPort(port.portSlug).filter((row) =>
-                scheduleStats.ships.some(
-                  (s) => s.ship.toLowerCase() === row.ship.toLowerCase(),
-                ),
-              );
-              const sampleRow = lineRows.find(
-                (r) => r.arrival_time && r.all_aboard_time,
-              );
-              const tier =
-                (sampleRow && estimatePortReturnConfidence(sampleRow)) ||
-                getDefaultExcursionConfidenceForPort();
-              const cards = getPortRecommendedExcursions(port.portSlug, {
-                fitExcursionHref: "/return-to-ship-guide#will-this-excursion-fit",
-              });
-
-              return (
-                <div key={port.portSlug}>
-                  <h3>{port.portDisplayName}</h3>
-                  <ReturnToShipConfidence
-                    level={fitTierToReturnLevel(tier)}
-                    compact
-                    showLink
-                    className="mb-3"
-                  />
-                  {isMappedExcursionPort(port.portSlug) ? (
-                    <ul className="card-grid mt-3 grid gap-3 sm:grid-cols-2">
-                      {cards.slice(0, 2).map((card) => (
-                        <li key={card.title}>
-                          <article className="premium-card p-4">
-                            <p className="font-semibold text-slate-900">
-                              {card.title}
-                            </p>
-                            <p className="mt-1 text-sm leading-6 text-slate-600">
-                              {card.benefit}
-                            </p>
-                            {card.external ? (
-                              <a
-                                href={card.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-3 inline-flex text-sm font-semibold text-[var(--glacier-blue)]"
-                              >
-                                {card.ctaLabel} →
-                              </a>
-                            ) : (
-                              <Link
-                                href={card.url}
-                                className="mt-3 inline-flex text-sm font-semibold text-[var(--glacier-blue)]"
-                              >
-                                {card.ctaLabel} →
-                              </Link>
-                            )}
-                          </article>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>
-                      <Link
-                        href={getPortExcursionLink(port.portSlug)}
-                        className="content-link font-medium"
-                      >
-                        {getPortExcursionLinkLabel(port.portDisplayName)}
-                      </Link>
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        <section>
-          <h2>Cruise planning tools</h2>
-          <p>
-            Use these tools to plan {line.shortName} port days before you sail.
+            Use these tools to plan {line.shortName} port days before you sail,
+            from ship schedules to port guides and excursion themes.
           </p>
           <CruisePlanningTools />
-        </section>
-
-        <section>
-          <h2>How {line.shortName} passengers can plan Norway excursions</h2>
-          <ul>
+          <ul className="mt-6 space-y-2">
             {line.planningTips.map((tip) => (
               <li key={tip}>{tip}</li>
             ))}
           </ul>
         </section>
+
+        <CompareNorwayCruiseLines currentSlug={slug} className="mt-10" />
       </ContentPage>
     </>
   );

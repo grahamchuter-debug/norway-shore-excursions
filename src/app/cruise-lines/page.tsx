@@ -13,7 +13,7 @@ import { imageAlts, siteImages } from "@/lib/site-images";
 export const metadata = buildPageMetadata({
   title: "Cruise Lines Visiting Norway",
   description:
-    "Independent planning guides for MSC, P&O, Celebrity, Cunard, Viking and Holland America Norway cruises with 2026 ship schedule data.",
+    "Independent planning guides for MSC, P&O, Princess, Royal Caribbean, Disney, NCL, Celebrity, Cunard, Viking and Holland America Norway cruises with 2026 ship schedule data.",
   path: "/cruise-lines",
   ogImage: siteImages.hero,
   ogImageAlt: imageAlts.hero,
@@ -77,21 +77,24 @@ export default function CruiseLinesPage() {
         relatedSectionTitle="Plan your Norway cruise"
       >
         <section>
-          <h2>Independent planning, not official partnerships</h2>
+          <h2>How cruise lines experience Norway differently</h2>
           <p>
-            Norway Shore Excursions is not affiliated with any cruise line. These
-            guides help passengers understand typical Norway itineraries, show
-            real ship call data where available, and link to local port
-            specialists for independent booking.
+            Norway Shore Excursions is not affiliated with any cruise line. Each
+            operator brings different ship sizes, passenger profiles and typical
+            port lists to the fjords. MSC and P&O run busy classic fjord loops,
+            Viking and Holland America favour longer in depth routes, while
+            Princess, Royal Caribbean, Disney and NCL appear on select Northern
+            Europe sailings in our 2026 schedule data.
+          </p>
+          <p>
+            Select your cruise line below for ship schedules, Norway ports
+            visited, recommended shore excursion styles and planning tools matched
+            to how that line typically sails western Norway.
           </p>
         </section>
 
         <section>
           <h2>Major cruise lines in Norway</h2>
-          <p>
-            Select your cruise line for ship schedules, Norway ports visited,
-            recommended shore excursions and planning tools.
-          </p>
           <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2">
             {cruiseLines.map((line) => {
               const stats = getCruiseLineScheduleSummary(line.scheduleKey);
