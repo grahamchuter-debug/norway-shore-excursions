@@ -36,7 +36,7 @@ export type CruiseLineData = {
   excursionStyles: readonly CruiseLineExcursionStyle[];
   planningTips: readonly string[];
   recommendedPortSlugs: readonly string[];
-  /** Curated ship slugs for the Popular Ships section (schedule data fills call counts). */
+  /** Curated ship slugs for the Ships Sailing Norway section (schedule data fills call counts). */
   featuredShipSlugs?: readonly string[];
   faqs: readonly { question: string; answer: string }[];
 };
@@ -56,6 +56,8 @@ export const cruiseLinePagePath = (slug: string) => `/cruise-lines/${slug}`;
 /**
  * Reserved nested URL for future per line ship pages.
  * Production ship pages today use {@link shipPagePath} from ship-schedules.
+ * When nested pages launch, prefer {@link cruiseLineShipPagePath} over the
+ * cruise line anchor fallback in {@link resolveFeaturedShipCardHref}.
  */
 export const cruiseLineShipPagePath = (slug: string) =>
   `/cruise-lines/ships/${slug}`;
@@ -81,6 +83,7 @@ export function resolveFeaturedShipCardHref(
   if (getShipScheduleSummaryBySlug(shipSlug)) {
     return shipPagePath(shipSlug);
   }
+  // Future nested pages: cruiseLineShipPagePath(shipSlug)
   return `${cruiseLinePagePath(cruiseLineSlug)}#${cruiseLinePopularShipsAnchor}`;
 }
 

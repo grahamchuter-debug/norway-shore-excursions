@@ -2,9 +2,11 @@ import Link from "next/link";
 
 import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
 import { ContentPage } from "@/components/content-page";
+import { CruiseLineComparisonMatrix } from "@/components/cruise-line-comparison-matrix";
 import { JsonLd } from "@/components/json-ld";
 import { ShipCard } from "@/components/ship-card";
 import { cruiseLines } from "@/lib/cruise-lines-data";
+import { primaryNorwayComparisonSlugs } from "@/lib/cruise-line-comparison";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
 import { getPopularNorwayShipCards } from "@/lib/ships-data";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -95,7 +97,12 @@ export default function CruiseLinesPage() {
         </section>
 
         <section>
-          <h2>Featured Norway Cruise Lines</h2>
+          <h2>Choose Your Cruise Line</h2>
+          <p>
+            Select your operator for ship schedules, Norway ports visited,
+            recommended shore excursion styles and planning tools matched to how
+            that line typically sails western Norway.
+          </p>
           <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2">
             {cruiseLines.map((line) => {
               const stats = getCruiseLineScheduleSummary(line.scheduleKey);
@@ -131,19 +138,14 @@ export default function CruiseLinesPage() {
           </ul>
         </section>
 
-        <section>
-          <h2>Compare Cruise Lines Visiting Norway</h2>
-          <p>
-            MSC and P&O run the busiest classic fjord loops in our 2026 data.
-            Celebrity, Cunard and Holland America bring premium and in depth
-            pacing. Princess adds select glacier and coastal ports. Open a line
-            guide to compare passenger style, port frequency and excursion themes.
-          </p>
-        </section>
+        <CruiseLineComparisonMatrix
+          slugs={primaryNorwayComparisonSlugs}
+          className="my-10"
+        />
 
         {popularShips.length > 0 ? (
           <section>
-            <h2>Popular Ships Sailing Norway</h2>
+            <h2>Ships Sailing Norway</h2>
             <p>
               Headline ships with busy 2026 Norway programmes in our schedule
               data. Each card opens the cruise line planning guide for that
@@ -159,6 +161,7 @@ export default function CruiseLinesPage() {
                     capacityLabel={ship.capacityLabel}
                     callCount={ship.callCount}
                     topPortsLabel={ship.topPortsLabel}
+                    typicalCruiseLengthLabel={ship.typicalCruiseLengthLabel}
                     badgeInput={ship.badgeInput}
                     href={ship.href}
                     ctaLabel="View cruise line guide"

@@ -11,6 +11,7 @@ export type ShipCardProps = {
   capacityLabel: string;
   callCount: number;
   topPortsLabel?: string;
+  typicalCruiseLengthLabel?: string;
   badgeInput: ShipCardBadgeInput;
   href: string;
   priority?: boolean;
@@ -24,6 +25,7 @@ export function ShipCard({
   capacityLabel,
   callCount,
   topPortsLabel,
+  typicalCruiseLengthLabel,
   badgeInput,
   href,
   priority = false,
@@ -59,6 +61,12 @@ export function ShipCard({
             <dt className="font-medium text-slate-500">Norway calls</dt>
             <dd>{callCount}</dd>
           </div>
+          {typicalCruiseLengthLabel ? (
+            <div className="flex flex-wrap gap-x-2">
+              <dt className="font-medium text-slate-500">Typical Norway length</dt>
+              <dd>{typicalCruiseLengthLabel}</dd>
+            </div>
+          ) : null}
           {topPortsLabel ? (
             <div>
               <dt className="font-medium text-slate-500">Most visited ports</dt>

@@ -50,11 +50,6 @@ export type FeaturedShipSlug = (typeof featuredShipSlugs)[number];
 export const popularNorwayHubShips = [
   { slug: "iona", cruiseLineSlug: "p-and-o-cruises-norway", label: "Iona" },
   {
-    slug: "britannia",
-    cruiseLineSlug: "p-and-o-cruises-norway",
-    label: "Britannia",
-  },
-  {
     slug: "msc-euribia",
     cruiseLineSlug: "msc-cruises-norway",
     label: "MSC Euribia",
@@ -65,6 +60,11 @@ export const popularNorwayHubShips = [
     label: "Sky Princess",
   },
   { slug: "queen-anne", cruiseLineSlug: "cunard-norway", label: "Queen Anne" },
+  {
+    slug: "celebrity-apex",
+    cruiseLineSlug: "celebrity-cruises-norway",
+    label: "Celebrity Apex",
+  },
 ] as const;
 
 export type PopularNorwayHubShip = (typeof popularNorwayHubShips)[number];
@@ -76,6 +76,7 @@ export type PopularShipCard = {
   capacityLabel: string;
   callCount: number;
   topPortsLabel: string;
+  typicalCruiseLengthLabel: string;
   badgeInput: ShipCardBadgeInput;
   href: string;
 };
@@ -107,6 +108,8 @@ export function getPopularNorwayShipCards(): PopularShipCard[] {
         capacityLabel: summary.capacityLabel,
         callCount: summary.callCount,
         topPortsLabel: formatTopPorts(summary),
+        typicalCruiseLengthLabel:
+          line?.passengerSnapshot.typicalCruiseLength ?? "",
         badgeInput: shipCardBadgeInputFromSummary(summary),
         href: cruiseLineGuideHref(entry.cruiseLineSlug),
       });
@@ -121,6 +124,8 @@ export function getPopularNorwayShipCards(): PopularShipCard[] {
         capacityLabel: lineShip.capacityLabel,
         callCount: lineShip.callCount,
         topPortsLabel: lineShip.topPortNames,
+        typicalCruiseLengthLabel:
+          line?.passengerSnapshot.typicalCruiseLength ?? "",
         badgeInput: shipCardBadgeInputFromCruiseLineShip(lineShip),
         href: cruiseLineGuideHref(entry.cruiseLineSlug),
       });
@@ -135,6 +140,7 @@ export function getPopularNorwayShipCards(): PopularShipCard[] {
       capacityLabel: formatShipCapacityLabel(capacity),
       callCount: 0,
       topPortsLabel: "",
+      typicalCruiseLengthLabel: line?.passengerSnapshot.typicalCruiseLength ?? "",
       badgeInput: { callCount: 0 },
       href: cruiseLineGuideHref(entry.cruiseLineSlug),
     });

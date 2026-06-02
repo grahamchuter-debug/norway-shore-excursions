@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
 import { ContentPage } from "@/components/content-page";
+import { CruiseLineComparisonMatrix } from "@/components/cruise-line-comparison-matrix";
 import { CruiseLineExcursionStyles } from "@/components/cruise-line-excursion-styles";
 import { CruiseLineFeaturedShips } from "@/components/cruise-line-featured-ships";
 import { CruiseLineLogo } from "@/components/cruise-line-logo";
@@ -20,6 +21,7 @@ import {
   cruiseLineBySlug,
   cruiseLineSlugs,
 } from "@/lib/cruise-lines-data";
+import { comparisonSlugsForLinePage } from "@/lib/cruise-line-comparison";
 import {
   getCruiseLineScheduleSummary,
   getFeaturedCruiseLineShips,
@@ -116,6 +118,7 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
     { label: "Norway Cruise Ports", href: "/norway-cruise-ports" },
     { label: "Shore Excursions Hub", href: "/norway-shore-excursions" },
     { label: "All Cruise Lines", href: "/cruise-lines" },
+    { label: "Compare Cruise Lines", href: "/cruise-lines#compare-norway-cruise-lines" },
     ...scheduleStats.ports
       .filter((p) => hasRealScheduleData(p.portSlug))
       .slice(0, 3)
@@ -197,6 +200,13 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           cruiseLineSlug={slug}
           cruiseLineShortName={line.shortName}
           ships={featuredShips}
+          typicalCruiseLengthLabel={line.passengerSnapshot.typicalCruiseLength}
+          className="my-10"
+        />
+
+        <CruiseLineComparisonMatrix
+          slugs={comparisonSlugsForLinePage(slug)}
+          currentSlug={slug}
           className="my-10"
         />
 
