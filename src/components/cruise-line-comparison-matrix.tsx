@@ -188,8 +188,8 @@ export function CruiseLineComparisonMatrix({
         <>
           <h2>Compare Norway Cruise Lines</h2>
           <p>
-            Compare passenger style, family fit, headline ports and typical voyage
-            length across operators sailing western Norway.
+            Compare best for, family fit, luxury level, voyage length, headline
+            ports and typical ship size across operators sailing western Norway.
           </p>
         </>
       ) : null}

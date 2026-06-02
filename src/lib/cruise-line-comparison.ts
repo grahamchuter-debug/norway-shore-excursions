@@ -12,9 +12,10 @@ export type CruiseLineComparisonRow = {
   headline: string;
   bestFor: string;
   familyFriendly: string;
-  premiumFeel: string;
+  luxuryLevel: string;
   popularNorwayPorts: string;
   typicalCruiseLength: string;
+  shipSize: string;
 };
 
 /** Primary trio compared on hub and mainstream line pages. */
@@ -35,10 +36,28 @@ export const extendedNorwayComparisonSlugs = [
 export const comparisonFeatureRows = [
   { key: "bestFor" as const, label: "Best For" },
   { key: "familyFriendly" as const, label: "Family Friendly" },
-  { key: "premiumFeel" as const, label: "Premium Feel" },
-  { key: "popularNorwayPorts" as const, label: "Popular Norway Ports" },
-  { key: "typicalCruiseLength" as const, label: "Typical Cruise Length" },
+  { key: "luxuryLevel" as const, label: "Luxury Level" },
+  { key: "typicalCruiseLength" as const, label: "Typical Length" },
+  { key: "popularNorwayPorts" as const, label: "Popular Ports" },
+  { key: "shipSize" as const, label: "Ship Size" },
 ] as const;
+
+function shipSizeLabel(line: CruiseLineData): string {
+  const stats = getCruiseLineScheduleSummary(line.scheduleKey);
+  const capacities = stats.ships
+    .map((s) => s.capacity)
+    .filter((c): c is number => c != null && c > 0);
+  if (capacities.length === 0) {
+    if (line.scheduleKey === "viking") return "Small to mid size (930 to 998 guests)";
+    if (line.scheduleKey === "cunard") return "Mid to large ocean liners";
+    return "Varies by ship";
+  }
+  const max = Math.max(...capacities);
+  if (max >= 5000) return `Large resort (${max.toLocaleString("en-GB")}+ guests)`;
+  if (max >= 3000) return `Large ship (about ${max.toLocaleString("en-GB")} guests)`;
+  if (max >= 1500) return `Mid size (about ${max.toLocaleString("en-GB")} guests)`;
+  return `Smaller ship (about ${max.toLocaleString("en-GB")} guests)`;
+}
 
 function popularPortsLabel(line: CruiseLineData): string {
   const stats = getCruiseLineScheduleSummary(line.scheduleKey);
@@ -67,9 +86,10 @@ export function buildCruiseLineComparisonRow(
     headline: line.headline,
     bestFor: line.passengerSnapshot.bestFor,
     familyFriendly: line.passengerSnapshot.familyFriendly,
-    premiumFeel: line.passengerSnapshot.luxuryLevel,
+    luxuryLevel: line.passengerSnapshot.luxuryLevel,
     popularNorwayPorts: popularPortsLabel(line),
     typicalCruiseLength: line.passengerSnapshot.typicalCruiseLength,
+    shipSize: shipSizeLabel(line),
   };
 }
 

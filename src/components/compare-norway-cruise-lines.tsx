@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { CruiseLineLogo } from "@/components/cruise-line-logo";
 import {
   compareNorwayCruiseLineSlugs,
   cruiseLineBySlug,
@@ -20,8 +21,9 @@ function CompareCardContent({
 }) {
   return (
     <>
+      <CruiseLineLogo cruiseLine={line.name} variant="inline" />
       <span
-        className={`text-xs font-semibold uppercase tracking-wide ${
+        className={`mt-3 text-xs font-semibold uppercase tracking-wide ${
           isCurrent ? "text-[var(--gold)]" : "invisible"
         }`}
         aria-hidden={!isCurrent}
@@ -32,7 +34,7 @@ function CompareCardContent({
         {line.headline}
       </span>
       <span className="mt-1 block text-sm font-normal text-slate-600">
-        {line.shortName} Norway planning guide
+        {line.passengerSnapshot.bestFor}
       </span>
     </>
   );
@@ -52,10 +54,8 @@ export function CompareNorwayCruiseLines({
 }: CompareNorwayCruiseLinesProps) {
   return (
     <section className={className}>
-      <h2>Compare Norway Cruise Lines</h2>
-      <p>
-        Compare pace, ship size and ports across line guides.
-      </p>
+      <h2>Compare Norway cruise lines</h2>
+      <p>Jump between line guides to compare pace, ship size and ports.</p>
       <ul className="card-grid mt-4 grid items-stretch gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {compareNorwayCruiseLineSlugs.map((slug) => {
           const line = cruiseLineBySlug[slug];

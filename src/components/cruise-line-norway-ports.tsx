@@ -117,10 +117,10 @@ export function CruiseLineNorwayPorts({
 
   return (
     <section className={className}>
-      <h2>{cruiseLineShortName} Norway ports</h2>
+      <h2>Norway ports commonly visited</h2>
       <p>
-        Headline fjord and city stops with visit frequency badges from our 2026
-        schedule data. Tap a port for guides, schedules and excursions.
+        Headline fjord and city stops with frequency badges from our 2026 schedule
+        data. Open a port for guides, schedules and excursions.
       </p>
 
       <div className="not-prose mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">

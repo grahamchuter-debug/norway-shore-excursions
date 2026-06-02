@@ -4,11 +4,11 @@ import { getShipScheduleSummaryBySlug, shipPagePath } from "@/lib/ship-schedules
 
 export type CruiseLinePassengerSnapshot = {
   bestFor: string;
-  typicalPassengerStyle: string;
-  typicalCruiseLength: string;
-  popularDeparturePorts: string;
-  familyFriendly: string;
   luxuryLevel: string;
+  familyFriendly: string;
+  typicalCruiseLength: string;
+  popularDeparturePort: string;
+  popularShip: string;
   norwaySeason: string;
 };
 
@@ -112,12 +112,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
     featuredShipSlugs: ["msc-euribia", "msc-virtuosa", "msc-preziosa"],
     passengerSnapshot: {
       bestFor: "Families and first time Norway cruisers on big ship budgets",
-      typicalPassengerStyle:
-        "European families and value focused multigenerational groups",
-      typicalCruiseLength: "7 to 14 nights",
-      popularDeparturePorts: "Hamburg, Southampton and Kiel",
-      familyFriendly: "Strong, with kids clubs and flexible dining",
       luxuryLevel: "Mainstream resort",
+      familyFriendly: "Strong, with kids clubs and flexible dining",
+      typicalCruiseLength: "7 to 14 nights",
+      popularDeparturePort: "Hamburg, Southampton and Kiel",
+      popularShip: "MSC Euribia",
       norwaySeason: "May through September, with peak July sailings",
     },
     excursionStyles: [
@@ -202,12 +201,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
     featuredShipSlugs: ["iona", "britannia", "arcadia", "aurora"],
     passengerSnapshot: {
       bestFor: "UK families and couples on classic British summer fjord loops",
-      typicalPassengerStyle:
-        "British couples, families and groups on Southampton summer departures",
-      typicalCruiseLength: "7 to 14 nights",
-      popularDeparturePorts: "Southampton",
-      familyFriendly: "Strong, with school holiday sailings",
       luxuryLevel: "Mainstream British",
+      familyFriendly: "Strong, with school holiday sailings",
+      typicalCruiseLength: "7 to 14 nights",
+      popularDeparturePort: "Southampton",
+      popularShip: "Iona",
       norwaySeason: "May through September",
     },
     excursionStyles: [
@@ -292,12 +290,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
     featuredShipSlugs: ["celebrity-apex", "celebrity-eclipse"],
     passengerSnapshot: {
       bestFor: "Couples and premium travellers who want design forward ships",
-      typicalPassengerStyle:
-        "Experienced couples who want upscale dining and unhurried scenic days",
-      typicalCruiseLength: "7 to 12 nights",
-      popularDeparturePorts: "Southampton and Amsterdam",
-      familyFriendly: "Moderate, with some family sailings",
       luxuryLevel: "Premium",
+      familyFriendly: "Moderate, with some family sailings",
+      typicalCruiseLength: "7 to 12 nights",
+      popularDeparturePort: "Southampton and Amsterdam",
+      popularShip: "Celebrity Apex",
       norwaySeason: "May through September, plus occasional Arctic voyages",
     },
     excursionStyles: [
@@ -379,15 +376,19 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Mature travellers and couples who value classic service and refined shore days.",
     typicalShoreTime:
       "8 to 10 hours on most calls; plan extra return time for Geiranger tenders.",
-    featuredShipSlugs: ["queen-anne", "queen-mary-2"],
+    featuredShipSlugs: [
+      "queen-anne",
+      "queen-mary-2",
+      "queen-victoria",
+      "queen-elizabeth",
+    ],
     passengerSnapshot: {
       bestFor: "Mature couples and ocean liner enthusiasts",
-      typicalPassengerStyle:
-        "Mature travellers who value ballroom evenings and refined shore pacing",
-      typicalCruiseLength: "9 to 14 nights",
-      popularDeparturePorts: "Southampton and Hamburg",
-      familyFriendly: "Limited, adult oriented culture",
       luxuryLevel: "Premium to luxury ocean liner",
+      familyFriendly: "Limited, adult oriented culture",
+      typicalCruiseLength: "9 to 14 nights",
+      popularDeparturePort: "Southampton and Hamburg",
+      popularShip: "Queen Anne",
       norwaySeason: "May through September",
     },
     excursionStyles: [
@@ -469,14 +470,19 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Well travelled adults who prefer cultural immersion and longer port stays.",
     typicalShoreTime:
       "Often 10 to 12 hours, longer than many mainstream lines for deeper touring.",
+    featuredShipSlugs: [
+      "viking-neptune",
+      "viking-sky",
+      "viking-vela",
+      "viking-jupiter",
+    ],
     passengerSnapshot: {
       bestFor: "Well travelled adults focused on destination immersion",
-      typicalPassengerStyle:
-        "Well travelled adults on adults only, destination intensive voyages",
-      typicalCruiseLength: "8 to 15 nights",
-      popularDeparturePorts: "Bergen, Amsterdam and London area ports",
-      familyFriendly: "Adults only ships",
       luxuryLevel: "Upscale destination focused",
+      familyFriendly: "Adults only ships",
+      typicalCruiseLength: "8 to 15 nights",
+      popularDeparturePort: "Bergen, Amsterdam and London area ports",
+      popularShip: "Viking Neptune",
       norwaySeason: "April through October",
     },
     excursionStyles: [
@@ -561,12 +567,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
     featuredShipSlugs: ["rotterdam", "nieuw-statendam", "zuiderdam"],
     passengerSnapshot: {
       bestFor: "Couples who prefer slower paced cultural and scenic touring",
-      typicalPassengerStyle:
-        "North American and European couples who favour museums and one scenic highlight per voyage",
-      typicalCruiseLength: "14 nights on in depth routes",
-      popularDeparturePorts: "Rotterdam and Amsterdam",
-      familyFriendly: "Moderate, with some multigenerational groups",
       luxuryLevel: "Premium classic",
+      familyFriendly: "Moderate, with some multigenerational groups",
+      typicalCruiseLength: "14 nights on in depth routes",
+      popularDeparturePort: "Rotterdam and Amsterdam",
+      popularShip: "Nieuw Statendam",
       norwaySeason: "May through September",
     },
     excursionStyles: [
@@ -651,12 +656,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
     featuredShipSlugs: ["sky-princess", "regal-princess", "majestic-princess"],
     passengerSnapshot: {
       bestFor: "Repeat Princess cruisers and couples on premium mainstream ships",
-      typicalPassengerStyle:
-        "North American and British couples and multigenerational Princess regulars",
-      typicalCruiseLength: "7 to 14 nights",
-      popularDeparturePorts: "Southampton and Copenhagen",
-      familyFriendly: "Strong on summer multigenerational sailings",
       luxuryLevel: "Premium mainstream",
+      familyFriendly: "Strong on summer multigenerational sailings",
+      typicalCruiseLength: "7 to 14 nights",
+      popularDeparturePort: "Southampton and Copenhagen",
+      popularShip: "Sky Princess",
       norwaySeason: "May through September, with occasional Arctic calls",
     },
     excursionStyles: [
@@ -738,14 +742,14 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Families and first time cruisers wanting headline ship features plus Norway port stops.",
     typicalShoreTime:
       "8 to 9 hours in our data; plan one headline excursion per port.",
+    featuredShipSlugs: ["liberty-of-the-seas"],
     passengerSnapshot: {
       bestFor: "Families and first time cruisers who want mega ship features",
-      typicalPassengerStyle:
-        "Active families and first time cruisers drawn to onboard activities",
-      typicalCruiseLength: "7 to 12 nights on Northern Europe loops",
-      popularDeparturePorts: "Southampton and Barcelona",
-      familyFriendly: "Very strong, with extensive kids programming",
       luxuryLevel: "Mainstream resort mega ship",
+      familyFriendly: "Very strong, with extensive kids programming",
+      typicalCruiseLength: "7 to 12 nights on Northern Europe loops",
+      popularDeparturePort: "Southampton and Barcelona",
+      popularShip: "Liberty Of The Seas",
       norwaySeason: "May through August",
     },
     excursionStyles: [
@@ -827,14 +831,14 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Families with children, Disney fans and multigenerational groups.",
     typicalShoreTime:
       "8 to 10 hours; one family friendly excursion plus pier exploration per port.",
+    featuredShipSlugs: ["disney-dream"],
     passengerSnapshot: {
       bestFor: "Families with children and Disney fans",
-      typicalPassengerStyle:
-        "Families with children and Disney fans on character focused sailings",
-      typicalCruiseLength: "7 to 12 nights on Northern Europe sailings",
-      popularDeparturePorts: "Copenhagen and Dover",
-      familyFriendly: "Excellent, core to the product",
       luxuryLevel: "Premium family",
+      familyFriendly: "Excellent, core to the product",
+      typicalCruiseLength: "7 to 12 nights on Northern Europe sailings",
+      popularDeparturePort: "Copenhagen and Dover",
+      popularShip: "Disney Dream",
       norwaySeason: "June through August",
     },
     excursionStyles: [
@@ -916,14 +920,14 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Couples, friend groups and families wanting flexible dining and city focused port days.",
     typicalShoreTime:
       "9 to 11 hours in Bergen in our data, enough for city walks plus a fjord sail.",
+    featuredShipSlugs: ["norwegian-star"],
     passengerSnapshot: {
       bestFor: "Couples and groups who want freestyle dining and entertainment",
-      typicalPassengerStyle:
-        "Couples and friend groups who want flexible dining and city focused port days",
-      typicalCruiseLength: "7 to 12 nights",
-      popularDeparturePorts: "Southampton and Copenhagen",
-      familyFriendly: "Strong, with flexible dining times",
       luxuryLevel: "Mainstream premium",
+      familyFriendly: "Strong, with flexible dining times",
+      typicalCruiseLength: "7 to 12 nights",
+      popularDeparturePort: "Southampton and Copenhagen",
+      popularShip: "Norwegian Star",
       norwaySeason: "May through September",
     },
     excursionStyles: [

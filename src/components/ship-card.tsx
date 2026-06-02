@@ -19,6 +19,7 @@ export type ShipCardProps = {
   priority?: boolean;
   ctaLabel?: string;
   variant?: ShipCardVariant;
+  summary?: string;
 };
 
 export function ShipCard({
@@ -34,6 +35,7 @@ export function ShipCard({
   priority = false,
   ctaLabel = "View ship page",
   variant = "default",
+  summary,
 }: ShipCardProps) {
   const isHero = variant === "hero";
   const isFeatured = variant === "featured" || isHero;
@@ -69,6 +71,15 @@ export function ShipCard({
         <p className={`mt-1 text-slate-600 ${isHero ? "text-base" : "text-sm"}`}>
           {cruiseLine}
         </p>
+        {summary ? (
+          <p
+            className={`mt-3 leading-6 text-slate-600 ${
+              isHero ? "text-sm sm:text-base" : "text-sm"
+            }`}
+          >
+            {summary}
+          </p>
+        ) : null}
         <dl
           className={`mt-3 text-slate-700 ${
             isHero

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
@@ -6,49 +5,29 @@ import { ContentPage } from "@/components/content-page";
 import { CruiseLineComparisonMatrix } from "@/components/cruise-line-comparison-matrix";
 import { CruiseLineExcursionStyles } from "@/components/cruise-line-excursion-styles";
 import { CruiseLineFeaturedShips } from "@/components/cruise-line-featured-ships";
+import { CruiseLineItineraryTimeline } from "@/components/cruise-line-itinerary-timeline";
 import { CruiseLineLogo } from "@/components/cruise-line-logo";
 import { CruiseLineNorwayPorts } from "@/components/cruise-line-norway-ports";
-import { CruiseLineScheduleLinks } from "@/components/cruise-line-schedule-links";
-import { CruiseLineQuickFacts } from "@/components/cruise-line-quick-facts";
+import { CruiseLinePlanDashboard } from "@/components/cruise-line-plan-dashboard";
 import { CruisePassengerSnapshot } from "@/components/cruise-passenger-snapshot";
-import { CruisePlanningTools } from "@/components/cruise-planning-tools";
 import { JsonLd } from "@/components/json-ld";
-import { ShipCard } from "@/components/ship-card";
-import { ShipCardBadges } from "@/components/ship-card-badges";
-import {
-  ReturnToShipConfidence,
-  fitTierToReturnLevel,
-} from "@/components/return-to-ship-confidence";
+import { RelatedCruiseLines } from "@/components/related-cruise-lines";
 import {
   cruiseLineBySlug,
   cruiseLineSlugs,
 } from "@/lib/cruise-lines-data";
 import { comparisonSlugsForLinePage } from "@/lib/cruise-line-comparison";
+import { getNorwayItineraryForLine } from "@/lib/cruise-line-itineraries";
 import {
   getCruiseLineScheduleSummary,
   getFeaturedCruiseLineShips,
 } from "@/lib/cruise-line-schedules";
-import { shipCardBadgeInputFromCruiseLineShip } from "@/lib/ship-card-badges";
 import {
-  getPortExcursionLink,
-  getPortExcursionLinkLabel,
   shipScheduleHubPath,
   shipSchedulePortPath,
   shipScheduleSearchPath,
 } from "@/lib/cruise-schedule-config";
-import {
-  getSchedulesByPort,
-  hasRealScheduleData,
-} from "@/lib/cruiseSchedules";
-import {
-  getDefaultExcursionConfidenceForPort,
-  estimatePortReturnConfidence,
-} from "@/lib/ship-excursion-confidence";
-import {
-  getPortRecommendedExcursions,
-  isMappedExcursionPort,
-} from "@/lib/port-recommended-excursions";
-import { portBySlug } from "@/lib/ports-data";
+import { hasRealScheduleData } from "@/lib/cruiseSchedules";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { buildItemListSchema } from "@/lib/site-schema";
 import { imageAlts, siteImages } from "@/lib/site-images";
@@ -86,13 +65,7 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
       ? getFeaturedCruiseLineShips(line.scheduleKey, line.featuredShipSlugs)
       : scheduleStats.ships.slice(0, 4);
 
-  const excursionPorts = scheduleStats.ports.length
-    ? scheduleStats.ports.slice(0, 3)
-    : line.recommendedPortSlugs.slice(0, 3).map((portSlug) => ({
-        portSlug,
-        portDisplayName: portBySlug[portSlug].displayName,
-        callCount: 0,
-      }));
+  const itinerary = getNorwayItineraryForLine(slug);
 
   const itemList = buildItemListSchema(
     scheduleStats.ports.slice(0, 8).map((port) => ({
@@ -118,10 +91,6 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
         href: shipSchedulePortPath(p.portSlug),
       })),
   ];
-
-  const otherScheduleShips = scheduleStats.ships.filter(
-    (ship) => !featuredShips.some((f) => f.slug === ship.slug),
-  );
 
   return (
     <>
@@ -166,9 +135,23 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           className="my-10"
         />
 
+        {itinerary ? (
+          <CruiseLineItineraryTimeline
+            cruiseLineShortName={line.shortName}
+            itinerary={itinerary}
+            className="my-10"
+          />
+        ) : null}
+
         <CruiseLineNorwayPorts
           cruiseLineShortName={line.shortName}
           ports={scheduleStats.ports}
+          className="my-10"
+        />
+
+        <CruiseLineExcursionStyles
+          styles={line.excursionStyles}
+          cruiseLineShortName={line.shortName}
           className="my-10"
         />
 
@@ -180,169 +163,21 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           <CompareNorwayCruiseLines currentSlug={slug} className="mt-10" />
         </div>
 
-        <CruiseLineScheduleLinks
+        <CruiseLinePlanDashboard
           cruiseLineShortName={line.shortName}
           scheduleKey={line.scheduleKey}
-          ships={scheduleStats.ships}
-          shipCount={scheduleStats.shipCount}
-          totalCalls={scheduleStats.totalCalls}
           className="my-10"
         />
 
-        <section className="my-10">
-          <h2>Norway at a glance</h2>
+        <RelatedCruiseLines currentSlug={slug} className="my-10" />
+
+        <section className="my-10 border-t border-[var(--border-light)] pt-8">
+          <h2>About this guide</h2>
           <p>{line.overview}</p>
           <p className="text-sm text-slate-600">
             Independent planning for {line.name} passengers. We are not affiliated
             with {line.name}.
           </p>
-          <CruiseLineQuickFacts
-            typicalItineraries={line.typicalItineraries}
-            fjordDestinations={line.fjordDestinations}
-            typicalShoreTime={line.typicalShoreTime}
-            cruiseStyle={line.cruiseStyle}
-            passengerTypes={line.passengerTypes}
-          />
-        </section>
-
-        <section className="my-10">
-          <h2>Recommended excursions</h2>
-          <p>
-            Excursion styles that suit {line.shortName} on Norway port days. Planning
-            guides only.
-          </p>
-          <CruiseLineExcursionStyles styles={line.excursionStyles} />
-        </section>
-
-        {excursionPorts.length > 0 ? (
-          <section className="my-10">
-            <h2>Port by port timing</h2>
-            <p>
-              Sample return to ship confidence at busy {line.shortName} ports.
-              Confirm against your sailing&apos;s all aboard time.
-            </p>
-            <div className="space-y-8">
-              {excursionPorts.map((port) => {
-                const lineRows = getSchedulesByPort(port.portSlug).filter(
-                  (row) =>
-                    scheduleStats.ships.some(
-                      (s) => s.ship.toLowerCase() === row.ship.toLowerCase(),
-                    ),
-                );
-                const sampleRow = lineRows.find(
-                  (r) => r.arrival_time && r.all_aboard_time,
-                );
-                const tier =
-                  (sampleRow && estimatePortReturnConfidence(sampleRow)) ||
-                  getDefaultExcursionConfidenceForPort();
-                const cards = getPortRecommendedExcursions(port.portSlug, {
-                  fitExcursionHref:
-                    "/return-to-ship-guide#will-this-excursion-fit",
-                });
-
-                return (
-                  <div key={port.portSlug}>
-                    <h3>{port.portDisplayName}</h3>
-                    <ReturnToShipConfidence
-                      level={fitTierToReturnLevel(tier)}
-                      compact
-                      showLink
-                      className="mb-3"
-                    />
-                    {isMappedExcursionPort(port.portSlug) ? (
-                      <ul className="card-grid mt-3 grid gap-3 sm:grid-cols-2">
-                        {cards.slice(0, 2).map((card) => (
-                          <li key={card.title}>
-                            <article className="premium-card p-4">
-                              <p className="font-semibold text-slate-900">
-                                {card.title}
-                              </p>
-                              <p className="mt-1 text-sm leading-6 text-slate-600">
-                                {card.benefit}
-                              </p>
-                              {card.external ? (
-                                <a
-                                  href={card.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="mt-3 inline-flex text-sm font-semibold text-[var(--glacier-blue)]"
-                                >
-                                  {card.ctaLabel} →
-                                </a>
-                              ) : (
-                                <Link
-                                  href={card.url}
-                                  className="mt-3 inline-flex text-sm font-semibold text-[var(--glacier-blue)]"
-                                >
-                                  {card.ctaLabel} →
-                                </Link>
-                              )}
-                            </article>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>
-                        <Link
-                          href={getPortExcursionLink(port.portSlug)}
-                          className="content-link font-medium"
-                        >
-                          {getPortExcursionLinkLabel(port.portDisplayName)}
-                        </Link>
-                      </p>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        ) : null}
-
-        {otherScheduleShips.length > 0 ? (
-          <section className="my-10">
-            <h2>More {line.shortName} ships in Norway</h2>
-            <p>Other vessels in our 2026 Norway schedule, by port call frequency.</p>
-            <ul className="card-grid mt-4 grid gap-4 sm:grid-cols-2">
-              {otherScheduleShips.map((ship) => (
-                <li key={ship.ship}>
-                  {ship.shipPageHref ? (
-                    <ShipCard
-                      slug={ship.slug}
-                      shipName={ship.ship}
-                      cruiseLine={ship.cruiseLine}
-                      capacityLabel={ship.capacityLabel}
-                      callCount={ship.callCount}
-                      topPortsLabel={ship.topPortNames || undefined}
-                      badgeInput={shipCardBadgeInputFromCruiseLineShip(ship)}
-                      href={ship.shipPageHref}
-                    />
-                  ) : (
-                    <Link
-                      href={`${shipScheduleSearchPath}?q=${encodeURIComponent(ship.ship)}`}
-                      className="premium-card block p-4 transition hover:border-[var(--glacier-blue)]"
-                    >
-                      <ShipCardBadges
-                        input={shipCardBadgeInputFromCruiseLineShip(ship)}
-                        className="mb-3"
-                      />
-                      <span className="font-semibold text-slate-900">
-                        {ship.ship}
-                      </span>
-                      <span className="mt-1 block text-sm text-slate-600">
-                        {ship.capacityLabel} · {ship.callCount}{" "}
-                        {ship.callCount === 1 ? "port call" : "port calls"}
-                      </span>
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-
-        <section className="my-10">
-          <h2>Planning tools</h2>
-          <CruisePlanningTools />
         </section>
       </ContentPage>
     </>

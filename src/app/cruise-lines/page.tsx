@@ -2,11 +2,11 @@ import Link from "next/link";
 
 import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
 import { ContentPage } from "@/components/content-page";
-import { CruiseLineComparisonMatrix } from "@/components/cruise-line-comparison-matrix";
+import { CruiseLineHubGrid } from "@/components/cruise-line-hub-grid";
+import { CruiseLineHubPlanDashboard } from "@/components/cruise-line-hub-plan-dashboard";
 import { JsonLd } from "@/components/json-ld";
 import { ShipCard } from "@/components/ship-card";
 import { cruiseLines } from "@/lib/cruise-lines-data";
-import { primaryNorwayComparisonSlugs } from "@/lib/cruise-line-comparison";
 import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
 import { getPopularNorwayShipCards } from "@/lib/ships-data";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -16,7 +16,7 @@ import { imageAlts, siteImages } from "@/lib/site-images";
 export const metadata = buildPageMetadata({
   title: "Cruise Lines Visiting Norway",
   description:
-    "Independent planning guides for MSC, P&O, Princess, Royal Caribbean, Disney, NCL, Celebrity, Cunard, Viking and Holland America Norway cruises with 2026 ship schedule data.",
+    "Independent Norway planning dashboards for MSC, P&O, Princess, Cunard, Celebrity, Holland America, Royal Caribbean, Disney, NCL and Viking with 2026 ship schedule data.",
   path: "/cruise-lines",
   ogImage: siteImages.hero,
   ogImageAlt: imageAlts.hero,
@@ -60,7 +60,7 @@ export default function CruiseLinesPage() {
       <JsonLd data={itemList} />
       <ContentPage
         title="Cruise Lines Visiting Norway"
-        lead="Independent planning guides for major cruise lines sailing Norway, with real 2026 ship call data where available."
+        lead="Visual planning dashboards for every major operator sailing Norway, with 2026 ship call data where available."
         heroImage={siteImages.hero}
         heroImageAlt={imageAlts.hero}
         pagePath="/cruise-lines"
@@ -79,58 +79,21 @@ export default function CruiseLinesPage() {
         ]}
         relatedSectionTitle="Plan your Norway cruise"
       >
-        <CruiseLineComparisonMatrix
-          slugs={primaryNorwayComparisonSlugs}
-          className="my-10"
-        />
-
-        <section>
+        <section className="my-10">
           <h2>Choose your cruise line</h2>
           <p>
-            Independent guides with 2026 ship schedules, Norway ports and
-            excursion planning tools. Not affiliated with any cruise line.
+            Open a line dashboard for schedules, ports, ships and excursion tools.
+            Not affiliated with any cruise line.
           </p>
-          <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2">
-            {cruiseLines.map((line) => {
-              const stats = getCruiseLineScheduleSummary(line.scheduleKey);
-              return (
-                <li key={line.slug}>
-                  <Link
-                    href={`/cruise-lines/${line.slug}`}
-                    className="premium-card block p-5 transition hover:border-[var(--glacier-blue)]"
-                  >
-                    <h3 className="text-lg font-bold text-slate-900">
-                      {line.headline}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                      {line.lead}
-                    </p>
-                    {stats.shipCount > 0 ? (
-                      <p className="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--glacier-blue)]">
-                        {stats.shipCount}{" "}
-                        {stats.shipCount === 1 ? "ship" : "ships"} ·{" "}
-                        {stats.portCount}{" "}
-                        {stats.portCount === 1 ? "port" : "ports"} ·{" "}
-                        {stats.totalCalls} calls in 2026 data
-                      </p>
-                    ) : (
-                      <p className="mt-3 text-xs font-medium uppercase tracking-wide text-slate-500">
-                        Planning guide
-                      </p>
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <CruiseLineHubGrid lines={cruiseLines} className="mt-6" />
         </section>
 
         {popularShips.length > 0 ? (
-          <section>
-            <h2>Ships Sailing Norway</h2>
-            <p>Busy 2026 Norway programmes in our schedule data.</p>
+          <section className="my-10">
+            <h2>Popular ships sailing Norway</h2>
+            <p>Iona, Queen Anne, MSC Euribia, Sky Princess and Celebrity Apex in our data.</p>
             <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {popularShips.map((ship) => (
+              {popularShips.map((ship, index) => (
                 <li key={ship.slug}>
                   <ShipCard
                     slug={ship.slug}
@@ -142,12 +105,13 @@ export default function CruiseLinesPage() {
                     typicalCruiseLengthLabel={ship.typicalCruiseLengthLabel}
                     badgeInput={ship.badgeInput}
                     href={ship.href}
+                    variant={index === 0 ? "featured" : "default"}
                     ctaLabel="View cruise line guide"
                   />
                 </li>
               ))}
             </ul>
-            <p className="mt-4">
+            <p className="mt-4 text-sm">
               <Link href="/ships" className="content-link font-medium">
                 Browse Norway ship schedule pages →
               </Link>
@@ -155,16 +119,9 @@ export default function CruiseLinesPage() {
           </section>
         ) : null}
 
-        <CompareNorwayCruiseLines className="mt-10" />
+        <CompareNorwayCruiseLines className="my-10" />
 
-        <section>
-          <h2>Norway Cruise Planner</h2>
-          <p>
-            Enter your sailing in the{" "}
-            <Link href="/norway-cruise-planner">Norway Cruise Planner™</Link> for
-            port matched recommendations.
-          </p>
-        </section>
+        <CruiseLineHubPlanDashboard className="my-10" />
       </ContentPage>
     </>
   );
