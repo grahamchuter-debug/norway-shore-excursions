@@ -1,0 +1,40 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+honningsvag,MSC Preziosa,MSC Cruises,,2026-06-04,16:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Viking Jupiter,Viking,,2026-06-09,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Celebrity Apex,Celebrity Cruises,2910,2026-06-13,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAbella,AIDA,,2026-06-13,22:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Viking Neptune,Viking,930,2026-06-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 3,TUI Cruises,,2026-06-14,13:00,23:59,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2026-06-15,23:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Seabourn Ovation,Seabourn,,2026-06-20,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Sky Princess,Princess Cruises,,2026-06-21,10:00,18:30,,Manual CSV import,,,All aboard time TBC
+honningsvag,Nieuw Statendam,Holland America Line,2668,2026-06-21,12:00,20:30,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 7,TUI Cruises,,2026-06-23,07:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Amera,Phoenix Reisen,,2026-06-23,19:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Costa Favolosa,Costa Cruises,3800,2026-06-24,19:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 1,TUI Cruises,,2026-06-25,14:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Europa 2,Hapag Lloyd,,2026-07-03,18:00,24:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Artania,Phoenix Reisen,1260,2026-07-04,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Azamara Quest,Azamara Cruises,,2026-07-06,14:00,20:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 7,TUI Cruises,,2026-07-07,07:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 1,TUI Cruises,,2026-07-08,13:00,23:59,,Manual CSV import,,,All aboard time TBC
+honningsvag,Viking Vela,Viking,998,2026-07-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Viking Mira,Viking,998,2026-07-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Artania,Phoenix Reisen,1260,2026-07-16,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Celebrity Apex,Celebrity Cruises,2910,2026-07-17,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff Relax,TUI Cruises,2894,2026-07-19,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2026-07-19,23:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2026-07-21,16:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAbella,AIDA,,2026-07-25,22:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Viking Neptune,Viking,930,2026-07-25,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Costa Favolosa,Costa Cruises,3800,2026-07-28,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 1,TUI Cruises,,2026-07-30,13:00,23:59,,Manual CSV import,,,All aboard time TBC
+honningsvag,Viking Mira,Viking,998,2026-07-30,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 7,TUI Cruises,,2026-08-01,18:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 1,TUI Cruises,,2026-08-11,13:00,23:59,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2026-08-17,08:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Viking Vela,Viking,998,2026-08-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Amadea,Phoenix Reisen,620,2026-08-25,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Seven Seas Mariner,Regent Seven Seas,,2026-08-29,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Rotterdam,Holland America Line,2668,2026-09-04,09:00,17:30,,Manual CSV import,,,All aboard time TBC
+honningsvag,Celebrity Apex,Celebrity Cruises,2910,2026-09-05,08:00,17:00,,Manual CSV import,,,All aboard time TBC
