@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-import { cruiseLines } from "@/lib/cruise-lines-data";
+import {
+  compareNorwayCruiseLineSlugs,
+  cruiseLineBySlug,
+} from "@/lib/cruise-lines-data";
 
 type CompareNorwayCruiseLinesProps = {
   currentSlug?: string;
@@ -20,7 +23,9 @@ export function CompareNorwayCruiseLines({
         excursion styles.
       </p>
       <ul className="card-grid mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {cruiseLines.map((line) => {
+        {compareNorwayCruiseLineSlugs.map((slug) => {
+          const line = cruiseLineBySlug[slug];
+          if (!line) return null;
           const isCurrent = line.slug === currentSlug;
           return (
             <li key={line.slug}>

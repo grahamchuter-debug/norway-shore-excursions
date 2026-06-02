@@ -1,8 +1,10 @@
 import type { CruiseLineScheduleKey } from "@/lib/cruise-line-schedules";
 import { ports } from "@/lib/ports-data";
+import { getShipScheduleSummaryBySlug, shipPagePath } from "@/lib/ship-schedules";
 
 export type CruiseLinePassengerSnapshot = {
   bestFor: string;
+  typicalPassengerStyle: string;
   typicalCruiseLength: string;
   popularDeparturePorts: string;
   familyFriendly: string;
@@ -34,8 +36,31 @@ export type CruiseLineData = {
   excursionStyles: readonly CruiseLineExcursionStyle[];
   planningTips: readonly string[];
   recommendedPortSlugs: readonly string[];
+  /** Curated ship slugs for the Popular Ships section (schedule data fills call counts). */
+  featuredShipSlugs?: readonly string[];
   faqs: readonly { question: string; answer: string }[];
 };
+
+/** Cruise line guides shown in the compare section on line pages. */
+export const compareNorwayCruiseLineSlugs = [
+  "cunard-norway",
+  "holland-america-norway",
+  "celebrity-cruises-norway",
+  "p-and-o-cruises-norway",
+  "msc-cruises-norway",
+  "princess-cruises-norway",
+] as const;
+
+export const cruiseLinePagePath = (slug: string) => `/cruise-lines/${slug}`;
+
+/**
+ * Reserved nested URL for future per line ship pages.
+ * Production ship pages today use {@link shipPagePath} from ship-schedules.
+ */
+export const cruiseLineShipPagePath = (slug: string) =>
+  `/cruise-lines/ships/${slug}`;
+
+export const cruiseLinePopularShipsAnchor = "popular-ships";
 
 /** Headline ports shown on cruise line pages when schedule data confirms a call. */
 export const FEATURED_CRUISE_LINE_PORT_SLUGS = [
@@ -48,6 +73,16 @@ export const FEATURED_CRUISE_LINE_PORT_SLUGS = [
   "honningsvag",
   "trondheim",
 ] as const;
+
+export function resolveFeaturedShipCardHref(
+  shipSlug: string,
+  cruiseLineSlug: string,
+): string {
+  if (getShipScheduleSummaryBySlug(shipSlug)) {
+    return shipPagePath(shipSlug);
+  }
+  return `${cruiseLinePagePath(cruiseLineSlug)}#${cruiseLinePopularShipsAnchor}`;
+}
 
 export const cruiseLines: readonly CruiseLineData[] = [
   {
@@ -71,8 +106,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Families, multigenerational groups and value focused European cruisers who want big ship amenities with fjord scenery.",
     typicalShoreTime:
       "Expect 8 to 10 hours in headline fjord ports and slightly shorter windows when multiple MSC ships share Flåm or Geiranger on peak summer days.",
+    featuredShipSlugs: ["msc-euribia", "msc-virtuosa", "msc-preziosa"],
     passengerSnapshot: {
       bestFor: "Families and first time Norway cruisers on big ship budgets",
+      typicalPassengerStyle:
+        "European families and value focused multigenerational groups",
       typicalCruiseLength: "7 to 14 nights",
       popularDeparturePorts: "Hamburg, Southampton and Kiel",
       familyFriendly: "Strong, with kids clubs and flexible dining",
@@ -112,10 +150,10 @@ export const cruiseLines: readonly CruiseLineData[] = [
       },
     ],
     planningTips: [
-      "MSC Norway itineraries often combine Bergen, Flåm and Geiranger on classic fjord routes.",
-      "Use the Norway Cruise Planner to match your ship's port times with Stegastein, Mostraumen or Dalsnibba excursions.",
-      "Independent tours can offer smaller groups. Always confirm return times against MSC's all aboard deadline.",
-      "Book popular fjord excursions early on summer multi ship days in Flåm and Geiranger.",
+      "MSC Euribia leads our MSC Norway schedule data with heavy Flåm, Geiranger and Ålesund rotations.",
+      "Use the Norway Cruise Planner to test Naeroyfjord sailings and Stegastein drives against MSC all aboard times.",
+      "Book independent small group tours early when Virtuosa or Euribia share Geiranger on peak July dates.",
+      "Confirm Hamburg or Southampton departure timing before stacking two long scenic excursions on one port day.",
     ],
     recommendedPortSlugs: ["bergen", "flam", "geiranger", "stavanger", "eidfjord"],
     faqs: [
@@ -158,8 +196,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "UK couples, families and groups who book early for school holiday sailings and prefer familiar British service.",
     typicalShoreTime:
       "Most P&O fjord calls allow 9 to 11 hours ashore, though tender days in Geiranger need extra return buffers.",
+    featuredShipSlugs: ["iona", "britannia", "arcadia", "aurora"],
     passengerSnapshot: {
       bestFor: "UK families and couples on classic British summer fjord loops",
+      typicalPassengerStyle:
+        "British couples, families and groups on Southampton summer departures",
       typicalCruiseLength: "7 to 14 nights",
       popularDeparturePorts: "Southampton",
       familyFriendly: "Strong, with school holiday sailings",
@@ -199,10 +240,10 @@ export const cruiseLines: readonly CruiseLineData[] = [
       },
     ],
     planningTips: [
-      "P&O Norway itineraries often combine Bergen, Flåm and Geiranger on classic fjord routes.",
-      "Use the Norway Cruise Planner to match your ship's port times with Stegastein, Mostraumen or Dalsnibba excursions.",
-      "Independent tours can offer smaller groups. Always confirm return times against P&O's all aboard deadline.",
-      "Book popular fjord excursions early on summer multi ship days in Flåm and Geiranger.",
+      "Iona and Britannia dominate our P&O Norway call data, with Olden and Stavanger as the busiest ports.",
+      "Use the Norway Cruise Planner to match Briksdal or Stegastein buffers to your exact P&O port times.",
+      "Independent minibus tours help on peak school holiday days when Iona and Britannia share Flåm.",
+      "Search by ship name to see whether your sailing includes Ålesund or a Skjolden alternative to Olden.",
     ],
     recommendedPortSlugs: ["bergen", "flam", "geiranger", "stavanger", "olden"],
     faqs: [
@@ -232,9 +273,9 @@ export const cruiseLines: readonly CruiseLineData[] = [
     metaDescription:
       "Celebrity Cruises Norway guide with 2026 ship schedules, fjord ports and independent shore excursion planning for Celebrity passengers.",
     headline: "Celebrity Cruises Norway",
-    lead: "Plan Celebrity Cruises Norway sailings with real 2026 ship call data, port guides and independent shore excursion recommendations.",
+    lead: "Celebrity Cruises premium Norway fjord sailings with Apex and Eclipse schedules, Geiranger scenic days and independent small group excursion ideas.",
     overview:
-      "Celebrity Cruises brings premium Norway itineraries to Bergen, Flåm, Geiranger, Olden and Stavanger. Celebrity Apex and Celebrity Eclipse are the most frequent callers in our 2026 schedule data.",
+      "Celebrity Apex anchors our 2026 Celebrity Norway data with balanced calls at Geiranger, Flåm, Bergen and Ålesund. The line suits couples who want design forward ships, specialty dining ashore and small group independent touring on generous port windows.",
     typicalItineraries:
       "Premium 7 to 12 night Norway and fjord itineraries from Southampton or Amsterdam, mixing Geiranger, Flåm, Bergen and occasional Arctic ports.",
     fjordDestinations:
@@ -245,8 +286,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Couples and experienced cruisers who want upscale comfort without ultra luxury pricing, often booking specialty dining and spa packages.",
     typicalShoreTime:
       "Celebrity often schedules generous 9 to 12 hour port windows on fjord days, ideal for private touring and slow dining ashore.",
+    featuredShipSlugs: ["celebrity-apex", "celebrity-eclipse"],
     passengerSnapshot: {
       bestFor: "Couples and premium travellers who want design forward ships",
+      typicalPassengerStyle:
+        "Experienced couples who want upscale dining and unhurried scenic days",
       typicalCruiseLength: "7 to 12 nights",
       popularDeparturePorts: "Southampton and Amsterdam",
       familyFriendly: "Moderate, with some family sailings",
@@ -286,10 +330,10 @@ export const cruiseLines: readonly CruiseLineData[] = [
       },
     ],
     planningTips: [
-      "Celebrity Norway routes often emphasise scenic ports like Geiranger and Ålesund.",
-      "Private and small group independent tours align well with Celebrity passenger preferences.",
-      "Use the Norway Cruise Planner for AI style recommendations matched to your Celebrity itinerary.",
-      "Celebrity Arctic sailings may include Tromsø. Plan aurora or Sami culture excursions seasonally.",
+      "Celebrity Apex repeats Geiranger and Flåm in our data, ideal for Eagle Road or Dalsnibba with fewer coach stops.",
+      "Book private drivers when you want Bergen food markets and one fjord highlight in a single measured day.",
+      "Use the Norway Cruise Planner to compare small group timings against Celebrity all aboard deadlines.",
+      "Honningsvåg calls in our data are seasonal. Plan Arctic excursions only when your sailing lists the port.",
     ],
     recommendedPortSlugs: ["geiranger", "bergen", "flam", "olden", "stavanger"],
     faqs: [
@@ -319,9 +363,9 @@ export const cruiseLines: readonly CruiseLineData[] = [
     metaDescription:
       "Cunard Norway guide with 2026 ship schedules, port calls and independent shore excursion planning for Cunard passengers.",
     headline: "Cunard Norway",
-    lead: "Plan Cunard Norway voyages with real 2026 ship call data, port guides and independent shore excursion recommendations.",
+    lead: "Cunard ocean liner Norway voyages with Queen Anne and Queen Mary 2 schedules, refined port guides and independent shore excursion ideas.",
     overview:
-      "Cunard brings classic ocean liner style to Norway, with Queen Mary 2 and Queen Anne calling at Bergen, Olden and Stavanger. This guide helps Cunard passengers plan refined port days ashore.",
+      "Cunard pairs ballroom evenings and lecture programmes with west Norway calls at Bergen, Olden, Ålesund and Stavanger. Queen Anne leads our 2026 call counts for the line. Use this guide to plan unhurried cultural and scenic days ashore.",
     typicalItineraries:
       "Transatlantic and Northern Europe voyages with Norway segments, often Bergen, Stavanger, Flåm and Geiranger on 9 to 14 night sailings.",
     fjordDestinations:
@@ -332,8 +376,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Mature travellers, ocean liner enthusiasts and couples who value classic service, ballroom events and refined shore days.",
     typicalShoreTime:
       "Cunard port days often run 8 to 10 hours, with tender operations in Geiranger requiring careful return planning.",
+    featuredShipSlugs: ["queen-anne", "queen-mary-2"],
     passengerSnapshot: {
       bestFor: "Mature couples and ocean liner enthusiasts",
+      typicalPassengerStyle:
+        "Mature travellers who value ballroom evenings and refined shore pacing",
       typicalCruiseLength: "9 to 14 nights",
       popularDeparturePorts: "Southampton and Hamburg",
       familyFriendly: "Limited, adult oriented culture",
@@ -373,10 +420,10 @@ export const cruiseLines: readonly CruiseLineData[] = [
       },
     ],
     planningTips: [
-      "Cunard Norway voyages often include classic fjord ports with formal onboard culture ashore in Bergen and Stavanger.",
-      "Private sightseeing and refined walking tours suit Cunard passenger pacing.",
-      "Allow generous return buffers on tender days in Geiranger when travelling with Cunard.",
-      "Link through to local port specialists for independently operated Cunard friendly tours.",
+      "Queen Anne and Queen Mary 2 favour Olden glacier valleys and compact Bergen walks over rushed multi stop coach days.",
+      "Match formal evening plans with shorter afternoon returns on tender or busy pier days.",
+      "Use the Norway Cruise Planner to score cathedral walks and Briksdal lake boats against your all aboard time.",
+      "Book independent guides early when Cunard shares Bergen or Stavanger with other summer ships.",
     ],
     recommendedPortSlugs: ["bergen", "stavanger", "geiranger", "flam", "olden"],
     faqs: [
@@ -421,6 +468,8 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Viking frequently schedules longer port stays than mainstream lines, often 10 to 12 hours for deeper independent touring.",
     passengerSnapshot: {
       bestFor: "Well travelled adults focused on destination immersion",
+      typicalPassengerStyle:
+        "Well travelled adults on adults only, destination intensive voyages",
       typicalCruiseLength: "8 to 15 nights",
       popularDeparturePorts: "Bergen, Amsterdam and London area ports",
       familyFriendly: "Adults only ships",
@@ -493,9 +542,9 @@ export const cruiseLines: readonly CruiseLineData[] = [
     metaDescription:
       "Holland America Norway guide with 2026 ship schedules, fjord ports and independent shore excursion planning for HAL passengers.",
     headline: "Holland America Norway",
-    lead: "Plan Holland America Norway sailings with real 2026 ship call data, port guides and independent shore excursion recommendations.",
+    lead: "Holland America in depth Norway routes with Rotterdam and Nieuw Statendam schedules, Trondheim culture days and independent excursion planning.",
     overview:
-      "Holland America Line offers in depth Norway routes with Rotterdam, Nieuw Statendam and Zuiderdam calling at Bergen, Eidfjord, Olden and Stavanger. This guide helps HAL passengers plan cultural and scenic port days.",
+      "Holland America Line runs longer Norway loops from Rotterdam with repeat calls at Ålesund, Olden and Trondheim in our 2026 data. HAL suits passengers who want museum mornings, waterfall afternoons and one headline scenic drive per voyage.",
     typicalItineraries:
       "14 night Norway in depth loops from Rotterdam or Amsterdam, with Eidfjord, Trondheim, Bergen and multiple fjord villages.",
     fjordDestinations:
@@ -506,8 +555,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "North American and European couples who enjoy slower paced touring, museum visits and one headline scenic excursion per voyage.",
     typicalShoreTime:
       "HAL in depth Norway sailings often allow 9 to 11 hours in Trondheim and Eidfjord, supporting museum and waterfall days.",
+    featuredShipSlugs: ["rotterdam", "nieuw-statendam", "zuiderdam"],
     passengerSnapshot: {
       bestFor: "Couples who prefer slower paced cultural and scenic touring",
+      typicalPassengerStyle:
+        "North American and European couples who favour museums and one scenic highlight per voyage",
       typicalCruiseLength: "14 nights on in depth routes",
       popularDeparturePorts: "Rotterdam and Amsterdam",
       familyFriendly: "Moderate, with some multigenerational groups",
@@ -547,10 +599,10 @@ export const cruiseLines: readonly CruiseLineData[] = [
       },
     ],
     planningTips: [
-      "Holland America excels on in depth Norway routes with longer port stays in Trondheim and Eidfjord.",
-      "Use extended port time for Vøringsfossen from Eidfjord or Trondheim cathedral tours.",
-      "HAL passengers often prefer cultural walks plus one headline scenic excursion per voyage.",
-      "Our planner scores Holland America friendly ports by excursion type and timing.",
+      "Nieuw Statendam and Rotterdam appear most often in our HAL Norway data, with Ålesund and Olden as repeat scenic stops.",
+      "Use long Trondheim port windows for Nidaros Cathedral walks before adding a waterfall excursion.",
+      "Pair one Vøringsfossen or Briksdal day with unhurried city touring rather than stacking two long coach trips.",
+      "Search ship schedules by name to confirm whether your sailing includes Eidfjord or Geiranger.",
     ],
     recommendedPortSlugs: ["bergen", "eidfjord", "flam", "trondheim", "stavanger"],
     faqs: [
@@ -593,8 +645,11 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "North American and British couples, repeat Princess cruisers and multigenerational groups who want familiar service with fjord scenery.",
     typicalShoreTime:
       "Princess port windows in our 2026 data typically allow 8 to 10 hours, with longer days in Olden for Briksdal glacier excursions.",
+    featuredShipSlugs: ["sky-princess", "regal-princess", "majestic-princess"],
     passengerSnapshot: {
       bestFor: "Repeat Princess cruisers and couples on premium mainstream ships",
+      typicalPassengerStyle:
+        "North American and British couples and multigenerational Princess regulars",
       typicalCruiseLength: "7 to 14 nights",
       popularDeparturePorts: "Southampton and Copenhagen",
       familyFriendly: "Strong on summer multigenerational sailings",
@@ -682,6 +737,8 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Royal Caribbean port days in our data typically allow 8 to 9 hours, so prioritise one headline excursion per stop.",
     passengerSnapshot: {
       bestFor: "Families and first time cruisers who want mega ship features",
+      typicalPassengerStyle:
+        "Active families and first time cruisers drawn to onboard activities",
       typicalCruiseLength: "7 to 12 nights on Northern Europe loops",
       popularDeparturePorts: "Southampton and Barcelona",
       familyFriendly: "Very strong, with extensive kids programming",
@@ -769,6 +826,8 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Disney port days in our data typically allow 8 to 10 hours, enough for one family friendly excursion plus exploration near the pier.",
     passengerSnapshot: {
       bestFor: "Families with children and Disney fans",
+      typicalPassengerStyle:
+        "Families with children and Disney fans on character focused sailings",
       typicalCruiseLength: "7 to 12 nights on Northern Europe sailings",
       popularDeparturePorts: "Copenhagen and Dover",
       familyFriendly: "Excellent, core to the product",
@@ -856,6 +915,8 @@ export const cruiseLines: readonly CruiseLineData[] = [
       "Norwegian Star port windows in our data typically allow 9 to 11 hours in Bergen, supporting city walks plus a fjord excursion.",
     passengerSnapshot: {
       bestFor: "Couples and groups who want freestyle dining and entertainment",
+      typicalPassengerStyle:
+        "Couples and friend groups who want flexible dining and city focused port days",
       typicalCruiseLength: "7 to 12 nights",
       popularDeparturePorts: "Southampton and Copenhagen",
       familyFriendly: "Strong, with flexible dining times",

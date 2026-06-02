@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
 import { ContentPage } from "@/components/content-page";
 import { JsonLd } from "@/components/json-ld";
 import { ShipCard } from "@/components/ship-card";
@@ -94,7 +95,7 @@ export default function CruiseLinesPage() {
         </section>
 
         <section>
-          <h2>Major cruise lines in Norway</h2>
+          <h2>Featured Norway Cruise Lines</h2>
           <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2">
             {cruiseLines.map((line) => {
               const stats = getCruiseLineScheduleSummary(line.scheduleKey);
@@ -130,13 +131,23 @@ export default function CruiseLinesPage() {
           </ul>
         </section>
 
+        <section>
+          <h2>Compare Cruise Lines Visiting Norway</h2>
+          <p>
+            MSC and P&O run the busiest classic fjord loops in our 2026 data.
+            Celebrity, Cunard and Holland America bring premium and in depth
+            pacing. Princess adds select glacier and coastal ports. Open a line
+            guide to compare passenger style, port frequency and excursion themes.
+          </p>
+        </section>
+
         {popularShips.length > 0 ? (
           <section>
-            <h2>Most popular Norway cruise ships</h2>
+            <h2>Popular Ships Sailing Norway</h2>
             <p>
               Headline ships with busy 2026 Norway programmes in our schedule
-              data. Open a ship page for port calls, capacity and excursion
-              planning.
+              data. Each card opens the cruise line planning guide for that
+              operator.
             </p>
             <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {popularShips.map((ship) => (
@@ -150,17 +161,20 @@ export default function CruiseLinesPage() {
                     topPortsLabel={ship.topPortsLabel}
                     badgeInput={ship.badgeInput}
                     href={ship.href}
+                    ctaLabel="View cruise line guide"
                   />
                 </li>
               ))}
             </ul>
             <p className="mt-4">
               <Link href="/ships" className="content-link font-medium">
-                Browse all Norway cruise ships →
+                Browse Norway ship schedule pages →
               </Link>
             </p>
           </section>
         ) : null}
+
+        <CompareNorwayCruiseLines className="mt-10" />
 
         <section>
           <h2>Norway Cruise Planner</h2>

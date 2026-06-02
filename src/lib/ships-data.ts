@@ -1,10 +1,22 @@
-import { shipCardBadgeInputFromSummary } from "@/lib/ship-card-badges";
+import {
+  shipCardBadgeInputFromCruiseLineShip,
+  shipCardBadgeInputFromSummary,
+} from "@/lib/ship-card-badges";
 import type { ShipCardBadgeInput } from "@/lib/ship-card-badges";
+import { getCruiseLineScheduleSummary } from "@/lib/cruise-line-schedules";
+import {
+  cruiseLineBySlug,
+  cruiseLinePagePath,
+  cruiseLinePopularShipsAnchor,
+} from "@/lib/cruise-lines-data";
+import {
+  formatShipCapacityLabel,
+  getShipPassengerCapacity,
+} from "@/lib/ship-capacities";
 import type { ShipScheduleSummary } from "@/lib/ship-schedules";
 import {
   buildShipScheduleSummaries,
   getShipScheduleSummaryBySlug,
-  shipPagePath,
 } from "@/lib/ship-schedules";
 
 export {
@@ -31,17 +43,31 @@ export const featuredShipSlugs = [
 
 export type FeaturedShipSlug = (typeof featuredShipSlugs)[number];
 
-/** Hub section on /cruise-lines */
-export const popularNorwayShipSlugs = [
-  "msc-euribia",
-  "iona",
-  "arvia",
-  "celebrity-apex",
-  "viking-vela",
-  "rotterdam",
+/**
+ * Hub spotlight ships on /cruise-lines.
+ * Links target cruise line guides until dedicated ship hubs are promoted site wide.
+ */
+export const popularNorwayHubShips = [
+  { slug: "iona", cruiseLineSlug: "p-and-o-cruises-norway", label: "Iona" },
+  {
+    slug: "britannia",
+    cruiseLineSlug: "p-and-o-cruises-norway",
+    label: "Britannia",
+  },
+  {
+    slug: "msc-euribia",
+    cruiseLineSlug: "msc-cruises-norway",
+    label: "MSC Euribia",
+  },
+  {
+    slug: "sky-princess",
+    cruiseLineSlug: "princess-cruises-norway",
+    label: "Sky Princess",
+  },
+  { slug: "queen-anne", cruiseLineSlug: "cunard-norway", label: "Queen Anne" },
 ] as const;
 
-export type PopularNorwayShipSlug = (typeof popularNorwayShipSlugs)[number];
+export type PopularNorwayHubShip = (typeof popularNorwayHubShips)[number];
 
 export type PopularShipCard = {
   slug: string;
@@ -58,20 +84,59 @@ function formatTopPorts(summary: ShipScheduleSummary): string {
   return summary.topPorts.map((p) => p.portDisplayName).join(", ");
 }
 
+function cruiseLineGuideHref(cruiseLineSlug: string): string {
+  return `${cruiseLinePagePath(cruiseLineSlug)}#${cruiseLinePopularShipsAnchor}`;
+}
+
 export function getPopularNorwayShipCards(): PopularShipCard[] {
   const cards: PopularShipCard[] = [];
-  for (const slug of popularNorwayShipSlugs) {
-    const summary = getShipScheduleSummaryBySlug(slug);
-    if (!summary) continue;
+  for (const entry of popularNorwayHubShips) {
+    const line = cruiseLineBySlug[entry.cruiseLineSlug];
+    const summary = getShipScheduleSummaryBySlug(entry.slug);
+    const lineShip = line
+      ? getCruiseLineScheduleSummary(line.scheduleKey).ships.find(
+          (s) => s.slug === entry.slug,
+        )
+      : undefined;
+
+    if (summary) {
+      cards.push({
+        slug: entry.slug,
+        ship: summary.ship,
+        cruiseLine: summary.cruiseLine,
+        capacityLabel: summary.capacityLabel,
+        callCount: summary.callCount,
+        topPortsLabel: formatTopPorts(summary),
+        badgeInput: shipCardBadgeInputFromSummary(summary),
+        href: cruiseLineGuideHref(entry.cruiseLineSlug),
+      });
+      continue;
+    }
+
+    if (lineShip) {
+      cards.push({
+        slug: entry.slug,
+        ship: lineShip.ship,
+        cruiseLine: lineShip.cruiseLine,
+        capacityLabel: lineShip.capacityLabel,
+        callCount: lineShip.callCount,
+        topPortsLabel: lineShip.topPortNames,
+        badgeInput: shipCardBadgeInputFromCruiseLineShip(lineShip),
+        href: cruiseLineGuideHref(entry.cruiseLineSlug),
+      });
+      continue;
+    }
+
+    const capacity = getShipPassengerCapacity(entry.label, line?.name ?? "", null);
     cards.push({
-      slug,
-      ship: summary.ship,
-      cruiseLine: summary.cruiseLine,
-      capacityLabel: summary.capacityLabel,
-      callCount: summary.callCount,
-      topPortsLabel: formatTopPorts(summary),
-      badgeInput: shipCardBadgeInputFromSummary(summary),
-      href: shipPagePath(slug),
+      slug: entry.slug,
+      ship: entry.label,
+      cruiseLine: line?.name ?? "Norway cruise",
+      capacityLabel: formatShipCapacityLabel(capacity),
+      callCount: 0,
+      topPortsLabel: "",
+      badgeInput: { callCount: 0 },
+      href: cruiseLineGuideHref(entry.cruiseLineSlug),
     });
   }
   return cards;

@@ -211,3 +211,66 @@ export function getAllCruiseLineScheduleSummaries(): Record<
     cruiseLineScheduleKeys.map((key) => [key, getCruiseLineScheduleSummary(key)]),
   ) as Record<CruiseLineScheduleKey, CruiseLineScheduleSummary>;
 }
+
+function slugToDisplayShipName(slug: string): string {
+  if (slug.startsWith("msc-")) {
+    const name = slug
+      .slice(4)
+      .split("-")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
+    return `MSC ${name}`;
+  }
+  return slug
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+/** Curated featured ships for a cruise line page, merged with schedule call counts. */
+export function getFeaturedCruiseLineShips(
+  key: CruiseLineScheduleKey,
+  featuredSlugs: readonly string[],
+): CruiseLineShipSummary[] {
+  const summary = getCruiseLineScheduleSummary(key);
+  const bySlug = new Map(summary.ships.map((s) => [s.slug, s]));
+
+  return featuredSlugs.map((slug) => {
+    const fromLine = bySlug.get(slug);
+    if (fromLine) return fromLine;
+
+    const global = getShipScheduleSummaryByName(
+      slugToDisplayShipName(slug),
+    );
+    if (global) {
+      const topPortNames = global.topPorts
+        .map((p) => p.portDisplayName)
+        .join(", ");
+      return {
+        ship: global.ship,
+        slug: global.slug,
+        callCount: global.callCount,
+        capacity: global.capacity,
+        capacityLabel: global.capacityLabel,
+        topPortNames,
+        topPortDisplayName: global.topPorts[0]?.portDisplayName ?? null,
+        cruiseLine: global.cruiseLine,
+        shipPageHref: shipPagePath(global.slug),
+      };
+    }
+
+    const display = slugToDisplayShipName(slug);
+    const capacity = getShipPassengerCapacity(display, "", null);
+    return {
+      ship: display,
+      slug,
+      callCount: 0,
+      capacity,
+      capacityLabel: formatShipCapacityLabel(capacity),
+      topPortNames: "",
+      topPortDisplayName: null,
+      cruiseLine: scheduleLineNames[key][0] ?? "",
+      shipPageHref: null,
+    };
+  });
+}

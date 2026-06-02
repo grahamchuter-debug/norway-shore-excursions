@@ -11,6 +11,7 @@ const fields: readonly {
   label: string;
 }[] = [
   { key: "bestFor", label: "Best For" },
+  { key: "typicalPassengerStyle", label: "Typical Passenger Style" },
   { key: "typicalCruiseLength", label: "Typical Cruise Length" },
   { key: "popularDeparturePorts", label: "Popular Departure Ports" },
   { key: "familyFriendly", label: "Family Friendly" },
