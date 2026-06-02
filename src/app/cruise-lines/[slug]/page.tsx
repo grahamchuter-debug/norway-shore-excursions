@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
 import { ContentPage } from "@/components/content-page";
 import { CruiseLineComparisonMatrix } from "@/components/cruise-line-comparison-matrix";
+import { CruiseLineExcursionsByPort } from "@/components/cruise-line-excursions-by-port";
 import { CruiseLineExcursionStyles } from "@/components/cruise-line-excursion-styles";
+import { CruiseLineTimeAshore } from "@/components/cruise-line-time-ashore";
 import { CruiseLineFeaturedShips } from "@/components/cruise-line-featured-ships";
 import { CruiseLineItineraryTimeline } from "@/components/cruise-line-itinerary-timeline";
 import { CruiseLineLogo } from "@/components/cruise-line-logo";
@@ -149,9 +151,21 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
           className="my-10"
         />
 
+        <CruiseLineTimeAshore
+          line={line}
+          schedulePorts={scheduleStats.ports}
+          className="my-10"
+        />
+
         <CruiseLineExcursionStyles
           styles={line.excursionStyles}
           cruiseLineShortName={line.shortName}
+          className="my-10"
+        />
+
+        <CruiseLineExcursionsByPort
+          line={line}
+          schedulePorts={scheduleStats.ports}
           className="my-10"
         />
 
