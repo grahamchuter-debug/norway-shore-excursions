@@ -71,7 +71,7 @@ function CruiseLinePortCard({
             </span>
           ) : (
             <span className="absolute left-3 top-3 inline-flex rounded-full bg-slate-900/75 px-2.5 py-1 text-xs font-semibold text-white shadow-sm">
-              Not in 2026 data
+              Not in schedule data
             </span>
           )}
         </div>
@@ -87,7 +87,7 @@ function CruiseLinePortCard({
               {callCount} {callCount === 1 ? "scheduled call" : "scheduled calls"}
             </p>
           ) : (
-            <p className="mt-1 text-sm text-slate-500">Typical stop, not in 2026 data</p>
+            <p className="mt-1 text-sm text-slate-500">Typical stop, not in schedule data</p>
           )}
         </div>
       </Link>
@@ -119,7 +119,7 @@ export function CruiseLineNorwayPorts({
     <section className={className}>
       <h2>Norway ports commonly visited</h2>
       <p>
-        Headline fjord and city stops with frequency badges from our 2026 schedule
+        Headline fjord and city stops with frequency badges from our verified schedule
         data. Open a port for guides, schedules and excursions.
       </p>
 
@@ -143,7 +143,7 @@ export function CruiseLineNorwayPorts({
       {additionalPorts.length > 0 ? (
         <div className="not-prose mt-8">
           <h3 className="text-lg font-semibold text-slate-900">
-            More {cruiseLineShortName} ports in 2026 data
+            More {cruiseLineShortName} ports in schedule data
           </h3>
           <ul className="card-grid mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {additionalPorts.map((port) => {

@@ -6,6 +6,9 @@ import { siteConfig } from "@/lib/site-config";
 
 const authorityLinks = [
   { label: "Norway Cruise Ports", href: "/norway-cruise-ports" },
+  { label: "Ship Schedules", href: "/ship-schedules" },
+  { label: "Norway Cruise Calendar", href: "/norway-cruise-calendar" },
+  { label: "Cruise Ships", href: "/ships" },
   { label: "Shore Excursions", href: "/norway-shore-excursions" },
   { label: "Best Excursions", href: "/best-norway-shore-excursions" },
   { label: "Cruise Planner", href: "/norway-cruise-planner" },

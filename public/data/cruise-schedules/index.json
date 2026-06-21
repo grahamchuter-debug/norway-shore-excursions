@@ -1,7 +1,7 @@
 {
   "region": "norway",
-  "generatedAt": "2026-06-02T08:47:26.932Z",
-  "rowCount": 1128,
+  "generatedAt": "2026-06-21T20:49:52.783Z",
+  "rowCount": 1298,
   "ports": [
     "alesund",
     "bergen",
@@ -23,27 +23,40 @@
     "flam": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 70,
+      "rowCount": 75,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-04"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 5,
       "displayStatus": "real_data_available"
     },
     "bergen": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 203,
+      "rowCount": 266,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-01",
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11",
+        "2027-12"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 16,
       "displayStatus": "real_data_available"
     },
     "olden": {
@@ -75,14 +88,23 @@
     "eidfjord": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 51,
+      "rowCount": 85,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 13,
       "displayStatus": "real_data_available"
     },
     "nordfjordeid": {
@@ -140,14 +162,25 @@
     "alesund": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 139,
+      "rowCount": 207,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11",
+        "2027-12"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 15,
       "displayStatus": "real_data_available"
     },
     "molde": {
@@ -218,9 +251,13 @@
   },
   "files": [
     "alesund-2026.json",
+    "alesund-2027.json",
     "bergen-2026.json",
+    "bergen-2027.json",
     "eidfjord-2026.json",
+    "eidfjord-2027.json",
     "flam-2026.json",
+    "flam-2027.json",
     "geiranger-2026.json",
     "hellesylt-2026.json",
     "honningsvag-2026.json",

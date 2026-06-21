@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
+    "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.defaultDescription,
@@ -11,6 +11,11 @@ export function buildOrganizationSchema() {
       "@type": "Country",
       name: "Norway",
     },
+    knowsAbout: [
+      "Norway shore excursions",
+      "Norway cruise ship schedules",
+      "Fjord cruise ports",
+    ],
   };
 }
 

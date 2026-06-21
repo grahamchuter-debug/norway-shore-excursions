@@ -12,9 +12,9 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { imageAlts, siteImages } from "@/lib/site-images";
 
 export const metadata = buildPageMetadata({
-  title: "Norway Cruise Ship Schedules 2026",
+  title: "Norway Cruise Ship Schedules 2026–2027",
   description:
-    "Master Norway cruise ship schedule hub for 15 ports across fjord, coastal, Arctic and southern Norway. Real imported CSV data only, reusable by port sites.",
+    "Master Norway cruise ship schedule hub for 15 ports across fjord, coastal, Arctic and southern Norway. Verified 2026 and 2027 CSV imports only.",
   path: shipScheduleHubPath,
 });
 
@@ -23,8 +23,8 @@ export default function ShipSchedulesHubPage() {
 
   return (
     <ContentPage
-      title="Norway Cruise Ship Schedules 2026"
-      lead="Central Norway schedule database for key cruise ports. Published ship calls come from approved CSV imports only — never sample or demo data. Individual port sites can reuse the same schedule files."
+      title="Norway Cruise Ship Schedules"
+      lead="Central Norway schedule database for key cruise ports. Published ship calls come from approved CSV imports for 2026 and 2027 — never sample or demo data."
       heroImage={siteImages.hero}
       heroImageAlt={imageAlts.hero}
       pagePath={shipScheduleHubPath}
@@ -37,6 +37,12 @@ export default function ShipSchedulesHubPage() {
       ctaText="Use the Norway Cruise Planner and Will This Excursion Fit My Cruise? tool with your ship times."
       ctaHref="/norway-cruise-planner"
       ctaButtonLabel="Open Cruise Planner"
+      relatedLinks={[
+        { label: "Norway Cruise Calendar", href: "/norway-cruise-calendar" },
+        { label: "Search by Ship", href: shipScheduleSearchPath },
+        { label: "Cruise Lines", href: "/cruise-lines" },
+        { label: "All Ships", href: "/ships" },
+      ]}
     >
       <section>
         <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
@@ -63,7 +69,25 @@ export default function ShipSchedulesHubPage() {
       </section>
 
       <section>
-        <h2>2026 schedules by port</h2>
+        <div className="rounded-2xl border border-[var(--border-light)] bg-surface-muted p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
+          <div>
+            <h2 className="text-lg font-bold text-[var(--navy-deep)]">Norway Cruise Calendar</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Browse verified port calls by month, port, cruise line and ship. See peak months and
+              busiest cruise days across all Norway schedules.
+            </p>
+          </div>
+          <Link
+            href="/norway-cruise-calendar"
+            className="btn-primary mt-4 inline-flex shrink-0 sm:mt-0"
+          >
+            Open Cruise Calendar
+          </Link>
+        </div>
+      </section>
+
+      <section>
+        <h2>Schedules by port</h2>
         <p className="mb-4 text-sm text-slate-600">
           Sample schedule data must never be used on live production schedule pages.
           Ports without a real CSV show a coming soon message instead of placeholder ship calls.

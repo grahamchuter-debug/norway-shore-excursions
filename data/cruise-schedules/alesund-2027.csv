@@ -1,0 +1,69 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+alesund,Spirit Of Discovery,Saga Cruises,999,2027-02-24,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Bolette,Fred Olsen Cruise Lines,,2027-02-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Mein Schiff 3,TUI Cruises,,2027-02-26,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,Balmoral,Fred Olsen Cruise Lines,,2027-03-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Majestic Princess,Princess Cruises,,2027-03-06,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Bolette,Fred Olsen Cruise Lines,,2027-03-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Ambition,Ambassador Cruise Line,1400,2027-03-11,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff 3,TUI Cruises,,2027-03-12,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff 3,TUI Cruises,,2027-03-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,Bolette,Fred Olsen Cruise Lines,,2027-03-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Majestic Princess,Princess Cruises,,2027-03-20,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Aurora,P&O Cruises,,2027-03-22,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Arvia,P&O Cruises,5200,2027-04-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2027-04-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Arvia,P&O Cruises,5200,2027-04-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Queen Elizabeth,Cunard Line,,2027-04-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Britannia,P&O Cruises,,2027-04-12,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2027-04-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Arvia,P&O Cruises,5200,2027-04-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2027-04-21,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff 7,TUI Cruises,,2027-05-03,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Zuiderdam,Holland America Line,,2027-05-04,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2027-05-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2027-05-05,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2027-05-05,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Britannia,P&O Cruises,,2027-06-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2027-06-02,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2027-06-02,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff Relax,TUI Cruises,2894,2027-06-03,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2027-06-03,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Preziosa,MSC Cruises,,2027-06-05,10:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Costa Favolosa,Costa Cruises,3800,2027-06-07,07:00,13:00,,Manual CSV import,,,All aboard time TBC
+alesund,Sky Princess,Princess Cruises,,2027-07-01,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Meraviglia,MSC Cruises,,2027-07-01,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff Relax,TUI Cruises,2894,2027-07-02,08:00,22:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Prima,Norwegian Cruise Line,3218,2027-07-03,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Star Pride,Windstar Cruises,,2027-07-03,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+alesund,Star Pride,Windstar Cruises,,2027-07-03,14:00,22:00,,Manual CSV import,,,All aboard time TBC
+alesund,Seven Seas Splendor,Regent Seven Seas,,2027-07-04,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2027-07-05,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+alesund,Celebrity Eclipse,Celebrity Cruises,2850,2027-07-06,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+alesund,Viking Vela,Viking,998,2027-08-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Zuiderdam,Holland America Line,,2027-08-02,08:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Prima,Norwegian Cruise Line,3218,2027-08-02,10:00,20:30,,Manual CSV import,,,All aboard time TBC
+alesund,SeaDream I,SeaDream Yacht Club,,2027-08-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Disney Wish,Disney Cruise Line,,2027-08-03,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,Queen Mary 2,Cunard Line,,2027-08-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2027-09-01,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Ambition,Ambassador Cruise Line,1400,2027-09-02,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Preziosa,MSC Cruises,,2027-09-02,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff Relax,TUI Cruises,2894,2027-09-03,07:00,14:00,,Manual CSV import,,,All aboard time TBC
+alesund,Ambience,Ambassador Cruise Line,1400,2027-09-03,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Prima,Norwegian Cruise Line,3218,2027-09-04,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2027-09-06,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2027-09-07,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Preziosa,MSC Cruises,,2027-10-01,10:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2027-10-05,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,Rotterdam,Holland America Line,2668,2027-10-05,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2027-10-06,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2027-10-06,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Star,Norwegian Cruise Line,,2027-10-11,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2027-11-02,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Nieuw Statendam,Holland America Line,2668,2027-11-03,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2027-11-03,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Nieuw Statendam,Holland America Line,2668,2027-11-03,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,Nieuw Statendam,Holland America Line,2668,2027-11-08,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Nieuw Statendam,Holland America Line,2668,2027-11-08,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff 2,TUI Cruises,,2027-12-21,07:00,15:00,,Manual CSV import,,,All aboard time TBC

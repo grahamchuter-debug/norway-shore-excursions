@@ -31,6 +31,11 @@ export type ShipPortSummary = {
   callCount: number;
 };
 
+export type ShipYearVisitSummary = {
+  year: string;
+  callCount: number;
+};
+
 export type ShipScheduleSummary = {
   slug: string;
   ship: string;
@@ -41,6 +46,7 @@ export type ShipScheduleSummary = {
   portCount: number;
   ports: readonly ShipPortSummary[];
   topPorts: readonly ShipPortSummary[];
+  visitsByYear: readonly ShipYearVisitSummary[];
   rows: readonly CruiseScheduleRow[];
   shipSearchKey: string;
 };
@@ -167,6 +173,15 @@ function buildShipScheduleSummaryFromRows(
 
   const slug = shipNameToSlug(ship);
 
+  const yearCounts = new Map<string, number>();
+  for (const row of rows) {
+    const year = row.arrival_date.slice(0, 4);
+    yearCounts.set(year, (yearCounts.get(year) ?? 0) + 1);
+  }
+  const visitsByYear = [...yearCounts.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([year, callCount]) => ({ year, callCount }));
+
   return {
     slug,
     ship,
@@ -177,6 +192,7 @@ function buildShipScheduleSummaryFromRows(
     portCount: ports.length,
     ports,
     topPorts: ports.slice(0, 5),
+    visitsByYear,
     rows: [...rows].sort((a, b) => {
       if (a.arrival_date !== b.arrival_date) {
         return a.arrival_date.localeCompare(b.arrival_date);

@@ -5,14 +5,14 @@ import { ContentPage } from "@/components/content-page";
 import { JsonLd } from "@/components/json-ld";
 import { WillThisExcursionFit } from "@/components/will-this-excursion-fit";
 import {
-  getScheduleMonthLabelFromSlug,
+  parseScheduleMonthSlug,
   scheduledPortSlugs,
-  scheduleMonthSlugs2026,
   shipScheduleHubPath,
   shipScheduleMonthPath,
   shipSchedulePortPath,
 } from "@/lib/cruise-schedule-config";
-import { hasRealScheduleData } from "@/lib/cruiseSchedules";
+import { getScheduleHubPortSummary, hasRealScheduleData } from "@/lib/cruiseSchedules";
+import { getPortScheduleInsights } from "@/lib/schedule-insights";
 import { buildItemListSchema } from "@/lib/site-schema";
 import { portBySlug, portSlugs } from "@/lib/ports-data";
 import { getPortImage } from "@/lib/site-images";
@@ -51,6 +51,10 @@ export default async function PortPage({ params }: PortPageProps) {
     slug as (typeof scheduledPortSlugs)[number],
   );
   const hasImportedSchedule = hasRealScheduleData(slug);
+  const scheduleSummary = isScheduledPort ? getScheduleHubPortSummary(slug) : null;
+  const scheduleInsights = hasImportedSchedule ? getPortScheduleInsights(slug) : null;
+  const yearsLabel =
+    scheduleInsights?.yearsAvailable.join(" and ") ?? "2026 and 2027";
   const itemList = buildItemListSchema(
     port.sampleTours.map((t) => ({
       name: t.name,
@@ -83,6 +87,9 @@ export default async function PortPage({ params }: PortPageProps) {
           { label: "Norway Cruise Planner", href: "/norway-cruise-planner" },
           { label: "All cruise ports", href: "/norway-cruise-ports" },
           { label: "Return to ship guide", href: "/return-to-ship-guide" },
+          { label: "Norway cruise calendar", href: "/norway-cruise-calendar" },
+          { label: "Cruise lines", href: "/cruise-lines" },
+          { label: "All ships", href: "/ships" },
           ...(isScheduledPort
             ? [{ label: `${port.displayName} ship schedules`, href: shipSchedulePortPath(slug) }]
             : []),
@@ -132,8 +139,8 @@ export default async function PortPage({ params }: PortPageProps) {
             <h2>{port.displayName} cruise ship schedule</h2>
             <p>
               {hasImportedSchedule
-                ? `Published 2026 arrival times for ${port.displayName} are available from approved CSV imports. Pick a month to plan shore excursions around your ship's port call.`
-                : `The ${port.displayName} 2026 schedule hub is live while CSV data is prepared. Monthly pages show a coming soon message until real ship calls are imported.`}
+                ? `Published arrival times for ${port.displayName} are available from approved CSV imports across ${yearsLabel}. Pick a month to plan shore excursions around your ship's port call.`
+                : `The ${port.displayName} schedule hub is live while CSV data is prepared. Monthly pages show a coming soon message until real ship calls are imported.`}
             </p>
             <p>
               <Link href={shipSchedulePortPath(slug)} className="content-link font-medium">
@@ -145,16 +152,22 @@ export default async function PortPage({ params }: PortPageProps) {
               </Link>
             </p>
             <ul className="grid gap-2 sm:grid-cols-2">
-              {scheduleMonthSlugs2026.map((monthSlug) => (
-                <li key={monthSlug}>
+              {(scheduleSummary?.months ?? []).map((monthSummary) => {
+                const year = parseScheduleMonthSlug(monthSummary.slug)?.year ?? "2026";
+                return (
+                <li key={monthSummary.slug}>
                   <Link
-                    href={shipScheduleMonthPath(slug, monthSlug)}
+                    href={shipScheduleMonthPath(slug, monthSummary.slug)}
                     className="content-link font-medium"
                   >
-                    {getScheduleMonthLabelFromSlug(monthSlug)} 2026 schedule
+                    {monthSummary.label} {year} schedule
+                    {monthSummary.shipCallCount != null
+                      ? ` · ${monthSummary.shipCallCount} calls`
+                      : ""}
                   </Link>
                 </li>
-              ))}
+                );
+              })}
             </ul>
           </section>
         ) : null}

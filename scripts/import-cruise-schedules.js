@@ -39,7 +39,7 @@ const {
   isLegacySampleScheduleFile,
   isRealScheduleFile,
   normalizePort,
-  SCHEDULE_YEAR,
+  SCHEDULE_YEARS,
 } = require("./cruise-schedule-utils");
 const {
   enrichSchedulePassengers,
@@ -292,31 +292,35 @@ function readRawCsvFiles() {
 
   console.log("Raw schedule source status:");
   for (const port of EXPECTED_SCHEDULE_PORTS) {
-    const key = `${port}|${SCHEDULE_YEAR}`;
-    const status = sourceStatus.get(key);
-    const realLabel = status.realCsvFound ? "yes" : "no";
-    const dataSourceLabel =
-      status.dataSource === "real"
-        ? "Real schedule imported"
-        : status.dataSource === "sample_only"
-          ? "Sample data only (skipped)"
-          : "No schedule imported";
+    for (const year of SCHEDULE_YEARS) {
+      const key = `${port}|${year}`;
+      const status = sourceStatus.get(key);
+      if (!status) continue;
 
-    console.log(`  ${port} ${SCHEDULE_YEAR}: real CSV found: ${realLabel} — ${dataSourceLabel}`);
+      const realLabel = status.realCsvFound ? "yes" : "no";
+      const dataSourceLabel =
+        status.dataSource === "real"
+          ? "Real schedule imported"
+          : status.dataSource === "sample_only"
+            ? "Sample data only (skipped)"
+            : "No schedule imported";
 
-    if (status.legacyFiles.length > 0) {
-      for (const legacyFile of status.legacyFiles) {
-        console.log(
-          `    Skipping legacy sample file ${legacyFile} (use ${port}-cruise-schedule-${SCHEDULE_YEAR}.csv instead)`,
-        );
+      console.log(`  ${port} ${year}: real CSV found: ${realLabel} — ${dataSourceLabel}`);
+
+      if (status.legacyFiles.length > 0) {
+        for (const legacyFile of status.legacyFiles) {
+          console.log(
+            `    Skipping legacy sample file ${legacyFile} (use ${port}-cruise-schedule-${year}.csv instead)`,
+          );
+        }
       }
-    }
 
-    for (const realFile of status.realFiles) {
-      selectedFiles.push({
-        file: realFile,
-        content: fs.readFileSync(path.join(RAW_DIR, realFile), "utf8"),
-      });
+      for (const realFile of status.realFiles) {
+        selectedFiles.push({
+          file: realFile,
+          content: fs.readFileSync(path.join(RAW_DIR, realFile), "utf8"),
+        });
+      }
     }
   }
 
@@ -340,9 +344,11 @@ function buildPortStatusMeta(rows, sourceStatus) {
   const portStatus = {};
 
   for (const port of EXPECTED_SCHEDULE_PORTS) {
-    const key = `${port}|${SCHEDULE_YEAR}`;
-    const source = sourceStatus.get(key);
     const portRows = rows.filter((row) => row.port === port);
+    const hasRealSource = SCHEDULE_YEARS.some((year) => {
+      const source = sourceStatus.get(`${port}|${year}`);
+      return source?.dataSource === "real";
+    });
     const monthsAvailable = [
       ...new Set(
         portRows
@@ -351,15 +357,17 @@ function buildPortStatusMeta(rows, sourceStatus) {
       ),
     ].sort();
     const dataSource =
-      source?.dataSource === "real" && portRows.length > 0
+      hasRealSource && portRows.length > 0
         ? "real"
-        : source?.dataSource === "sample_only"
+        : SCHEDULE_YEARS.some(
+              (year) => sourceStatus.get(`${port}|${year}`)?.dataSource === "sample_only",
+            )
           ? "sample_only"
           : "none";
 
     portStatus[port] = {
       dataSource,
-      realCsvFound: Boolean(source?.realCsvFound),
+      realCsvFound: hasRealSource,
       rowCount: portRows.length,
       monthsAvailable,
       pagesGenerated: monthsAvailable.length,
@@ -375,21 +383,23 @@ function buildPortStatusMeta(rows, sourceStatus) {
   return portStatus;
 }
 
-function removeStalePortOutputs(realPorts) {
+function removeStalePortOutputs(activePortYearKeys) {
   for (const port of EXPECTED_SCHEDULE_PORTS) {
-    if (realPorts.has(port)) continue;
+    for (const year of SCHEDULE_YEARS) {
+      const key = `${port}-${year}`;
+      if (activePortYearKeys.has(key)) continue;
 
-    const key = `${port}-${SCHEDULE_YEAR}`;
-    const csvPath = path.join(CLEAN_CSV_DIR, `${key}.csv`);
-    const jsonPath = path.join(PUBLIC_JSON_DIR, `${key}.json`);
+      const csvPath = path.join(CLEAN_CSV_DIR, `${key}.csv`);
+      const jsonPath = path.join(PUBLIC_JSON_DIR, `${key}.json`);
 
-    if (fs.existsSync(csvPath)) {
-      fs.unlinkSync(csvPath);
-      console.log(`Removed stale clean CSV: ${key}.csv`);
-    }
-    if (fs.existsSync(jsonPath)) {
-      fs.unlinkSync(jsonPath);
-      console.log(`Removed stale public JSON: ${key}.json`);
+      if (fs.existsSync(csvPath)) {
+        fs.unlinkSync(csvPath);
+        console.log(`Removed stale clean CSV: ${key}.csv`);
+      }
+      if (fs.existsSync(jsonPath)) {
+        fs.unlinkSync(jsonPath);
+        console.log(`Removed stale public JSON: ${key}.json`);
+      }
     }
   }
 }
@@ -505,10 +515,8 @@ function main() {
     byPortYear.get(key).push(row);
   }
 
-  const realPorts = new Set(
-    [...byPortYear.keys()].map((key) => key.replace(/-\d{4}$/, "")),
-  );
-  removeStalePortOutputs(realPorts);
+  const activePortYearKeys = new Set(byPortYear.keys());
+  removeStalePortOutputs(activePortYearKeys);
 
   for (const [key, rows] of byPortYear.entries()) {
     const csvPath = path.join(CLEAN_CSV_DIR, `${key}.csv`);
@@ -529,7 +537,7 @@ function main() {
         : status.dataSource === "sample_only"
           ? "Sample data only"
           : "No schedule imported";
-    console.log(`  ${port} ${SCHEDULE_YEAR}:`);
+    console.log(`  ${port}:`);
     console.log(`    real CSV found: ${status.realCsvFound ? "yes" : "no"}`);
     console.log(`    status: ${sourceLabel}`);
     console.log(`    rows imported: ${status.rowCount}`);
@@ -537,6 +545,17 @@ function main() {
       `    months available: ${status.monthsAvailable.length > 0 ? status.monthsAvailable.join(", ") : "none"}`,
     );
     console.log(`    pages generated: ${status.pagesGenerated}`);
+  }
+
+  const yearTotals = Object.fromEntries(
+    SCHEDULE_YEARS.map((year) => [
+      year,
+      normalizedRows.filter((row) => row.arrival_date.startsWith(`${year}-`)).length,
+    ]),
+  );
+  console.log("\nImport totals by year:");
+  for (const [year, count] of Object.entries(yearTotals)) {
+    console.log(`  ${year}: ${count} visits`);
   }
 
   console.log("\nRows per port and month (real data only):");
@@ -547,7 +566,7 @@ function main() {
     generatedAt: new Date().toISOString(),
     source: "CSV import pipeline",
     rowCount: normalizedRows.length,
-    ports: [...realPorts].sort(),
+    ports: [...new Set(normalizedRows.map((row) => row.port))].sort(),
     portStatus,
     rows: normalizedRows,
   };

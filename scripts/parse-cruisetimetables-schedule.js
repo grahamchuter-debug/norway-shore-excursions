@@ -61,6 +61,16 @@ function buildDayMap(year, month) {
 }
 
 function inferMonthYearFromUrl(url) {
+  const specialMatch = /-(\d{2})([a-z]{3})(\d{4})\.html/i.exec(url);
+  if (specialMatch) {
+    const monthToken = specialMatch[2].toLowerCase();
+    const year = Number(specialMatch[3]);
+    const month = MONTH_MAP[monthToken];
+    if (month && Number.isFinite(year)) {
+      return { year, month };
+    }
+  }
+
   const match = /-([a-z]{3})(\d{4})\.html/i.exec(url);
   if (!match) return null;
 
@@ -327,9 +337,10 @@ async function fetchHtml(url, attempt = 1) {
     },
   });
 
-  if (response.status === 429 && attempt < 4) {
-    console.log(`Rate limited (${url}); waiting 60s (attempt ${attempt}/3)...`);
-    await new Promise((resolve) => setTimeout(resolve, 60000));
+  if (response.status === 429 && attempt < 6) {
+    const waitMs = 60000 * attempt;
+    console.log(`Rate limited (${url}); waiting ${waitMs / 1000}s (attempt ${attempt}/5)...`);
+    await new Promise((resolve) => setTimeout(resolve, waitMs));
     return fetchHtml(url, attempt + 1);
   }
 

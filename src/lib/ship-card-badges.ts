@@ -44,9 +44,8 @@ export type ShipCardBadgeSet = {
   insufficientData: boolean;
 };
 
-const linePrimaryBadges: Record<
-  CruiseLineScheduleKey,
-  { label: string; variant: PrimaryShipBadgeVariant }
+const linePrimaryBadges: Partial<
+  Record<CruiseLineScheduleKey, { label: string; variant: PrimaryShipBadgeVariant }>
 > = {
   viking: { label: "Adults Focused", variant: "viking" },
   "holland-america": {

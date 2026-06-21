@@ -5,15 +5,15 @@ import { ShipCard } from "@/components/ship-card";
 import { shipScheduleSearchPath } from "@/lib/cruise-schedule-config";
 import { shipCardBadgeInputFromSummary } from "@/lib/ship-card-badges";
 import { buildShipScheduleSummaries } from "@/lib/ship-schedules";
-import { featuredShipSlugs } from "@/lib/ships-data";
+import { getAuthorityShipSlugs } from "@/lib/ship-authority";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { buildItemListSchema } from "@/lib/site-schema";
 import { imageAlts, siteImages } from "@/lib/site-images";
 
 export const metadata = buildPageMetadata({
-  title: "Norway Cruise Ships 2026",
+  title: "Norway Cruise Ships",
   description:
-    "Norway cruise ship guides with 2026 port schedules, passenger capacity, ports visited and independent shore excursion planning.",
+    "Norway cruise ship guides with 2026–2027 port schedules, passenger capacity, ports visited and independent shore excursion planning.",
   path: "/ships",
   ogImage: siteImages.hero,
   ogImageAlt: imageAlts.hero,
@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "How are Norway cruise ships listed here?",
     answer:
-      "Ships appear when they have published 2026 Norway port calls in our imported schedule database for verified ports.",
+      "Ships appear when they have published Norway port calls in our imported 2026–2027 schedule database for verified ports.",
   },
   {
     question: "Where does passenger capacity come from?",
@@ -39,16 +39,16 @@ const faqs = [
 
 export default function ShipsHubPage() {
   const summaries = buildShipScheduleSummaries();
-  const featuredSet = new Set<string>(featuredShipSlugs);
-  const featured = summaries.filter((s) => featuredSet.has(s.slug));
-  const other = summaries.filter((s) => !featuredSet.has(s.slug));
+  const authoritySet = new Set(getAuthorityShipSlugs());
+  const authority = summaries.filter((s) => authoritySet.has(s.slug));
+  const other = summaries.filter((s) => !authoritySet.has(s.slug));
 
   const itemList = buildItemListSchema(
     summaries.slice(0, 20).map((s) => ({
       name: s.ship,
-      description: `${s.callCount} Norway port calls in 2026 data · ${s.cruiseLine}`,
+      description: `${s.callCount} Norway port calls in schedule data · ${s.cruiseLine}`,
     })),
-    "Norway cruise ships with 2026 schedule data",
+    "Norway cruise ships with verified schedule data",
   );
 
   return (
@@ -56,7 +56,7 @@ export default function ShipsHubPage() {
       <JsonLd data={itemList} />
       <ContentPage
         title="Norway Cruise Ships"
-        lead="Ship guides built from real 2026 Norway port call data: capacity, schedules, ports visited and excursion planning tools."
+        lead="Ship guides built from verified 2026–2027 Norway port call data: capacity, schedules, ports visited and excursion planning tools."
         heroImage={siteImages.hero}
         heroImageAlt={imageAlts.hero}
         pagePath="/ships"
@@ -68,6 +68,7 @@ export default function ShipsHubPage() {
         faqs={faqs}
         relatedLinks={[
           { label: "Search by Ship", href: shipScheduleSearchPath },
+          { label: "Norway Cruise Calendar", href: "/norway-cruise-calendar" },
           { label: "Cruise Lines", href: "/cruise-lines" },
           { label: "Ship Schedules", href: "/ship-schedules" },
           { label: "Norway Cruise Planner", href: "/norway-cruise-planner" },
@@ -78,13 +79,14 @@ export default function ShipsHubPage() {
         ctaButtonLabel="Open Cruise Planner"
       >
         <section>
-          <h2>Featured Norway cruise ships</h2>
+          <h2>Top Norway cruise ships</h2>
           <p>
-            Headline ships with the busiest 2026 Norway programmes in our data.
-            Select a ship for full schedules, port guides and excursion ideas.
+            The 20 busiest ships in our combined 2026–2027 schedule data receive
+            enhanced authority guides with itinerary patterns, schedule insights
+            and port-by-port excursion planning.
           </p>
           <ul className="card-grid mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((ship) => (
+            {authority.map((ship) => (
               <li key={ship.slug}>
                 <ShipCard
                   slug={ship.slug}
@@ -107,7 +109,7 @@ export default function ShipsHubPage() {
 
         {other.length > 0 ? (
           <section>
-            <h2>More ships in Norway 2026 data</h2>
+            <h2>More ships in Norway schedule data</h2>
             <ul className="card-grid mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {other.map((ship) => (
                 <li key={ship.slug}>

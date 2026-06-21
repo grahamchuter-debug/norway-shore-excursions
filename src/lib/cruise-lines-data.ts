@@ -1,4 +1,5 @@
 import type { CruiseLineScheduleKey } from "@/lib/cruise-line-schedules";
+import { additionalCruiseLines } from "@/lib/cruise-lines-additional-data";
 import { ports } from "@/lib/ports-data";
 import { getShipScheduleSummaryBySlug, shipPagePath } from "@/lib/ship-schedules";
 
@@ -988,7 +989,8 @@ export const cruiseLines: readonly CruiseLineData[] = [
       },
     ],
   },
-] as const;
+  ...additionalCruiseLines,
+];
 
 export const cruiseLineBySlug = Object.fromEntries(
   cruiseLines.map((c) => [c.slug, c]),

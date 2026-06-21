@@ -12,8 +12,7 @@ import {
   getScheduleMonthLabelFromSlug,
   parseScheduleMonthSlug,
   scheduledPortSlugs,
-  scheduleMonthSlugs2026,
-  scheduleYear,
+  allScheduleMonthSlugs,
   shipScheduleHubPath,
   shipScheduleMonthPath,
   shipSchedulePortPath,
@@ -32,7 +31,7 @@ type ShipScheduleMonthPageProps = {
 
 export async function generateStaticParams() {
   return scheduledPortSlugs.flatMap((port) =>
-    scheduleMonthSlugs2026.map((monthSlug) => ({
+    allScheduleMonthSlugs.map((monthSlug) => ({
       port,
       monthSlug,
     })),
@@ -42,11 +41,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ShipScheduleMonthPageProps) {
   const { port, monthSlug } = await params;
   const portData = portBySlug[port];
+  const parsed = parseScheduleMonthSlug(monthSlug);
   const monthName = getScheduleMonthLabelFromSlug(monthSlug);
+  const year = parsed?.year ?? "2026";
 
   return buildPageMetadata({
-    title: `${portData?.displayName ?? port} Cruise Schedule ${monthName} ${scheduleYear}`,
-    description: `${portData?.displayName ?? port} cruise ship arrival schedule for ${monthName} ${scheduleYear}.`,
+    title: `${portData?.displayName ?? port} Cruise Schedule ${monthName} ${year}`,
+    description: `${portData?.displayName ?? port} cruise ship arrival schedule for ${monthName} ${year}.`,
     path: shipScheduleMonthPath(port, monthSlug),
   });
 }
@@ -56,12 +57,13 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
 
   if (
     !scheduledPortSlugs.includes(port as (typeof scheduledPortSlugs)[number]) ||
-    !scheduleMonthSlugs2026.includes(monthSlug as (typeof scheduleMonthSlugs2026)[number])
+    !allScheduleMonthSlugs.includes(monthSlug as (typeof allScheduleMonthSlugs)[number])
   ) {
     notFound();
   }
 
-  if (!parseScheduleMonthSlug(monthSlug)) {
+  const parsedMonth = parseScheduleMonthSlug(monthSlug);
+  if (!parsedMonth) {
     notFound();
   }
 
@@ -69,27 +71,28 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
   if (!portData) notFound();
 
   const monthName = getScheduleMonthLabelFromSlug(monthSlug);
+  const year = parsedMonth.year;
   const scheduleAvailable = hasRealScheduleData(port);
   const rows = scheduleAvailable ? getSchedulesByMonthSlug(port, monthSlug) : [];
   const hero = getPortImage(port);
 
   return (
     <ContentPage
-      title={`${portData.displayName} Cruise Schedule — ${monthName} ${scheduleYear}`}
+      title={`${portData.displayName} Cruise Schedule — ${monthName} ${year}`}
       lead={
         scheduleAvailable
-          ? `Imported cruise ship calls for ${monthName} ${scheduleYear}. Confirm latest all aboard times with your cruise line before booking excursions.`
-          : `The ${portData.displayName} ${monthName} ${scheduleYear} schedule page is live while CSV data is prepared.`
+          ? `Imported cruise ship calls for ${monthName} ${year}. Confirm latest all aboard times with your cruise line before booking excursions.`
+          : `The ${portData.displayName} ${monthName} ${year} schedule page is live while CSV data is prepared.`
       }
       heroImage={hero.url}
       heroImageAlt={hero.alt}
       pagePath={shipScheduleMonthPath(port, monthSlug)}
-      pageDescription={`${portData.displayName} cruise schedule for ${monthName} ${scheduleYear}.`}
+      pageDescription={`${portData.displayName} cruise schedule for ${monthName} ${year}.`}
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Ship Schedules", href: shipScheduleHubPath },
         { label: portData.displayName, href: shipSchedulePortPath(port) },
-        { label: `${monthName} ${scheduleYear}` },
+        { label: `${monthName} ${year}` },
       ]}
       ctaTitle="Build your port day plan"
       ctaText="Generate personalised excursion recommendations for your Norway cruise itinerary."
@@ -104,13 +107,13 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
 
       <section>
         <h2>
-          {monthName} {scheduleYear} ship calls
+          {monthName} {year} ship calls
         </h2>
         {scheduleAvailable ? (
           <>
             <p className="text-sm text-slate-600">
               Showing {rows.length} published ship call{rows.length === 1 ? "" : "s"} for{" "}
-              {portData.displayName} in {monthName} {scheduleYear}.
+              {portData.displayName} in {monthName} {year}.
             </p>
             <CruiseScheduleTable rows={rows} portSlug={port} />
           </>
@@ -134,18 +137,21 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
       <section>
         <h2>Other months</h2>
         <ul className="card-grid grid gap-2 sm:grid-cols-2">
-          {scheduleMonthSlugs2026
+          {allScheduleMonthSlugs
             .filter((item) => item !== monthSlug)
-            .map((item) => (
+            .map((item) => {
+              const itemYear = parseScheduleMonthSlug(item)?.year ?? "2026";
+              return (
               <li key={item}>
                 <Link
                   href={shipScheduleMonthPath(port, item)}
                   className="content-link font-medium"
                 >
-                  {getScheduleMonthLabelFromSlug(item)} {scheduleYear}
+                  {getScheduleMonthLabelFromSlug(item)} {itemYear}
                 </Link>
               </li>
-            ))}
+              );
+            })}
         </ul>
       </section>
     </ContentPage>

@@ -25,7 +25,18 @@ export type CruiseLineScheduleKey =
   | "princess"
   | "royal-caribbean"
   | "disney"
-  | "norwegian";
+  | "norwegian"
+  | "aida"
+  | "tui"
+  | "costa"
+  | "fred-olsen"
+  | "phoenix-reisen"
+  | "silversea"
+  | "saga"
+  | "regent"
+  | "ambassador"
+  | "oceania"
+  | "hapag-lloyd";
 
 export const cruiseLineScheduleKeys: readonly CruiseLineScheduleKey[] = [
   "msc",
@@ -38,6 +49,17 @@ export const cruiseLineScheduleKeys: readonly CruiseLineScheduleKey[] = [
   "royal-caribbean",
   "disney",
   "norwegian",
+  "aida",
+  "tui",
+  "costa",
+  "fred-olsen",
+  "phoenix-reisen",
+  "silversea",
+  "saga",
+  "regent",
+  "ambassador",
+  "oceania",
+  "hapag-lloyd",
 ] as const;
 
 export const scheduleLineNames: Record<CruiseLineScheduleKey, readonly string[]> = {
@@ -51,6 +73,17 @@ export const scheduleLineNames: Record<CruiseLineScheduleKey, readonly string[]>
   "royal-caribbean": ["Royal Caribbean Cruises", "Royal Caribbean"],
   disney: ["Disney Cruise Line", "Disney"],
   norwegian: ["Norwegian Cruise Line", "Norwegian"],
+  aida: ["AIDA"],
+  tui: ["TUI Cruises", "Tui Cruises"],
+  costa: ["Costa Cruises", "Costa"],
+  "fred-olsen": ["Fred Olsen Cruise Lines"],
+  "phoenix-reisen": ["Phoenix Reisen", "Phoenix"],
+  silversea: ["Silversea"],
+  saga: ["Saga Cruises", "Saga"],
+  regent: ["Regent Seven Seas"],
+  ambassador: ["Ambassador Cruise Line"],
+  oceania: ["Oceania Cruises"],
+  "hapag-lloyd": ["Hapag Lloyd"],
 };
 
 export type CruiseLineShipSummary = {
@@ -284,4 +317,45 @@ export function shipScheduleSearchPathForLine(
 
 export function isCruiseLineScheduleKey(value: string): value is CruiseLineScheduleKey {
   return (cruiseLineScheduleKeys as readonly string[]).includes(value);
+}
+
+export function getCruiseLineCallsByYear(
+  key: CruiseLineScheduleKey,
+): Readonly<Record<string, number>> {
+  const counts: Record<string, number> = {};
+  for (const row of getRowsForCruiseLine(key)) {
+    const year = row.arrival_date.slice(0, 4);
+    counts[year] = (counts[year] ?? 0) + 1;
+  }
+  return counts;
+}
+
+export function getCruiseLineBusiestMonths(
+  key: CruiseLineScheduleKey,
+  year?: string,
+  limit = 3,
+): { monthKey: string; monthLabel: string; shipCalls: number }[] {
+  const monthCounts = new Map<string, number>();
+
+  for (const row of getRowsForCruiseLine(key)) {
+    if (year && !row.arrival_date.startsWith(`${year}-`)) continue;
+    const monthKey = row.arrival_date.slice(0, 7);
+    monthCounts.set(monthKey, (monthCounts.get(monthKey) ?? 0) + 1);
+  }
+
+  return [...monthCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, limit)
+    .map(([monthKey, shipCalls]) => {
+      const [y, m] = monthKey.split("-");
+      const date = new Date(`${y}-${m}-01T12:00:00`);
+      return {
+        monthKey,
+        monthLabel: date.toLocaleDateString("en-GB", {
+          month: "long",
+          year: "numeric",
+        }),
+        shipCalls,
+      };
+    });
 }

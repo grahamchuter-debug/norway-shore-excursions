@@ -14,15 +14,14 @@ import {
   buildScheduleMonthSlug,
   formatScheduleDateLabel,
   getPortExcursionLink,
+  getScheduleMonthLabelFromSlug,
   monthLabels,
   normalizeSchedulePortSlug,
   parseScheduleMonthSlug,
-  scheduleMonthSlugs2026,
   schedulePortRegions,
-  scheduleYear,
   scheduledPortSlugs,
   shipScheduleMonthPath,
-  type ScheduleMonthSlug2026,
+  type ScheduleMonthSlug,
 } from "@/lib/cruise-schedule-config";
 import { portBySlug } from "@/lib/ports-data";
 
@@ -122,11 +121,11 @@ export function getScheduleHubStatusLabel(port: string): string {
 }
 
 export function getScheduleComingSoonMessage(_portName?: string): string {
-  return "2026 cruise schedule data for this port is currently being prepared.\n\nPlease check back soon or confirm your ship's latest timings with your cruise line.";
+  return "Cruise schedule data for this port is currently being prepared.\n\nPlease check back soon or confirm your ship's latest timings with your cruise line.";
 }
 
 export type ScheduleHubMonthSummary = {
-  slug: ScheduleMonthSlug2026;
+  slug: ScheduleMonthSlug;
   label: string;
   shipCallCount: number | null;
 };
@@ -138,10 +137,20 @@ export type ScheduleHubPortSummary = {
   totalShipCalls: number | null;
 };
 
-export function getMonthShipCallCount(port: string, monthSlug: ScheduleMonthSlug2026): number {
+export function getMonthShipCallCount(port: string, monthSlug: ScheduleMonthSlug): number {
   const parsed = parseScheduleMonthSlug(monthSlug);
   if (!parsed || !hasRealScheduleData(port)) return 0;
   return getSchedulesByMonth(port, parsed.year, parsed.month).length;
+}
+
+function monthSlugFromKey(monthKey: string): ScheduleMonthSlug | null {
+  const [year, month] = monthKey.split("-");
+  if (!year || !month) return null;
+  try {
+    return buildScheduleMonthSlug(month, year);
+  } catch {
+    return null;
+  }
 }
 
 export function getScheduleHubPortSummary(portSlug: string): ScheduleHubPortSummary {
@@ -149,9 +158,13 @@ export function getScheduleHubPortSummary(portSlug: string): ScheduleHubPortSumm
   const available = hasRealScheduleData(slug);
   const meta = getPortScheduleMeta(slug);
 
-  const months = scheduleMonthSlugs2026.map((monthSlug) => ({
+  const monthSlugs = meta.monthsAvailable
+    .map(monthSlugFromKey)
+    .filter((value): value is ScheduleMonthSlug => value != null);
+
+  const months = monthSlugs.map((monthSlug) => ({
     slug: monthSlug,
-    label: monthLabels[parseScheduleMonthSlug(monthSlug)?.month ?? "06"] ?? monthSlug,
+    label: getScheduleMonthLabelFromSlug(monthSlug),
     shipCallCount: available ? getMonthShipCallCount(slug, monthSlug) : null,
   }));
 
@@ -337,7 +350,7 @@ export function getSchedulesByMonth(
 
 export function getSchedulesByMonthSlug(
   port: string,
-  monthSlug: ScheduleMonthSlug2026 | string,
+  monthSlug: ScheduleMonthSlug | string,
 ): CruiseScheduleRow[] {
   const parsed = parseScheduleMonthSlug(monthSlug);
   if (!parsed) return [];
@@ -348,7 +361,7 @@ export type GetSchedulesByShipOptions = {
   port?: string;
   year?: number | string;
   month?: number | string;
-  monthSlug?: ScheduleMonthSlug2026 | string;
+  monthSlug?: ScheduleMonthSlug | string;
 };
 
 /**

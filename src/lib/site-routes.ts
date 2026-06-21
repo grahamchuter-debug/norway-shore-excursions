@@ -2,7 +2,7 @@ import { cruiseLineSlugs } from "@/lib/cruise-lines-data";
 import { getAllShipSlugs } from "@/lib/ship-schedules";
 import {
   scheduledPortSlugs,
-  scheduleMonthSlugs2026,
+  allScheduleMonthSlugs,
   shipScheduleHubPath,
   shipScheduleMonthPath,
   shipSchedulePortPath,
@@ -33,6 +33,7 @@ const level1Routes: RouteEntry[] = [
   { path: "/return-to-ship-guide", priority: 0.85, changeFrequency: "monthly" },
   { path: shipScheduleHubPath, priority: 0.9, changeFrequency: "weekly" },
   { path: shipScheduleSearchPath, priority: 0.88, changeFrequency: "weekly" },
+  { path: "/norway-cruise-calendar", priority: 0.88, changeFrequency: "weekly" },
 ];
 
 const portRoutes: RouteEntry[] = portSlugs.map((slug) => ({
@@ -66,7 +67,7 @@ const shipSchedulePortRoutes: RouteEntry[] = scheduledPortSlugs.map((portSlug) =
 }));
 
 const shipScheduleMonthRoutes: RouteEntry[] = scheduledPortSlugs.flatMap((portSlug) =>
-  scheduleMonthSlugs2026.map((monthSlug) => ({
+  allScheduleMonthSlugs.map((monthSlug) => ({
     path: shipScheduleMonthPath(portSlug, monthSlug),
     priority: 0.84,
     changeFrequency: "weekly" as const,

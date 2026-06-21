@@ -1,0 +1,6 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+flam,AIDAprima,AIDA,3376,2027-04-07,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+flam,Ambition,Ambassador Cruise Line,1400,2027-04-16,07:00,18:00,,Manual CSV import,,,All aboard time TBC
+flam,Viking Vela,Viking,998,2027-04-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+flam,AIDAnova,AIDA,5200,2027-04-20,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+flam,MSC Euribia,MSC Cruises,4888,2027-04-29,07:00,18:00,,Manual CSV import,,,All aboard time TBC

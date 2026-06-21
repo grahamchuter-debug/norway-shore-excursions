@@ -94,7 +94,7 @@ export function ShipScheduleSearch({ entries }: ShipScheduleSearchProps) {
       {activeLine ? (
         <section className="rounded-2xl border border-[var(--glacier-blue)]/30 bg-sky-50/60 p-5">
           <p className="text-sm font-semibold text-[var(--navy-deep)]">
-            Showing {lineDisplayName(activeLine)} ships in our 2026 Norway schedule
+            Showing {lineDisplayName(activeLine)} ships in our verified Norway schedule
             database.
           </p>
           <p className="mt-2 text-sm text-slate-600">

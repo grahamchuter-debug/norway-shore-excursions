@@ -41,7 +41,7 @@ export function CruiseLineScheduleLinks({
       </h2>
       <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
         {shipCount} {shipCount === 1 ? "ship" : "ships"} and {totalCalls}{" "}
-        {totalCalls === 1 ? "port call" : "port calls"} in our 2026 Norway database.
+        {totalCalls === 1 ? "port call" : "port calls"} in our verified Norway schedule database.
         Filter the schedule search to this line or open a ship directly.
       </p>
 

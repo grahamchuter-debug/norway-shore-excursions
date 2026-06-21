@@ -2,13 +2,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ContentPage } from "@/components/content-page";
+import { PortScheduleInsightsSection } from "@/components/port-schedule-insights";
 import { RecommendedPortExcursions } from "@/components/recommended-port-excursions";
 import { ShipScheduleHubCard } from "@/components/ship-schedule-hub-card";
 import { ShipScheduleInternalLinks } from "@/components/ship-schedule-internal-links";
 import {
   cruiseScheduleDisclaimer,
+  getScheduleMonthLabelFromSlug,
+  parseScheduleMonthSlug,
   scheduledPortSlugs,
-  scheduleMonthSlugs2026,
   shipScheduleHubPath,
   shipScheduleMonthPath,
 } from "@/lib/cruise-schedule-config";
@@ -16,6 +18,7 @@ import {
   getScheduleHubPortSummary,
   hasRealScheduleData,
 } from "@/lib/cruiseSchedules";
+import { getPortScheduleInsights } from "@/lib/schedule-insights";
 import { portBySlug } from "@/lib/ports-data";
 import { getPortImage } from "@/lib/site-images";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -31,10 +34,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ShipSchedulePortPageProps) {
   const { port } = await params;
   const portData = portBySlug[port];
+  const scheduleAvailable = hasRealScheduleData(port);
+  const insights = scheduleAvailable ? getPortScheduleInsights(port) : null;
+  const peakMonth = insights
+    ? [...insights.busiestMonths].sort((a, b) => b.shipCalls - a.shipCalls)[0]
+    : null;
+
+  const yearsLabel =
+    insights?.yearsAvailable.join(" and ") ?? "2026 and 2027";
 
   return buildPageMetadata({
-    title: `${portData?.displayName ?? port} Cruise Ship Schedule 2026`,
-    description: `${portData?.displayName ?? port} 2026 cruise ship arrival schedule hub with June to September monthly pages.`,
+    title: `${portData?.displayName ?? port} Cruise Ship Schedule`,
+    description:
+      scheduleAvailable && insights
+        ? `${portData?.displayName ?? port} cruise schedule: ${insights.totalCalls} ship calls across ${yearsLabel}${peakMonth ? `, busiest month ${peakMonth.monthLabel}` : ""}. Monthly arrivals and shore excursion planning.`
+        : `${portData?.displayName ?? port} cruise ship arrival schedule hub with monthly pages.`,
     path: `${shipScheduleHubPath}/${port}`,
   });
 }
@@ -49,22 +63,26 @@ export default async function ShipSchedulePortPage({ params }: ShipSchedulePortP
   const portData = portBySlug[port];
   if (!portData) notFound();
 
-  const summary = getScheduleHubPortSummary(port);
-  const hero = getPortImage(port);
   const scheduleAvailable = hasRealScheduleData(port);
+  const summary = getScheduleHubPortSummary(port);
+  const insights = scheduleAvailable ? getPortScheduleInsights(port) : null;
+  const hero = getPortImage(port);
+
+  const yearsLabel =
+    insights?.yearsAvailable.join(" and ") ?? "2026 and 2027";
 
   return (
     <ContentPage
-      title={`${portData.displayName} Cruise Ship Schedule 2026`}
+      title={`${portData.displayName} Cruise Ship Schedule`}
       lead={
-        scheduleAvailable
-          ? `Published ${portData.displayName} cruise ship calls for June to September 2026 from approved CSV imports.`
-          : `The ${portData.displayName} 2026 schedule hub is live while full CSV data is prepared. Monthly pages show a coming soon message until real ship calls are imported.`
+        scheduleAvailable && insights
+          ? `Published ${portData.displayName} cruise ship calls from approved CSV imports across ${yearsLabel}. ${insights.totalCalls} verified calls with peak activity in ${[...insights.busiestMonths].sort((a, b) => b.shipCalls - a.shipCalls)[0]?.monthLabel ?? "summer"}.`
+          : `The ${portData.displayName} schedule hub is live while full CSV data is prepared. Monthly pages show a coming soon message until real ship calls are imported.`
       }
       heroImage={hero.url}
       heroImageAlt={hero.alt}
       pagePath={`${shipScheduleHubPath}/${port}`}
-      pageDescription={`${portData.displayName} cruise ship schedule hub for 2026.`}
+      pageDescription={`${portData.displayName} cruise ship schedule hub.`}
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Ship Schedules", href: shipScheduleHubPath },
@@ -85,19 +103,21 @@ export default async function ShipSchedulePortPage({ params }: ShipSchedulePortP
         <ShipScheduleHubCard summary={summary} />
       </section>
 
+      {insights ? <PortScheduleInsightsSection insights={insights} /> : null}
+
       <section>
         <h2>Monthly schedule pages</h2>
         <ul className="card-grid grid gap-2 sm:grid-cols-2">
-          {scheduleMonthSlugs2026.map((monthSlug) => {
-            const monthSummary = summary.months.find((item) => item.slug === monthSlug);
-            const callCount = monthSummary?.shipCallCount;
+          {summary.months.map((monthSummary) => {
+            const callCount = monthSummary.shipCallCount;
+            const year = parseScheduleMonthSlug(monthSummary.slug)?.year ?? "2026";
             return (
-              <li key={monthSlug}>
+              <li key={monthSummary.slug}>
                 <Link
-                  href={shipScheduleMonthPath(port, monthSlug)}
+                  href={shipScheduleMonthPath(port, monthSummary.slug)}
                   className="content-link font-medium"
                 >
-                  {monthSummary?.label ?? monthSlug} 2026
+                  {monthSummary.label} {year}
                   {callCount !== null && callCount !== undefined
                     ? ` · ${callCount} ship call${callCount === 1 ? "" : "s"}`
                     : ""}

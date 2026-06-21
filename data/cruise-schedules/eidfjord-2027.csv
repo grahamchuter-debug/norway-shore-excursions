@@ -1,0 +1,35 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+eidfjord,Ambience,Ambassador Cruise Line,1400,2027-03-20,13:00,21:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAluna,AIDA,2050,2027-04-02,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Bolette,Fred Olsen Cruise Lines,,2027-04-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,Ambition,Ambassador Cruise Line,1400,2027-04-13,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAluna,AIDA,2050,2027-04-18,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Rotterdam,Holland America Line,2668,2027-04-20,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAsol,AIDA,,2027-04-22,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAdiva,AIDA,2050,2027-04-29,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Zuiderdam,Holland America Line,,2027-05-03,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAluna,AIDA,2050,2027-05-04,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Rotterdam,Holland America Line,2668,2027-05-05,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Borealis,Fred Olsen Cruise Lines,1400,2027-05-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,AIDAdiva,AIDA,2050,2027-05-13,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Amera,Phoenix Reisen,,2027-06-02,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Viking Libra,Viking,,2027-06-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,Viking Mira,Viking,998,2027-06-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,AIDAdiva,AIDA,2050,2027-06-10,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Artania,Phoenix Reisen,1260,2027-06-13,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Amadea,Phoenix Reisen,620,2027-06-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Viking Saturn,Viking,998,2027-07-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,Viking Mira,Viking,998,2027-07-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,Viking Saturn,Viking,998,2027-07-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,Rotterdam,Holland America Line,2668,2027-07-06,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Viking Libra,Viking,,2027-08-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,AIDAperla,AIDA,,2027-09-01,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAdiva,AIDA,2050,2027-09-02,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Ambience,Ambassador Cruise Line,1400,2027-09-06,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Aurora,P&O Cruises,,2027-09-10,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+eidfjord,Amera,Phoenix Reisen,,2027-09-11,13:00,22:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Rotterdam,Holland America Line,2668,2027-09-14,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAperla,AIDA,,2027-10-11,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAdiva,AIDA,2050,2027-10-14,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,AIDAperla,AIDA,,2027-10-25,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+eidfjord,Nieuw Statendam,Holland America Line,2668,2027-11-01,08:00,16:00,,Manual CSV import,,,All aboard time TBC

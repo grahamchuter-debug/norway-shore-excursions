@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { CompareNorwayCruiseLines } from "@/components/compare-norway-cruise-lines";
+import { CruiseLineScheduleStats } from "@/components/cruise-line-schedule-stats";
 import { ContentPage } from "@/components/content-page";
 import { CruiseLineComparisonMatrix } from "@/components/cruise-line-comparison-matrix";
 import { CruiseLineExcursionsByPort } from "@/components/cruise-line-excursions-by-port";
@@ -72,7 +73,7 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
   const itemList = buildItemListSchema(
     scheduleStats.ports.slice(0, 8).map((port) => ({
       name: port.portDisplayName,
-      description: `${port.callCount} scheduled calls in 2026 data`,
+      description: `${port.callCount} scheduled calls in verified schedule data`,
     })),
     `Norway ports for ${line.shortName}`,
   );
@@ -144,6 +145,12 @@ export default async function CruiseLinePage({ params }: CruiseLinePageProps) {
             className="my-10"
           />
         ) : null}
+
+        <CruiseLineScheduleStats
+          scheduleKey={line.scheduleKey}
+          cruiseLineShortName={line.shortName}
+          className="my-10"
+        />
 
         <CruiseLineNorwayPorts
           cruiseLineShortName={line.shortName}

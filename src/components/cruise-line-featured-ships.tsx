@@ -38,7 +38,7 @@ export function CruiseLineFeaturedShips({
       <h2>Popular ships sailing Norway</h2>
       <p>
         Featured {cruiseLineShortName} vessels with capacity, typical Norway length
-        and top ports from our 2026 schedule data.
+        and top ports from our verified schedule data.
       </p>
       <ul className="card-grid mt-6 grid gap-4 sm:grid-cols-2">
         {ships.map((ship, index) => {

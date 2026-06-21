@@ -154,7 +154,11 @@ const EXPECTED_SCHEDULE_PORTS = [
   "kristiansand",
 ];
 
-const SCHEDULE_YEAR = "2026";
+/** Supported import years — keep in sync with src/lib/cruise-schedule-config.ts */
+const SCHEDULE_YEARS = ["2026", "2027"];
+
+/** @deprecated Use SCHEDULE_YEARS */
+const SCHEDULE_YEAR = SCHEDULE_YEARS[0];
 
 function isAuthoritativeScheduleFile(filename) {
   const base = path.basename(filename, ".csv").toLowerCase().replace(/\.+$/, "");
@@ -184,7 +188,11 @@ function listRawCsvFilenames(rawDir) {
     .filter((file) => file.toLowerCase().endsWith(".csv"));
 }
 
-function inspectRawScheduleSources(rawDir, expectedPorts = EXPECTED_SCHEDULE_PORTS) {
+function inspectRawScheduleSources(
+  rawDir,
+  expectedPorts = EXPECTED_SCHEDULE_PORTS,
+  years = SCHEDULE_YEARS,
+) {
   const files = listRawCsvFilenames(rawDir);
   const byPortYear = new Map();
 
@@ -209,24 +217,26 @@ function inspectRawScheduleSources(rawDir, expectedPorts = EXPECTED_SCHEDULE_POR
   const statusByPortYear = new Map();
 
   for (const port of expectedPorts) {
-    const key = `${port}|${SCHEDULE_YEAR}`;
-    const bucket = byPortYear.get(key) ?? { realFiles: [], legacyFiles: [] };
-    let dataSource = "none";
+    for (const year of years) {
+      const key = `${port}|${year}`;
+      const bucket = byPortYear.get(key) ?? { realFiles: [], legacyFiles: [] };
+      let dataSource = "none";
 
-    if (bucket.realFiles.length > 0) {
-      dataSource = "real";
-    } else if (bucket.legacyFiles.length > 0) {
-      dataSource = "sample_only";
+      if (bucket.realFiles.length > 0) {
+        dataSource = "real";
+      } else if (bucket.legacyFiles.length > 0) {
+        dataSource = "sample_only";
+      }
+
+      statusByPortYear.set(key, {
+        port,
+        year,
+        dataSource,
+        realCsvFound: bucket.realFiles.length > 0,
+        realFiles: [...bucket.realFiles].sort(),
+        legacyFiles: [...bucket.legacyFiles].sort(),
+      });
     }
-
-    statusByPortYear.set(key, {
-      port,
-      year: SCHEDULE_YEAR,
-      dataSource,
-      realCsvFound: bucket.realFiles.length > 0,
-      realFiles: [...bucket.realFiles].sort(),
-      legacyFiles: [...bucket.legacyFiles].sort(),
-    });
   }
 
   return statusByPortYear;
@@ -248,6 +258,7 @@ module.exports = {
   PORT_ALIASES,
   MONTH_ALIASES,
   EXPECTED_SCHEDULE_PORTS,
+  SCHEDULE_YEARS,
   SCHEDULE_YEAR,
   normalizePort,
   normalizeMonth,
