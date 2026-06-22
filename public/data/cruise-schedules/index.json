@@ -1,7 +1,7 @@
 {
   "region": "norway",
-  "generatedAt": "2026-06-21T21:34:05.889Z",
-  "rowCount": 1298,
+  "generatedAt": "2026-06-22T21:04:08.112Z",
+  "rowCount": 1848,
   "ports": [
     "alesund",
     "bergen",
@@ -23,15 +23,25 @@
     "flam": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 75,
+      "rowCount": 124,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
         "2026-09",
-        "2027-04"
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11",
+        "2027-12"
       ],
-      "pagesGenerated": 5,
+      "pagesGenerated": 15,
       "displayStatus": "real_data_available"
     },
     "bergen": {
@@ -62,27 +72,42 @@
     "olden": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 90,
+      "rowCount": 144,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 13,
       "displayStatus": "real_data_available"
     },
     "geiranger": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 94,
+      "rowCount": 128,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 10,
       "displayStatus": "real_data_available"
     },
     "eidfjord": {
@@ -110,53 +135,86 @@
     "nordfjordeid": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 43,
+      "rowCount": 79,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-02",
+        "2027-03",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 12,
       "displayStatus": "real_data_available"
     },
     "skjolden": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 30,
+      "rowCount": 69,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 11,
       "displayStatus": "real_data_available"
     },
     "hellesylt": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 63,
+      "rowCount": 98,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 11,
       "displayStatus": "real_data_available"
     },
     "stavanger": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 109,
+      "rowCount": 166,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11",
+        "2027-12"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 15,
       "displayStatus": "real_data_available"
     },
     "alesund": {
@@ -186,66 +244,113 @@
     "molde": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 43,
+      "rowCount": 80,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-12"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 10,
       "displayStatus": "real_data_available"
     },
     "trondheim": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 44,
+      "rowCount": 99,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 14,
       "displayStatus": "real_data_available"
     },
     "honningsvag": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 39,
+      "rowCount": 82,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-02",
+        "2027-03",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 13,
       "displayStatus": "real_data_available"
     },
     "tromso": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 49,
+      "rowCount": 107,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-01",
+        "2027-02",
+        "2027-03",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 14,
       "displayStatus": "real_data_available"
     },
     "kristiansand": {
       "dataSource": "real",
       "realCsvFound": true,
-      "rowCount": 61,
+      "rowCount": 114,
       "monthsAvailable": [
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2027-01",
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10",
+        "2027-11",
+        "2027-12"
       ],
-      "pagesGenerated": 4,
+      "pagesGenerated": 16,
       "displayStatus": "real_data_available"
     }
   },
@@ -259,15 +364,26 @@
     "flam-2026.json",
     "flam-2027.json",
     "geiranger-2026.json",
+    "geiranger-2027.json",
     "hellesylt-2026.json",
+    "hellesylt-2027.json",
     "honningsvag-2026.json",
+    "honningsvag-2027.json",
     "kristiansand-2026.json",
+    "kristiansand-2027.json",
     "molde-2026.json",
+    "molde-2027.json",
     "nordfjordeid-2026.json",
+    "nordfjordeid-2027.json",
     "olden-2026.json",
+    "olden-2027.json",
     "skjolden-2026.json",
+    "skjolden-2027.json",
     "stavanger-2026.json",
+    "stavanger-2027.json",
     "tromso-2026.json",
-    "trondheim-2026.json"
+    "tromso-2027.json",
+    "trondheim-2026.json",
+    "trondheim-2027.json"
   ]
 }

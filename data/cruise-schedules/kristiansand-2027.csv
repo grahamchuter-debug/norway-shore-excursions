@@ -1,0 +1,54 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+kristiansand,AIDAprima,AIDA,3376,2027-01-03,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Spirit Of Adventure,Saga Cruises,999,2027-01-04,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-01-07,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-01-21,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-02-04,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAprima,AIDA,3376,2027-02-11,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-02-17,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAprima,AIDA,3376,2027-02-25,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-03-03,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAprima,AIDA,3376,2027-03-12,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-03-17,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAprima,AIDA,3376,2027-03-25,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAprima,AIDA,3376,2027-04-09,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-04-14,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2027-04-14,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Viking Vela,Viking,998,2027-04-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAbella,AIDA,,2027-05-04,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Caribbean Princess,Princess Cruises,,2027-05-05,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Sky Princess,Princess Cruises,,2027-05-06,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Queen Victoria,Cunard Line,,2027-05-09,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2027-05-10,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-05-11,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2027-06-02,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Silver Dawn,Silversea,,2027-06-04,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Seven Seas Mariner,Regent Seven Seas,,2027-06-05,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Spirit Of Discovery,Saga Cruises,999,2027-06-06,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2027-06-07,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Oceania Marina,Sea London to Copenhagen (147781),1250,2027-07-03,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2027-07-05,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Viking Saturn,Viking,998,2027-07-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-07-06,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAmar,AIDA,,2027-08-01,09:00,20:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Bolette,Fred Olsen Cruise Lines,,2027-08-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-08-03,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2027-08-04,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,MSC Magnifica,MSC Cruises,3013,2027-08-05,12:30,19:30,,Manual CSV import,,,All aboard time TBC
+kristiansand,Queen Mary 2,Cunard Line,,2027-09-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,MSC Magnifica,MSC Cruises,3013,2027-09-02,13:00,21:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAbella,AIDA,,2027-09-03,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Europa 2,Hapag Lloyd,,2027-09-07,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2027-09-08,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAbella,AIDA,,2027-10-05,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,MSC Preziosa,MSC Cruises,,2027-10-06,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Mein Schiff Relax,TUI Cruises,2894,2027-10-09,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2027-10-11,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-10-12,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAmar,AIDA,,2027-11-02,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-11-10,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-11-24,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-12-09,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Artania,Phoenix Reisen,1260,2027-12-13,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2027-12-21,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Nieuw Statendam,Holland America Line,2668,2027-12-27,08:00,17:00,,Manual CSV import,,,All aboard time TBC

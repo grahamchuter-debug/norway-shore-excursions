@@ -1,0 +1,40 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+skjolden,Bolette,Fred Olsen Cruise Lines,,2027-04-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Queen Elizabeth,Cunard Line,,2027-04-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Britannia,P&O Cruises,,2027-04-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-04-16,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2027-04-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,AIDAluna,AIDA,2050,2027-05-02,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Balmoral,Fred Olsen Cruise Lines,,2027-05-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Britannia,P&O Cruises,,2027-05-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Borealis,Fred Olsen Cruise Lines,1400,2027-05-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2027-05-12,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Zuiderdam,Holland America Line,,2027-05-13,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,AIDAluna,AIDA,2050,2027-05-14,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Mary 2,Cunard Line,,2027-06-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-06-04,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-06-04,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+skjolden,MSC Meraviglia,MSC Cruises,,2027-06-08,14:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Regal Princess,Princess Cruises,,2027-06-09,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Borealis,Fred Olsen Cruise Lines,1400,2027-07-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-07-02,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-07-02,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2027-07-13,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,AIDAnova,AIDA,5200,2027-07-14,08:30,16:30,,Manual CSV import,,,All aboard time TBC
+skjolden,Balmoral,Fred Olsen Cruise Lines,,2027-07-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Regal Princess,Princess Cruises,,2027-08-03,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2027-08-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-08-06,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-08-06,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Bolette,Fred Olsen Cruise Lines,,2027-08-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Artania,Phoenix Reisen,1260,2027-08-15,09:00,23:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2027-08-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2027-09-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2027-09-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Aurora,P&O Cruises,,2027-09-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2027-09-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Rotterdam,Holland America Line,2668,2027-09-10,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Spirit Of Discovery,Saga Cruises,999,2027-09-10,08:00,22:00,,Manual CSV import,,,All aboard time TBC
+skjolden,MSC Meraviglia,MSC Cruises,,2027-09-21,09:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Borealis,Fred Olsen Cruise Lines,1400,2027-09-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Aurora,P&O Cruises,,2027-10-21,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC

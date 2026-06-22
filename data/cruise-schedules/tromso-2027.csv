@@ -1,0 +1,59 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+tromso,Viking Libra,Viking,,2027-01-29,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Mein Schiff 3,TUI Cruises,,2027-02-18,18:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Viking Libra,Viking,,2027-02-22,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Bolette,Fred Olsen Cruise Lines,,2027-02-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,AIDAsol,AIDA,,2027-03-01,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Spirit Of Discovery,Saga Cruises,999,2027-03-03,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+tromso,Mein Schiff 3,TUI Cruises,,2027-03-04,18:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Queen Elizabeth,Cunard Line,,2027-03-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Ambience,Ambassador Cruise Line,1400,2027-03-08,13:00,22:00,,Manual CSV import,,,All aboard time TBC
+tromso,Majestic Princess,Princess Cruises,,2027-03-09,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Ambition,Ambassador Cruise Line,1400,2027-03-14,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+tromso,AIDAsol,AIDA,,2027-03-15,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Viking Libra,Viking,,2027-03-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,MSC Preziosa,MSC Cruises,,2027-05-12,14:00,21:00,,Manual CSV import,,,All aboard time TBC
+tromso,Nieuw Statendam,Holland America Line,2668,2027-05-21,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,MSC Preziosa,MSC Cruises,,2027-06-03,14:00,21:00,,Manual CSV import,,,All aboard time TBC
+tromso,AIDAbella,AIDA,,2027-06-04,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+tromso,Amadea,Phoenix Reisen,620,2027-06-07,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,Mein Schiff 1,TUI Cruises,,2027-06-08,09:30,19:30,,Manual CSV import,,,All aboard time TBC
+tromso,Amera,Phoenix Reisen,,2027-06-08,12:00,23:00,,Manual CSV import,,,All aboard time TBC
+tromso,Celebrity Apex,Celebrity Cruises,2910,2027-06-11,11:00,19:00,,Manual CSV import,,,All aboard time TBC
+tromso,Viking Libra,Viking,,2027-06-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Costa Favolosa,Costa Cruises,3800,2027-06-15,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,Explora IV,Explora Journeys,,2027-06-16,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,Viking Libra,Viking,,2027-07-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Bolette,Fred Olsen Cruise Lines,,2027-07-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Mein Schiff 7,TUI Cruises,,2027-07-08,09:30,19:30,,Manual CSV import,,,All aboard time TBC
+tromso,Mein Schiff 2,TUI Cruises,,2027-07-10,09:30,19:30,,Manual CSV import,,,All aboard time TBC
+tromso,Artania,Phoenix Reisen,1260,2027-07-13,08:00,14:00,,Manual CSV import,,,All aboard time TBC
+tromso,AIDAluna,AIDA,2050,2027-07-14,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+tromso,SeaDream I,SeaDream Yacht Club,,2027-07-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Celebrity Apex,Celebrity Cruises,2910,2027-07-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,MSC Preziosa,MSC Cruises,,2027-07-18,13:00,22:00,,Manual CSV import,,,All aboard time TBC
+tromso,Mein Schiff 2,TUI Cruises,,2027-08-01,09:30,19:30,,Manual CSV import,,,All aboard time TBC
+tromso,AIDAluna,AIDA,2050,2027-08-03,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,Queen Mary 2,Cunard Line,,2027-08-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Viking Mira,Viking,998,2027-08-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Mein Schiff 3,TUI Cruises,,2027-08-10,09:30,19:30,,Manual CSV import,,,All aboard time TBC
+tromso,Seven Seas Voyager,Regent Seven Seas,,2027-08-12,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+tromso,AIDAbella,AIDA,,2027-08-13,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+tromso,Celebrity Apex,Celebrity Cruises,2910,2027-09-03,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,Europa 2,Hapag Lloyd,,2027-09-05,13:00,19:00,,Manual CSV import,,,All aboard time TBC
+tromso,MSC Preziosa,MSC Cruises,,2027-09-05,13:00,22:00,,Manual CSV import,,,All aboard time TBC
+tromso,Viking Mira,Viking,998,2027-09-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,AIDAsol,AIDA,,2027-09-27,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,MSC Preziosa,MSC Cruises,,2027-09-29,14:00,21:00,,Manual CSV import,,,All aboard time TBC
+tromso,Rotterdam,Holland America Line,2668,2027-10-08,10:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Norwegian Star,Norwegian Cruise Line,,2027-10-13,09:00,23:59,,Manual CSV import,,,All aboard time TBC
+tromso,AIDAbella,AIDA,,2027-10-15,11:30,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Queen Anne,Cunard Line,,2027-10-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Majestic Princess,Princess Cruises,,2027-10-21,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+tromso,Ambition,Ambassador Cruise Line,1400,2027-10-21,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+tromso,Nieuw Statendam,Holland America Line,2668,2027-10-22,10:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Queen Mary 2,Cunard Line,,2027-11-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Nieuw Statendam,Holland America Line,2668,2027-11-12,10:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Queen Victoria,Cunard Line,,2027-11-14,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+tromso,Mein Schiff 2,TUI Cruises,,2027-11-22,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+tromso,Aurora,P&O Cruises,,2027-11-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC

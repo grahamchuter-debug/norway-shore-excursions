@@ -1,0 +1,44 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+honningsvag,Mein Schiff 3,TUI Cruises,,2027-02-21,08:00,23:30,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAsol,AIDA,,2027-02-28,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Spirit Of Discovery,Saga Cruises,999,2027-02-28,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 3,TUI Cruises,,2027-03-07,08:00,23:30,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAsol,AIDA,,2027-03-14,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAsol,AIDA,,2027-03-28,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2027-05-11,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Nieuw Statendam,Holland America Line,2668,2027-05-20,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Balmoral,Fred Olsen Cruise Lines,,2027-05-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Silver Spirit,Silversea,608,2027-05-28,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2027-06-02,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Costa Favolosa,Costa Cruises,3800,2027-06-03,20:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAbella,AIDA,,2027-06-05,23:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Amadea,Phoenix Reisen,620,2027-06-06,12:00,19:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 1,TUI Cruises,,2027-06-07,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Amera,Phoenix Reisen,,2027-06-09,14:00,23:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Celebrity Apex,Celebrity Cruises,2910,2027-06-12,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Viking Libra,Viking,,2027-06-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Costa Favolosa,Costa Cruises,3800,2027-06-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Viking Libra,Viking,,2027-07-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 7,TUI Cruises,,2027-07-07,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 2,TUI Cruises,,2027-07-09,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Artania,Phoenix Reisen,1260,2027-07-12,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2027-07-13,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Celebrity Apex,Celebrity Cruises,2910,2027-07-16,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2027-07-17,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAbella,AIDA,,2027-07-18,22:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Amadea,Phoenix Reisen,620,2027-07-21,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2027-08-01,23:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 2,TUI Cruises,,2027-08-02,13:00,23:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Europa,Hapag Lloyd,,2027-08-06,19:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Queen Mary 2,Cunard Line,,2027-08-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Viking Mira,Viking,998,2027-08-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 3,TUI Cruises,,2027-08-09,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAbella,AIDA,,2027-08-14,22:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Celebrity Apex,Celebrity Cruises,2910,2027-09-04,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2027-09-04,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Europa 2,Hapag Lloyd,,2027-09-04,18:00,24:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Viking Mira,Viking,998,2027-09-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2027-09-28,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Majestic Princess,Princess Cruises,,2027-10-22,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Ambition,Ambassador Cruise Line,1400,2027-10-24,09:00,02:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 2,TUI Cruises,,2027-11-24,16:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC

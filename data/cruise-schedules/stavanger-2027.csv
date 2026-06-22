@@ -1,0 +1,58 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+stavanger,AIDAprima,AIDA,3376,2027-02-10,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-02-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2027-02-24,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-03-02,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Queen Elizabeth,Cunard Line,,2027-03-10,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2027-03-11,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-03-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Arvia,P&O Cruises,5200,2027-04-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2027-04-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Queen Elizabeth,Cunard Line,,2027-04-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2027-04-08,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Arvia,P&O Cruises,5200,2027-04-09,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2027-04-12,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-04-13,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Britannia,P&O Cruises,,2027-05-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2027-05-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Queen Anne,Cunard Line,,2027-05-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Explora IV,Explora Journeys,,2027-05-05,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-05-06,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2027-05-07,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Mein Schiff Relax,TUI Cruises,2894,2027-06-01,06:30,17:15,,Manual CSV import,,,All aboard time TBC
+stavanger,Queen Mary 2,Cunard Line,,2027-06-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Silver Dawn,Silversea,,2027-06-03,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-06-03,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Arcadia,P&O Cruises,,2027-06-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-07-01,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Mira,Viking,998,2027-07-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Oceania Marina,Sea London to Copenhagen (147781),1250,2027-07-02,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Celebrity Eclipse,Celebrity Cruises,2850,2027-07-03,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2027-07-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,MSC Magnifica,MSC Cruises,3013,2027-07-06,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Viking Libra,Viking,,2027-08-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2027-08-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Queen Anne,Cunard Line,,2027-08-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Disney Wish,Disney Cruise Line,,2027-08-04,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Regal Princess,Princess Cruises,,2027-08-04,10:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAperla,AIDA,,2027-08-05,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Costa Diadema,Costa Cruises,,2027-09-01,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,MSC Meraviglia,MSC Cruises,,2027-09-02,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Seabourn Quest,Seabourn,,2027-09-03,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Queen Anne,Cunard Line,,2027-09-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Iona,P&O Cruises,5200,2027-09-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,Rotterdam,Holland America Line,2668,2027-10-01,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2027-10-06,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-10-07,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Norwegian Star,Norwegian Cruise Line,,2027-10-10,09:00,16:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAperla,AIDA,,2027-10-14,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAprima,AIDA,3376,2027-11-03,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-11-04,10:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-11-09,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-11-09,10:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+stavanger,Queen Victoria,Cunard Line,,2027-11-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+stavanger,AIDAnova,AIDA,5200,2027-11-23,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Spirit Of Discovery,Saga Cruises,999,2027-12-05,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Artania,Phoenix Reisen,1260,2027-12-12,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Mein Schiff 2,TUI Cruises,,2027-12-18,08:00,19:00,,Manual CSV import,,,All aboard time TBC
+stavanger,Nieuw Statendam,Holland America Line,2668,2027-12-30,08:00,17:00,,Manual CSV import,,,All aboard time TBC
