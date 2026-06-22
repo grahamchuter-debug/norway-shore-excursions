@@ -17,6 +17,7 @@ import { cruiseLines } from "@/lib/cruise-lines-data";
 import { portBySlug } from "@/lib/ports-data";
 import { shipNameToSlug, shipPagePath } from "@/lib/ship-schedules";
 import type { GlobalScheduleInsights } from "@/lib/schedule-insights";
+import { getMonthlyCallTotals } from "@/lib/schedule-insights";
 
 type CalendarEntry = {
   id: string;
@@ -124,7 +125,15 @@ export function NorwayCruiseCalendarClient({
     });
   }, [entries, year, monthKey, portSlug, lineSlug, shipSlug]);
 
-  const maxMonthly = insights.peakMonths[0]?.shipCalls ?? 1;
+  const filteredMonthlyTotals = useMemo(
+    () => getMonthlyCallTotals(year || undefined),
+    [year],
+  );
+
+  const maxMonthly = filteredMonthlyTotals.reduce(
+    (max, month) => Math.max(max, month.shipCalls),
+    1,
+  );
 
   return (
     <div className="space-y-10">
@@ -222,9 +231,9 @@ export function NorwayCruiseCalendarClient({
       </section>
 
       <section>
-        <h2>Peak cruise months</h2>
+        <h2>Peak cruise months{year ? ` (${year})` : ""}</h2>
         <div className="space-y-3">
-          {insights.monthlyTotals.map((month) => (
+          {filteredMonthlyTotals.map((month) => (
             <div key={month.monthKey} className="flex items-center gap-4">
               <span className="w-36 shrink-0 text-sm font-medium text-slate-900">
                 {month.monthLabel}

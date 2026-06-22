@@ -62,6 +62,7 @@ function parseArgs(argv) {
     delayMs: 8000,
     force: false,
     continueOnError: true,
+    failureCooldownMs: 600000,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -83,6 +84,9 @@ function parseArgs(argv) {
       options.force = true;
     } else if (arg === "--fail-fast") {
       options.continueOnError = false;
+    } else if (arg === "--failure-cooldown-ms") {
+      options.failureCooldownMs = Number(argv[i + 1] ?? options.failureCooldownMs);
+      i += 1;
     }
   }
 
@@ -232,6 +236,12 @@ async function main() {
     if (result.failed) {
       failed += 1;
       failedEntries.push(entry);
+      if (options.failureCooldownMs > 0) {
+        console.log(
+          `Cooling down ${options.failureCooldownMs / 1000}s after fetch failure before next page...`,
+        );
+        await sleep(options.failureCooldownMs);
+      }
     } else if (result.skipped) {
       skipped += 1;
     } else {

@@ -90,14 +90,9 @@ function PortExcursionCard({ entry }: { entry: LinePortExcursionEntry }) {
             <Link href={entry.portGuideHref} className="content-link">
               Port guide
             </Link>
-            <a
-              href={entry.excursionHubHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="content-link"
-            >
+            <Link href={entry.excursionHubHref} className="content-link">
               Shore excursions
-            </a>
+            </Link>
             {entry.scheduleHref ? (
               <Link href={entry.scheduleHref} className="content-link">
                 Schedule

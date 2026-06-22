@@ -321,30 +321,19 @@ export function buildScheduleMonthPrefix(
   return `${String(year).trim()}-${normalizeScheduleMonth(month)}`;
 }
 
+/** Authority port guide path used for schedule and ship excursion CTAs */
+export function portExcursionPath(portSlug: string): string {
+  return `/ports/${normalizeSchedulePortSlug(portSlug)}`;
+}
+
 /** Recommended excursion landing pages per port (Norway authority site) */
-export const portExcursionLinks: Record<string, string> = {
-  flam: "https://norwayshoreexcursions.com/stegastein-viewpoint-shore-excursion",
-  bergen: "https://norwayshoreexcursions.com/bergen-shore-excursions",
-  olden: "https://norwayshoreexcursions.com/excursions",
-  nordfjordeid: "https://norwayshoreexcursions.com/excursions",
-  eidfjord: "https://norwayshoreexcursions.com/excursions",
-  geiranger: "https://norwayshoreexcursions.com/excursions",
-  stavanger: "https://norwayshoreexcursions.com/excursions",
-  alesund: "https://norwayshoreexcursions.com/excursions",
-  molde: "https://norwayshoreexcursions.com/excursions",
-  honningsvag: "https://norwayshoreexcursions.com/excursions",
-  kristiansand: "https://norwayshoreexcursions.com/excursions",
-  hellesylt: "https://norwayshoreexcursions.com/excursions",
-  trondheim: "https://norwayshoreexcursions.com/excursions",
-  skjolden: "https://norwayshoreexcursions.com/excursions",
-  tromso: "https://norwayshoreexcursions.com/excursions",
-};
+export const portExcursionLinks: Record<string, string> = Object.fromEntries(
+  scheduledPortSlugs.map((slug) => [slug, portExcursionPath(slug)]),
+);
 
 export function getPortExcursionLink(portSlug: string): string {
-  return (
-    portExcursionLinks[portSlug] ??
-    "https://norwayshoreexcursions.com/excursions"
-  );
+  const normalized = normalizeSchedulePortSlug(portSlug);
+  return portExcursionLinks[normalized] ?? "/norway-shore-excursions";
 }
 
 export function getPortExcursionLinkLabel(portName: string): string {

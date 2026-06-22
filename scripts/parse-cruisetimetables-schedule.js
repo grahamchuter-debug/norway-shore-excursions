@@ -337,9 +337,9 @@ async function fetchHtml(url, attempt = 1) {
     },
   });
 
-  if (response.status === 429 && attempt < 6) {
-    const waitMs = 60000 * attempt;
-    console.log(`Rate limited (${url}); waiting ${waitMs / 1000}s (attempt ${attempt}/5)...`);
+  if (response.status === 429 && attempt < 8) {
+    const waitMs = 90000 * attempt;
+    console.log(`Rate limited (${url}); waiting ${waitMs / 1000}s (attempt ${attempt}/7)...`);
     await new Promise((resolve) => setTimeout(resolve, waitMs));
     return fetchHtml(url, attempt + 1);
   }
