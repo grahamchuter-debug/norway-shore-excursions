@@ -91,13 +91,13 @@ export default async function ThemePage({ params }: ThemePageProps) {
             {theme.tourExamples.map((t) => (
               <li key={`${t.portSlug}-${t.name}`}>
                 <strong>{t.name}</strong> ({portBySlug[t.portSlug].displayName}) , {" "}
-                {t.description}. Book via{" "}
+                {t.description}. Explore via{" "}
                 <a
                   href={portBySlug[t.portSlug].localSiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  local {portBySlug[t.portSlug].displayName} site
+                  local {portBySlug[t.portSlug].displayName} guide
                 </a>
                 .
               </li>

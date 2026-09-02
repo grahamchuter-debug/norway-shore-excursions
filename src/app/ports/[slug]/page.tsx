@@ -15,8 +15,13 @@ import { getScheduleHubPortSummary, hasRealScheduleData } from "@/lib/cruiseSche
 import { getPortScheduleInsights } from "@/lib/schedule-insights";
 import { buildItemListSchema } from "@/lib/site-schema";
 import { portBySlug, portSlugs } from "@/lib/ports-data";
+import { getRelatedPorts } from "@/lib/related-ports";
 import { getPortImage } from "@/lib/site-images";
 import { buildPageMetadata } from "@/lib/site-metadata";
+import {
+  getPortRecommendedExcursions,
+  usesFallbackExcursionCards,
+} from "@/lib/port-recommended-excursions";
 
 type PortPageProps = {
   params: Promise<{ slug: string }>;
@@ -62,6 +67,9 @@ export default async function PortPage({ params }: PortPageProps) {
     })),
     `Recommended ${port.displayName} shore excursions`,
   );
+  const relatedPorts = getRelatedPorts(slug);
+  const recommended = getPortRecommendedExcursions(slug);
+  const usesFallback = usesFallbackExcursionCards(slug);
 
   return (
     <>
@@ -79,10 +87,10 @@ export default async function PortPage({ params }: PortPageProps) {
           { label: port.displayName },
         ]}
         faqs={port.faqs}
-        ctaTitle={`Plan ${port.displayName} shore excursions`}
-        ctaText={`Explore independently operated tours via the local ${port.displayName} specialist site.`}
+        ctaTitle={`Explore the ${port.displayName} local guide`}
+        ctaText={`Continue to the dedicated ${port.displayName} port site for deeper day-ashore detail and excursion ideas.`}
         ctaHref={port.localSiteUrl}
-        ctaButtonLabel={`Visit ${port.displayName} local site`}
+        ctaButtonLabel={`Explore ${port.displayName} local guide`}
         relatedLinks={[
           { label: "Norway Cruise Planner", href: "/norway-cruise-planner" },
           { label: "All cruise ports", href: "/norway-cruise-ports" },
@@ -96,9 +104,18 @@ export default async function PortPage({ params }: PortPageProps) {
         ]}
       >
         <section>
-          <h2>Best excursions in {port.displayName}</h2>
+          <h2>What makes {port.displayName} distinctive</h2>
+          <p>{port.whoBestFor}</p>
           <p>
-            Headline tour: <strong>{port.heroTour}</strong>. Also consider{" "}
+            <strong>Best for:</strong> {port.bestFor}
+          </p>
+        </section>
+
+        <section>
+          <h2>Shore excursion ideas</h2>
+          <p>
+            National summary only — not a full duplicate of the local destination
+            site. Headline focus: <strong>{port.heroTour}</strong>. Also consider{" "}
             {port.secondaryTours.join(", ")}.
           </p>
           <ul>
@@ -108,14 +125,31 @@ export default async function PortPage({ params }: PortPageProps) {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section>
-          <h2>Who {port.displayName} is best for</h2>
-          <p>{port.whoBestFor}</p>
-          <p>
-            <strong>Best for:</strong> {port.bestFor}
-          </p>
+          <ul className="mt-4 space-y-3">
+            {recommended.map((card) => (
+              <li key={`${card.title}-${card.url}`}>
+                <a
+                  href={card.url}
+                  {...(card.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="font-semibold"
+                >
+                  {card.title}
+                </a>
+                <span className="block text-sm text-slate-600">{card.benefit}</span>
+                <span className="text-sm font-medium text-[var(--fjord)]">
+                  {card.ctaLabel}
+                </span>
+              </li>
+            ))}
+          </ul>
+          {usesFallback ? (
+            <p className="text-sm text-slate-600">
+              Curated deep tour links are not listed here yet. Use the local{" "}
+              {port.displayName} guide for current excursion detail.
+            </p>
+          ) : null}
         </section>
 
         <section>
@@ -150,6 +184,10 @@ export default async function PortPage({ params }: PortPageProps) {
               <Link href={shipScheduleHubPath} className="content-link font-medium">
                 All Norway ship schedules
               </Link>
+              {" · "}
+              <Link href="/norway-cruise-planner" className="content-link font-medium">
+                Cruise planner
+              </Link>
             </p>
             <ul className="grid gap-2 sm:grid-cols-2">
               {(scheduleSummary?.months ?? []).map((monthSummary) => {
@@ -182,16 +220,31 @@ export default async function PortPage({ params }: PortPageProps) {
           <p>{port.cruiseFitNotes}</p>
         </section>
 
+        {relatedPorts.length > 0 ? (
+          <section>
+            <h2>Related Norway ports</h2>
+            <ul>
+              {relatedPorts.map((item) => (
+                <li key={item.slug}>
+                  <Link href={`/ports/${item.slug}`} className="font-semibold">
+                    {portBySlug[item.slug]?.displayName ?? item.slug}
+                  </Link>
+                  <span className="block text-sm text-slate-600">{item.reason}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         <section>
-          <h2>Local {port.displayName} shore excursion site</h2>
+          <h2>Local {port.displayName} shore excursion guide</h2>
           <p>
-            For detailed tour listings and port specific planning, visit the
-            independent local specialist at{" "}
+            For deeper day-ashore detail, visit the dedicated local guide at{" "}
             <a href={port.localSiteUrl} target="_blank" rel="noopener noreferrer">
               {port.localSiteUrl.replace("https://", "")}
             </a>
-            . Norway Shore Excursions is a national planning authority, not a
-            booking agent.
+            . This national site summarises the port and routes you onward — it is
+            not a booking checkout.
           </p>
         </section>
       </ContentPage>

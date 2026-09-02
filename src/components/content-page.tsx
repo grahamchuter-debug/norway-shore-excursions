@@ -56,10 +56,10 @@ export function ContentPage({
   faqs,
   breadcrumbs,
   belowHero,
-  ctaTitle = "Plan your Norway cruise excursions",
-  ctaText = "Use the Norway Cruise Planner for personalised port recommendations, then explore independent local specialists.",
+  ctaTitle = "Plan your Norway cruise",
+  ctaText = "Use the Norway Cruise Planner for personalised port recommendations, then explore dedicated local port guides.",
   ctaHref = siteConfig.plannerPath,
-  ctaButtonLabel = "Start Cruise Planner",
+  ctaButtonLabel = "Open cruise planner",
   showShipReassurance = true,
   relatedSectionTitle = "Related Norway guides",
 }: ContentPageProps) {
@@ -98,14 +98,14 @@ export function ContentPage({
               </ol>
             </nav>
           ) : null}
-          <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h1 className="font-display mb-4 max-w-full break-words text-3xl font-semibold sm:text-4xl md:text-5xl">
             {title}
           </h1>
           <p className="max-w-3xl text-base leading-7 sm:text-lg">
             {lead}
           </p>
           {showShipReassurance ? (
-            <p className="badge-accent-gold mt-5 inline-flex rounded-full px-4 py-1.5 text-xs font-medium text-white/95 backdrop-blur-sm sm:text-sm">
+            <p className="badge-accent-gold mt-5 inline-flex px-4 py-1.5 text-xs font-medium text-white/95 sm:text-sm">
               Independent planning · Return to ship guidance
             </p>
           ) : null}

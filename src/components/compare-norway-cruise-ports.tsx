@@ -56,7 +56,7 @@ function ComparisonTable({ rows }: { rows: readonly PortComparisonRow[] }) {
                   rel="noopener noreferrer"
                   className="text-xs font-medium text-[var(--glacier-blue)] underline"
                 >
-                  Book locally
+                  Local guide
                 </a>
               </td>
             </tr>
@@ -103,7 +103,7 @@ function ComparisonCards({ rows }: { rows: readonly PortComparisonRow[] }) {
             rel="noopener noreferrer"
             className="btn-primary-on-light mt-4 inline-flex min-h-11 items-center text-xs"
           >
-            Visit local site
+            Visit local guide
           </a>
         </article>
       ))}

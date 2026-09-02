@@ -7,7 +7,9 @@ import {
   shipScheduleMonthPath,
   shipSchedulePortPath,
   shipScheduleSearchPath,
+  type ScheduleMonthSlug,
 } from "@/lib/cruise-schedule-config";
+import { getMonthShipCallCount } from "@/lib/cruiseSchedules";
 import { portSlugs } from "@/lib/ports-data";
 import { themeSlugs } from "@/lib/themes-data";
 
@@ -34,6 +36,10 @@ const level1Routes: RouteEntry[] = [
   { path: shipScheduleHubPath, priority: 0.9, changeFrequency: "weekly" },
   { path: shipScheduleSearchPath, priority: 0.88, changeFrequency: "weekly" },
   { path: "/norway-cruise-calendar", priority: 0.88, changeFrequency: "weekly" },
+  { path: "/about", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/contact", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/privacy", priority: 0.4, changeFrequency: "monthly" },
+  { path: "/terms", priority: 0.4, changeFrequency: "monthly" },
 ];
 
 const portRoutes: RouteEntry[] = portSlugs.map((slug) => ({
@@ -66,12 +72,19 @@ const shipSchedulePortRoutes: RouteEntry[] = scheduledPortSlugs.map((portSlug) =
   changeFrequency: "weekly" as const,
 }));
 
-const shipScheduleMonthRoutes: RouteEntry[] = scheduledPortSlugs.flatMap((portSlug) =>
-  allScheduleMonthSlugs.map((monthSlug) => ({
-    path: shipScheduleMonthPath(portSlug, monthSlug),
-    priority: 0.84,
-    changeFrequency: "weekly" as const,
-  })),
+/** Only months with at least one imported cruise call enter the sitemap. */
+const shipScheduleMonthRoutes: RouteEntry[] = scheduledPortSlugs.flatMap(
+  (portSlug) =>
+    allScheduleMonthSlugs
+      .filter(
+        (monthSlug) =>
+          getMonthShipCallCount(portSlug, monthSlug as ScheduleMonthSlug) > 0,
+      )
+      .map((monthSlug) => ({
+        path: shipScheduleMonthPath(portSlug, monthSlug),
+        priority: 0.84,
+        changeFrequency: "weekly" as const,
+      })),
 );
 
 export const siteRoutes = [

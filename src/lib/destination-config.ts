@@ -18,7 +18,7 @@ export const norwayDestinationConfig: DestinationConfig = {
   plannerTitle: "Norway Cruise Planner™",
   plannerSubtitle:
     "Personalised shore excursion recommendations with Norway Cruise Match scores, traveller types and return to ship confidence for every port on your itinerary.",
-  plannerCtaLabel: "Start Cruise Planner",
+  plannerCtaLabel: "Open cruise planner",
   mapTitle: "Norway Cruise Map™",
   mapSubtitle:
     "Visual overview of Norway cruise ports. Use alongside the planner when you want a geographic reference.",
@@ -32,7 +32,7 @@ export const norwayDestinationConfig: DestinationConfig = {
   listViewLabel: "List View",
   filters: mapFilters.map((f) => ({ id: f.id, label: f.label })),
   defaultFilterId: "all",
-  exploreCtaTemplate: "Explore {port} Shore Excursions",
+  exploreCtaTemplate: "Explore {port} port guide",
   portMapPath: "/norway-cruise-port-map",
   fjordTexturePaths: [
     "M28 74 Q34 70 38 66 T44 60",

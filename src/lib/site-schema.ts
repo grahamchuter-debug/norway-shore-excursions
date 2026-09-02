@@ -15,6 +15,7 @@ export function buildOrganizationSchema() {
       "Norway shore excursions",
       "Norway cruise ship schedules",
       "Fjord cruise ports",
+      "Independent cruise port planning",
     ],
   };
 }
@@ -27,6 +28,11 @@ export function buildWebSiteSchema() {
     url: siteConfig.url,
     description: siteConfig.defaultDescription,
     inLanguage: "en-GB",
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
   };
 }
 

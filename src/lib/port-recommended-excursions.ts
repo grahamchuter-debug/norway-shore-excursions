@@ -175,19 +175,88 @@ const mappedPortExcursions: Record<
   ],
 };
 
+/** Destination-specific microsite handoffs when deep tour URLs are not curated. */
+const micrositeHandoffs: Record<
+  string,
+  { title: string; benefit: string; url: string }
+> = {
+  alesund: {
+    title: "Ålesund local port guide",
+    benefit:
+      "Art Nouveau streets, Mount Aksla and coastal views — explore the dedicated Ålesund shore excursion site.",
+    url: "https://alesundshoreexcursions.com",
+  },
+  hellesylt: {
+    title: "Hellesylt local port guide",
+    benefit:
+      "Compare Hellesylt versus Geiranger decisions and scenic day options on the local specialist site.",
+    url: "https://hellesyltshoreexcursions.com",
+  },
+  honningsvag: {
+    title: "Honningsvåg local port guide",
+    benefit:
+      "North Cape distance, timing and Arctic excursion ideas on the dedicated Honningsvåg guide.",
+    url: "https://honningsvagshoreexcursions.com",
+  },
+  kristiansand: {
+    title: "Kristiansand local port guide",
+    benefit:
+      "Southern harbour walks, fortress and family beach options on the local Kristiansand site.",
+    url: "https://kristiansandshoreexcursions.com",
+  },
+  molde: {
+    title: "Molde local port guide",
+    benefit:
+      "Atlantic Ocean Road and Romsdal coastal day planning on the dedicated Molde site.",
+    url: "https://moldeshoreexcursions.com",
+  },
+  nordfjordeid: {
+    title: "Nordfjordeid local port guide",
+    benefit:
+      "Viking heritage, waterfalls and Nordfjord day options on the local specialist site.",
+    url: "https://nordfjordeidshoreexcursions.com",
+  },
+  skjolden: {
+    title: "Skjolden local port guide",
+    benefit:
+      "Inner Sognefjord village days, RIB and scenic options on the dedicated Skjolden site.",
+    url: "https://skjoldenshoreexcursions.com",
+  },
+  tromso: {
+    title: "Tromsø local port guide",
+    benefit:
+      "Arctic city logistics, fjord and northern lights planning on the Tromsø specialist site.",
+    url: "https://tromsoshoreexcursions.com",
+  },
+  trondheim: {
+    title: "Trondheim local port guide",
+    benefit:
+      "Nidaros, Bakklandet and harbour walks on the dedicated Trondheim shore excursion site.",
+    url: "https://trondheimshoreexcursions.com",
+  },
+};
+
 function buildFallbackExcursions(
+  portSlug: string,
   fitExcursionHref: string,
 ): readonly RecommendedExcursionCard[] {
-  return [
+  const handoff = micrositeHandoffs[portSlug];
+  const cards: RecommendedExcursionCard[] = [];
+
+  if (handoff) {
+    cards.push({
+      title: handoff.title,
+      benefit: handoff.benefit,
+      url: handoff.url,
+      ctaLabel: "Explore local guide",
+      external: true,
+    });
+  }
+
+  cards.push(
     {
-      title: "View recommended excursions",
-      benefit: "Browse Norway shore excursions by theme and port authority guides.",
-      url: "/norway-shore-excursions",
-      ctaLabel: "Browse excursions",
-    },
-    {
-      title: "Use the Norway Cruise Planner",
-      benefit: "Personalised picks with return to ship confidence labels.",
+      title: "Open the Norway Cruise Planner",
+      benefit: "Match ports, traveller style and time ashore to excursion ideas.",
       url: siteConfig.plannerPath,
       ctaLabel: "Open planner",
     },
@@ -197,7 +266,9 @@ function buildFallbackExcursions(
       url: fitExcursionHref,
       ctaLabel: "Check timing",
     },
-  ];
+  );
+
+  return cards;
 }
 
 export function isMappedExcursionPort(
@@ -216,7 +287,7 @@ export function getPortRecommendedExcursions(
     return mappedPortExcursions[portSlug];
   }
 
-  return buildFallbackExcursions(fitExcursionHref);
+  return buildFallbackExcursions(portSlug, fitExcursionHref);
 }
 
 export function usesFallbackExcursionCards(portSlug: string): boolean {

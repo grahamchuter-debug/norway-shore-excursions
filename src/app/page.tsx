@@ -1,101 +1,127 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 
-import { CompareNorwayCruisePorts } from "@/components/compare-norway-cruise-ports";
-import { DontWastePortDay } from "@/components/dont-waste-port-day";
 import { HomePlanningSections } from "@/components/home-planning-sections";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
-import { PortCard } from "@/components/port-card";
-import { cruiseLines } from "@/lib/cruise-lines-data";
 import { ports, portBySlug } from "@/lib/ports-data";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { interestThemeLinks } from "@/lib/themes-data";
 import { buildFaqSchema, buildItemListSchema } from "@/lib/site-schema";
 import { siteConfig } from "@/lib/site-config";
-import { MapSecondaryTeaser } from "@/components/planner/map-secondary-teaser";
-import { norwayDestinationConfig } from "@/lib/destination-config";
 import { imageAlts, siteImages } from "@/lib/site-images";
+import { interestThemeLinks } from "@/lib/themes-data";
 
 export const metadata: Metadata = buildPageMetadata({
-  title:
-    "Norway Shore Excursions | Norway Cruise Planner & Best Shore Excursions",
-  description:
-    "Free Norway Cruise Planner with personalised shore excursion recommendations, Norway Cruise Match scores and return to ship confidence. Compare Norway cruise ports and best shore excursions.",
+  title: "Norway Shore Excursions | Independent Cruise Port Planning",
+  description: siteConfig.defaultDescription,
   path: "/",
   ogImage: siteImages.hero,
   ogImageAlt: imageAlts.hero,
   absoluteTitle: true,
 });
 
-const featuredPortSlugs = [
-  "flam",
-  "bergen",
-  "geiranger",
-  "olden",
-  "tromso",
-  "honningsvag",
+const featuredStories = [
+  {
+    slug: "bergen",
+    title: "Bergen",
+    summary:
+      "City harbour energy with Bryggen, Fløibanen and Mostraumen fjord options — ideal when you want culture and scenery in one day.",
+  },
+  {
+    slug: "flam",
+    title: "Flåm",
+    summary:
+      "Aurlandsfjord scenery, Stegastein and Flåm Railway decisions on a compact scenic port day.",
+  },
+  {
+    slug: "geiranger",
+    title: "Geiranger",
+    summary:
+      "UNESCO fjord viewpoints, Dalsnibba and Eagle Road logistics for a classic fjord call.",
+  },
+  {
+    slug: "olden",
+    title: "Olden",
+    summary:
+      "Briksdal Glacier and Loen Skylift — choose carefully when time ashore is limited.",
+  },
+  {
+    slug: "stavanger",
+    title: "Stavanger",
+    summary:
+      "Lysefjord gateway and old-town walks; Pulpit Rock feasibility depends on your hours in port.",
+  },
+  {
+    slug: "honningsvag",
+    title: "Honningsvåg",
+    summary:
+      "North Cape distance and timing define the day — plan independently or with organised transfers.",
+  },
 ] as const;
 
-const portsByInterest = [
+const norwayKinds = [
   {
-    interest: "Fjords & viewpoints",
-    ports: ["flam", "geiranger", "bergen"],
+    title: "Fjord scenery",
+    text: "Viewpoint drives, fjord sailings and UNESCO landscapes.",
     href: "/fjord-shore-excursions-norway",
   },
   {
-    interest: "Glaciers & waterfalls",
-    ports: ["olden", "eidfjord", "hellesylt"],
-    href: "/glacier-shore-excursions-norway",
-  },
-  {
-    interest: "Arctic & Northern Lights",
-    ports: ["tromso", "honningsvag"],
-    href: "/northern-lights-shore-excursions-norway",
-  },
-  {
-    interest: "City walks & history",
-    ports: ["bergen", "stavanger", "trondheim", "kristiansand"],
+    title: "City & culture",
+    text: "Harbour walks, historic centres and short coastal transfers.",
     href: "/family-shore-excursions-norway",
   },
   {
-    interest: "Wildlife & adventure",
-    ports: ["honningsvag", "skjolden", "tromso"],
-    href: "/wildlife-shore-excursions-norway",
+    title: "Rail & panoramic journeys",
+    text: "Scenic railways and high viewpoints for longer port days.",
+    href: "/best-viewpoint-tours-norway",
+  },
+  {
+    title: "Arctic Norway",
+    text: "Tromsø and Honningsvåg for northern lights and North Cape planning.",
+    href: "/northern-lights-shore-excursions-norway",
+  },
+  {
+    title: "Active days",
+    text: "Hiking, coastal roads and wildlife-focused options.",
+    href: "/hiking-shore-excursions-norway",
+  },
+  {
+    title: "Small-group & private ideas",
+    text: "Flexible pacing when you want control of the day ashore.",
+    href: "/best-private-tours-norway",
   },
 ] as const;
 
 const homeFaqs = [
   {
-    question: "What is the Norway Cruise Planner?",
+    question: "What is Norway Shore Excursions?",
     answer:
-      "A smart, rules based Norway cruise planner that matches your ports, traveller style and time ashore to shore excursion types, with Norway Cruise Match scores and return to ship confidence labels.",
+      "An independent planning site for cruise passengers visiting Norway. It helps you compare ports, check ship schedules and explore shore excursion ideas — then continue to dedicated local port guides when you need deeper detail.",
   },
   {
-    question: "Is Norway Shore Excursions affiliated with cruise lines?",
+    question: "Is this affiliated with cruise lines or port authorities?",
     answer:
-      "No. We are an independent planning platform linking passengers to local port specialists. We have no official partnership with any cruise line.",
+      "No. We are independent. Schedules and excursion information are for planning and should be verified with your cruise line and operators.",
   },
   {
-    question: "How do I find the best Norway shore excursions?",
+    question: "How should I start planning my Norway port day?",
     answer:
-      "Start with our planner or popular cruise routes, then explore port authority pages and book independently via linked local sites for Flåm, Bergen, Geiranger and every major Norway cruise port.",
+      "Find your port, check the ship schedule or calendar for your dates, then use the cruise planner to match time ashore with excursion ideas.",
   },
   {
-    question: "Is the planner powered by live AI?",
+    question: "Can I book shore excursions here?",
     answer:
-      "It delivers AI style personalised recommendations using rules based logic, not a live AI booking engine or real time availability database.",
+      "This national site is for planning and discovery. Dedicated local port sites provide deeper excursion detail. There is no live booking checkout on this authority site.",
   },
 ] as const;
 
 export default function HomePage() {
   const itemList = buildItemListSchema(
-    featuredPortSlugs.map((s) => ({
-      name: portBySlug[s].displayName,
-      description: portBySlug[s].bestFor,
+    featuredStories.map((s) => ({
+      name: portBySlug[s.slug].displayName,
+      description: s.summary,
     })),
-    "Best Norway cruise ports for shore excursions",
+    "Featured Norway cruise ports",
   );
 
   return (
@@ -103,123 +129,167 @@ export default function HomePage() {
       <JsonLd data={[itemList, buildFaqSchema(homeFaqs)]} />
       <main>
         <PageHero image={siteImages.hero} imageAlt={imageAlts.hero}>
-          <p className="hero-eyebrow mb-3 text-xs font-semibold uppercase tracking-[0.25em]">
+          <p className="hero-eyebrow mb-3 text-xs font-semibold uppercase tracking-[0.22em]">
             {siteConfig.name}
           </p>
-          <h1 className="mb-4 max-w-4xl text-3xl font-bold sm:text-5xl md:text-6xl">
-            Your Personalised Norway Cruise Plan
+          <h1 className="font-display mb-5 max-w-4xl text-3xl font-semibold leading-tight sm:text-5xl md:text-[3.25rem]">
+            Independent cruise-port planning for Norway
           </h1>
-          <p className="max-w-2xl text-base leading-7 sm:text-xl">
-            The Norway Cruise Planner matches your ports, traveller style and
-            time ashore to shore excursions with Cruise Match scores and return
-            to ship confidence.
+          <p className="max-w-2xl text-base leading-7 sm:text-lg">
+            Compare Norway cruise ports, check ship schedules through 2027, and
+            explore shore excursion ideas for fjords, cities and Arctic calls —
+            built for passengers with a day ashore.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#norway-cruise-planner" className="btn-gold min-h-11">
-              Start Cruise Planner
-            </a>
-            <Link
-              href="/best-norway-shore-excursions"
-              className="btn-secondary min-h-11"
-            >
-              Browse best excursions
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href="/norway-cruise-ports" className="btn-gold w-full justify-center sm:w-auto">
+              Explore Norway cruise ports
+            </Link>
+            <Link href="/ship-schedules" className="btn-secondary w-full justify-center sm:w-auto">
+              Check ship schedules
             </Link>
           </div>
         </PageHero>
 
+        <section className="border-b border-[var(--border-light)] bg-[var(--surface)] py-14 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <p className="section-eyebrow">Find your port</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              All 15 Norway cruise destinations
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Start with the port your ship visits. Each national port page
+              summarises the day ashore and links to schedules, the planner and
+              the local destination guide.
+            </p>
+            <ul className="mt-8 columns-1 gap-x-10 sm:columns-2 lg:columns-3">
+              {ports.map((port) => (
+                <li key={port.slug} className="mb-2 break-inside-avoid">
+                  <Link
+                    href={`/ports/${port.slug}`}
+                    className="inline-flex min-h-11 items-center text-base font-medium text-slate-800 underline-offset-4 hover:underline"
+                  >
+                    {port.displayName}
+                    <span className="ml-2 text-sm font-normal text-slate-500">
+                      {port.region}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8">
+              <Link href="/norway-cruise-ports" className="btn-outline-dark">
+                View port directory
+              </Link>
+            </p>
+          </div>
+        </section>
+
         <HomePlanningSections />
 
-        <CompareNorwayCruisePorts />
-
-        <section className="hero-dark border-b bg-navy py-16 text-white">
+        <section className="border-y border-[var(--border-light)] bg-surface-muted py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-2xl font-bold sm:text-3xl">
-              Best Norway shore excursions by interest
+            <p className="section-eyebrow">Choose your Norway</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Different kinds of Norway port day
             </h2>
-            <p className="mt-2 max-w-2xl text-white/75">
-              Match your priorities to the ports where Norway cruise excursions
-              work best, then dive into authority guides and local specialists.
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Use theme guides to match interests, then return to your specific
+              port and schedule.
             </p>
-            <div className="mt-8 grid gap-4 lg:grid-cols-2">
-              {portsByInterest.map((group) => (
-                <div
-                  key={group.interest}
-                  className="rounded-xl border border-white/10 bg-white/5 p-5"
-                >
-                  <h3 className="font-semibold text-[var(--gold)]">
-                    {group.interest}
+            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {norwayKinds.map((kind) => (
+                <div key={kind.href} className="border-t border-[var(--border-light)] pt-5">
+                  <h3 className="font-display text-xl font-semibold text-slate-900">
+                    {kind.title}
                   </h3>
-                  <p className="mt-2 text-sm text-white/80">
-                    {group.ports
-                      .map((s) => portBySlug[s].displayName)
-                      .join(" · ")}
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {kind.text}
                   </p>
                   <Link
-                    href={group.href}
-                    className="mt-3 inline-block text-sm font-medium text-[var(--glacier-blue)] underline"
+                    href={kind.href}
+                    className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
                   >
-                    Theme guide →
+                    Explore theme guide
                   </Link>
                 </div>
               ))}
             </div>
-            <p className="mt-8">
-              <Link
-                href="/best-norway-shore-excursions"
-                className="text-sm font-medium text-white/90 underline hover:text-white"
-              >
-                See all best Norway shore excursions →
-              </Link>
+            <p className="mt-8 text-sm text-slate-500">
+              Also see{" "}
+              {interestThemeLinks.slice(0, 4).map((link, i) => (
+                <span key={link.href}>
+                  {i > 0 ? " · " : ""}
+                  <Link href={link.href} className="content-link">
+                    {link.label}
+                  </Link>
+                </span>
+              ))}
+              .
             </p>
           </div>
         </section>
 
-        <DontWastePortDay />
-
-        <section className="py-16">
+        <section className="py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-              Featured Norway cruise ports
+            <p className="section-eyebrow">Port stories</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              How cruise passengers use key Norway ports
             </h2>
-            <p className="mt-2 max-w-2xl text-slate-600">
-              Authority port guides for Norway cruise excursions, each linking
-              to an independent local booking specialist.
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Short editorial snapshots — not generic tour cards. Continue to
+              each national port page for schedules and local guides.
             </p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredPortSlugs.map((slug) => (
-                <PortCard key={slug} port={portBySlug[slug]} />
+            <div className="mt-10 space-y-8">
+              {featuredStories.map((story) => (
+                <article
+                  key={story.slug}
+                  className="grid gap-3 border-b border-[var(--border-light)] pb-8 md:grid-cols-12 md:gap-6"
+                >
+                  <h3 className="font-display text-xl font-semibold text-slate-900 md:col-span-3">
+                    {story.title}
+                  </h3>
+                  <p className="text-base leading-7 text-slate-650 md:col-span-6 text-slate-600">
+                    {story.summary}
+                  </p>
+                  <div className="md:col-span-3 md:text-right">
+                    <Link
+                      href={`/ports/${story.slug}`}
+                      className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                    >
+                      Port guide
+                    </Link>
+                  </div>
+                </article>
               ))}
             </div>
-            <p className="mt-8">
-              <Link
-                href="/norway-cruise-ports"
-                className="btn-primary-on-light min-h-11"
-              >
-                View all {ports.length} Norway cruise ports
-              </Link>
-            </p>
           </div>
         </section>
 
-        <MapSecondaryTeaser config={norwayDestinationConfig} />
-
-        <section className="border-y bg-surface-muted py-16">
+        <section className="border-y border-[var(--border-light)] bg-[var(--surface)] py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-              Cruise line planning guides
+            <p className="section-eyebrow">Schedules & ships</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Norway cruise schedule tools
             </h2>
-            <p className="mt-2 max-w-2xl text-slate-600">
-              Independent Norway cruise excursion planning for major lines, no
-              official partnership implied.
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Published calls through December 2027 across 15 ports — search by
+              port, month, ship or cruise line.
             </p>
-            <ul className="card-grid mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {cruiseLines.map((line) => (
-                <li key={line.slug}>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { href: "/ship-schedules", label: "Ship schedules hub" },
+                { href: "/norway-cruise-calendar", label: "Cruise calendar" },
+                { href: "/ship-schedules/search", label: "Search schedules" },
+                { href: "/ships", label: "Cruise ships" },
+                { href: "/cruise-lines", label: "Cruise lines" },
+                { href: "/norway-cruise-port-map", label: "Port map" },
+              ].map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={`/cruise-lines/${line.slug}`}
-                    className="premium-card block min-h-11 px-4 py-3 text-sm font-medium text-slate-800"
+                    href={item.href}
+                    className="premium-card flex min-h-14 items-center px-4 py-3 text-sm font-semibold text-slate-800"
                   >
-                    {line.shortName} Norway guide
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -227,48 +297,88 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-16">
+        <section className="py-14 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <p className="section-eyebrow">Planning confidence</p>
+                <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+                  Time ashore and return-to-ship thinking
+                </h2>
+                <p className="mt-4 text-base leading-7 text-slate-600">
+                  Norway port days succeed when timing is realistic: arrival and
+                  all aboard windows, transfer distance, and whether a plan still
+                  works if the ship is late or queues are long. Use our
+                  return-to-ship guides as planning tools — always confirm final
+                  timings with your cruise line.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/return-to-ship-guide" className="btn-outline-dark">
+                    Return to ship guide
+                  </Link>
+                  <Link
+                    href="/return-to-ship-confidence"
+                    className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                  >
+                    Confidence methodology
+                  </Link>
+                </div>
+              </div>
+              <div className="border border-[var(--border-light)] bg-surface-muted p-6 sm:p-8">
+                <p className="section-eyebrow">Independent</p>
+                <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900">
+                  Built to help cruise passengers use a day ashore in Norway
+                </h2>
+                <p className="mt-4 text-base leading-7 text-slate-600">
+                  Norway Shore Excursions is a national planning resource. It
+                  connects port context, schedules and excursion discovery with
+                  dedicated local guides — without cruise-line affiliation or
+                  live booking checkout on this site.
+                </p>
+                <Link
+                  href="/about"
+                  className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                >
+                  About this site
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[var(--border-light)] bg-surface-muted py-14 sm:py-16">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-slate-900">
+            <h2 className="font-display text-2xl font-semibold text-slate-900">
               Frequently asked questions
             </h2>
             <dl className="mt-8 space-y-6">
               {homeFaqs.map((faq) => (
-                <div key={faq.question} className="premium-card p-5">
-                  <dt className="font-semibold text-slate-900">
-                    {faq.question}
-                  </dt>
-                  <dd className="mt-2 leading-7 text-slate-700">
-                    {faq.answer}
-                  </dd>
+                <div key={faq.question} className="border-b border-[var(--border-light)] pb-6">
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-2 leading-7 text-slate-700">{faq.answer}</dd>
                 </div>
               ))}
             </dl>
           </div>
         </section>
 
-        <section className="hero-dark border-t bg-navy py-16 text-white">
+        <section className="hero-dark bg-navy py-14 text-white sm:py-16">
           <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <h2 className="text-2xl font-bold sm:text-3xl">
-              Ready to plan your Norway cruise excursions?
+            <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+              Need help choosing a Norway port day?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/85">
-              Generate your personalised Norway Cruise Match plan, then book
-              independently via trusted local specialists at each port.
+              Explore ports and schedules first. When you want human guidance on
+              planning questions, use the contact page.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link href="/norway-cruise-planner" className="btn-gold min-h-11">
-                Start Cruise Planner
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link href="/norway-cruise-planner" className="btn-gold">
+                Open cruise planner
+              </Link>
+              <Link href="/contact" className="btn-secondary">
+                Contact
               </Link>
             </div>
-            <p className="mt-6">
-              <Link
-                href="/norway-cruise-port-map"
-                className="text-sm text-white/70 underline hover:text-white"
-              >
-                Optional: browse the port map →
-              </Link>
-            </p>
           </div>
         </section>
       </main>

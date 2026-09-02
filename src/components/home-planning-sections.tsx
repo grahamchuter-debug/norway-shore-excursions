@@ -101,7 +101,7 @@ export function HomePlanningSections() {
               href={norwayDestinationConfig.plannerPath}
               className="btn-gold inline-flex min-h-11 items-center px-6 text-sm"
             >
-              Open full {norwayDestinationConfig.plannerCtaLabel}
+              Open full cruise planner
             </Link>
           </p>
         </div>

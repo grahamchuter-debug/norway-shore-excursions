@@ -9,6 +9,8 @@ type BuildPageMetadataOptions = {
   ogImage?: string;
   ogImageAlt?: string;
   absoluteTitle?: boolean;
+  /** Use for empty generated schedule months kept for URL stability. */
+  noIndex?: boolean;
 };
 
 export function buildPageMetadata({
@@ -18,6 +20,7 @@ export function buildPageMetadata({
   ogImage = siteConfig.defaultOgImage,
   ogImageAlt = siteConfig.defaultOgImageAlt,
   absoluteTitle = false,
+  noIndex = false,
 }: BuildPageMetadataOptions): Metadata {
   const openGraphTitle = absoluteTitle
     ? title
@@ -29,6 +32,9 @@ export function buildPageMetadata({
     alternates: {
       canonical: path,
     },
+    robots: noIndex
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
     openGraph: {
       title: openGraphTitle,
       description,

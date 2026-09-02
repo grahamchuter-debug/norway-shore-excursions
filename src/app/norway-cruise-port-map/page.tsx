@@ -49,7 +49,7 @@ export default function NorwayCruisePortMapPage() {
       ctaTitle="Want personalised port recommendations?"
       ctaText="The Norway Cruise Planner matches your itinerary and traveller style to shore excursions with Cruise Match scores."
       ctaHref="/norway-cruise-planner"
-      ctaButtonLabel="Start Cruise Planner"
+      ctaButtonLabel="Open cruise planner"
       belowHero={
         <>
           <PlannerPromoBanner config={norwayDestinationConfig} compact />

@@ -373,7 +373,7 @@ export function PlannerDashboardV2({
                           rel="noopener noreferrer"
                           className="content-link text-sm font-semibold"
                         >
-                          Book locally
+                          Local guide
                         </a>
                       </div>
                     </div>

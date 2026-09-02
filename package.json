@@ -15,7 +15,8 @@
     "parse:schedule": "node scripts/parse-cruisetimetables-schedule.js",
     "debug:schedules": "node scripts/debug-cruise-schedules.js",
     "debug:ships": "node scripts/debug-cruise-ships.js",
-    "qa:ship-images": "node scripts/qa-ship-images.js"
+    "qa:ship-images": "node scripts/qa-ship-images.js",
+    "qa:world20": "node scripts/qa-world20-authority.mjs"
   },
   "dependencies": {
     "jspdf": "^4.2.1",
