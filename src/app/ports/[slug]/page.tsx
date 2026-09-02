@@ -114,7 +114,7 @@ export default async function PortPage({ params }: PortPageProps) {
         <section>
           <h2>Shore excursion ideas</h2>
           <p>
-            National summary only — not a full duplicate of the local destination
+            National summary only; not a full duplicate of the local destination
             site. Headline focus: <strong>{port.heroTour}</strong>. Also consider{" "}
             {port.secondaryTours.join(", ")}.
           </p>
@@ -243,7 +243,7 @@ export default async function PortPage({ params }: PortPageProps) {
             <a href={port.localSiteUrl} target="_blank" rel="noopener noreferrer">
               {port.localSiteUrl.replace("https://", "")}
             </a>
-            . This national site summarises the port and routes you onward — it is
+            . This national site summarises the port and routes you onward. It is
             not a booking checkout.
           </p>
         </section>

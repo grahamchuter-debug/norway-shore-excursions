@@ -154,7 +154,7 @@ export function buildShipOverviewNarrative(
       : "2026 and 2027";
 
   parts.push(
-    `${summary.ship} on ${summary.cruiseLine} ranks among Norway's busiest cruise ships in our verified database — a ${tier} with ${summary.callCount} published port calls across ${years}.`,
+    `${summary.ship} on ${summary.cruiseLine} ranks among Norway's busiest cruise ships in our verified database: a ${tier} with ${summary.callCount} published port calls across ${years}.`,
   );
 
   const [top, second, third] = summary.topPorts;
@@ -168,7 +168,7 @@ export function buildShipOverviewNarrative(
   const regions = detectRegionFocus(summary);
   if (regions.length > 0) {
     parts.push(
-      `Geographically, ${summary.ship} concentrates on ${regions.join(" and ")} — ${summary.portCount} distinct Norwegian ports in total.`,
+      `Geographically, ${summary.ship} concentrates on ${regions.join(" and ")}, across ${summary.portCount} distinct Norwegian ports in total.`,
     );
   }
 
@@ -185,7 +185,7 @@ export function buildShipOverviewNarrative(
   if (y2026 > 0 && y2027 > 0) {
     if (y2026 > y2027 * 1.5) {
       parts.push(
-        `2026 carries the heavier published programme (${y2026} calls vs ${y2027} in 2027) — useful when comparing early booking windows.`,
+        `2026 carries the heavier published programme (${y2026} calls vs ${y2027} in 2027), which helps when comparing early planning windows.`,
       );
     } else if (y2027 > y2026 * 1.5) {
       parts.push(
@@ -220,7 +220,7 @@ export function buildShipAuthorityFaqs(
   return [
     {
       question: `How many Norway port calls does ${summary.ship} have?`,
-      answer: `${summary.ship} has ${summary.callCount} verified Norway port calls in our ${years} schedule data${y2026 && y2027 ? ` — ${y2026} in 2026 and ${y2027} in 2027` : ""}. Always confirm timings with ${summary.cruiseLine} before booking excursions.`,
+      answer: `${summary.ship} has ${summary.callCount} verified Norway port calls in our ${years} schedule data${y2026 && y2027 ? ` (${y2026} in 2026 and ${y2027} in 2027)` : ""}. Always confirm timings with ${summary.cruiseLine} before finalising excursion plans.`,
     },
     {
       question: `Which ports does ${summary.ship} visit most in Norway?`,
@@ -236,7 +236,7 @@ export function buildShipAuthorityFaqs(
       question: `What is ${summary.ship}'s passenger capacity?`,
       answer:
         summary.capacity != null
-          ? `${summary.ship} carries approximately ${summary.capacity.toLocaleString("en-GB")} passengers at full capacity. Larger ships mean longer tender queues and fuller coaches on peak summer days — book independent tours with clear return times.`
+          ? `${summary.ship} carries approximately ${summary.capacity.toLocaleString("en-GB")} passengers at full capacity. Larger ships mean longer tender queues and fuller coaches on peak summer days, so favour independent tours with clear return times.`
           : `Passenger capacity for ${summary.ship} is not published in our lookup. Check ${summary.cruiseLine} for official figures before estimating onboard demand at each port.`,
     },
     {

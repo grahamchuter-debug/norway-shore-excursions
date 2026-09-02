@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
   description:
-    "Privacy policy for Norway Shore Excursions — how this independent planning website handles information.",
+    "Privacy policy for Norway Shore Excursions: how this independent planning website handles information.",
   path: "/privacy",
 });
 
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
       <section>
         <h2>Updates</h2>
         <p>
-          We may update this notice if the site’s functionality changes — for
+          We may update this notice if the site’s functionality changes, for
           example if a contact form, analytics or booking features are added.
         </p>
       </section>

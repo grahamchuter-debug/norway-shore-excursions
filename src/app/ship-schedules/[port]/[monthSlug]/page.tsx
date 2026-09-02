@@ -87,7 +87,7 @@ export default async function ShipScheduleMonthPage({ params }: ShipScheduleMont
 
   return (
     <ContentPage
-      title={`${portData.displayName} Cruise Schedule — ${monthName} ${year}`}
+      title={`${portData.displayName} Cruise Schedule: ${monthName} ${year}`}
       lead={
         emptyMonth
           ? `No published cruise calls for ${portData.displayName} in ${monthName} ${year} in the current Norway schedule import. Confirm your ship’s timings with your cruise line.`

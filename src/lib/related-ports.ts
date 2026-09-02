@@ -1,6 +1,6 @@
 /**
  * Editorial related-port relationships for cruise passenger decisions.
- * Keep sparse — only where a genuine planning choice exists.
+ * Keep sparse: only where a genuine planning choice exists.
  */
 export const relatedPortsBySlug: Record<
   string,
@@ -10,7 +10,7 @@ export const relatedPortsBySlug: Record<
     {
       slug: "geiranger",
       reason:
-        "Many itineraries pair Hellesylt and Geiranger on the same fjord day — compare overland versus fjord-focused options.",
+        "Many itineraries pair Hellesylt and Geiranger on the same fjord day. Compare overland versus fjord-focused options.",
     },
   ],
   geiranger: [
@@ -24,7 +24,7 @@ export const relatedPortsBySlug: Record<
     {
       slug: "nordfjordeid",
       reason:
-        "Nordfjord ports share glacier and waterfall day options — useful when comparing nearby calls on the same cruise.",
+        "Nordfjord ports share glacier and waterfall day options, useful when comparing nearby calls on the same cruise.",
     },
   ],
   nordfjordeid: [
@@ -36,7 +36,7 @@ export const relatedPortsBySlug: Record<
     {
       slug: "hellesylt",
       reason:
-        "Scenic fjord and waterfall days can look similar on paper — compare time ashore and transfer distance.",
+        "Scenic fjord and waterfall days can look similar on paper. Compare time ashore and transfer distance.",
     },
   ],
   flam: [
@@ -50,7 +50,7 @@ export const relatedPortsBySlug: Record<
     {
       slug: "stavanger",
       reason:
-        "Both are major city-gateway ports — useful when choosing between Bryggen/Mostraumen and Lysefjord days.",
+        "Both are major city-gateway ports. Useful when choosing between Bryggen/Mostraumen and Lysefjord days.",
     },
   ],
   stavanger: [
@@ -64,7 +64,7 @@ export const relatedPortsBySlug: Record<
     {
       slug: "honningsvag",
       reason:
-        "Arctic itineraries often include both — Tromsø for city and aurora logistics, Honningsvåg for North Cape distance/time decisions.",
+        "Arctic itineraries often include both: Tromsø for city and aurora logistics, Honningsvåg for North Cape distance and timing.",
     },
   ],
   honningsvag: [

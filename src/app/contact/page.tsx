@@ -70,7 +70,7 @@ export default function ContactPage() {
           <p>
             A destination concierge email channel is being prepared for Norway
             Shore Excursions. In the meantime, please use the planning tools on
-            this site — they cover ports, ship schedules and excursion ideas for
+            this site. They cover ports, ship schedules and excursion ideas for
             a day ashore.
           </p>
         )}

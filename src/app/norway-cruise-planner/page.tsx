@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "What is the Norway Cruise Match Score?",
     answer:
-      "An overall score out of 100 summarising how well your selected ports, traveller style and time ashore align with recommended Norway shore excursions, plus best port, excursion type and hidden gem highlights.",
+      "An overall score out of 100 summarising how well your selected ports, traveller style and time ashore align with recommended Norway shore excursions, including best port and excursion-type highlights.",
   },
   {
     question: "What do return to ship confidence labels mean?",

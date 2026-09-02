@@ -19,7 +19,7 @@ export default function AboutPage() {
   return (
     <ContentPage
       title="About Norway Shore Excursions"
-      lead="An independent planning resource for cruise passengers visiting Norway — focused on port days, ship schedules and shore excursion ideas."
+      lead="An independent planning resource for cruise passengers visiting Norway, focused on port days, ship schedules and shore excursion ideas."
       heroImage={siteImages.planner}
       heroImageAlt={imageAlts.planner}
       pagePath="/about"
@@ -46,7 +46,7 @@ export default function AboutPage() {
         <p>
           Norway Shore Excursions helps cruise passengers make better use of a
           day ashore in Norway. It brings together national port context,
-          published ship schedule information and excursion discovery — then
+          published ship schedule information and excursion discovery, then
           connects you to dedicated local port guides when you need deeper
           destination detail.
         </p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <p>
           Use this national site to answer “which port?”, “when does my ship
           call?” and “what kind of day makes sense?”. Dedicated destination
-          sites — such as Bergen, Flåm or Geiranger — focus on that port’s day
+          sites such as Bergen, Flåm or Geiranger focus on that port’s day
           ashore in more detail.
         </p>
       </section>

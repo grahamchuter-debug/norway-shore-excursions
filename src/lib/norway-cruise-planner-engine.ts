@@ -167,7 +167,7 @@ const portInsights: Record<
       "Northern Lights":
         "On winter routes, organised aurora touring away from port lights is the priority here.",
       "Scenic Drives":
-        "North Cape coach tours are the classic bucket-list excursion from this gateway port.",
+        "North Cape coach tours are the classic long day from this gateway port.",
     },
   },
   skjolden: {
@@ -738,8 +738,8 @@ function buildPersonalSummary(
 
   const hiddenPart =
     hiddenGemName.toLowerCase() === bestPortName.toLowerCase()
-      ? "a quieter port day in your itinerary offers the best hidden gem experience"
-      : `${hiddenGemName} provides the best hidden gem experience`;
+      ? "a quieter port day in your itinerary is the standout secondary pick"
+      : `${hiddenGemName} is the standout secondary pick`;
 
   const summary = `Based on your cruise line, interests and ${input.fitnessLevel.toLowerCase()} fitness level, this itinerary focuses on ${focus}. ${bestPortName} is your strongest overall match, while ${hiddenPart}. ${bestExcursionType} excursions are likely to suit you best.`;
 

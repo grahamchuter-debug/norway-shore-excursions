@@ -183,7 +183,7 @@ const micrositeHandoffs: Record<
   alesund: {
     title: "Ålesund local port guide",
     benefit:
-      "Art Nouveau streets, Mount Aksla and coastal views — explore the dedicated Ålesund shore excursion site.",
+      "Art Nouveau streets, Mount Aksla and coastal views on the dedicated Ålesund shore excursion site.",
     url: "https://alesundshoreexcursions.com",
   },
   hellesylt: {

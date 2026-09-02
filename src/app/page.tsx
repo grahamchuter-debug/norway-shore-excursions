@@ -25,13 +25,13 @@ const featuredStories = [
     slug: "bergen",
     title: "Bergen",
     summary:
-      "City harbour energy with Bryggen, Fløibanen and Mostraumen fjord options — ideal when you want culture and scenery in one day.",
+      "Harbour city day with Bryggen, Fløibanen and Mostraumen options when you want culture and scenery together.",
   },
   {
     slug: "flam",
     title: "Flåm",
     summary:
-      "Aurlandsfjord scenery, Stegastein and Flåm Railway decisions on a compact scenic port day.",
+      "Aurlandsfjord scenery with Stegastein and Flåm Railway choices on a compact scenic call.",
   },
   {
     slug: "geiranger",
@@ -43,19 +43,19 @@ const featuredStories = [
     slug: "olden",
     title: "Olden",
     summary:
-      "Briksdal Glacier and Loen Skylift — choose carefully when time ashore is limited.",
+      "Briksdal Glacier and Loen Skylift compete for limited hours ashore; pick one focus when time is tight.",
   },
   {
     slug: "stavanger",
     title: "Stavanger",
     summary:
-      "Lysefjord gateway and old-town walks; Pulpit Rock feasibility depends on your hours in port.",
+      "Lysefjord gateway and old-town walks. Pulpit Rock only works if your hours in port allow it.",
   },
   {
     slug: "honningsvag",
     title: "Honningsvåg",
     summary:
-      "North Cape distance and timing define the day — plan independently or with organised transfers.",
+      "North Cape distance and timing shape the day. Plan independently or with organised transfers.",
   },
 ] as const;
 
@@ -96,7 +96,7 @@ const homeFaqs = [
   {
     question: "What is Norway Shore Excursions?",
     answer:
-      "An independent planning site for cruise passengers visiting Norway. It helps you compare ports, check ship schedules and explore shore excursion ideas — then continue to dedicated local port guides when you need deeper detail.",
+      "An independent planning site for cruise passengers visiting Norway. Compare ports, check ship schedules and explore shore excursion ideas, then continue to dedicated local port guides when you need deeper detail.",
   },
   {
     question: "Is this affiliated with cruise lines or port authorities?",
@@ -137,8 +137,8 @@ export default function HomePage() {
           </h1>
           <p className="max-w-2xl text-base leading-7 sm:text-lg">
             Compare Norway cruise ports, check ship schedules through 2027, and
-            explore shore excursion ideas for fjords, cities and Arctic calls —
-            built for passengers with a day ashore.
+            explore shore excursion ideas for fjords, cities and Arctic calls.
+            Written for passengers with a day ashore.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link href="/norway-cruise-ports" className="btn-gold w-full justify-center sm:w-auto">
@@ -236,8 +236,8 @@ export default function HomePage() {
               How cruise passengers use key Norway ports
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Short editorial snapshots — not generic tour cards. Continue to
-              each national port page for schedules and local guides.
+              Short editorial snapshots, not generic tour cards. Continue to each
+              national port page for schedules and local guides.
             </p>
             <div className="mt-10 space-y-8">
               {featuredStories.map((story) => (
@@ -272,7 +272,7 @@ export default function HomePage() {
               Norway cruise schedule tools
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Published calls through December 2027 across 15 ports — search by
+              Published calls through December 2027 across 15 ports. Search by
               port, month, ship or cruise line.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -306,11 +306,11 @@ export default function HomePage() {
                   Time ashore and return-to-ship thinking
                 </h2>
                 <p className="mt-4 text-base leading-7 text-slate-600">
-                  Norway port days succeed when timing is realistic: arrival and
+                  Norway port days work best when timing is realistic: arrival and
                   all aboard windows, transfer distance, and whether a plan still
-                  works if the ship is late or queues are long. Use our
-                  return-to-ship guides as planning tools — always confirm final
-                  timings with your cruise line.
+                  holds if the ship is late or queues are long. Treat the
+                  return-to-ship guides as planning tools, and always confirm
+                  final timings with your cruise line.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Link href="/return-to-ship-guide" className="btn-outline-dark">
@@ -327,13 +327,13 @@ export default function HomePage() {
               <div className="border border-[var(--border-light)] bg-surface-muted p-6 sm:p-8">
                 <p className="section-eyebrow">Independent</p>
                 <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900">
-                  Built to help cruise passengers use a day ashore in Norway
+                  A national site for planning a day ashore in Norway
                 </h2>
                 <p className="mt-4 text-base leading-7 text-slate-600">
-                  Norway Shore Excursions is a national planning resource. It
-                  connects port context, schedules and excursion discovery with
-                  dedicated local guides — without cruise-line affiliation or
-                  live booking checkout on this site.
+                  Norway Shore Excursions connects port context, schedules and
+                  excursion discovery with dedicated local guides. It is not
+                  affiliated with any cruise line, and there is no live booking
+                  checkout on this site.
                 </p>
                 <Link
                   href="/about"

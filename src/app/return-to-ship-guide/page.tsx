@@ -33,7 +33,7 @@ export default function ReturnToShipGuidePage() {
   return (
     <ContentPage
       title="Return to Ship Guide for Norway"
-      lead="Practical timing guidance for cruise passengers booking independent shore excursions, buffers, tenders and port specific risks."
+      lead="Practical timing guidance for cruise passengers planning independent shore excursions: buffers, tenders and port-specific risks."
       heroImage={siteImages.hero}
       heroImageAlt={imageAlts.hero}
       pagePath="/return-to-ship-guide"
@@ -43,10 +43,10 @@ export default function ReturnToShipGuidePage() {
         { label: "Return to Ship Guide" },
       ]}
       faqs={faqs}
-      ctaTitle="Plan with confidence labels"
-      ctaText="Our Norway Cruise Planner shows return to ship confidence for each port recommendation. Read how we calculate Very High through Not Recommended labels."
+      ctaTitle="Understand confidence labels"
+      ctaText="Our Norway Cruise Planner shows return-to-ship confidence for each port recommendation. Read how we calculate Very High through Not Recommended labels."
       ctaHref="/return-to-ship-confidence"
-      ctaButtonLabel="Return to Ship Confidence"
+      ctaButtonLabel="Return to ship confidence"
     >
       <section>
         <h2>Know your all aboard time</h2>

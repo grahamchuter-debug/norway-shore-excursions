@@ -78,7 +78,7 @@ export function SiteFooter() {
                 {siteConfig.name}
               </Link>
               <p className="mt-3 max-w-sm text-sm leading-7 text-white/65">
-                Independent cruise-port planning for Norway — national schedules,
+                Independent cruise-port planning for Norway: national schedules,
                 port guides and excursion discovery for passengers ashore.
               </p>
               <p className="mt-3 text-xs leading-5 text-white/45">

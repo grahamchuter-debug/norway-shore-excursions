@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = buildPageMetadata({
   title: "Terms of Use",
   description:
-    "Terms of use for Norway Shore Excursions — independent cruise planning information for Norway port days.",
+    "Terms of use for Norway Shore Excursions: independent cruise planning information for Norway port days.",
   path: "/terms",
 });
 

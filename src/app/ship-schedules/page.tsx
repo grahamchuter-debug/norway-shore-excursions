@@ -24,7 +24,7 @@ export default function ShipSchedulesHubPage() {
   return (
     <ContentPage
       title="Norway Cruise Ship Schedules"
-      lead="Central Norway schedule database for key cruise ports. Published ship calls come from approved CSV imports for 2026 and 2027 — never sample or demo data."
+      lead="Central Norway schedule database for key cruise ports. Published ship calls come from approved CSV imports for 2026 and 2027, never sample or demo data."
       heroImage={siteImages.hero}
       heroImageAlt={imageAlts.hero}
       pagePath={shipScheduleHubPath}
@@ -33,10 +33,10 @@ export default function ShipSchedulesHubPage() {
         { label: "Home", href: "/" },
         { label: "Ship Schedules" },
       ]}
-      ctaTitle="Plan excursions with confidence"
+      ctaTitle="Match excursions to your ship times"
       ctaText="Use the Norway Cruise Planner and Will This Excursion Fit My Cruise? tool with your ship times."
       ctaHref="/norway-cruise-planner"
-      ctaButtonLabel="Open Cruise Planner"
+      ctaButtonLabel="Open cruise planner"
       relatedLinks={[
         { label: "Norway Cruise Calendar", href: "/norway-cruise-calendar" },
         { label: "Search by Ship", href: shipScheduleSearchPath },

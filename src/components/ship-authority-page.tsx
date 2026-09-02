@@ -220,7 +220,7 @@ export function ShipAuthorityPage({ ship }: ShipAuthorityPageProps) {
             <h2>Norway itinerary patterns</h2>
             <p>
               Recurring port sequences detected from {ship.ship}&apos;s published
-              timetable — useful for guessing which excursions to pre research.
+              timetable. Useful when deciding which excursions to research first.
             </p>
             <ul className="card-grid mt-4 grid gap-3">
               {patterns.map((pattern) => (
@@ -428,7 +428,7 @@ export function ShipAuthorityPage({ ship }: ShipAuthorityPageProps) {
                   <Link href={cruiseLinePagePath(lineGuide.slug)} className="content-link font-medium">
                     {lineGuide.name} Norway guide
                   </Link>{" "}
-                  — fleet overview, typical cruise length and line wide schedule stats.
+                  for fleet overview, typical cruise length and line-wide schedule stats.
                 </p>
               ) : (
                 <p className="text-slate-600">{ship.cruiseLine}</p>

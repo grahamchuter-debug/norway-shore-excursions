@@ -56,7 +56,7 @@ export default function ShipsHubPage() {
       <JsonLd data={itemList} />
       <ContentPage
         title="Norway Cruise Ships"
-        lead="Ship guides built from verified 2026–2027 Norway port call data: capacity, schedules, ports visited and excursion planning tools."
+        lead="Ship guides drawn from verified 2026–2027 Norway port call data: capacity, schedules, ports visited and excursion planning tools."
         heroImage={siteImages.hero}
         heroImageAlt={imageAlts.hero}
         pagePath="/ships"
@@ -76,7 +76,7 @@ export default function ShipsHubPage() {
         ctaTitle="Plan your port days"
         ctaText="Match excursions to your ship timetable with the Norway Cruise Planner."
         ctaHref="/norway-cruise-planner"
-        ctaButtonLabel="Open Cruise Planner"
+        ctaButtonLabel="Open cruise planner"
       >
         <section>
           <h2>Top Norway cruise ships</h2>

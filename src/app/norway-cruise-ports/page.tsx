@@ -42,7 +42,7 @@ export default function NorwayCruisePortsPage() {
       />
       <ContentPage
         title="Norway Cruise Ports"
-        lead="Authority port guides for every major Norway cruise stop, compare ports, explore the Norway Cruise Map and book shore excursions via local specialists."
+        lead="Authority port guides for every major Norway cruise stop. Compare ports, explore the Norway Cruise Map, and continue to dedicated local guides for deeper detail."
         heroImage={siteImages.sognefjord}
         heroImageAlt={imageAlts.sognefjord}
         pagePath="/norway-cruise-ports"
