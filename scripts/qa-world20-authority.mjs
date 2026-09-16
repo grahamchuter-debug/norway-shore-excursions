@@ -27,13 +27,14 @@ const ports = new Set(rows.map((r) => r.port));
 const ships = new Set(rows.map((r) => r.ship));
 
 const expected = {
-  total: 1848,
+  total: 2420,
   y2026: 1128,
   y2027: 720,
+  y2028: 572,
   earliest: "2026-06-01",
-  latest: "2027-12-30",
+  latest: "2028-11-27",
   ports: 15,
-  ships: 91,
+  ships: 101,
 };
 
 if (rows.length !== expected.total) fail(`total calls ${rows.length} != ${expected.total}`);
@@ -42,8 +43,8 @@ if ((years["2026"] || 0) !== expected.y2026) fail(`2026 ${years["2026"]}`);
 else pass(`2026 calls ${years["2026"]}`);
 if ((years["2027"] || 0) !== expected.y2027) fail(`2027 ${years["2027"]}`);
 else pass(`2027 calls ${years["2027"]}`);
-if (years["2028"]) fail("2028 schedule data present");
-else pass("no 2028 schedule data");
+if ((years["2028"] || 0) !== 572) fail(`2028 ${years["2028"]}`);
+else pass(`2028 calls ${years["2028"]}`);
 if (dates[0] !== expected.earliest || dates.at(-1) !== expected.latest)
   fail(`date range ${dates[0]}..${dates.at(-1)}`);
 else pass(`date range ${dates[0]} .. ${dates.at(-1)}`);

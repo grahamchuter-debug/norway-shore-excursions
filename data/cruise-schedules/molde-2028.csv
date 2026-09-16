@@ -1,0 +1,35 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+molde,Majestic Princess,Princess Cruises,,2028-03-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Queen Victoria,Cunard Line,,2028-04-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Preziosa,MSC Cruises,,2028-05-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Ambition,Ambassador Cruise Line,1400,2028-05-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Euribia,MSC Cruises,4888,2028-05-10,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAsol,AIDA,,2028-05-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Euribia,MSC Cruises,4888,2028-05-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Preziosa,MSC Cruises,,2028-05-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Europa 2,Hapag Lloyd,,2028-05-31,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAperla,AIDA,,2028-06-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Silver Nova,Silversea,,2028-06-08,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-06-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Preziosa,MSC Cruises,,2028-06-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-06-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAperla,AIDA,,2028-06-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-07-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Preziosa,MSC Cruises,,2028-07-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-07-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Arcadia,P&O Cruises,,2028-07-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-07-25,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-08-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Preziosa,MSC Cruises,,2028-08-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Queen Victoria,Cunard Line,,2028-08-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-08-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAprima,AIDA,3376,2028-08-26,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Aurora,P&O Cruises,,2028-08-27,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Celebrity Beyond,Celebrity Cruises,,2028-09-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Euribia,MSC Cruises,4888,2028-09-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Euribia,MSC Cruises,4888,2028-09-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,MSC Preziosa,MSC Cruises,,2028-09-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Queen Anne,Cunard Line,,2028-10-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,AIDAluna,AIDA,2050,2028-10-11,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Rotterdam,Holland America Line,2668,2028-10-18,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+molde,Nieuw Statendam,Holland America Line,2668,2028-10-24,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC

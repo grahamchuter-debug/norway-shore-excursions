@@ -6,7 +6,7 @@ import {
 } from "@/lib/ship-schedules";
 import type { ShipScheduleInsights } from "@/lib/schedule-insights";
 
-/** Top ships by combined 2026–2027 Norway port calls receive enhanced authority pages. */
+/** Top ships by combined 2026–2028 Norway port calls receive enhanced authority pages. */
 export const AUTHORITY_SHIP_LIMIT = 20;
 
 let cachedAuthoritySlugs: readonly string[] | undefined;

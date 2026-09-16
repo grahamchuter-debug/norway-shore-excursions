@@ -1,0 +1,43 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+kristiansand,Ventura,P&O Cruises,,2028-01-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-01-20,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-02-02,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAperla,AIDA,,2028-02-09,09:00,21:30,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-02-16,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Ventura,P&O Cruises,,2028-02-17,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-03-01,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-03-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Ventura,P&O Cruises,,2028-03-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-03-29,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2028-04-06,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Viking Astrea,Viking,,2028-04-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,Ambience,Ambassador Cruise Line,1400,2028-04-10,08:00,14:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-04-12,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Viking Astrea,Viking,,2028-04-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAperla,AIDA,,2028-04-18,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAperla,AIDA,,2028-05-02,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Caribbean Princess,Princess Cruises,,2028-05-03,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2028-05-04,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,MSC Splendida,MSC Cruises,,2028-06-01,11:00,20:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2028-06-05,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2028-06-07,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Sky Princess,Princess Cruises,,2028-06-08,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Seven Seas Voyager,Regent Seven Seas,,2028-06-09,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAdiva,AIDA,2050,2028-07-03,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-07-04,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2028-07-05,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Arvia,P&O Cruises,5200,2028-07-11,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-08-01,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Nieuw Statendam,Holland America Line,2668,2028-08-01,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Silver Nova,Silversea,,2028-08-02,07:00,19:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Sky Princess,Princess Cruises,,2028-09-04,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Britannia,P&O Cruises,,2028-09-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,MSC Splendida,MSC Cruises,,2028-09-07,11:00,20:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,MSC Preziosa,MSC Cruises,,2028-09-08,14:00,22:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Viking Saturn,Viking,998,2028-09-11,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+kristiansand,AIDAluna,AIDA,2050,2028-09-12,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAluna,AIDA,2050,2028-10-01,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,Rotterdam,Holland America Line,2668,2028-10-05,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAsol,AIDA,,2028-10-09,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAnova,AIDA,5200,2028-10-10,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+kristiansand,AIDAluna,AIDA,2050,2028-11-01,08:00,18:00,,Manual CSV import,,,All aboard time TBC

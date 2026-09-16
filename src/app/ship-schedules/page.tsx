@@ -12,7 +12,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { imageAlts, siteImages } from "@/lib/site-images";
 
 export const metadata = buildPageMetadata({
-  title: "Norway Cruise Ship Schedules 2026–2027",
+  title: "Norway Cruise Ship Schedules 2026–2028",
   description:
     "Master Norway cruise ship schedule hub for 15 ports across fjord, coastal, Arctic and southern Norway. Verified 2026 and 2027 CSV imports only.",
   path: shipScheduleHubPath,

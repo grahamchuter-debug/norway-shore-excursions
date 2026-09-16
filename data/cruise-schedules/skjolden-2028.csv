@@ -1,0 +1,30 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+skjolden,Arvia,P&O Cruises,5200,2028-04-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2028-04-19,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Britannia,P&O Cruises,,2028-05-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,AIDAbella,AIDA,,2028-05-11,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Zuiderdam,Holland America Line,,2028-05-11,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Zuiderdam,Holland America Line,,2028-05-16,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2028-05-23,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Aurora,P&O Cruises,,2028-06-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2028-06-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2028-06-14,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2028-06-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Zuiderdam,Holland America Line,,2028-06-16,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Majestic Princess,Princess Cruises,,2028-06-20,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Sky Princess,Princess Cruises,,2028-07-05,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2028-07-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Caribbean Princess,Princess Cruises,,2028-07-10,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2028-08-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Zuiderdam,Holland America Line,,2028-08-10,08:00,15:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Norwegian Getaway,Norwegian Cruise Line,,2028-08-11,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Queen Victoria,Cunard Line,,2028-08-12,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2028-08-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Norwegian Getaway,Norwegian Cruise Line,,2028-08-22,11:00,19:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Arvia,P&O Cruises,5200,2028-08-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Aurora,P&O Cruises,,2028-09-01,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2028-09-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,MSC Meraviglia,MSC Cruises,,2028-09-19,09:00,20:00,,Manual CSV import,,,All aboard time TBC
+skjolden,Iona,P&O Cruises,5200,2028-09-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Iona,P&O Cruises,5200,2028-09-27,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+skjolden,Queen Anne,Cunard Line,,2028-09-28,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC

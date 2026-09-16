@@ -1,0 +1,54 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+alesund,Mein Schiff 2,TUI Cruises,,2028-02-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,Queen Mary 2,Cunard Line,,2028-02-23,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Mein Schiff 2,TUI Cruises,,2028-02-29,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+alesund,Ambience,Ambassador Cruise Line,1400,2028-03-02,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAperla,AIDA,,2028-03-08,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,Queen Victoria,Cunard Line,,2028-03-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Majestic Princess,Princess Cruises,,2028-03-13,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Ambition,Ambassador Cruise Line,1400,2028-03-13,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Mein Schiff 2,TUI Cruises,,2028-03-14,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAperla,AIDA,,2028-04-05,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2028-04-05,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Arvia,P&O Cruises,5200,2028-04-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Queen Victoria,Cunard Line,,2028-04-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2028-04-12,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,AIDAsol,AIDA,,2028-04-13,07:00,16:30,,Manual CSV import,,,All aboard time TBC
+alesund,Zuiderdam,Holland America Line,,2028-05-02,12:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2028-05-03,08:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2028-05-03,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2028-05-03,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Arvia,P&O Cruises,5200,2028-05-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,AIDAmar,AIDA,,2028-05-05,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+alesund,Silver Spirit,Silversea,608,2028-06-03,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Preziosa,MSC Cruises,,2028-06-03,10:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Ambience,Ambassador Cruise Line,1400,2028-06-05,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAperla,AIDA,,2028-06-06,11:00,20:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2028-06-07,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Zuiderdam,Holland America Line,,2028-06-08,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Getaway,Norwegian Cruise Line,,2028-07-01,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Silver Spirit,Silversea,608,2028-07-02,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2028-07-03,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+alesund,Sky Princess,Princess Cruises,,2028-07-04,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+alesund,Oceania Sonata,Oceania Cruises,,2028-07-04,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAperla,AIDA,,2028-07-05,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAperla,AIDA,,2028-07-05,08:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+alesund,AIDAperla,AIDA,,2028-08-02,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2028-08-02,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAprima,AIDA,3376,2028-08-03,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,Arcadia,P&O Cruises,,2028-08-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Crystal Serenity,Crystal Cruises,,2028-08-05,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,Oceania Vista,Oceania Cruises,,2028-08-05,10:00,20:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Getaway,Norwegian Cruise Line,,2028-09-02,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Seven Seas Mariner,Regent Seven Seas,,2028-09-03,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2028-09-05,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+alesund,Iona,P&O Cruises,5200,2028-09-06,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Arvia,P&O Cruises,5200,2028-09-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+alesund,Ambition,Ambassador Cruise Line,1400,2028-10-02,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Norwegian Star,Norwegian Cruise Line,,2028-10-03,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+alesund,MSC Euribia,MSC Cruises,4888,2028-10-04,07:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2028-10-04,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Rotterdam,Holland America Line,2668,2028-10-10,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,AIDAnova,AIDA,5200,2028-11-01,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+alesund,Nieuw Statendam,Holland America Line,2668,2028-11-13,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+alesund,Queen Victoria,Cunard Line,,2028-11-20,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC

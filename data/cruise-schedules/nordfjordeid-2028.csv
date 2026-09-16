@@ -1,0 +1,23 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+nordfjordeid,Zuiderdam,Holland America Line,,2028-05-03,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Nieuw Statendam,Holland America Line,2668,2028-05-15,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Caribbean Princess,Princess Cruises,,2028-05-24,10:00,21:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-06-07,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Zuiderdam,Holland America Line,,2028-06-12,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Celebrity Beyond,Celebrity Cruises,,2028-06-14,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAprima,AIDA,3376,2028-06-15,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-06-20,09:30,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Ambition,Ambassador Cruise Line,1400,2028-07-01,12:00,19:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-07-04,09:30,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Silver Nova,Silversea,,2028-07-05,08:30,17:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAprima,AIDA,3376,2028-07-06,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Caribbean Princess,Princess Cruises,,2028-07-11,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Zuiderdam,Holland America Line,,2028-08-01,07:00,15:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-08-01,09:30,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Ambience,Ambassador Cruise Line,1400,2028-08-09,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-08-15,09:30,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Celebrity Beyond,Celebrity Cruises,,2028-09-05,08:00,17:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,MSC Preziosa,MSC Cruises,,2028-09-06,10:00,18:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-09-12,09:30,20:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,Ambition,Ambassador Cruise Line,1400,2028-09-14,12:00,19:00,,Manual CSV import,,,All aboard time TBC
+nordfjordeid,AIDAperla,AIDA,,2028-10-10,09:30,20:00,,Manual CSV import,,,All aboard time TBC

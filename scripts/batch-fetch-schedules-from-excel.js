@@ -94,34 +94,56 @@ function parseArgs(argv) {
 }
 
 function readExcelSharedStrings(excelPath) {
-  const AdmZip = null;
-  // Use built-in zlib via child python for portability (no extra deps)
-  const result = spawnSync(
+  // Prefer cell values via openpyxl (handles inline strings + shared strings).
+  // Fall back to sharedStrings.xml for older workbooks without openpyxl.
+  const cellResult = spawnSync(
     "python3",
     [
       "-c",
       `
-import zipfile, xml.etree.ElementTree as ET, json, sys
+import json, sys
 path = sys.argv[1]
+try:
+    import openpyxl
+except ImportError:
+    openpyxl = None
+strings = []
+if openpyxl is not None:
+    wb = openpyxl.load_workbook(path, data_only=True)
+    for sheet in wb.sheetnames:
+        ws = wb[sheet]
+        for row in ws.iter_rows(values_only=True):
+            for value in row:
+                if value is None:
+                    continue
+                text = str(value).strip()
+                if text.endswith(".htmln"):
+                    text = text[:-1]
+                strings.append(text)
+    print(json.dumps(strings))
+    raise SystemExit(0)
+import zipfile, xml.etree.ElementTree as ET
 with zipfile.ZipFile(path) as z:
-    root = ET.fromstring(z.read('xl/sharedStrings.xml'))
-    ns = {'m': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
-    strings = []
-    for si in root.findall('.//m:si', ns):
-        texts = [t.text or '' for t in si.findall('.//m:t', ns)]
-        strings.append(''.join(texts))
+    root = ET.fromstring(z.read("xl/sharedStrings.xml"))
+    ns = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    for si in root.findall(".//m:si", ns):
+        texts = [t.text or "" for t in si.findall(".//m:t", ns)]
+        text = "".join(texts).strip()
+        if text.endswith(".htmln"):
+            text = text[:-1]
+        strings.append(text)
 print(json.dumps(strings))
 `,
       excelPath,
     ],
-    { encoding: "utf8" },
+    { encoding: "utf8", maxBuffer: 20 * 1024 * 1024 },
   );
 
-  if (result.status !== 0) {
-    throw new Error(result.stderr || "Failed to read Excel shared strings");
+  if (cellResult.status !== 0) {
+    throw new Error(cellResult.stderr || "Failed to read Excel schedule strings");
   }
 
-  return JSON.parse(result.stdout.trim());
+  return JSON.parse(cellResult.stdout.trim());
 }
 
 function inferMonthName(monthToken) {

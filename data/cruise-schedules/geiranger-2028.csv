@@ -1,0 +1,31 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+geiranger,Ambition,Ambassador Cruise Line,1400,2028-03-22,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Rotterdam,Holland America Line,2668,2028-04-18,11:00,20:00,,Manual CSV import,,,All aboard time TBC
+geiranger,AIDAnova,AIDA,5200,2028-04-26,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Europa 2,Hapag Lloyd,,2028-05-02,12:00,19:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Ambience,Ambassador Cruise Line,1400,2028-05-07,09:00,22:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Silver Nova,Silversea,,2028-05-15,07:00,12:45,,Manual CSV import,,,All aboard time TBC
+geiranger,AIDAnova,AIDA,5200,2028-05-17,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Europa 2,Hapag Lloyd,,2028-05-24,12:00,18:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Rotterdam,Holland America Line,2668,2028-06-01,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Ambience,Ambassador Cruise Line,1400,2028-06-04,09:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Viking Libra,Viking,,2028-06-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+geiranger,MSC Euribia,MSC Cruises,4888,2028-06-06,12:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Silver Nova,Silversea,,2028-06-09,11:30,16:30,,Manual CSV import,,,All aboard time TBC
+geiranger,Ambition,Ambassador Cruise Line,1400,2028-07-02,09:00,17:00,,Manual CSV import,,,All aboard time TBC
+geiranger,MSC Euribia,MSC Cruises,4888,2028-07-04,12:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,AIDAprima,AIDA,3376,2028-07-05,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Europa 2,Hapag Lloyd,,2028-07-07,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+geiranger,AIDAnova,AIDA,5200,2028-07-11,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Viking Mars,Viking,,2028-07-11,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+geiranger,AIDAprima,AIDA,3376,2028-07-12,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,MSC Euribia,MSC Cruises,4888,2028-08-01,12:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,AIDAprima,AIDA,3376,2028-08-02,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Rotterdam,Holland America Line,2668,2028-08-03,07:00,16:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Viking Mars,Viking,,2028-08-04,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+geiranger,AIDAnova,AIDA,5200,2028-08-08,11:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,AIDAnova,AIDA,5200,2028-09-06,07:00,15:30,,Manual CSV import,,,All aboard time TBC
+geiranger,MSC Euribia,MSC Cruises,4888,2028-09-12,12:00,21:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Ambition,Ambassador Cruise Line,1400,2028-09-15,09:00,19:00,,Manual CSV import,,,All aboard time TBC
+geiranger,Viking Mira,Viking,998,2028-09-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+geiranger,Ambition,Ambassador Cruise Line,1400,2028-10-11,08:00,18:00,,Manual CSV import,,,All aboard time TBC

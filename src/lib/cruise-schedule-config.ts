@@ -57,13 +57,28 @@ export const schedulePortRegions = [
 
 export type ScheduledPortSlug = (typeof scheduledPortSlugs)[number];
 
-export const scheduleYears = ["2026", "2027"] as const;
+export const scheduleYears = ["2026", "2027", "2028"] as const;
 
 export const scheduleYear = scheduleYears[0];
 
 export const scheduleMonths2026 = ["06", "07", "08", "09"] as const;
 
 export const scheduleMonths2027 = [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+] as const;
+
+export const scheduleMonths2028 = [
   "01",
   "02",
   "03",
@@ -101,14 +116,34 @@ export const scheduleMonthSlugs2027 = [
   "december-2027",
 ] as const;
 
+export const scheduleMonthSlugs2028 = [
+  "january-2028",
+  "february-2028",
+  "march-2028",
+  "april-2028",
+  "may-2028",
+  "june-2028",
+  "july-2028",
+  "august-2028",
+  "september-2028",
+  "october-2028",
+  "november-2028",
+  "december-2028",
+] as const;
+
 export const allScheduleMonthSlugs = [
   ...scheduleMonthSlugs2026,
   ...scheduleMonthSlugs2027,
+  ...scheduleMonthSlugs2028,
 ] as const;
 
 export type ScheduleMonthSlug2026 = (typeof scheduleMonthSlugs2026)[number];
 export type ScheduleMonthSlug2027 = (typeof scheduleMonthSlugs2027)[number];
-export type ScheduleMonthSlug = ScheduleMonthSlug2026 | ScheduleMonthSlug2027;
+export type ScheduleMonthSlug2028 = (typeof scheduleMonthSlugs2028)[number];
+export type ScheduleMonthSlug =
+  | ScheduleMonthSlug2026
+  | ScheduleMonthSlug2027
+  | ScheduleMonthSlug2028;
 
 /** Master Norway schedule hub (reusable by port sites via shared data helpers). */
 export const shipScheduleHubPath = "/ship-schedules";
@@ -132,7 +167,9 @@ const numericMonthToSlug: Record<string, ScheduleMonthSlug> = {
 
 const slugToNumericMonth: Record<
   ScheduleMonthSlug,
-  (typeof scheduleMonths2026)[number] | (typeof scheduleMonths2027)[number]
+  | (typeof scheduleMonths2026)[number]
+  | (typeof scheduleMonths2027)[number]
+  | (typeof scheduleMonths2028)[number]
 > = {
   "january-2027": "01",
   "february-2027": "02",
@@ -150,11 +187,24 @@ const slugToNumericMonth: Record<
   "october-2027": "10",
   "november-2027": "11",
   "december-2027": "12",
+  "january-2028": "01",
+  "february-2028": "02",
+  "march-2028": "03",
+  "april-2028": "04",
+  "may-2028": "05",
+  "june-2028": "06",
+  "july-2028": "07",
+  "august-2028": "08",
+  "september-2028": "09",
+  "october-2028": "10",
+  "november-2028": "11",
+  "december-2028": "12",
 };
 
 export function getScheduleMonthSlugsForYear(year: string): readonly ScheduleMonthSlug[] {
   if (year === "2026") return scheduleMonthSlugs2026;
   if (year === "2027") return scheduleMonthSlugs2027;
+  if (year === "2028") return scheduleMonthSlugs2028;
   return [];
 }
 
@@ -165,8 +215,8 @@ export function buildScheduleMonthSlug(
   const yearString = String(year);
   const numeric = normalizeScheduleMonth(month);
   const slug =
-    yearString === "2027"
-      ? (`${monthLabels[numeric]?.toLowerCase() ?? "january"}-2027` as ScheduleMonthSlug)
+    yearString === "2027" || yearString === "2028"
+      ? (`${monthLabels[numeric]?.toLowerCase() ?? "january"}-${yearString}` as ScheduleMonthSlug)
       : numericMonthToSlug[numeric];
   if (!slug) {
     throw new Error(`Unsupported schedule month slug for ${month} in ${yearString}`);
@@ -175,6 +225,9 @@ export function buildScheduleMonthSlug(
     throw new Error(`Unsupported schedule year ${yearString} for month ${month}`);
   }
   if (yearString === "2027" && !slug.endsWith("-2027")) {
+    throw new Error(`Unsupported schedule year ${yearString} for month ${month}`);
+  }
+  if (yearString === "2028" && !slug.endsWith("-2028")) {
     throw new Error(`Unsupported schedule year ${yearString} for month ${month}`);
   }
   return slug;
@@ -186,7 +239,11 @@ export function parseScheduleMonthSlug(
   const key = monthSlug.trim().toLowerCase() as ScheduleMonthSlug;
   const month = slugToNumericMonth[key];
   if (!month) return null;
-  const year = key.endsWith("-2027") ? "2027" : "2026";
+  const year = key.endsWith("-2028")
+    ? "2028"
+    : key.endsWith("-2027")
+      ? "2027"
+      : "2026";
   return { month, year };
 }
 

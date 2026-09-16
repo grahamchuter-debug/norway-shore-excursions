@@ -328,18 +328,37 @@ function rowsToCsv(rows) {
 }
 
 async function fetchHtml(url, attempt = 1) {
-  const response = await fetch(url, {
-    headers: {
-      "Accept-Encoding": "gzip, deflate, br",
-      "Accept-Language": "en-GB,en;q=0.9",
-      "User-Agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    },
-  });
+  // Keep retries short; batch resume script owns long cooldowns.
+  const maxAttempts = 2;
+  let response;
+  try {
+    response = await fetch(url, {
+      headers: {
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-GB,en;q=0.9",
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        Referer: "https://www.cruisetimetables.com/",
+      },
+      signal: AbortSignal.timeout(45000),
+    });
+  } catch (error) {
+    if (attempt < maxAttempts) {
+      const waitMs = 60000;
+      console.log(
+        `Fetch error (${url}): ${error.message}; waiting ${waitMs / 1000}s (attempt ${attempt}/${maxAttempts - 1})...`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, waitMs));
+      return fetchHtml(url, attempt + 1);
+    }
+    throw error;
+  }
 
-  if (response.status === 429 && attempt < 8) {
-    const waitMs = 90000 * attempt;
-    console.log(`Rate limited (${url}); waiting ${waitMs / 1000}s (attempt ${attempt}/7)...`);
+  if ((response.status === 429 || response.status === 403) && attempt < maxAttempts) {
+    const waitMs = 120000;
+    console.log(
+      `Blocked/rate-limited HTTP ${response.status} (${url}); waiting ${waitMs / 1000}s (attempt ${attempt}/${maxAttempts - 1})...`,
+    );
     await new Promise((resolve) => setTimeout(resolve, waitMs));
     return fetchHtml(url, attempt + 1);
   }

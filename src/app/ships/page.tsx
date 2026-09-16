@@ -13,7 +13,7 @@ import { imageAlts, siteImages } from "@/lib/site-images";
 export const metadata = buildPageMetadata({
   title: "Norway Cruise Ships",
   description:
-    "Norway cruise ship guides with 2026–2027 port schedules, passenger capacity, ports visited and independent shore excursion planning.",
+    "Norway cruise ship guides with 2026–2028 port schedules, passenger capacity, ports visited and independent shore excursion planning.",
   path: "/ships",
   ogImage: siteImages.hero,
   ogImageAlt: imageAlts.hero,
@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "How are Norway cruise ships listed here?",
     answer:
-      "Ships appear when they have published Norway port calls in our imported 2026–2027 schedule database for verified ports.",
+      "Ships appear when they have published Norway port calls in our imported 2026–2028 schedule database for verified ports.",
   },
   {
     question: "Where does passenger capacity come from?",
@@ -56,7 +56,7 @@ export default function ShipsHubPage() {
       <JsonLd data={itemList} />
       <ContentPage
         title="Norway Cruise Ships"
-        lead="Ship guides drawn from verified 2026–2027 Norway port call data: capacity, schedules, ports visited and excursion planning tools."
+        lead="Ship guides drawn from verified 2026–2028 Norway port call data: capacity, schedules, ports visited and excursion planning tools."
         heroImage={siteImages.hero}
         heroImageAlt={imageAlts.hero}
         pagePath="/ships"
@@ -81,7 +81,7 @@ export default function ShipsHubPage() {
         <section>
           <h2>Top Norway cruise ships</h2>
           <p>
-            The 20 busiest ships in our combined 2026–2027 schedule data receive
+            The 20 busiest ships in our combined 2026–2028 schedule data receive
             enhanced authority guides with itinerary patterns, schedule insights
             and port-by-port excursion planning.
           </p>

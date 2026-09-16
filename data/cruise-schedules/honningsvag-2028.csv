@@ -1,0 +1,33 @@
+port,ship,cruise_line,passengers,arrival_date,arrival_time,departure_time,all_aboard_time,source,source_url,source_checked,notes
+honningsvag,Mein Schiff 2,TUI Cruises,,2028-02-20,08:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Ambience,Ambassador Cruise Line,1400,2028-02-27,09:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Mein Schiff 2,TUI Cruises,,2028-03-04,16:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Mein Schiff 2,TUI Cruises,,2028-03-19,08:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAmar,AIDA,,2028-03-25,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Amera,Phoenix Reisen,,2028-04-02,09:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Amera,Phoenix Reisen,,2028-04-18,09:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2028-05-09,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAsol,AIDA,,2028-05-19,09:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Nieuw Statendam,Holland America Line,2668,2028-05-19,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Europa 2,Hapag Lloyd,,2028-05-28,18:00,23:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2028-05-31,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2028-06-03,10:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Silver Spirit,Silversea,608,2028-06-08,08:00,18:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAsol,AIDA,,2028-06-08,23:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Viking Libra,Viking,,2028-06-08,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Nieuw Statendam,Holland America Line,2668,2028-06-16,10:00,19:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Crystal Serenity,Crystal Cruises,,2028-07-01,08:00,23:59,,Manual CSV import,,,All aboard time TBC
+honningsvag,Europa 2,Hapag Lloyd,,2028-07-02,16:00,22:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Viking Mira,Viking,998,2028-07-02,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2028-07-03,08:00,17:30,,Manual CSV import,,,All aboard time TBC
+honningsvag,Azamara Journey,Azamara Cruises,,2028-07-04,14:00,20:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,AIDAluna,AIDA,2050,2028-08-06,23:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2028-08-12,08:00,20:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Aurora,P&O Cruises,,2028-08-13,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Viking Mars,Viking,,2028-08-15,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,Viking Astrea,Viking,,2028-08-16,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,AIDAsol,AIDA,,2028-08-18,02:00,17:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,Celebrity Beyond,Celebrity Cruises,,2028-09-02,08:00,16:00,,Manual CSV import,,,All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2028-09-02,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC
+honningsvag,Viking Mira,Viking,998,2028-09-11,,,,Manual CSV import,,,Arrival time TBC; Departure time TBC; All aboard time TBC
+honningsvag,MSC Preziosa,MSC Cruises,,2028-09-26,13:00,,,Manual CSV import,,,Departure time TBC; All aboard time TBC

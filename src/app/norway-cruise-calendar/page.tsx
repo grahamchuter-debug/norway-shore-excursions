@@ -16,7 +16,7 @@ import {
 import { imageAlts, siteImages } from "@/lib/site-images";
 
 export const metadata = buildPageMetadata({
-  title: "Norway Cruise Calendar 2026–2027",
+  title: "Norway Cruise Calendar 2026–2028",
   description:
     "Norway cruise calendar with 2026 and 2027 busiest months, peak sailing days, port call totals and browse by ship, cruise line or port using verified schedule data.",
   path: "/norway-cruise-calendar",

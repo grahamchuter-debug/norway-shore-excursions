@@ -155,7 +155,7 @@ const EXPECTED_SCHEDULE_PORTS = [
 ];
 
 /** Supported import years — keep in sync with src/lib/cruise-schedule-config.ts */
-const SCHEDULE_YEARS = ["2026", "2027"];
+const SCHEDULE_YEARS = ["2026", "2027", "2028"];
 
 /** @deprecated Use SCHEDULE_YEARS */
 const SCHEDULE_YEAR = SCHEDULE_YEARS[0];

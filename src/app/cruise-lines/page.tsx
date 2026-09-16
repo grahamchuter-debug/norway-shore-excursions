@@ -18,7 +18,7 @@ import { imageAlts, siteImages } from "@/lib/site-images";
 export const metadata = buildPageMetadata({
   title: "Cruise Lines Visiting Norway",
   description:
-    "Independent Norway planning dashboards for MSC, AIDA, TUI, Costa, P&O, Princess, Cunard, Celebrity, Holland America, Viking, Fred Olsen and more with verified 2026–2027 ship schedule data.",
+    "Independent Norway planning dashboards for MSC, AIDA, TUI, Costa, P&O, Princess, Cunard, Celebrity, Holland America, Viking, Fred Olsen and more with verified 2026–2028 ship schedule data.",
   path: "/cruise-lines",
   ogImage: siteImages.hero,
   ogImageAlt: imageAlts.hero,
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "Where does the ship schedule data come from?",
-    answer: "Ship counts and port lists are pulled from our imported 2026–2027 Norway cruise schedule database for ports with verified data.",
+    answer: "Ship counts and port lists are pulled from our imported 2026–2028 Norway cruise schedule database for ports with verified data.",
   },
   {
     question: "Can I use these guides if I booked through any travel agent?",
@@ -63,7 +63,7 @@ export default function CruiseLinesPage() {
       <JsonLd data={itemList} />
       <ContentPage
         title="Cruise Lines Visiting Norway"
-        lead="Visual planning dashboards for every major operator sailing Norway, with verified 2026–2027 ship call data where available."
+        lead="Visual planning dashboards for every major operator sailing Norway, with verified 2026–2028 ship call data where available."
         heroImage={siteImages.hero}
         heroImageAlt={imageAlts.hero}
         pagePath="/cruise-lines"
